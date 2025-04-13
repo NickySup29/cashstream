@@ -1,0 +1,11 @@
+# Ignore node_modules directory
+supple.zip
+
+# Ignore all .log files
+*.log
+
+# Ignore all Thumbs.db files
+Thumbs.db
+
+# Ignore .DS_Store files on macOS
+.DS_Store

@@ -1,6 +1,6 @@
 # Ignore node_modules directory
 supple.zip
-
+sitemap.xml
 # Ignore all .log files
 *.log
 

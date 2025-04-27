@@ -386,3 +386,8 @@ h3 button.accordion-button{
 #footer .social-links ul li a:hover {
     color: var(--primary-color);
 }
+
+.icon img[src$=".svg"] {
+    width: 150px !important;
+    height: 150px !important;
+}

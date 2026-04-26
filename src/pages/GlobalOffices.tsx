@@ -4,30 +4,30 @@ import { MapPin, Mail, Phone, Clock } from 'lucide-react';
 
 const offices = [
   {
-    region: "Asia Pacific",
-    city: "Mumbai, India",
-    address: "Level 8, Executive Center, BKC G Block, Mumbai, MH 400051",
+    region: "APAC - India - North",
+    city: "Delhi, India",
+    address: "Janakpuri, New Delhi, 110058",
     phone: "+91 70104 15175",
-    email: "mumbai@cashtreamadvisors.com",
+    email: "nihar@cashtreamadvisors.com",
     hours: "9:00 AM - 6:00 PM IST",
     image: "https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&q=80&w=800"
   },
   {
-    region: "North America",
-    city: "New York, USA",
-    address: "245 Park Avenue, 39th Floor, New York, NY 10167",
-    phone: "+1 (212) 555-0198",
-    email: "ny@cashtreamadvisors.com",
-    hours: "9:00 AM - 5:00 PM EST",
+    region: "APAC - South India",
+    city: "Chennai, India",
+    address: "Purusaiwalkam, Chennai 600007",
+    phone: "+91 7010415175",
+    email: "nihar@cashtreamadvisors.com",
+    hours: "9:00 AM - 5:00 PM IST",
     image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80&w=800"
   },
   {
-    region: "North America",
-    city: "San Francisco, USA",
-    address: "555 California Street, Suite 4920, San Francisco, CA 94104",
-    phone: "+1 (415) 555-0122",
-    email: "sf@cashtreamadvisors.com",
-    hours: "9:00 AM - 5:00 PM PST",
+    region: "APAC - India - West",
+    city: "Mumbai, India",
+    address: "Andheri West, Mumbai 400053",
+    phone: "+91 (701) 041-5175",
+    email: "nihar@cashtreamadvisors.com",
+    hours: "9:00 AM - 5:00 PM IST",
     image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&q=80&w=800"
   }
 ];

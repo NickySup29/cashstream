@@ -9,29 +9,49 @@
 
 <url>
   <loc>https://cashstreamadvisors.com/</loc>
-  <lastmod>2025-04-14T08:44:41+00:00</lastmod>
+  <lastmod>2026-04-26T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://cashstreamadvisors.com/contact.html</loc>
-  <lastmod>2025-04-14T08:44:41+00:00</lastmod>
+  <lastmod>2026-04-26T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://cashstreamadvisors.com/refund.html</loc>
-  <lastmod>2025-04-14T08:44:41+00:00</lastmod>
+  <lastmod>2026-04-26T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://cashstreamadvisors.com/terms.html</loc>
-  <lastmod>2025-04-14T08:44:41+00:00</lastmod>
+  <lastmod>2026-04-26T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://cashstreamadvisors.com/index.html</loc>
-  <lastmod>2025-04-14T08:44:41+00:00</lastmod>
+  <lastmod>2026-04-26T00:00:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+
+<!-- Open-ended blog listing for all future blog posts -->
+<url>
+  <loc>https://cashstreamadvisors.com/blog/</loc>
+  <lastmod>2026-04-26T00:00:00+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+
+<!-- Main site pages -->
+<url><loc>https://cashstreamadvisors.com/bookkeeping</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/case-studies</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/compliance</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/contract-review</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/fema</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/global-offices</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/insights</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/privacy-policy</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/regulatory-compliance</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/tax-strategy</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
+<url><loc>https://cashstreamadvisors.com/terms-of-service</loc><lastmod>2026-04-26T00:00:00+00:00</lastmod><priority>0.70</priority></url>
 
 
 </urlset>

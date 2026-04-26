@@ -49,16 +49,16 @@ const methodology = [
 
 export default function Home() {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       className="pt-32"
     >
       {/* Hero Section */}
       <section className="max-w-screen-2xl mx-auto px-8 mb-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
-          <motion.span 
+          <motion.span
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -66,36 +66,36 @@ export default function Home() {
           >
             Tactical Cross-Border Advisory
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
             className="text-6xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] text-primary mb-8"
           >
-            Taxes, Regulation and All in between - Our Forte
+            Taxes, Regulation and Everything in between - Our Forte
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
             className="text-xl md:text-2xl text-secondary leading-relaxed mb-12 max-w-xl"
           >
-            India and US Tax Advisory, Compliance and Litigation, FEMA Services, Bookkeeping Services, and contract review.
+            Cross Border Tax Advisory, Compliance, Litigation, FEMA, Bookkeeping, and contract review.
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
             className="flex flex-wrap gap-6"
           >
-            <a 
+            <a
               href={CONTACT_INFO.whatsappUrl}
               className="px-8 py-4 bg-primary text-on-primary rounded-lg text-lg font-bold editorial-shadow hover:bg-primary-container transition-all active:scale-95 flex items-center gap-3"
             >
               <MessagesSquare size={20} />
               Consult with an Expert
             </a>
-            <Link 
+            <Link
               to="/case-studies"
               className="px-8 py-4 bg-transparent text-on-surface border-b-2 border-primary rounded-none text-lg font-bold hover:bg-surface-container-low transition-all active:scale-95"
             >
@@ -105,12 +105,12 @@ export default function Home() {
         </div>
         <div className="lg:col-span-5 flex justify-center relative">
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-          <motion.img 
+          <motion.img
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="w-full max-w-2xl transform lg:translate-x-8" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMEhxyxQHl4mT1Q01wliSVinO-zsuIZgCd9d_nd_WZOxIAj8MvfUobn0p1m8vTghP2buahSijjYPcM-yOwTtUGL_zoMv4-2gir346yBKTrJQJ6EZRZFg_Ri9mIGv1DJv-ZdnFezQlAF20fXlxsjtIKa-3OSykwmBHDTh280_ZHc4Jd2aehvLfgNSBgjYHGW_Jhn4NfTVNUXGiuXT2QOGcv4q0qni8UUSdUmhuHskzLgAfRC3LxAfdlZukQ_K94pPBRSiAm7SDsUfg" 
+            className="w-full max-w-2xl transform lg:translate-x-8"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMEhxyxQHl4mT1Q01wliSVinO-zsuIZgCd9d_nd_WZOxIAj8MvfUobn0p1m8vTghP2buahSijjYPcM-yOwTtUGL_zoMv4-2gir346yBKTrJQJ6EZRZFg_Ri9mIGv1DJv-ZdnFezQlAF20fXlxsjtIKa-3OSykwmBHDTh280_ZHc4Jd2aehvLfgNSBgjYHGW_Jhn4NfTVNUXGiuXT2QOGcv4q0qni8UUSdUmhuHskzLgAfRC3LxAfdlZukQ_K94pPBRSiAm7SDsUfg"
             alt="Advisory Illustration"
             referrerPolicy="no-referrer"
           />
@@ -148,9 +148,9 @@ export default function Home() {
                   )}
                   {service.image && (
                     <div className="mt-12 flex justify-end">
-                      <img 
-                        className="w-32 opacity-20 group-hover:opacity-40 transition-opacity" 
-                        src={service.image} 
+                      <img
+                        className="w-32 opacity-20 group-hover:opacity-40 transition-opacity"
+                        src={service.image}
                         alt="Service Illustration"
                         referrerPolicy="no-referrer"
                       />
@@ -169,10 +169,10 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-24 items-center">
             <div className="w-full md:w-1/2 relative">
               <div className="absolute -left-20 top-0 text-[200px] font-black text-surface-container-high/40 select-none -z-10 leading-none">C/A</div>
-              <motion.img 
+              <motion.img
                 whileHover={{ scale: 1.02 }}
-                className="rounded-xl shadow-2xl relative z-10 w-full object-cover aspect-[4/5]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1QNztDO_FbZSJvo48wfLLVvPvBZR1l_b7VrlAzyUtYx6JYVIEAXweiAcRv8IM-wF2p_8ntUtH-c2aF42K6ku3R0DVtxE-swXShuTmWi5pxjI2GMuzjHqvAezDsh1ji2cfQP5XBDWSFxMAL0IghNThKIrdw7bmqQoiHQGZlNLqhvOkTBWp8oXacPqXg8094SKupfqgqyZv4ZkVwlmkDJIkfO-yUqbtFUXypkNg5w2pFXTcBNgyFUg0ZFW1BVAMmca_sHcHADm0Vbo" 
+                className="rounded-xl shadow-2xl relative z-10 w-full object-cover aspect-[4/5]"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1QNztDO_FbZSJvo48wfLLVvPvBZR1l_b7VrlAzyUtYx6JYVIEAXweiAcRv8IM-wF2p_8ntUtH-c2aF42K6ku3R0DVtxE-swXShuTmWi5pxjI2GMuzjHqvAezDsh1ji2cfQP5XBDWSFxMAL0IghNThKIrdw7bmqQoiHQGZlNLqhvOkTBWp8oXacPqXg8094SKupfqgqyZv4ZkVwlmkDJIkfO-yUqbtFUXypkNg5w2pFXTcBNgyFUg0ZFW1BVAMmca_sHcHADm0Vbo"
                 alt="Workspace"
                 referrerPolicy="no-referrer"
               />
@@ -204,18 +204,18 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-8 relative z-10">Ready to streamline your global compliance?</h2>
             <p className="text-xl text-on-primary-container/90 mb-12 max-w-2xl mx-auto relative z-10">Join the firms and individuals who trust CashStream Advisors for their most critical cross-border financial decisions.</p>
             <div className="flex flex-col md:flex-row justify-center gap-6 relative z-10">
-              <a 
+              <a
                 href={CONTACT_INFO.whatsappUrl}
                 className="px-10 py-5 bg-surface-container-lowest text-primary rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition-all active:scale-95 flex items-center justify-center gap-3"
               >
                 <MessageCircle size={24} />
                 Connect on WhatsApp
               </a>
-              <a 
+              <a
                 href={CONTACT_INFO.emailUrl}
                 className="px-10 py-5 bg-primary-container text-on-primary rounded-xl font-bold text-lg border border-on-primary/20 hover:bg-primary-container/80 transition-all active:scale-95 flex items-center justify-center"
               >
-                Email Our Partners
+                Email us - We're jiffy quick!
               </a>
             </div>
           </div>

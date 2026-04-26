@@ -2,7 +2,7 @@
 title: "MCA's Amnesty Scheme 2026: The Cheapest Way to Fix Your Company's
   Compliance Mess"
 slug: mca-ccfs-2026-amnesty-scheme-company-compliance
-date: 2026-04-26
+datePublished: 2026-04-26
 ---
 If your company has been skipping annual filings for years and quietly hoping no one notices, MCA just handed you a golden exit.
 

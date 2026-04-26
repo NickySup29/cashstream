@@ -33,7 +33,15 @@ export async function onRequestPost(context) {
       })
     });
 
-    const data = await brevoResponse.json();
+    let data = {};
+    const text = await brevoResponse.text();
+    if (text) {
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        // Ignore JSON parse errors if body is not valid JSON
+      }
+    }
 
     if (!brevoResponse.ok) {
       return new Response(JSON.stringify({ error: data.message || 'Failed to subscribe' }), { 

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Inter", system-ui, sans-serif;
+
+  --color-on-background: #1a1c1a;
+  --color-background: #faf9f5;
+  --color-surface-container-highest: #e2e3df;
+  --color-on-surface: #1a1c1a;
+  --color-inverse-on-surface: #f1f1ed;
+  --color-tertiary-fixed: #e5e2da;
+  --color-surface-bright: #faf9f5;
+  --color-on-error: #ffffff;
+  --color-on-tertiary-fixed: #1c1c17;
+  --color-surface-container-high: #e8e8e4;
+  --color-on-error-container: #93000a;
+  --color-surface-container-low: #f4f4f0;
+  --color-primary-fixed-dim: #83db73;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary-fixed-variant: #484741;
+  --color-secondary-fixed-dim: #bacbbb;
+  --color-on-tertiary-container: #d6d3cb;
+  --color-tertiary-fixed-dim: #c9c6be;
+  --color-surface-variant: #e2e3df;
+  --color-on-secondary: #ffffff;
+  --color-on-primary: #ffffff;
+  --color-on-secondary-fixed: #111f15;
+  --color-on-primary-fixed-variant: #005305;
+  --color-error: #ba1a1a;
+  --color-inverse-surface: #2f312e;
+  --color-on-secondary-fixed-variant: #3b4a3f;
+  --color-on-primary-container: #8fe87f;
+  --color-on-surface-variant: #40493c;
+  --color-secondary: #536256;
+  --color-surface-container: #eeeeea;
+  --color-on-secondary-container: #57665a;
+  --color-on-primary-fixed: #002201;
+  --color-primary: #005004;
+  --color-primary-container: #0d6a0f;
+  --color-tertiary-container: #5c5b54;
+  --color-inverse-primary: #83db73;
+  --color-secondary-fixed: #d6e7d7;
+  --color-secondary-container: #d3e4d4;
+  --color-surface-tint: #136e13;
+  --color-on-tertiary: #ffffff;
+  --color-primary-fixed: #9ef88d;
+  --color-surface-dim: #dadad6;
+  --color-tertiary: #44443e;
+  --color-surface: #faf9f5;
+  --color-error-container: #ffdad6;
+  --color-outline-variant: #bfcab8;
+  --color-outline: #707a6b;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed antialiased;
+  }
+}
+
+.editorial-shadow {
+    box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+}
+
+.text-editorial-lg {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+

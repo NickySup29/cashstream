@@ -1,6 +1,5 @@
 ---
-title: "MCA's Amnesty Scheme 2026: The Cheapest Way to Fix Your Company's
-  Compliance Mess"
+title: "MCA's Amnesty Scheme 2026: The Cheapest Way to Fix Your Company's Compliance Mess"
 slug: mca-ccfs-2026-amnesty-scheme-company-compliance
 datePublished: 2026-04-26
 ---

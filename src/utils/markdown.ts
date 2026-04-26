@@ -33,7 +33,7 @@ export function parseMarkdown(rawContent: string): PostData {
     slug: metadata.slug || '',
     title: metadata.title || 'Untitled',
     seoDescription: metadata.seoDescription || '',
-    datePublished: metadata.datePublished || '',
+    datePublished: metadata.datePublished || metadata.date || '',
     content: content,
   };
 }

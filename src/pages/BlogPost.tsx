@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkBreaks from 'remark-breaks';
 import { getPostBySlug, PostData } from '../utils/markdown';
 
 export default function BlogPost() {
@@ -73,7 +74,7 @@ export default function BlogPost() {
           </div>
 
           <div className="prose prose-lg prose-blue max-w-none text-slate-700">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkBreaks]}>{post.content}</ReactMarkdown>
           </div>
         </motion.div>
       </div>

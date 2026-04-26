@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Search, Calendar, User, ArrowRight } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
+import NewsletterForm from '../components/NewsletterForm';
 
 const blogPosts = [
   {
@@ -101,16 +102,7 @@ export default function Insights() {
         <div className="max-w-screen-xl mx-auto bg-primary rounded-3xl p-12 text-center text-on-primary">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-6">Stay Informed</h2>
           <p className="text-lg opacity-80 mb-8 max-w-xl mx-auto">Subscribe to our monthly technical briefings on US-India tax and regulatory shifts.</p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-grow bg-on-primary/10 border border-on-primary/20 rounded-lg px-4 py-3 focus:outline-none focus:border-white transition-colors placeholder:text-on-primary/40"
-            />
-            <button className="bg-on-primary text-primary px-8 py-3 rounded-lg font-bold hover:bg-surface transition-colors">
-              Subscribe
-            </button>
-          </div>
+          <NewsletterForm />
         </div>
       </section>
     </motion.div>

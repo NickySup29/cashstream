@@ -1,0 +1,8 @@
+title: Cashstream Advisors
+description: Practical insights on tax, compliance, and structuring
+theme: minima
+baseurl: ""
+url: https://cashstreamadvisors.com
+
+plugins:
+  - jekyll-feed

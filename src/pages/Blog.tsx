@@ -89,7 +89,7 @@ export default function Blog() {
             
             {posts.length === 0 && (
               <div className="col-span-full text-center py-12 text-slate-500 text-lg">
-                No blog posts found. Add some markdown files to the posts directory.
+                No blog posts found. Add some markdown files to the _posts directory.
               </div>
             )}
           </div>

@@ -40,7 +40,7 @@ export function parseMarkdown(rawContent: string): PostData {
 
 export async function getAllPosts(): Promise<PostData[]> {
   // Vite specific way to import multiple raw files
-  const postsGlob = import.meta.glob('../posts/*.md', { query: '?raw', import: 'default' });
+  const postsGlob = import.meta.glob('../../_posts/*.md', { query: '?raw', import: 'default' });
   const posts: PostData[] = [];
 
   for (const path in postsGlob) {

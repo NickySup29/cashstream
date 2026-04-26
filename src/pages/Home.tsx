@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { NavLink, Link } from 'react-router-dom';
 import { Landmark, Shield, CircleDollarSign, BookOpen, PenTool, MessagesSquare, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
+import SEO from '../components/SEO';
 
 const services = [
   {
@@ -55,6 +56,11 @@ export default function Home() {
       transition={{ duration: 0.6 }}
       className="pt-32"
     >
+      <SEO 
+        title="CashStream Advisors | Cross-Border Tax & Regulatory Experts"
+        description="CashStream Advisors provides expert guidance on cross-border tax strategy, FEMA compliance, and corporate bookkeeping."
+        url="https://cashstreamadvisors.com"
+      />
       {/* Hero Section */}
       <section className="max-w-screen-2xl mx-auto px-8 mb-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">

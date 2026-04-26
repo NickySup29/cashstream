@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, Calendar, ArrowRight } from 'lucide-react';
 import { getAllPosts, PostData } from '../utils/markdown';
+import SEO from '../components/SEO';
 
 export default function Blog() {
   const [posts, setPosts] = useState<PostData[]>([]);
@@ -24,6 +25,11 @@ export default function Blog() {
 
   return (
     <div className="pt-24 pb-16">
+      <SEO 
+        title="Blog | CashStream Advisors"
+        description="Insights, updates, and expert perspectives on financial advisory, cross-border tax, and regulations."
+        url="https://cashstreamadvisors.com/blog"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div

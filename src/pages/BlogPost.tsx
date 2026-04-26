@@ -5,6 +5,7 @@ import { Calendar, ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';
 import { getPostBySlug, PostData } from '../utils/markdown';
+import SEO from '../components/SEO';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -48,6 +49,12 @@ export default function BlogPost() {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO 
+        title={`${post.title} | CashStream Advisors`}
+        description={post.seoDescription || post.content.slice(0, 150)}
+        url={`https://cashstreamadvisors.com/blog/${post.slug}`}
+        type="article"
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

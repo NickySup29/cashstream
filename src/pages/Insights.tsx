@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Search, Calendar, User, ArrowRight } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
+import SEO from '../components/SEO';
 
 const blogPosts = [
   {
@@ -39,6 +40,11 @@ export default function Insights() {
       animate={{ opacity: 1 }} 
       className="pt-32"
     >
+      <SEO 
+        title="Insights | CashStream Advisors"
+        description="Tactical intelligence on cross-border tax, FEMA regulations, and global corporate stewardship."
+        url="https://cashstreamadvisors.com/insights"
+      />
       <section className="max-w-screen-2xl mx-auto px-8 mb-24">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 border-b border-outline-variant/20 pb-12">
           <div className="max-w-2xl">

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -30,32 +31,34 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-surface flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/tax-strategy" element={<TaxStrategy />} />
-            <Route path="/compliance" element={<Compliance />} />
-            <Route path="/fema" element={<Fema />} />
-            <Route path="/bookkeeping" element={<Bookkeeping />} />
-            <Route path="/contract-review" element={<ContractReview />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/global-offices" element={<GlobalOffices />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-surface flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/tax-strategy" element={<TaxStrategy />} />
+              <Route path="/compliance" element={<Compliance />} />
+              <Route path="/fema" element={<Fema />} />
+              <Route path="/bookkeeping" element={<Bookkeeping />} />
+              <Route path="/contract-review" element={<ContractReview />} />
+              <Route path="/insights" element={<Insights />} />
+              <Route path="/global-offices" element={<GlobalOffices />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

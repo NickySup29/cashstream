@@ -34,6 +34,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Expertise</span>
               <Link to="/tax-strategy" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Tax Strategy</Link>
+              <Link to="/withholding-tax-advisory" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Withholding Tax</Link>
               <Link to="/compliance" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Compliance</Link>
               <Link to="/fema" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">FEMA Services</Link>
               <Link to="/bookkeeping" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Bookkeeping</Link>

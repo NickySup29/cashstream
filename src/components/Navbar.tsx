@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 const navLinks = [
   { name: 'Tax Strategy', href: '/tax-strategy' },
+  { name: 'Withholding Tax', href: '/withholding-tax-advisory' },
   { name: 'Compliance', href: '/compliance' },
   { name: 'FEMA', href: '/fema' },
   { name: 'Bookkeeping', href: '/bookkeeping' },

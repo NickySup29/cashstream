@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import TaxStrategy from './pages/TaxStrategy';
+import WithholdingTax from './pages/WithholdingTax';
 import Compliance from './pages/Compliance';
 import Fema from './pages/Fema';
 import Bookkeeping from './pages/Bookkeeping';
@@ -40,6 +41,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tax-strategy" element={<TaxStrategy />} />
+              <Route path="/withholding-tax-advisory" element={<WithholdingTax />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/fema" element={<Fema />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />

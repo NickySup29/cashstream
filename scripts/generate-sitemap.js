@@ -6,6 +6,7 @@ const SITE_URL = 'https://cashstreamadvisors.com';
 const staticRoutes = [
   '/',
   '/tax-strategy',
+  '/withholding-tax-advisory',
   '/compliance',
   '/fema',
   '/bookkeeping',

@@ -69,6 +69,10 @@ export default function TaxStrategy() {
               <p className="text-secondary group-hover:text-on-primary/80 leading-relaxed text-lg mb-8">
                 Minimize double taxation through expert application of the US-India Double Taxation Avoidance Agreement. We ensure your passive and active income is protected and compliant in both territories.
               </p>
+              <Link to="/withholding-tax-advisory" className="inline-flex items-center gap-2 font-bold text-primary group-hover:text-on-primary mb-6">
+                Withholding Tax Advisory
+                <ArrowRight size={16} />
+              </Link>
               <div className="flex gap-2 flex-wrap">
                 {['FORM 15CA/CB', 'W-8BEN', 'FATCA'].map(tag => (
                   <span key={tag} className="px-3 py-1 bg-surface-container text-xs font-bold rounded group-hover:bg-primary-container group-hover:text-white">

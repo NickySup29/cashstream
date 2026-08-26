@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { HelmetProvider } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -30,11 +30,23 @@ function ScrollToTop() {
   return null;
 }
 
+
 export default function App() {
   return (
     <HelmetProvider>
       <Router>
         <ScrollToTop />
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": ["Organization", "ProfessionalService"],
+              "@id": "https://cashstreamadvisors.com/#professional-service",
+              name: "Cash Stream Advisors",
+              url: "https://cashstreamadvisors.com",
+            })}
+          </script>
+        </Helmet>
         <div className="min-h-screen bg-surface flex flex-col">
           <Navbar />
           <main className="flex-grow">
@@ -63,4 +75,3 @@ export default function App() {
     </HelmetProvider>
   );
 }
-

@@ -171,6 +171,8 @@ const faqs = [
   },
 ];
 
+const pageUrl = 'https://cashstreamadvisors.com/withholding-tax-advisory';
+
 function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
     <span className={`font-label text-xs uppercase tracking-[0.16em] font-semibold mb-4 flex items-center gap-3 ${light ? 'text-primary-fixed' : 'text-secondary'}`}>
@@ -217,7 +219,56 @@ export default function WithholdingTax() {
       <SEO
         title="Withholding Tax Advisory | CashStream Advisors"
         description="Section 195 withholding tax advisory for payments to non-residents. Classification, treaty rates, Form 145/146, and TDS compliance for Indian businesses."
-        url="https://cashstreamadvisors.com/withholding-tax-advisory"
+        url={pageUrl}
+        structuredData={[
+          {
+            "@type": ["Service", "AccountingService"],
+            "@id": `${pageUrl}#service`,
+            name: "Withholding Tax Advisory",
+            serviceType: "Withholding Tax Advisory",
+            provider: {
+              "@id": "https://cashstreamadvisors.com/#professional-service",
+            },
+            areaServed: "IN",
+            url: pageUrl,
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumb`,
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://cashstreamadvisors.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "International Taxation",
+                item: "https://cashstreamadvisors.com/tax-strategy",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Withholding Tax Advisory",
+                item: pageUrl,
+              },
+            ],
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${pageUrl}#faq`,
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          },
+        ]}
       />
 
       <section className="max-w-screen-2xl mx-auto px-8 mb-24">

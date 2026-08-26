@@ -6,6 +6,7 @@ interface SEOProps {
   url?: string;
   image?: string;
   type?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 export default function SEO({ 
@@ -13,8 +14,13 @@ export default function SEO({
   description = "Tactical intelligence on cross-border tax, FEMA regulations, and global corporate stewardship for high-net-worth individuals and corporations.",
   url = "https://cashstreamadvisors.com",
   image = "https://cashstreamadvisors.com/og-image.jpg",
-  type = "website"
+  type = "website",
+  structuredData
 }: SEOProps) {
+  const pageStructuredData = structuredData
+    ? Array.isArray(structuredData) ? structuredData : [structuredData]
+    : [];
+
   return (
     <Helmet>
       {/* Standard metadata tags */}
@@ -35,6 +41,14 @@ export default function SEO({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      {pageStructuredData.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": pageStructuredData,
+          })}
+        </script>
+      )}
     </Helmet>
   );
 }

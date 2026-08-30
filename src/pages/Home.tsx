@@ -78,6 +78,14 @@ export default function Home() {
           >
             Tactical Cross-Border Advisory
           </motion.span>
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.25 }}
+            className="text-2xl md:text-3xl font-extrabold uppercase tracking-[0.12em] text-primary mb-4"
+          >
+            DIRECT TAX CONSULTATION
+          </motion.h2>
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

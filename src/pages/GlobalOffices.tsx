@@ -8,7 +8,7 @@ const offices = [
     city: "Delhi, India",
     address: "Janakpuri, New Delhi, 110058",
     phone: "+91 70104 15175",
-    email: "nihar@cashtreamadvisors.com",
+    email: "nihar@cashstreamadvisors.com",
     hours: "9:00 AM - 6:00 PM IST",
     image: "https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&q=80&w=800"
   },
@@ -17,7 +17,7 @@ const offices = [
     city: "Chennai, India",
     address: "Purusaiwalkam, Chennai 600007",
     phone: "+91 7010415175",
-    email: "nihar@cashtreamadvisors.com",
+    email: "nihar@cashstreamadvisors.com",
     hours: "9:00 AM - 5:00 PM IST",
     image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80&w=800"
   },
@@ -26,7 +26,7 @@ const offices = [
     city: "Mumbai, India",
     address: "Andheri West, Mumbai 400053",
     phone: "+91 (701) 041-5175",
-    email: "nihar@cashtreamadvisors.com",
+    email: "nihar@cashstreamadvisors.com",
     hours: "9:00 AM - 5:00 PM IST",
     image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&q=80&w=800"
   }

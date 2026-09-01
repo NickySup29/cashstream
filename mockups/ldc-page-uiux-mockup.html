@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lower Deduction Certificate — UI/UX Mockup | Cash Stream Advisors</title>
+<style>
+  :root{
+    --forest:#1B4332;
+    --forest-deep:#0F2A21;
+    --leaf:#3E8E62;
+    --leaf-bright:#52B788;
+    --cream:#FAF6EC;
+    --cream-deep:#F1E9D8;
+    --sage:#D3E3D4;
+    --sage-deep:#AEC6B0;
+    --olive:#6B7156;
+    --brown:#8B5E34;
+    --brown-light:#C99A6C;
+    --ink:#1E2A22;
+    --ink-soft:#4B594E;
+    --white:#FFFFFF;
+    --radius-sm:8px;
+    --radius:14px;
+    --radius-lg:22px;
+    --shadow-sm:0 2px 10px rgba(15,42,33,0.06);
+    --shadow:0 10px 30px rgba(15,42,33,0.10);
+    --shadow-lg:0 20px 50px rgba(15,42,33,0.16);
+    --font-display:Georgia,'Iowan Old Style','Palatino Linotype','Times New Roman',serif;
+    --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0;color:var(--forest-deep);}
+  .eyebrow{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    color:var(--leaf);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--leaf);display:inline-block;}
+  section{position:relative;}
+  .section-pad{padding:88px 0;}
+  .section-pad-sm{padding:56px 0;}
+
+  /* ===== UX ANNOTATION LAYER ===== */
+  .mockup-banner{
+    background:var(--forest-deep);
+    color:var(--sage);
+    font-family:var(--font-mono);
+    font-size:13px;
+    padding:11px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    position:sticky;
+    top:0;
+    z-index:200;
+  }
+  .mockup-banner strong{color:#fff;}
+  .mockup-banner button{
+    font-family:var(--font-mono);
+    background:var(--leaf);
+    color:#fff;
+    border:none;
+    padding:7px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:12px;
+    letter-spacing:.03em;
+  }
+  .mockup-banner button:hover{background:var(--leaf-bright);}
+  .ux-tag{
+    display:none;
+    position:absolute;
+    top:14px;
+    left:14px;
+    z-index:20;
+    background:var(--forest-deep);
+    color:var(--sage);
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:.04em;
+    padding:5px 10px;
+    border-radius:6px;
+    box-shadow:var(--shadow-sm);
+    line-height:1.4;
+  }
+  .ux-tag b{color:#fff;display:block;font-size:11px;}
+  body.annotate .ux-tag{display:block;}
+  body.annotate .anno-target{outline:1.5px dashed var(--leaf);outline-offset:6px;}
+
+  /* ===== NAV ===== */
+  header.site-nav{
+    background:rgba(250,246,236,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--cream-deep);
+    position:sticky;
+    top:41px;
+    z-index:150;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:var(--maxw);margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:20px;color:var(--forest-deep);font-weight:700;}
+  .logo-mark{width:34px;height:34px;border-radius:8px;background:var(--forest-deep);display:flex;align-items:center;justify-content:center;}
+  .logo-mark svg{width:18px;height:18px;}
+  .nav-links{display:flex;gap:30px;font-size:14.5px;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--forest-deep);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:14.5px;
+    padding:12px 22px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--leaf);color:#fff;box-shadow:0 8px 20px rgba(62,142,98,.30);}
+  .btn-primary:hover{background:var(--leaf-bright);transform:translateY(-1px);}
+  .btn-outline{background:transparent;color:var(--forest-deep);border:1.5px solid var(--forest-deep);}
+  .btn-outline:hover{background:var(--forest-deep);color:#fff;}
+  .btn-ghost{background:var(--sage);color:var(--forest-deep);}
+  .btn-sm{padding:9px 16px;font-size:13px;}
+  .mobile-toggle{display:none;background:none;border:none;cursor:pointer;}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:
+      radial-gradient(ellipse at 85% -10%, rgba(82,183,136,.18), transparent 55%),
+      var(--cream);
+    padding:76px 0 60px;
+    overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .95fr;gap:56px;align-items:center;}
+  .hero h1{font-size:44px;line-height:1.14;letter-spacing:-.01em;margin-bottom:20px;}
+  .hero h1 em{font-style:normal;color:var(--leaf);}
+  .hero-sub{font-size:17.5px;color:var(--ink-soft);max-width:520px;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;}
+  .hero-meta{display:flex;gap:26px;flex-wrap:wrap;}
+  .hero-meta-item{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-soft);}
+  .hero-meta-item svg{width:16px;height:16px;color:var(--leaf);flex-shrink:0;}
+
+  /* Signature element: TDS Rate Meter */
+  .rate-card{
+    background:var(--forest-deep);
+    border-radius:var(--radius-lg);
+    padding:34px 30px 28px;
+    color:#fff;
+    box-shadow:var(--shadow-lg);
+    position:relative;
+  }
+  .rate-card-label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:22px;}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:6px 0 18px;}
+  .gauge-caption{display:flex;justify-content:space-between;width:100%;font-family:var(--font-mono);font-size:11px;color:var(--sage-deep);margin-top:10px;padding:0 6px;}
+  .rate-divider{height:1px;background:rgba(255,255,255,.14);margin:20px 0;}
+  .rate-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;font-size:13.5px;}
+  .rate-row .label{color:var(--sage-deep);}
+  .rate-row .value{font-family:var(--font-mono);color:#fff;text-align:right;}
+  .rate-card-foot{font-size:12px;color:var(--sage-deep);margin-top:16px;line-height:1.5;}
+
+  /* ===== ICON GRID ===== */
+  .grid{display:grid;gap:22px;}
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .icon-card{
+    background:var(--white);
+    border:1px solid var(--cream-deep);
+    border-radius:var(--radius);
+    padding:26px 22px;
+    box-shadow:var(--shadow-sm);
+  }
+  .icon-bubble{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--sage);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+  }
+  .icon-bubble svg{width:22px;height:22px;color:var(--forest);}
+  .icon-card h4{font-size:16px;margin-bottom:8px;}
+  .icon-card p{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:32px;line-height:1.2;margin-bottom:14px;}
+  .section-head p{font-size:16px;color:var(--ink-soft);margin:0;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* ===== PROBLEM / COMPARISON ===== */
+  .compare-band{background:var(--forest-deep);color:#fff;}
+  .compare-band .section-head h2{color:#fff;}
+  .compare-band .section-head p{color:var(--sage-deep);}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .compare-card{border-radius:var(--radius);padding:30px 26px;}
+  .compare-card.without{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);}
+  .compare-card.with{background:var(--leaf);}
+  .compare-card h3{font-family:var(--font-body);font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:inherit;margin-bottom:18px;font-weight:700;}
+  .compare-card.without h3{color:var(--brown-light);}
+  .compare-card.with h3{color:#eafff2;}
+  .compare-card ul li{display:flex;gap:10px;padding:9px 0;font-size:14.5px;border-top:1px solid rgba(255,255,255,.08);}
+  .compare-card ul li:first-child{border-top:none;}
+  .compare-card.with ul li{border-top:1px solid rgba(255,255,255,.18);color:#fff;}
+  .compare-card ul li svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;}
+  .compare-card.without svg{color:var(--brown-light);}
+  .compare-card.with svg{color:#fff;}
+
+  /* ===== CARD GRID (Who can apply) ===== */
+  .who-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:24px 22px;
+    border:1px solid var(--cream-deep);
+    transition:box-shadow .15s ease, transform .15s ease;
+  }
+  .who-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+  .who-card .tag{font-family:var(--font-mono);font-size:10.5px;color:var(--olive);text-transform:uppercase;letter-spacing:.08em;}
+  .who-card h4{font-size:16px;margin:8px 0 8px;}
+  .who-card p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+
+  /* ===== TIMELINE (When to apply) ===== */
+  .timeline{position:relative;padding-left:34px;}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--sage-deep);}
+  .tl-item{position:relative;padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute;left:-34px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--leaf);border:4px solid var(--cream);box-shadow:0 0 0 2px var(--leaf);}
+  .tl-item h4{font-size:16px;margin-bottom:6px;}
+  .tl-item p{font-size:14px;color:var(--ink-soft);margin:0;max-width:560px;}
+
+  /* ===== PROCESS STEPPER (How to apply) ===== */
+  .stepper{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+  .step{position:relative;padding:0 16px;}
+  .step:not(:first-child)::before{
+    content:"";position:absolute;left:-16px;top:26px;width:32px;height:2px;background:var(--sage-deep);
+  }
+  .step-num{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--forest-deep);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-size:19px;font-weight:700;
+    margin-bottom:16px;
+  }
+  .step h4{font-size:15px;margin-bottom:8px;line-height:1.35;}
+  .step p{font-size:13px;color:var(--ink-soft);margin:0;}
+
+  /* ===== TABLE (Documents) ===== */
+  .doc-chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+  .doc-chip{
+    font-family:var(--font-mono);font-size:12.5px;
+    padding:9px 16px;border-radius:999px;
+    background:var(--white);border:1px solid var(--cream-deep);
+    cursor:pointer;color:var(--ink-soft);
+  }
+  .doc-chip.active{background:var(--forest-deep);color:#fff;border-color:var(--forest-deep);}
+  .doc-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);}
+  .doc-table th{
+    text-align:left;background:var(--forest-deep);color:#fff;
+    font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+    padding:16px 20px;font-weight:600;
+  }
+  .doc-table td{padding:16px 20px;font-size:14.5px;border-top:1px solid var(--cream-deep);color:var(--ink-soft);}
+  .doc-table tr:nth-child(odd) td{background:var(--cream);}
+
+  /* ===== INFO CARDS (processing time / validity / renewal) ===== */
+  .info-card{
+    background:var(--sage);
+    border-radius:var(--radius);
+    padding:26px 24px;
+  }
+  .info-card .icon-bubble{background:rgba(255,255,255,.6);}
+  .info-card h4{font-size:16px;margin-bottom:8px;}
+  .info-card p{font-size:14px;color:var(--ink);margin:0;}
+
+  /* ===== ACCORDION (taxpayer categories + FAQ) ===== */
+  .accordion-item{border-bottom:1px solid var(--cream-deep);}
+  .accordion-item:first-child{border-top:1px solid var(--cream-deep);}
+  .accordion-trigger{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:20px 4px;font-family:var(--font-body);font-size:16px;font-weight:600;color:var(--forest-deep);
+  }
+  .accordion-trigger .plus{
+    width:26px;height:26px;border-radius:50%;background:var(--sage);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;position:relative;transition:transform .2s ease, background .2s ease;
+  }
+  .accordion-trigger .plus::before,.accordion-trigger .plus::after{
+    content:"";position:absolute;background:var(--forest);
+  }
+  .accordion-trigger .plus::before{width:11px;height:2px;}
+  .accordion-trigger .plus::after{width:2px;height:11px;}
+  .accordion-item.open .accordion-trigger .plus{background:var(--leaf);transform:rotate(45deg);}
+  .accordion-item.open .accordion-trigger .plus::before,
+  .accordion-item.open .accordion-trigger .plus::after{background:#fff;}
+  .accordion-panel{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .accordion-panel-inner{padding:0 4px 22px;font-size:14.5px;color:var(--ink-soft);max-width:760px;}
+
+  /* ===== SERVICE CARDS ===== */
+  .service-card{
+    background:var(--white);border:1px solid var(--cream-deep);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;gap:12px;
+  }
+  .service-card .num{font-family:var(--font-mono);font-size:12px;color:var(--leaf);}
+  .service-card h4{font-size:16px;}
+  .service-card p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+
+  /* ===== TRUST / WHY CHOOSE ===== */
+  .why-band{background:var(--cream-deep);}
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:16px 30px;}
+  .check-item{display:flex;gap:12px;align-items:flex-start;font-size:15px;}
+  .check-item svg{width:20px;height:20px;color:var(--leaf);flex-shrink:0;margin-top:2px;}
+
+  /* ===== REJECTION REASONS (warning list) ===== */
+  .warn-card{
+    background:var(--white);border-left:3px solid var(--brown);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:18px 22px;display:flex;gap:14px;align-items:flex-start;
+  }
+  .warn-card svg{width:20px;height:20px;color:var(--brown);flex-shrink:0;margin-top:2px;}
+  .warn-card p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+  /* ===== CASE STUDIES ===== */
+  .case-card{
+    background:var(--forest-deep);color:#fff;border-radius:var(--radius);
+    padding:28px 24px;display:flex;flex-direction:column;gap:14px;
+  }
+  .case-card .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-deep);}
+  .case-card h4{font-family:var(--font-display);font-size:18px;color:#fff;}
+  .case-card p{font-size:13.5px;color:var(--sage-deep);margin:0;flex-grow:1;}
+  .case-card a{font-size:13.5px;font-weight:600;color:var(--leaf-bright);display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+
+  /* ===== FAQ ===== */
+  .faq-wrap{max-width:760px;}
+
+  /* ===== FINAL CTA ===== */
+  .final-cta{
+    background:linear-gradient(135deg,var(--forest-deep),var(--forest));
+    border-radius:var(--radius-lg);
+    padding:56px 50px;
+    display:flex;align-items:center;justify-content:space-between;gap:40px;
+    color:#fff;
+  }
+  .final-cta h2{color:#fff;font-size:28px;max-width:480px;}
+  .final-cta p{color:var(--sage-deep);margin-top:10px;font-size:15px;max-width:460px;}
+  .final-cta-ctas{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
+
+  /* ===== STICKY CTA BAR ===== */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:180;
+    background:var(--forest-deep);color:#fff;
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    transform:translateY(120%);transition:transform .3s ease;
+    box-shadow:0 -8px 24px rgba(0,0,0,.15);
+  }
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta-text{font-size:14px;}
+  .sticky-cta-text b{display:block;font-family:var(--font-display);font-size:16px;}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .whatsapp-float{
+    position:fixed;right:26px;bottom:90px;z-index:180;
+    width:54px;height:54px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-lg);cursor:pointer;
+  }
+  .whatsapp-float svg{width:26px;height:26px;color:#fff;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--forest-deep);color:var(--sage-deep);padding:56px 0 100px;font-size:13.5px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+  footer h5{color:#fff;font-family:var(--font-body);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+  footer li{padding:6px 0;}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .grid-3{grid-template-columns:repeat(2,1fr);}
+    .stepper{grid-template-columns:repeat(3,1fr);row-gap:30px;}
+    .step:nth-child(4)::before,.step:nth-child(1)::before{display:none;}
+    .compare-grid{grid-template-columns:1fr;}
+    .final-cta{flex-direction:column;align-items:flex-start;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:680px){
+    .nav-links{display:none;}
+    .mobile-toggle{display:block;}
+    .hero h1{font-size:32px;}
+    .grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}
+    .stepper{grid-template-columns:1fr;}
+    .step::before{display:none;}
+    .checklist{grid-template-columns:1fr;}
+    .final-cta{padding:36px 26px;}
+    .mockup-banner{font-size:11px;padding:9px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ UX MOCKUP CONTROL BAR (not part of live page) ============ -->
+<div class="mockup-banner">
+  <span><strong>UI/UX MOCKUP</strong> — Lower Deduction Certificate (Sec. 197) service page · v1 · desktop-first, reflows to mobile</span>
+  <button onclick="document.body.classList.toggle('annotate')">Toggle component labels</button>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav anno-target">
+  <span class="ux-tag"><b>Sticky Nav</b>Persistent booking CTA visible at all scroll depths</span>
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FAF6EC" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>
+      </span>
+      Cash Stream Advisors
+    </div>
+    <nav class="nav-links">
+      <a href="#what-is">What Is It</a>
+      <a href="#who-needs">Who Needs It</a>
+      <a href="#process">Process</a>
+      <a href="#documents">Documents</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-outline btn-sm" href="tel:+91">Talk to an Expert</a>
+      <a class="btn btn-primary btn-sm" href="#book">Book a Consultation</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero anno-target">
+  <span class="ux-tag"><b>Hero Banner — two-column</b>Left: problem-led headline + dual CTA. Right: signature "TDS Rate Meter" visual, per UI/UX Playbook.</span>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Section 197 · Income Tax Act</div>
+      <h1>Stop overpaying TDS on income you've <em>already earned.</em></h1>
+      <p class="hero-sub">A Lower Deduction Certificate lets tax be deducted at your actual estimated liability &mdash; not the standard rate &mdash; so your money isn't blocked for months waiting on a refund.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#book">Apply for a Lower Deduction Certificate</a>
+        <a class="btn btn-outline" href="#book">Talk to a Tax Expert</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/></svg>
+          Filed under Form 128 (formerly Form 13)
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5l3 3M12 21a9 9 0 100-18 9 9 0 000 18z"/></svg>
+          Fully online via the e-Filing portal
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M11 3a4 4 0 110 8 4 4 0 010-8zM19.5 8.5L22 11l-4 4"/></svg>
+          NRIs, businesses &amp; foreign companies eligible
+        </div>
+      </div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-card-label">Illustrative &middot; TDS before &amp; after Section 197</div>
+      <div class="gauge-wrap">
+        <svg viewBox="0 0 220 130" width="220">
+          <path d="M20 110 A90 90 0 0 1 200 110" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M20 110 A90 90 0 0 1 200 110" fill="none" stroke="#52B788" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="198" />
+          <g transform="rotate(-58 110 110)">
+            <line x1="110" y1="110" x2="110" y2="34" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <circle cx="110" cy="110" r="7" fill="#fff"/>
+        </svg>
+        <div class="gauge-caption">
+          <span>Standard TDS</span>
+          <span>Approved rate (as low as Nil)</span>
+        </div>
+      </div>
+      <div class="rate-divider"></div>
+      <div class="rate-row"><span class="label">Without certificate</span><span class="value">TDS at standard rate on full receipt</span></div>
+      <div class="rate-row"><span class="label">With certificate</span><span class="value">TDS aligned to estimated liability</span></div>
+      <div class="rate-divider"></div>
+      <div class="rate-card-foot">Actual approved rate depends on your case-specific tax computation and Assessing Officer review. This is not a guaranteed outcome.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM / COMPARISON ============ -->
+<section class="compare-band section-pad anno-target" id="why">
+  <span class="ux-tag"><b>Comparison Cards</b>Problem-before-solution structure, per Lead Gen Playbook flow (Problem → Education → Trust → Solution).</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--leaf-bright)">The problem</div>
+      <h2>Why does excess TDS keep hurting your cash flow?</h2>
+      <p>When TDS is deducted at the standard rate regardless of your actual tax liability, the difference sits with the government &mdash; sometimes for over a year &mdash; while you wait for a refund.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card without">
+        <h3>Without a Lower Deduction Certificate</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>TDS deducted at the standard prescribed rate, regardless of actual liability</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Excess tax stays blocked until your return is filed and processed</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Refund processing can take several months</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Working capital and liquidity take a direct hit</li>
+        </ul>
+      </div>
+      <div class="compare-card with">
+        <h3>With a Lower Deduction Certificate</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>TDS deducted at the rate approved under Section 197</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Better cash flow throughout the financial year</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Reduced dependence on income tax refunds</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Funds stay available for growth and investment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IS LDC + BENEFITS ============ -->
+<section class="section-pad anno-target" id="what-is">
+  <span class="ux-tag"><b>Explanation + Icon Grid</b>Left-brain definition followed by scannable outcome benefits &mdash; answers intent before selling.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What it is</div>
+      <h2>A certificate that aligns TDS with what you actually owe</h2>
+      <p>A Lower Deduction Certificate (LDC) &mdash; also called an LTDC &mdash; is issued by the Income Tax Department under Section 197. It allows Tax Deducted at Source to happen at a lower rate, or in approved cases a nil rate, instead of the standard rate. It's issued for a specific validity period, deductor, and transaction &mdash; it doesn't automatically extend to every payment.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="icon-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h4>Pay TDS on estimated liability</h4>
+        <p>Not the flat standard rate that ignores your actual numbers.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+        <h4>Avoid excess deductions</h4>
+        <p>Stop money sitting idle with the department longer than it should.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c4-3 8-6.5 8-11a8 8 0 10-16 0c0 4.5 4 8 8 11z"/></svg></div>
+        <h4>Improve cash flow</h4>
+        <p>Keep more working capital available through the year, not just at refund time.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h4>Stay compliant</h4>
+        <p>Fully within Section 197 &mdash; no grey areas, no shortcuts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO CAN APPLY ============ -->
+<section class="section-pad-sm anno-target" id="who-needs" style="background:var(--cream-deep);">
+  <span class="ux-tag"><b>Card Grid</b>7 taxpayer categories &mdash; scannable self-identification pattern, helps visitor find themselves fast.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who it's for</div>
+      <h2>Who can apply for a Lower Deduction Certificate?</h2>
+      <p>Eligibility depends on whether the Income Tax Department is satisfied your estimated tax liability is lower than the TDS otherwise applicable &mdash; not on which category you fall into alone.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="who-card"><span class="tag">Individuals</span><h4>Professional fees, rent, interest</h4><p>Where the prescribed TDS rate is higher than your expected annual tax.</p></div>
+      <div class="who-card"><span class="tag">Businesses</span><h4>Low margins or carried-forward losses</h4><p>Prevents excess TDS from blocking working capital.</p></div>
+      <div class="who-card"><span class="tag">Companies</span><h4>Lower taxable income or benefits</h4><p>Where deductions are expected to exceed estimated liability.</p></div>
+      <div class="who-card"><span class="tag">Firms &amp; LLPs</span><h4>Partnership &amp; LLP receipts</h4><p>Eligible where deduction exceeds projected liability.</p></div>
+      <div class="who-card"><span class="tag">NRIs</span><h4>Property sale, rent, interest, dividends</h4><p>Avoid large refunds and access funds sooner.</p></div>
+      <div class="who-card"><span class="tag">Foreign Companies</span><h4>Royalty, FTS, interest from India</h4><p>Subject to the Act and applicable DTAA benefits.</p></div>
+      <div class="who-card"><span class="tag">Trusts</span><h4>TDS-applicable trust income</h4><p>Eligible where estimated liability is lower than prescribed rate.</p></div>
+      <div class="who-card" style="background:var(--forest-deep);border:none;">
+        <span class="tag" style="color:var(--leaf-bright)">Not sure?</span>
+        <h4 style="color:#fff;">Check your eligibility with us</h4>
+        <p style="color:var(--sage-deep);">Every application is reviewed individually &mdash; we'll assess yours in a short call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHEN TO APPLY (Timeline) ============ -->
+<section class="section-pad anno-target">
+  <span class="ux-tag"><b>Timeline</b>Order carries real meaning here &mdash; earlier action changes the outcome, so sequence is functional, not decorative.</span>
+  <div class="wrap grid grid-2" style="align-items:start;gap:60px;">
+    <div>
+      <div class="eyebrow">Timing</div>
+      <h2 style="font-size:30px;margin-bottom:16px;">Apply before TDS is deducted &mdash; not after</h2>
+      <p style="color:var(--ink-soft);font-size:15.5px;">Once tax has already been deducted, the excess can generally only be recovered by claiming a refund after filing your return. A Lower Deduction Certificate works prospectively &mdash; it reduces TDS on future payments, not tax already withheld.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><h4>Start of the financial year</h4><p>Best for anyone expecting regular payments through the year &mdash; the certificate applies from day one.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><h4>Before selling a property</h4><p>If expected capital gains tax is lower than the standard TDS the buyer would deduct.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><h4>Before high-value payments</h4><p>Businesses, contractors, and consultants expecting large receivables.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><h4>Before rental or interest income</h4><p>Where the prescribed TDS rate exceeds your actual estimated liability.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><h4>Before payments to NRIs</h4><p>Sale proceeds, rent, professional fees, interest, or dividends &mdash; apply before release.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW SECTION 197 WORKS (mini process) ============ -->
+<section class="section-pad-sm anno-target" style="background:var(--sage);">
+  <span class="ux-tag"><b>4-step Icon Row</b>Mechanics explainer &mdash; sits above the full apply-stepper to build understanding before action.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Section 197, in four steps</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="icon-card" style="background:var(--cream);border:none;">
+        <div class="icon-bubble" style="background:var(--white);"><span style="font-family:var(--font-display);font-weight:700;color:var(--forest);">1</span></div>
+        <h4>Submit Form 128</h4><p>Filed with financial details and supporting documents.</p>
+      </div>
+      <div class="icon-card" style="background:var(--cream);border:none;">
+        <div class="icon-bubble" style="background:var(--white);"><span style="font-family:var(--font-display);font-weight:700;color:var(--forest);">2</span></div>
+        <h4>AO reviews the case</h4><p>Estimated income, tax liability, and compliance history are examined.</p>
+      </div>
+      <div class="icon-card" style="background:var(--cream);border:none;">
+        <div class="icon-bubble" style="background:var(--white);"><span style="font-family:var(--font-display);font-weight:700;color:var(--forest);">3</span></div>
+        <h4>Certificate issued</h4><p>Specifies the approved rate, covered transactions, and validity.</p>
+      </div>
+      <div class="icon-card" style="background:var(--cream);border:none;">
+        <div class="icon-bubble" style="background:var(--white);"><span style="font-family:var(--font-display);font-weight:700;color:var(--forest);">4</span></div>
+        <h4>Deductor applies the rate</h4><p>TDS is deducted at the certified rate for eligible payments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO APPLY (Vertical/horizontal stepper) ============ -->
+<section class="section-pad anno-target" id="process">
+  <span class="ux-tag"><b>Process Stepper</b>Reused component from DTAA &amp; site component library &mdash; numbered because this is a literal ordered filing sequence.</span>
+  <div class="wrap">
+    <div class="section-head center" style="margin-bottom:56px;">
+      <div class="eyebrow">The process</div>
+      <h2>How to apply for a Lower Deduction Certificate</h2>
+      <p>A fully online process through the Income Tax e-Filing portal, from eligibility check to certificate in hand.</p>
+    </div>
+    <div class="stepper">
+      <div class="step"><div class="step-num">1</div><h4>Check eligibility</h4><p>Confirm estimated liability is lower than default TDS; prepare an accurate computation.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Gather documents</h4><p>Income details, computations, prior ITRs, financial statements.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>Submit Form 128</h4><p>Filed via the e-Filing portal with accurate, consistent details.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>Department review</h4><p>The AO may request clarification or additional documents.</p></div>
+      <div class="step"><div class="step-num">5</div><h4>Receive certificate</h4><p>Share it with the deductor so future payments use the approved rate.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a class="btn btn-primary" href="#book">Get Help With Your Application</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOCUMENTS REQUIRED ============ -->
+<section class="section-pad-sm anno-target" id="documents" style="background:var(--cream-deep);">
+  <span class="ux-tag"><b>Filterable Table</b>Chips let each visitor see only their own document list instead of scanning all seven rows.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Documentation</div>
+      <h2>Documents required for your application</h2>
+      <p>Exact requirements vary by case. Filter by your category below, or view the full list.</p>
+    </div>
+    <div class="doc-chip-row" id="docChips">
+      <button class="doc-chip active" data-row="all">All categories</button>
+      <button class="doc-chip" data-row="0">Individuals</button>
+      <button class="doc-chip" data-row="1">Businesses</button>
+      <button class="doc-chip" data-row="2">Companies</button>
+      <button class="doc-chip" data-row="3">Firms / LLPs</button>
+      <button class="doc-chip" data-row="4">NRIs</button>
+      <button class="doc-chip" data-row="5">Foreign Companies</button>
+      <button class="doc-chip" data-row="6">Trusts</button>
+    </div>
+    <table class="doc-table" id="docTable">
+      <thead><tr><th>Applicant</th><th>Common documents required</th></tr></thead>
+      <tbody>
+        <tr data-row="0"><td>Individuals</td><td>PAN, estimated income details, tax computation, previous ITRs</td></tr>
+        <tr data-row="1"><td>Businesses</td><td>PAN, financial statements, tax computation, previous ITRs</td></tr>
+        <tr data-row="2"><td>Companies</td><td>PAN, financial statements, estimated income, previous ITRs</td></tr>
+        <tr data-row="3"><td>Partnership Firms / LLPs</td><td>PAN, partnership deed or LLP documents, tax computation</td></tr>
+        <tr data-row="4"><td>NRIs</td><td>PAN, passport (where applicable), tax computation, India income details</td></tr>
+        <tr data-row="5"><td>Foreign Companies</td><td>PAN, incorporation documents, tax computation, supporting agreements</td></tr>
+        <tr data-row="6"><td>Trusts</td><td>PAN, trust deed, financial statements, tax computation</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--ink-soft);margin-top:14px;">The Income Tax Department may request additional documents based on the nature of your application.</p>
+  </div>
+</section>
+
+<!-- ============ PROCESSING TIME / VALIDITY / RENEWAL ============ -->
+<section class="section-pad anno-target">
+  <span class="ux-tag"><b>Info Cards</b>Three short, independent facts &mdash; a table would over-structure content this simple.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Good to know</div>
+      <h2>Timeline, validity &amp; renewal</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="info-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v5l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h4>Processing time</h4>
+        <p>Depends on completeness of the application, supporting documents, and departmental review &mdash; incomplete filings take longer.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/></svg></div>
+        <h4>Validity</h4>
+        <p>Valid only for the period, deductor(s), and transactions named in the certificate &mdash; it does not extend automatically.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h5M20 20v-5h-5M5.5 9a7 7 0 0112.6-2.6M18.5 15a7 7 0 01-12.6 2.6"/></svg></div>
+        <h4>Renewal</h4>
+        <p>A fresh application is needed for each subsequent period &mdash; submit before the existing certificate expires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LDC FOR DIFFERENT TAXPAYERS (Accordion) ============ -->
+<section class="section-pad-sm anno-target" style="background:var(--cream-deep);">
+  <span class="ux-tag"><b>Accordion</b>Seven near-duplicate taxpayer variants collapsed by default &mdash; keeps page scannable without deleting SEO-relevant sub-topics.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">By taxpayer type</div>
+      <h2>Lower Deduction Certificate for different taxpayers</h2>
+    </div>
+    <div class="accordion" id="taxpayerAccordion">
+      <div class="accordion-item open">
+        <button class="accordion-trigger"><span>Lower Deduction Certificate for NRI</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Helps reduce excess TDS on eligible payments such as property sales, rent, interest, and professional fees where estimated tax liability is lower.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>Lower TDS Certificate for NRI Property Sale</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Buyers may otherwise deduct TDS on the full sale consideration. A certificate can bring this down to a rate based on estimated tax liability.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>For Businesses</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Businesses and professionals with lower taxable income can avoid excess TDS that impacts working capital.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>For Professional Fees</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Consultants and service providers can apply to bring TDS closer to their estimated tax liability.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>For Rent</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Property owners can apply where prescribed TDS exceeds their estimated tax liability.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>For Foreign Companies</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Eligible for royalty, FTS, interest, or other India-sourced payments, subject to the Act and applicable treaty benefits.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR SERVICES ============ -->
+<section class="section-pad anno-target">
+  <span class="ux-tag"><b>Service Cards</b>Restates the offer in service-line language for AEO / featured-snippet matching (LTDC, Section 197, Nil Deduction).</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our services</div>
+      <h2>End-to-end Lower Deduction Certificate support</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="service-card"><span class="num">01</span><h4>Lower Deduction Certificate Services</h4><p>Eligibility review, tax computation, application filing, and end-to-end support.</p></div>
+      <div class="service-card"><span class="num">02</span><h4>LTDC Services</h4><p>Assistance with Lower Tax Deduction Certificate applications for eligible taxpayers.</p></div>
+      <div class="service-card"><span class="num">03</span><h4>Section 197 Certificate Services</h4><p>Preparing and filing applications under Section 197 of the Income Tax Act.</p></div>
+      <div class="service-card"><span class="num">04</span><h4>Lower TDS Certificate Services</h4><p>Support for obtaining a lower rate of TDS based on estimated liability.</p></div>
+      <div class="service-card"><span class="num">05</span><h4>Nil Deduction Certificate Services</h4><p>Assistance where a nil rate of TDS may be applicable, subject to eligibility.</p></div>
+      <div class="service-card" style="background:var(--forest-deep);border:none;">
+        <span class="num" style="color:var(--leaf-bright)">06</span>
+        <h4 style="color:#fff;">Not sure which applies?</h4>
+        <p style="color:var(--sage-deep);">We'll identify the right filing for your situation on a short call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE CSA ============ -->
+<section class="why-band section-pad-sm anno-target">
+  <span class="ux-tag"><b>Checklist / Trust Block</b>Earned-trust claims only &mdash; no numeric stats used here, per placeholder-data rule.</span>
+  <div class="wrap grid grid-2" style="align-items:center;gap:60px;">
+    <div>
+      <div class="eyebrow">Why Cash Stream Advisors</div>
+      <h2 style="font-size:30px;">Experience that gets applications approved, not just filed</h2>
+      <p style="color:var(--ink-soft);font-size:15px;margin-top:14px;">We don't just submit paperwork &mdash; we build the computation that gets it approved on the first pass.</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Experience with NRI, business, and foreign entity applications</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Accurate tax computation to determine the right rate</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>Active follow-up on departmental queries</div>
+      <div class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg>End-to-end support through to certificate issuance</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMON REJECTION REASONS ============ -->
+<section class="section-pad anno-target">
+  <span class="ux-tag"><b>Warning List</b>Left-accent cards signal "caution" without alarming red &mdash; stays within brand palette.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Common pitfalls</div>
+      <h2>Why applications get rejected</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="warn-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><p>Incorrect tax computation that doesn't reflect estimated liability accurately</p></div>
+      <div class="warn-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><p>Missing or incomplete supporting documents</p></div>
+      <div class="warn-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><p>Outstanding tax demands or unresolved compliance issues</p></div>
+      <div class="warn-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><p>Inconsistent financial information between application and records</p></div>
+      <div class="warn-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg><p>Late filing that leaves too little time before payment is made</p></div>
+      <div class="warn-card" style="border-left-color:var(--leaf);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg><p><b>Avoid these:</b> we verify computation, documents, and consistency before filing on your behalf.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section class="section-pad-sm anno-target" style="background:var(--cream-deep);">
+  <span class="ux-tag"><b>Case Study Cards</b>Placeholder outbound links &mdash; per open audit items, real figures/links pending client data.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Real outcomes</div>
+      <h2>Case studies</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="case-card">
+        <span class="tag">NRI Property Sale</span>
+        <h4>Reducing excess TDS on sale proceeds</h4>
+        <p>How proper estimated-tax computation brought a property sale's TDS down to the client's actual liability instead of the standard rate.</p>
+        <a href="#">Read the full case study →</a>
+      </div>
+      <div class="case-card">
+        <span class="tag">Foreign Company</span>
+        <h4>Payments received from India</h4>
+        <p>How a foreign company secured an appropriate deduction rate on royalty and technical service fee income.</p>
+        <a href="#">Read the full case study →</a>
+      </div>
+      <div class="case-card">
+        <span class="tag">NRI, End-to-End</span>
+        <h4>From application to approved certificate</h4>
+        <p>The challenge, filing process, and outcome achieved through proper computation and timely submission.</p>
+        <a href="#">Read the full case study →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad anno-target" id="faq">
+  <span class="ux-tag"><b>FAQ Accordion</b>Targets PAA queries directly &mdash; supports FAQPage schema recommendation below.</span>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">FAQs</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="accordion faq-wrap" id="faqAccordion">
+      <div class="accordion-item open">
+        <button class="accordion-trigger"><span>What is a Lower Deduction Certificate?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">A certificate issued by the Income Tax Department under Section 197, allowing tax to be deducted at a lower rate or, where approved, a nil rate instead of the standard TDS rate.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>What is the LTDC full form?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">LTDC stands for Lower Tax Deduction Certificate &mdash; used interchangeably with LDC and Lower TDS Deduction Certificate.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>Who can apply for a Lower Deduction Certificate?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Individuals, businesses, companies, firms, trusts, NRIs, and foreign companies, where estimated tax liability is lower than the applicable TDS rate. Approval is subject to departmental review.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>How do I apply?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Submit Form 128 through the Income Tax e-Filing portal with required documents and tax computation. The department reviews before issuing the certificate.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>How do I download it from TRACES?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Log in to TRACES, navigate to Section 197 certificate services, locate the approved certificate, and download it to share with your deductor.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>Can an NRI apply?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Yes &mdash; common situations include property sales, rental income, interest, dividends, and professional fees, where applicable TDS exceeds estimated liability.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>How can NRIs reduce TDS on property sales?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Apply under Section 197 before the sale is completed. If approved, the buyer deducts TDS at the certified rate instead of the standard rate.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>What's the difference between Lower and Nil Deduction Certificates?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">A Lower Deduction Certificate approves a reduced TDS rate; a Nil Deduction Certificate allows no TDS where the taxpayer qualifies for a nil rate. Both fall under Section 197.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>How long is the certificate valid?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">Only for the period and transactions specified in it. A fresh application is required once it expires.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>What happens if my application is rejected?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner">TDS continues at the standard rate. You can review the rejection reasons, correct the issues, and submit a fresh application if still eligible.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>Do you guarantee approval of my application?</span><span class="plus"></span></button>
+        <div class="accordion-panel"><div class="accordion-panel-inner" style="border:1px dashed var(--brown-light);padding:14px;border-radius:8px;background:var(--cream-deep);">⚠ Placeholder &mdash; open audit item: final "guarantee" answer pending confirmation of firm's exact commitment language before this goes live.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section-pad anno-target" id="book">
+  <span class="ux-tag"><b>CTA Banner</b>Single consultative CTA only &mdash; no persona segmentation or lead magnets, per Lead Gen Playbook decision.</span>
+  <div class="wrap">
+    <div class="final-cta">
+      <div>
+        <h2>Need help applying for a Lower Deduction Certificate?</h2>
+        <p>A well-prepared application avoids unnecessary delays. We handle eligibility assessment, documentation, filing, and follow-up with the department &mdash; end to end.</p>
+      </div>
+      <div class="final-cta-ctas">
+        <a class="btn btn-primary" href="#" style="background:#fff;color:var(--forest-deep);box-shadow:none;">Book a Consultation</a>
+        <a class="btn btn-outline" href="#" style="border-color:rgba(255,255,255,.4);color:#fff;">Talk to a Tax Advisor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="anno-target">
+  <span class="ux-tag"><b>Footer + Internal Links</b>Related-service links per Brand Guidelines internal linking rule.</span>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo" style="color:#fff;margin-bottom:14px;">Cash Stream Advisors</div>
+      <p style="max-width:280px;color:var(--sage-deep);">Chartered Accountants specialising in international taxation, FEMA, and cross-border compliance.</p>
+    </div>
+    <div>
+      <h5>Related Services</h5>
+      <ul>
+        <li>DTAA Advisory</li>
+        <li>Withholding Tax Advisory</li>
+        <li>NRI Tax &amp; Relocation Advisory</li>
+        <li>Foreign Company Tax Return</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li>Case Studies</li>
+        <li>Blog / Insights</li>
+        <li>FAQs</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Firm</h5>
+      <ul>
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li>Book a Consultation</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA + WHATSAPP ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text"><b>Reduce excess TDS deductions</b>Speak with a tax advisor about your Section 197 application.</div>
+  <a class="btn btn-primary btn-sm" href="#book" style="flex-shrink:0;">Book a Consultation</a>
+</div>
+<div class="whatsapp-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1s-.7 1-.9 1.2-.4.2-.6.1a7.2 7.2 0 01-2.1-1.3 8 8 0 01-1.5-1.8c-.2-.3 0-.5.1-.6l.4-.5a1 1 0 00.1-.6c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 00-.9.4A3.5 3.5 0 006 9.9c0 1.4 1 2.8 1.1 3s2 3 4.7 4.1c2.7 1.1 2.7.7 3.2.7s1.6-.6 1.8-1.3.2-1.2.1-1.3-.2-.2-.5-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2z"/></svg>
+</div>
+
+<script>
+  // FAQ + taxpayer accordion behaviour
+  document.querySelectorAll('.accordion').forEach(function(acc){
+    acc.querySelectorAll('.accordion-item').forEach(function(item){
+      var trigger = item.querySelector('.accordion-trigger');
+      var panel = item.querySelector('.accordion-panel');
+      function setState(open){
+        if(open){
+          item.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } else {
+          item.classList.remove('open');
+          panel.style.maxHeight = 0;
+        }
+      }
+      setState(item.classList.contains('open'));
+      trigger.addEventListener('click', function(){
+        var willOpen = !item.classList.contains('open');
+        setState(willOpen);
+      });
+    });
+  });
+
+  // Document table filter chips
+  var chips = document.querySelectorAll('#docChips .doc-chip');
+  var rows = document.querySelectorAll('#docTable tbody tr');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){c.classList.remove('active');});
+      chip.classList.add('active');
+      var target = chip.getAttribute('data-row');
+      rows.forEach(function(r){
+        r.style.display = (target === 'all' || r.getAttribute('data-row') === target) ? '' : 'none';
+      });
+    });
+  });
+
+  // Sticky CTA reveal on scroll
+  var stickyCta = document.getElementById('stickyCta');
+  var heroEl = document.querySelector('.hero');
+  window.addEventListener('scroll', function(){
+    var trigger = heroEl.offsetTop + heroEl.offsetHeight;
+    if(window.scrollY > trigger){
+      stickyCta.classList.add('show');
+    } else {
+      stickyCta.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

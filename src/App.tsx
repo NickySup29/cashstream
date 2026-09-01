@@ -6,6 +6,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import TaxStrategy from './pages/TaxStrategy';
 import WithholdingTax from './pages/WithholdingTax';
+import LowerDeductionCertificate from './pages/LowerDeductionCertificate';
+import DtaaAdvisory from './pages/DtaaAdvisory';
+import ForeignCompanyTdsRefund from './pages/ForeignCompanyTdsRefund';
 import Compliance from './pages/Compliance';
 import Fema from './pages/Fema';
 import Bookkeeping from './pages/Bookkeeping';
@@ -54,6 +57,9 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/tax-strategy" element={<TaxStrategy />} />
               <Route path="/withholding-tax-advisory" element={<WithholdingTax />} />
+              <Route path="/international-taxation/dtaa-advisory/" element={<DtaaAdvisory />} />
+              <Route path="/international-taxation/lower-deduction-certificate/" element={<LowerDeductionCertificate />} />
+              <Route path="/international-taxation/foreign-company-tds-refund/" element={<ForeignCompanyTdsRefund />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/fema" element={<Fema />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />

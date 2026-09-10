@@ -63,9 +63,9 @@ the whole section, don't ship it with brackets instead.
 - Service type: ["Service", "AccountingService"]
 - provider references the existing global @id:
   https://cashstreamadvisors.com/#professional-service
-- BreadcrumbList: Home → International Taxation (point to /tax-strategy
-  as a temporary stand-in until the real hub page exists, note this in
-  a code comment) → this page
+- BreadcrumbList: Home → International Taxation (point the middle item to
+  /international-taxation/, the real hub page) → this page. The old
+  /tax-strategy stand-in has been removed; do not reintroduce it.
 - FAQPage: include EVERY FAQ question on the page, not a subset
 - Never add AggregateRating or Review schema, anywhere, ever (ICAI rule)
 
@@ -73,8 +73,13 @@ the whole section, don't ship it with brackets instead.
 - Build as a single-open-at-a-time React accordion (state-driven), same
   pattern as existing pages, even if the mockup uses native <details>
   elements.
-- No "related" links or redirects inside FAQ answers — question and
-  answer only.
+- No internal cross-links to other service pages inside FAQ answers,
+  that's the kind of clutter/distraction this rule exists to prevent.
+- A single authoritative EXTERNAL link (a verified government or
+  official portal URL) is fine inside a FAQ answer when it directly
+  answers that specific question, e.g. linking "TRACES" in an answer to
+  "How do I download it from TRACES?" One such link maximum per answer,
+  never more.
 - Rich HTML inside answers (lists, tables) needs Tailwind Typography
   classes on the wrapping div: prose prose-sm max-w-none
   prose-p:text-secondary prose-li:text-secondary
@@ -83,26 +88,41 @@ the whole section, don't ship it with brackets instead.
   styled, not plain text).
 
 ## 7. INCOME TAX ACT, 2025 — CONFIRMED RENUMBERING
-Annotate on FIRST mention per section, plain after that:
+Annotate on FIRST mention per section, plain after that.
+
+Well-established, no code comment needed:
 - Section 197 → Section 395(1)
 - Section 195 → Section 393(2)
-- Sections 90, 90A, 91 → consolidated as Section 159 (flag with a code
-  comment: "PENDING CA CONFIRMATION" since this mapping is newer/less
-  certain than the others)
-- Form 67 → Form 44 (same pending-confirmation comment)
 - Form 10F → Form 41
 - Form 15CA/15CB → Form 145/146
 - Section 234A/B/C → 423/424/425
 - Section 270A → 439
 - Section 92CA → 166
+
+Newer mappings, verified against a published mapping table but not yet
+firm-confirmed, add a code comment "PENDING CA CONFIRMATION" wherever
+these are used:
+- Section 90, Section 90A → Section 159 (DTAA agreements/adoption)
+- Section 91 → Section 160 (separate from 159, do NOT group with 90/90A,
+  this was previously an error on the DTAA page, already corrected)
+- Form 67 → Form 44
+- Section 44DA → Section 59 (royalty/FTS computation connected to a PE)
+- Section 44AB → Section 63 (tax audit)
+
+Still unconfirmed, do not guess a number, keep language exactly as
+"could not be independently confirmed" wherever it comes up:
+- Section 115A
+
 Equalization levy is abolished, never mention it as active.
 
 ## 8. INTERLINKING
 - Link to genuinely related sibling International Taxation pages where
   contextually natural (check which ones actually exist as real routes
   first, don't invent links to unbuilt pages).
-- Add this page to TaxStrategy.tsx's hub links, same pattern as existing
-  entries there.
+- Add this page to the International Taxation hub
+  (src/pages/InternationalTaxation.tsx) service list, same pattern as
+  existing entries there. (The former src/pages/TaxStrategy.tsx has been
+  removed.)
 
 ## 9. NEVER USE EM DASHES
 Anywhere. Commas, periods, or colons instead.
@@ -121,3 +141,48 @@ new page build, a bug fix, adding internal links), update that page's
 row in PAGE_CHECKLIST.md honestly. When a new page ships, also add a
 column-relevant check: does every existing page's Internal Links status
 need revisiting now that a new sibling exists to link to/from?
+
+## 13. CASE STUDIES ARCHITECTURE (DATA-DRIVEN, ONE PAGE PER STUDY)
+The case studies system has three parts:
+- src/data/caseStudies.ts — the SINGLE SOURCE OF TRUTH. A typed array of
+  every case study: id (URL slug), category, tag, stat, title, situation,
+  approach, outcome, optional bullets, and the service page it belongs
+  to. The situation/approach/outcome/title text is pre-approved client
+  content (rule #1): never reword it, only move it.
+- src/pages/CaseStudies.tsx — the listing page at /about-us/case-studies/.
+  A lightweight index: 7-category quick nav plus short preview cards
+  (tag, title, one teaser sentence from the situation, the headline stat)
+  that each link to a real individual page URL. No full write-ups here.
+- src/pages/CaseStudyDetail.tsx — one reusable component on the dynamic
+  route /about-us/case-studies/:slug/ that renders the full
+  Situation / Approach / Outcome for the matched study, a 4-level
+  breadcrumb, a link to the related service page, and a Related section.
+
+Service-page case study cards: a small tag line (Category · Location or
+Category · Context, e.g. "EPC · Europe"), a bold title, a 2-3 sentence
+description, and a "Read the complete case study →" line. That line must
+be a real Link (react-router) to the individual page,
+/about-us/case-studies/[id]/ (trailing slash, NOT a hash anchor), using
+the exact id from caseStudies.ts. Same visual treatment (color, weight,
+arrow icon).
+
+When adding a new case study going forward: add the full write-up as a
+new object in src/data/caseStudies.ts under the correct category, give it
+a unique id, and point the originating service page's summary card at
+/about-us/case-studies/[that-id]/ — all in the same pass. The listing
+page, the individual page, and the sitemap all pick it up automatically
+from the data file; generate-sitemap.js loops over caseStudies.ts.
+
+## 14. PER-PAGE DISTINCTIVENESS WITHIN A SHARED SYSTEM
+Every page shares the same design system: colors, fonts, button styles,
+card treatment, spacing, FAQ behavior, schema shape. Never vary these,
+that's brand consistency, not repetition.
+
+What must vary per page: which sections appear, their order, and above
+all, a genuine signature element unique to that specific service, not a
+reused component with different text. Before building any page, decide
+what that page's one distinctive centerpiece is based on how that
+specific service actually works, a comparison, a status checker, a
+timeline, a decision tree, whatever fits the real content. If two pages
+in the same category would end up with visually identical signature
+elements, stop and design a different one for at least one of them.

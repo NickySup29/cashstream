@@ -669,8 +669,8 @@ export default function WithholdingTax() {
               <p className="text-secondary text-[15px] leading-relaxed mb-5">
                 Advised a manufacturing client on the correct TDS treatment for a royalty payment to its German technology partner, applying the India-Germany DTAA rate in place of the higher domestic rate.
               </p>
-              <Link to="/case-studies" className="font-bold text-primary text-sm">
-                Read more case studies →
+              <Link to="/about-us/case-studies/german-royalty-correct-tds/" className="font-bold text-primary text-sm">
+                Read the complete case study →
               </Link>
             </div>
             <div className="bg-surface-container-lowest border border-outline-variant/20 border-t-4 border-t-tertiary rounded-xl p-8">
@@ -681,8 +681,8 @@ export default function WithholdingTax() {
               <p className="text-secondary text-[15px] leading-relaxed mb-5">
                 Guided a SaaS startup through obtaining a nil-TDS certificate for payments to its US cloud vendor under the India-US DTAA, avoiding upfront withholding on a recurring subscription cost.
               </p>
-              <Link to="/case-studies" className="font-bold text-primary text-sm">
-                Read more case studies →
+              <Link to="/about-us/case-studies/saas-nil-tds-cloud-vendor/" className="font-bold text-primary text-sm">
+                Read the complete case study →
               </Link>
             </div>
           </div>

@@ -763,26 +763,28 @@ export default function DtaaAdvisory() {
               {
                 tag: 'US-Based NRI · Rental Income',
                 title: 'Reducing TDS on Rental Income for a US Based NRI',
+                href: '/about-us/case-studies/us-nri-rental-dtaa/',
                 situation: 'A US resident earning rental income from India was facing tax deduction at the standard domestic rate.',
                 action: 'Reviewed the India-US DTAA, obtained the required Tax Residency Certificate, and completed the necessary documentation.',
                 bullets: [
-                  '[X]% → [Y]% — TDS reduced (pending real figures)',
-                  'Cash flow improvement of approx. ₹[amount]/year (pending)',
+                  '31% → 15% TDS reduced',
+                  'Cash flow improvement of approx. ₹2.3 lakh/year',
                   'Fully compliant DTAA claim, TRC and Form 10F on file',
                 ],
               },
               {
                 tag: 'Singapore Company · FTS Payment',
                 title: 'Applying the Correct Treaty Rate for a Singapore Company',
+                href: '/about-us/case-studies/singapore-fts-treaty-rate/',
                 situation: 'A Singapore based company receiving fees for technical services from an Indian client was being taxed at the domestic withholding rate.',
                 action: 'Determined the applicable treaty provisions and completed the required documentation.',
                 bullets: [
-                  '[X]% → [Y]% withholding reduced (pending real figures)',
-                  'Approx. tax saving of ₹[amount] on the transaction (pending)',
+                  '20% → 10% withholding reduced',
+                  'Approx. tax saving of ₹5 lakh on the transaction',
                   'Correct treaty rate applied before payment, avoiding a refund claim',
                 ],
               },
-            ].map(({ tag, title, situation, action, bullets }) => (
+            ].map(({ tag, title, href, situation, action, bullets }) => (
               <div key={tag} className="bg-surface-container-low p-7 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                 <span className="font-label text-[11px] uppercase tracking-[0.12em] text-secondary mb-3 block">{tag}</span>
                 <h3 className="font-bold text-primary text-lg mb-4">{title}</h3>
@@ -796,11 +798,17 @@ export default function DtaaAdvisory() {
                     <p className="text-secondary leading-relaxed text-sm">{action}</p>
                   </div>
                 </div>
-                <div className="space-y-2 text-[15px] text-primary">
+                <div className="space-y-2 text-[15px] text-primary mb-5">
                   {bullets.map((bullet) => (
                     <div key={bullet}>✓ {bullet}</div>
                   ))}
                 </div>
+                <Link
+                  to={href}
+                  className="font-label text-[13px] font-semibold text-secondary hover:text-primary transition-colors"
+                >
+                  Read the complete case study →
+                </Link>
               </div>
             ))}
           </div>

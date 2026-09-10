@@ -17,6 +17,7 @@ import Insights from './pages/Insights';
 import GlobalOffices from './pages/GlobalOffices';
 import Careers from './pages/Careers';
 import CaseStudies from './pages/CaseStudies';
+import CaseStudyDetail from './pages/CaseStudyDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegulatoryCompliance from './pages/RegulatoryCompliance';
 import TermsOfService from './pages/TermsOfService';
@@ -67,7 +68,8 @@ export default function App() {
               <Route path="/insights" element={<Insights />} />
               <Route path="/global-offices" element={<GlobalOffices />} />
               <Route path="/careers" element={<Careers />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/about-us/case-studies/" element={<CaseStudies />} />
+              <Route path="/about-us/case-studies/:slug/" element={<CaseStudyDetail />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />

@@ -226,11 +226,13 @@ const caseStudies = [
     tag: 'Property Sale · United Kingdom',
     title: 'NRI Property Sale, United Kingdom',
     body: 'A UK-based NRI had TDS deducted on the full sale value of a Mumbai property. After a proper capital gains computation and return filing, the client received a full refund of approximately ₹18 lakhs.',
+    href: '/about-us/case-studies/uk-nri-tds-refund/',
   },
   {
     tag: 'Cross-Border Services · IT',
     title: 'Foreign IT Company, Cross-Border Services',
     body: 'A foreign IT company had TDS deducted at the domestic rate on fees for technical services paid by an Indian client. We filed the claim under the applicable treaty rate and secured the excess refund.',
+    href: '/about-us/case-studies/foreign-it-tds-refund/',
   },
 ];
 
@@ -1006,9 +1008,13 @@ export default function ForeignCompanyTdsRefund() {
                   {study.tag}
                 </span>
                 <h3 className="text-[16.5px] font-bold text-primary mb-2.5">{study.title}</h3>
-                <p className="text-secondary text-[14.5px] leading-relaxed">{study.body}</p>
-                {/* Mockup build note: link to the full case study page only once it exists.
-                    Left as plain text until then, per instruction. */}
+                <p className="text-secondary text-[14.5px] leading-relaxed mb-4">{study.body}</p>
+                <Link
+                  to={study.href}
+                  className="font-label text-[13px] font-semibold text-secondary hover:text-primary transition-colors"
+                >
+                  Read the complete case study →
+                </Link>
               </div>
             ))}
           </div>

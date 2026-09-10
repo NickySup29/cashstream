@@ -17,7 +17,7 @@ const staticRoutes = [
   '/insights',
   '/global-offices',
   '/careers',
-  '/case-studies',
+  '/about-us/case-studies/',
   '/privacy-policy',
   '/regulatory-compliance',
   '/terms-of-service',
@@ -41,7 +41,27 @@ async function generateSitemap() {
   </url>`;
   }
 
-  // 2. Add blog posts
+  // 2. Add one entry per individual case study page, sourced from
+  //    src/data/caseStudies.ts (the single source of truth for the slugs).
+  const caseStudiesSrc = fs.readFileSync(
+    path.join(process.cwd(), 'src', 'data', 'caseStudies.ts'),
+    'utf8'
+  );
+  const caseStudiesArray = caseStudiesSrc.split('export const caseStudies')[1] || '';
+  const caseStudySlugs = [...caseStudiesArray.matchAll(/^\s{4}id:\s*'([a-z0-9-]+)'/gm)].map(
+    (m) => m[1]
+  );
+  for (const slug of caseStudySlugs) {
+    urls += `
+  <url>
+    <loc>${SITE_URL}/about-us/case-studies/${slug}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+  }
+  console.log(`Added ${caseStudySlugs.length} case study pages to sitemap`);
+
+  // 3. Add blog posts
   const postsDir = path.join(process.cwd(), '_posts');
   if (fs.existsSync(postsDir)) {
     const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));

@@ -1,11 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import TaxStrategy from './pages/TaxStrategy';
+import InternationalTaxation from './pages/InternationalTaxation';
 import WithholdingTax from './pages/WithholdingTax';
+import LowerDeductionCertificate from './pages/LowerDeductionCertificate';
+import DtaaAdvisory from './pages/DtaaAdvisory';
+import ForeignCompanyTdsRefund from './pages/ForeignCompanyTdsRefund';
+import ForeignCompanyTaxReturn from './pages/ForeignCompanyTaxReturn';
+import NriTaxRelocationAdvisory from './pages/NriTaxRelocationAdvisory';
 import Compliance from './pages/Compliance';
 import Fema from './pages/Fema';
 import Bookkeeping from './pages/Bookkeeping';
@@ -14,6 +19,7 @@ import Insights from './pages/Insights';
 import GlobalOffices from './pages/GlobalOffices';
 import Careers from './pages/Careers';
 import CaseStudies from './pages/CaseStudies';
+import CaseStudyDetail from './pages/CaseStudyDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegulatoryCompliance from './pages/RegulatoryCompliance';
 import TermsOfService from './pages/TermsOfService';
@@ -52,8 +58,18 @@ export default function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/tax-strategy" element={<TaxStrategy />} />
-              <Route path="/withholding-tax-advisory" element={<WithholdingTax />} />
+              <Route path="/international-taxation/" element={<InternationalTaxation />} />
+              <Route path="/international-taxation/dtaa-advisory/" element={<DtaaAdvisory />} />
+              <Route path="/international-taxation/lower-deduction-certificate/" element={<LowerDeductionCertificate />} />
+              <Route path="/international-taxation/withholding-tax-advisory/" element={<WithholdingTax />} />
+              {/* Backup for the old flat URL; the primary redirect is the 301 in public/_redirects. */}
+              <Route
+                path="/withholding-tax-advisory"
+                element={<Navigate to="/international-taxation/withholding-tax-advisory/" replace />}
+              />
+              <Route path="/international-taxation/foreign-company-tds-refund/" element={<ForeignCompanyTdsRefund />} />
+              <Route path="/international-taxation/foreign-company-tax-return/" element={<ForeignCompanyTaxReturn />} />
+              <Route path="/international-taxation/nri-tax-relocation-advisory/" element={<NriTaxRelocationAdvisory />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/fema" element={<Fema />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />
@@ -61,7 +77,8 @@ export default function App() {
               <Route path="/insights" element={<Insights />} />
               <Route path="/global-offices" element={<GlobalOffices />} />
               <Route path="/careers" element={<Careers />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/about-us/case-studies/" element={<CaseStudies />} />
+              <Route path="/about-us/case-studies/:slug/" element={<CaseStudyDetail />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />

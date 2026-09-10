@@ -6,18 +6,18 @@ import SEO from '../components/SEO';
 
 const services = [
   {
-    title: "Tax Strategy",
+    title: "International Taxation",
     description: "Navigating complex India-US corridors with strategic foresight and robust defense mechanisms.",
     icon: <Landmark className="text-primary group-hover:text-on-primary transition-colors" size={32} />,
     large: true,
-    href: "/tax-strategy",
+    href: "/international-taxation/",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCoaHqlh8P1pVTHYi6F38hYbj3id359Lvl-seG6WC4Zk_puBFAeV3SjiBKEy-q6j73o-PRYwNG4havhXzqRieL8kogKND_Z3P0VaN_kovZrSDnpeKNDvtEUsOvvy1G0ynisIEAHerIT7OHovufVKXiWnTVZnIYZZVsBeO_YU-KTXJIKNGfEPTqDbo50ybtAxnsLtNB0oh9yZ3-x5hNoEO3NP8zpL3WCoZDZyhufYtEVZuyI4G05--Ux5RWA1bxkXRKjdyxpTBNsfN8"
   },
   {
     title: "Withholding Tax",
     description: "Section 195 advisory for payments to non-residents — classification, treaty rates, and Form 145/146 certification.",
     icon: <Banknote className="text-primary transition-colors" size={32} />,
-    href: "/withholding-tax-advisory"
+    href: "/international-taxation/withholding-tax-advisory/"
   },
   {
     title: "Compliance",

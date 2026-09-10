@@ -33,12 +33,12 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-24">
             <div className="flex flex-col gap-4">
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Expertise</span>
-              <Link to="/tax-strategy" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Tax Strategy</Link>
-              <Link to="/withholding-tax-advisory" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Withholding Tax</Link>
+              <Link to="/international-taxation/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">International Taxation</Link>
+              <Link to="/international-taxation/withholding-tax-advisory/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Withholding Tax</Link>
               <Link to="/compliance" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Compliance</Link>
               <Link to="/fema" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">FEMA Services</Link>
               <Link to="/bookkeeping" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Bookkeeping</Link>
-              <Link to="/case-studies" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Case Studies</Link>
+              <Link to="/about-us/case-studies/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Case Studies</Link>
             </div>
             <div className="flex flex-col gap-4">
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Company</span>
@@ -55,10 +55,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-20 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-secondary text-xs opacity-70">
+          <p className="text-secondary text-xs">
             © {currentYear} CashStream Advisors. The Modern Archivist approach to financial precision.
           </p>
-          <div className="flex gap-6 text-xs text-secondary opacity-70">
+          <div className="flex gap-6 text-xs text-secondary">
             <span>LinkedIn</span>
             <span>Twitter</span>
           </div>

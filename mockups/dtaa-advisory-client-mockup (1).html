@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DTAA Advisory — Cash Stream Advisors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --forest:#274F23;
+  --forest-ink:#1c3a19;
+  --leaf:#66B760;
+  --cream:#F8F8F3;
+  --sage:#92AB9F;
+  --sage-tint:#eef2ef;
+  --olive:#97A06A;
+  --brown:#895233;
+  --white:#ffffff;
+  --ink:#22291f;
+  --ink-soft:#4b5548;
+  --line:#dfe3da;
+  --shadow: 0 12px 32px -18px rgba(39,79,35,0.35);
+  --radius: 4px;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Inter', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+  --maxw: 1120px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:var(--display);color:var(--forest-ink);margin:0;line-height:1.15;font-weight:600;}
+p{margin:0 0 1em;}
+a{color:var(--forest);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{padding:88px 0;position:relative;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brown);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--brown);display:inline-block;}
+.h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:18px;}
+.lede{color:var(--ink-soft);font-size:17px;max-width:640px;}
+a:focus-visible, button:focus-visible, summary:focus-visible{outline:3px solid var(--leaf); outline-offset:3px; border-radius:2px;}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+/* ============ UX ANNOTATION LAYER ============ */
+.ux-toggle{position:fixed; top:18px; right:18px; z-index:400; background:var(--forest-ink); color:var(--cream); border:none; font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; padding:10px 14px; border-radius:99px; cursor:pointer; box-shadow:var(--shadow); text-transform:uppercase; display:flex; align-items:center; gap:8px;}
+.ux-toggle::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf);}
+.ux-tag{display:none; position:absolute; top:14px; left:14px; z-index:20; background:var(--forest-ink); color:#fff; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:5px 10px; border-radius:3px; box-shadow:0 4px 10px rgba(0,0,0,.25);}
+body.show-ux .ux-tag{display:inline-flex; align-items:center; gap:6px;}
+body.show-ux .ux-region{outline:1.5px dashed rgba(39,79,35,.35); outline-offset:-1px;}
+
+/* ============ HEADER / BREADCRUMB ============ */
+.site-header{position:sticky; top:0; z-index:300; background:rgba(248,248,243,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+.header-inner{max-width:var(--maxw); margin:0 auto; padding:16px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display); font-weight:700; font-size:18px; color:var(--forest-ink);}
+.logo-mark{width:32px;height:32px;border-radius:7px;background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:700;}
+.nav-links{display:flex;gap:26px;font-size:13.5px;color:var(--ink-soft);}
+.nav-links a{text-decoration:none;color:var(--ink-soft);}
+.nav-links a:hover{color:var(--forest);}
+@media(max-width:980px){ .nav-links{display:none;} }
+.header-cta{font-size:13.5px; font-weight:600; color:var(--white); background:var(--forest); padding:10px 18px; border-radius:3px; text-decoration:none; white-space:nowrap;}
+.header-cta:hover{background:var(--forest-ink);}
+.breadcrumb-bar{background:var(--white); border-bottom:1px solid var(--line);}
+.breadcrumb{max-width:var(--maxw); margin:0 auto; padding:12px 32px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); letter-spacing:.02em;}
+.breadcrumb a{color:var(--ink-soft); text-decoration:none;}
+.breadcrumb a:hover{color:var(--forest);}
+.breadcrumb .sep{margin:0 6px; color:var(--sage);}
+.breadcrumb .current{color:var(--forest); font-weight:600;}
+
+/* ============ STICKY RAIL + MOBILE BAR + WHATSAPP ============ */
+.sticky-rail{position:fixed; right:26px; top:50%; transform:translateY(-50%); z-index:250; background:var(--white); border:1px solid var(--line); border-radius:8px; padding:20px 18px; width:198px; box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .35s ease;}
+.sticky-rail.visible{opacity:1; pointer-events:auto;}
+.sticky-rail .label{font-family:var(--mono); font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;}
+.sticky-rail .btn{width:100%; text-align:center; margin-bottom:8px;}
+@media(max-width:980px){ .sticky-rail{display:none;} }
+.mobile-cta-bar{display:none; position:fixed; bottom:0; left:0; right:0; z-index:260; background:var(--forest-ink); padding:12px 16px; box-shadow:0 -8px 24px rgba(0,0,0,.22); gap:10px;}
+@media(max-width:980px){ .mobile-cta-bar{display:flex;} body{padding-bottom:74px;} }
+.mobile-cta-bar a{flex:1; text-align:center; padding:12px 8px; border-radius:4px; font-weight:600; font-size:14px; text-decoration:none;}
+.mobile-cta-bar .btn-primary{background:var(--leaf); color:var(--forest-ink);}
+.mobile-cta-bar .btn-ghost-inv{border:1px solid rgba(255,255,255,.4); color:var(--cream);}
+.wa-float{position:fixed; left:24px; bottom:24px; z-index:270; width:54px; height:54px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); color:#fff; text-decoration:none;}
+@media(max-width:980px){ .wa-float{bottom:90px;} }
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-block; font-family:var(--body); font-weight:600; font-size:14.5px; padding:14px 26px; border-radius:3px; text-decoration:none; cursor:pointer; border:1px solid transparent; transition:transform .15s ease, background .15s ease;}
+.btn-primary{background:var(--leaf); color:var(--forest-ink);}
+.btn-primary:hover{background:#59a653; transform:translateY(-1px);}
+.btn-ghost{border-color:var(--forest); color:var(--forest); background:transparent;}
+.btn-ghost:hover{background:var(--forest); color:#fff;}
+.btn-white{background:#fff;color:var(--forest-ink);}
+.btn-white:hover{background:var(--sage-tint);}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+
+/* ============ HERO ============ */
+.hero{background:linear-gradient(180deg, var(--cream) 0%, #f1f1e8 100%); padding:76px 0 92px;}
+.hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;}
+@media(max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:40px;} }
+.hero h1{font-size:clamp(32px,4.2vw,48px); margin-bottom:20px; letter-spacing:-.01em;}
+.hero .lede{font-size:18px; max-width:600px; margin-bottom:30px;}
+.trust-line{margin-top:26px; padding-top:20px; border-top:1px solid var(--line); font-size:13.5px; color:var(--ink-soft); display:flex; align-items:center; gap:10px;}
+.trust-line::before{content:"✓"; color:var(--leaf); font-weight:700;}
+.hero-visual{position:relative; background:var(--forest); border-radius:10px; padding:40px; color:var(--cream); min-height:320px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow);}
+.hero-visual .seal{width:52px;height:52px;border-radius:50%;border:2px solid rgba(248,248,243,.35);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:#fff;margin-bottom:22px;}
+.hero-visual .doc-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#BFDABB;margin-bottom:8px;}
+.hero-visual .doc-title{font-family:var(--display);font-size:1.4rem;margin-bottom:20px;}
+.hero-visual .doc-row{display:flex;justify-content:space-between;font-size:13px;color:#D6E7D3;border-bottom:1px dashed rgba(255,255,255,.18);padding:9px 0;font-family:var(--mono);}
+.hero-visual .doc-row span:last-child{color:#fff;font-weight:600;}
+
+/* ============ TWO-COL + HIGHLIGHT CARD ============ */
+.two-col{display:grid; grid-template-columns:1.3fr 1fr; gap:50px; align-items:start; margin-top:10px;}
+.highlight-card{background:var(--forest); color:var(--cream); border-radius:8px; padding:30px 26px; font-family:var(--display); font-size:19px; line-height:1.5; font-style:italic; position:relative;}
+.highlight-card::before{content:"\201C"; font-family:var(--display); font-size:60px; color:var(--leaf); position:absolute; top:-6px; left:18px; font-style:normal;}
+@media(max-width:860px){ .two-col{grid-template-columns:1fr;} }
+
+/* ============ CALLOUT ============ */
+.callout{background:var(--sage-tint); border:1px solid var(--sage); border-left:4px solid var(--olive); border-radius:4px; padding:22px 26px; margin:28px 0;}
+.callout strong{color:var(--forest-ink);}
+.callout-title{font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--brown); font-weight:700; margin-bottom:8px; display:block;}
+
+/* ============ PROBLEM / ICON CARDS ============ */
+.card-grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px;}
+.problem-card{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:28px 24px; border-top:3px solid var(--brown);}
+.problem-card .n{font-family:var(--mono); font-size:13px; color:var(--brown); margin-bottom:12px; display:block;}
+.problem-card h3{font-size:17px; font-family:var(--body); font-weight:700; color:var(--forest-ink); margin-bottom:10px;}
+.problem-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+@media(max-width:860px){ .card-grid-3{grid-template-columns:1fr;} }
+
+/* ============ ICON GRID (methods / persona) ============ */
+.icon-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:36px;}
+.icon-tile{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:26px 22px;}
+.icon-badge{width:38px; height:38px; border-radius:8px; background:var(--sage-tint); color:var(--forest); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; margin-bottom:14px; font-size:16px;}
+.icon-tile h4{font-size:15.5px; font-family:var(--body); font-weight:700; margin-bottom:8px;}
+.icon-tile p{font-size:13.5px; color:var(--ink-soft); margin:0;}
+@media(max-width:980px){ .icon-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .icon-grid{grid-template-columns:1fr;} }
+
+/* ============ INSIGHT CARD (dark) ============ */
+.insight-card{background:var(--forest); color:var(--cream); border-radius:8px; padding:30px 32px; margin-top:26px;}
+.insight-card .tag{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--leaf); margin-bottom:10px; display:block;}
+.insight-card h4{color:#fff; font-family:var(--body); font-weight:700; font-size:16px; margin-bottom:8px;}
+.insight-card p{color:rgba(248,248,243,.82); font-size:14px; margin:0 0 12px; max-width:680px;}
+.insight-card a{color:var(--leaf); font-weight:600; font-size:13.5px; text-decoration:none;}
+
+/* ============ LEDGER (rate / country panel) ============ */
+.ledger{margin-top:34px; border:1px solid var(--forest); border-radius:8px; overflow:hidden; box-shadow:var(--shadow); background:var(--white);}
+.ledger-head{background:var(--forest); color:var(--cream); padding:18px 26px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;}
+.ledger-head .lh-title{font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.08em;}
+.tab-row{display:flex; flex-wrap:wrap; gap:8px;}
+.ctab{padding:8px 14px; border-radius:99px; border:1px solid rgba(248,248,243,.35); background:transparent; color:var(--cream); font-family:var(--mono); font-size:12px; cursor:pointer; display:flex; align-items:center; gap:6px;}
+.ctab.active{background:var(--leaf); color:var(--forest-ink); border-color:var(--leaf); font-weight:600;}
+.ledger-body{padding:30px 32px;}
+@media(max-width:640px){ .ledger-body{padding:22px 20px;} }
+.ledger-body .cname{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px;}
+.ledger-body h3{font-size:1.35rem; margin-bottom:14px;}
+.ledger-body .desc{font-size:14.5px; color:var(--ink-soft); margin-bottom:24px;}
+table.rate-table{width:100%; border-collapse:collapse; font-size:14.5px;}
+table.rate-table th{text-align:left; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); padding:12px 14px 12px 0; border-bottom:2px solid var(--line);}
+table.rate-table td{padding:14px 14px 14px 0; border-bottom:1px solid var(--line); color:var(--ink); vertical-align:top;}
+table.rate-table td.num{font-family:var(--mono); font-weight:600; color:var(--forest-ink); white-space:nowrap;}
+.ledger-footer{display:flex; align-items:center; justify-content:space-between; margin-top:22px; flex-wrap:wrap; gap:14px; font-size:12.5px; color:var(--ink-soft);}
+.ledger-footer a{font-weight:600; text-decoration:none;}
+
+/* ============ CHECKLIST / DOCUMENTS ============ */
+.doc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:36px;}
+@media(max-width:860px){ .doc-grid{grid-template-columns:1fr;} }
+.doc-col h4{font-family:var(--body); font-weight:700; font-size:15.5px; color:var(--forest-ink); margin-bottom:4px;}
+.doc-col .sub{font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); margin-bottom:14px; display:block;}
+.checklist{list-style:none; padding:0; margin:0; display:grid; gap:2px;}
+.checklist li{display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--ink-soft); padding:8px 0; border-bottom:1px solid var(--line);}
+.checklist li:last-child{border-bottom:none;}
+.check-box{width:16px; height:16px; border:2px solid var(--leaf); border-radius:3px; flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center;}
+.check-box::after{content:"✓"; color:var(--leaf); font-size:10px; font-weight:700;}
+
+/* ============ PROCESS PHASES (dark, 5-up) ============ */
+.process-section{background:var(--forest-ink); color:var(--cream);}
+.process-section .eyebrow{color:var(--leaf);}
+.process-section h2{color:var(--cream);}
+.process-section .lede{color:rgba(248,248,243,.72);}
+.phase-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:2px; margin-top:40px; background:rgba(255,255,255,.14); border-radius:8px; overflow:hidden;}
+.phase{background:var(--forest-ink); padding:28px 22px;}
+.phase .ph-num{font-family:var(--mono); font-size:13px; color:var(--leaf); margin-bottom:14px; display:block;}
+.phase h4{color:var(--white); font-family:var(--body); font-weight:700; font-size:15px; margin-bottom:9px;}
+.phase p{color:rgba(248,248,243,.72); font-size:13px; margin:0;}
+.phase a{color:var(--leaf); font-size:12.5px;}
+@media(max-width:980px){ .phase-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .phase-grid{grid-template-columns:1fr;} }
+
+/* ============ COMPARE TABLE (qualitative) ============ */
+table.compare-table{width:100%; border-collapse:collapse; font-size:13.5px;}
+table.compare-table th{text-align:left; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); padding:16px 18px; border-bottom:2px solid var(--line); background:var(--cream);}
+table.compare-table td{padding:18px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top;}
+table.compare-table td.rowlabel{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--brown); font-weight:700; background:var(--cream); white-space:nowrap;}
+table.compare-table td.self{background:var(--sage-tint);}
+@media(max-width:760px){ table.compare-table{font-size:12.5px;} table.compare-table th, table.compare-table td{padding:10px;} }
+
+/* ============ DARK STAT BAND ============ */
+.dark-stats{background:var(--forest-ink); color:var(--cream);}
+.dark-stats .eyebrow{color:var(--leaf);}
+.dark-stats h2{color:var(--cream);}
+.dark-stats .lede{color:rgba(248,248,243,.72);}
+.dstat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:36px; background:rgba(255,255,255,.12); border-radius:8px; overflow:hidden;}
+.dstat{background:var(--forest-ink); padding:30px 22px; text-align:center;}
+.dstat .big{font-family:var(--mono); font-weight:700; font-size:1.5rem; color:var(--leaf); margin-bottom:8px;}
+.dstat .lbl{font-size:12.5px; color:rgba(248,248,243,.68);}
+@media(max-width:800px){ .dstat-grid{grid-template-columns:1fr 1fr;} }
+
+/* ============ MISTAKES ============ */
+.mistakes-section{background:var(--sage-tint);}
+.mistake-list{display:grid; gap:16px; margin-top:34px;}
+.mistake-row{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:22px 26px; display:grid; grid-template-columns:50px 1fr; gap:18px; align-items:flex-start;}
+.mistake-row .n{font-family:var(--mono); font-size:15px; color:var(--brown); font-weight:700;}
+.mistake-row h4{font-family:var(--body); font-weight:700; font-size:15.5px; color:var(--forest-ink); margin:0 0 5px;}
+.mistake-row p{margin:0; font-size:14px; color:var(--ink-soft);}
+@media(max-width:640px){ .mistake-row{grid-template-columns:1fr;} }
+
+/* ============ CASE STUDIES ============ */
+.case-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px;}
+.case-card{background:var(--white); border:1px solid var(--line); border-top:3px solid var(--brown); border-radius:6px; padding:28px 26px;}
+.case-tag{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--brown); margin-bottom:12px; display:block;}
+.case-card h3{font-family:var(--body); font-weight:700; font-size:16.5px; margin-bottom:16px; color:var(--forest-ink);}
+.case-flow{display:flex; flex-direction:column; gap:10px; margin-bottom:20px;}
+.case-flow .row{display:flex; gap:10px; font-size:13px; color:var(--ink-soft);}
+.case-flow .k{font-family:var(--mono); font-weight:700; color:var(--forest); flex-shrink:0; width:64px; font-size:11px; text-transform:uppercase; padding-top:2px;}
+.case-outcomes{border-top:1px solid var(--line); padding-top:16px; display:flex; flex-direction:column; gap:10px;}
+.case-outcomes .out{display:flex; gap:8px; align-items:flex-start; font-size:13px; color:var(--ink);}
+.case-outcomes .out .ok{color:var(--leaf); font-weight:700; flex-shrink:0;}
+@media(max-width:760px){ .case-grid{grid-template-columns:1fr;} }
+
+/* ============ WHY CHOOSE / STAT TILES ============ */
+.stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:36px;}
+.stat-tile{background:var(--white); border:1px solid var(--line); border-left:4px solid var(--olive); border-radius:6px; padding:22px 20px;}
+.stat-tile h4{font-family:var(--body); font-weight:700; font-size:15px; color:var(--forest-ink); margin-bottom:8px;}
+.stat-tile p{font-size:13px; color:var(--ink-soft); margin:0;}
+@media(max-width:900px){ .stat-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:560px){ .stat-grid{grid-template-columns:1fr;} }
+
+/* ============ FAQ ============ */
+.faq-list{margin-top:34px; border-top:1px solid var(--line); max-width:820px;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; background:none; border:none; text-align:left; cursor:pointer; padding:20px 4px; display:flex; justify-content:space-between; align-items:flex-start; gap:20px; font-family:var(--body); font-weight:600; font-size:15.5px; color:var(--forest-ink);}
+.faq-q .num{font-family:var(--mono); font-size:12px; color:var(--ink-soft); margin-right:10px; font-weight:400;}
+.faq-q .plus{font-family:var(--mono); font-size:20px; color:var(--leaf); flex-shrink:0; transition:transform .2s ease; width:20px; text-align:center;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:1400px;}
+.faq-a-inner{padding:0 4px 22px; font-size:14.5px; color:var(--ink-soft); max-width:760px;}
+.faq-a-inner p{margin:0 0 12px;}
+.faq-a-inner ul{margin:0 0 12px; padding-left:20px;}
+.faq-a-inner li{margin-bottom:6px;}
+.faq-a-inner table{width:100%; border-collapse:collapse; margin:14px 0; font-size:13px;}
+.faq-a-inner table th{text-align:left; font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); padding:8px 10px 8px 0; border-bottom:1.5px solid var(--line);}
+.faq-a-inner table td{padding:9px 10px 9px 0; border-bottom:1px solid var(--line);}
+.faq-related{font-size:12px; color:var(--ink-soft); margin-top:6px; font-family:var(--mono);}
+.faq-related a, .faq-related .ph{color:var(--forest); font-weight:600; text-decoration:none; border-bottom:1px dashed var(--olive);}
+.faq-related .ph{color:var(--ink-soft); font-style:italic; border-bottom:1px dashed var(--sage);}
+.disclaimer{font-size:12.5px; color:var(--ink-soft); font-style:italic; margin-top:26px; max-width:760px;}
+
+/* ============ FINAL CTA ============ */
+.final-cta{background:var(--forest); color:var(--cream); text-align:center; padding:80px 0;}
+.final-cta h2{color:var(--white); font-size:clamp(26px,3.6vw,36px); margin-bottom:14px;}
+.final-cta p{color:rgba(248,248,243,.82); font-size:16px; margin-bottom:28px; max-width:600px; margin-left:auto; margin-right:auto;}
+.final-cta .cta-row{justify-content:center;}
+
+/* ============ FOOTER ============ */
+.mock-footer{background:var(--forest-ink); color:rgba(248,248,243,.55); padding:34px 0; font-size:12.5px;}
+.footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+.footer-logo{font-family:var(--display); color:#fff; font-size:15px;}
+
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1; transform:none;}
+
+</style>
+</head>
+<body>
+
+<button class="ux-toggle" onclick="document.body.classList.toggle('show-ux')">UX Annotations</button>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo"><span class="logo-mark">CSA</span>Cash Stream Advisors</div>
+    <nav class="nav-links">
+      <a href="#">International Taxation</a>
+      <a href="#">Tax Litigation</a>
+      <a href="#">FEMA Advisory</a>
+      <a href="#">Resources</a>
+      <a href="#">About Us</a>
+    </nav>
+    <a href="#final-cta" class="header-cta">Book a Consultation</a>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="#">International Taxation</a><span class="sep">→</span><span class="current">DTAA Advisory</span>
+  </div>
+</div>
+
+<div class="sticky-rail" id="stickyRail">
+  <div class="label">Ready when you are</div>
+  <a href="#" class="btn btn-primary">Book a Consultation</a>
+  <a href="#" class="btn btn-ghost">Talk to a Tax Expert</a>
+</div>
+
+<a href="#" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A7.85 7.85 0 0012.05 4a7.94 7.94 0 00-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 003.85 1h0a7.94 7.94 0 007.94-7.94 7.9 7.9 0 00-2.4-5.64zm-5.55 12.2h0a6.6 6.6 0 01-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1112.28-3.5 6.6 6.6 0 01-6.69 6.6zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64s-.31-.1-.44.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 01-1.6-.98 6 6 0 01-1.1-1.37c-.12-.2 0-.3.09-.4.1-.1.2-.23.3-.35.1-.12.13-.2.2-.33a.36.36 0 000-.35c-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38a.72.72 0 00-.52.24 2.2 2.2 0 00-.68 1.63c0 .96.7 1.9.8 2.02.1.13 1.37 2.1 3.33 2.94.46.2.83.32 1.11.4.47.15.9.13 1.24.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.04-.08-.18-.13-.38-.23z"/></svg>
+</a>
+
+<div class="mobile-cta-bar">
+  <a href="#" class="btn-primary">Book a Consultation</a>
+  <a href="#" class="btn-ghost-inv">Talk to an Expert</a>
+</div>
+
+<!-- HERO -->
+<section class="hero ux-region reveal" id="hero">
+  <span class="ux-tag">Hero Banner</span>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">International Taxation · DTAA Advisory</div>
+      <h1>Ensure your cross-border income is taxed correctly, not twice.</h1>
+      <p class="lede">Cash Stream Advisors helps individuals and businesses apply the right treaty benefits, reduce unnecessary tax exposure, and stay compliant with Indian tax laws.</p>
+      <div class="cta-row">
+        <a href="#" class="btn btn-primary">Book a Consultation</a>
+      </div>
+      <div class="trust-line">[X]+ Years in Practice · [X]+ DTAA Cases Handled · Advised Across [X] Treaty Countries</div>
+    </div>
+    <div class="hero-visual">
+      <div>
+        <div class="seal">DTAA</div>
+        <div class="doc-label">Treaty Position Summary</div>
+        <div class="doc-title">Cross-Border Income Review</div>
+      </div>
+      <div>
+        <div class="doc-row"><span>Applicable Treaty</span><span>India–USA DTAA</span></div>
+        <div class="doc-row"><span>Income Type</span><span>Fees for Technical Services</span></div>
+        <div class="doc-row"><span>Domestic Rate</span><span>20%</span></div>
+        <div class="doc-row"><span>Treaty Rate</span><span>10–15%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS DTAA -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Two-Column + Highlight Card</span>
+  <div class="wrap">
+    <div class="eyebrow">What Is DTAA Advisory</div>
+    <h2 class="h2">What is Double Taxation Avoidance Agreement (DTAA) Advisory?</h2>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:var(--forest-ink);">DTAA full form: Double Taxation Avoidance Agreement.</strong> Also commonly written as a double tax avoidance agreement. A Double Taxation Avoidance Agreement (DTAA) is a tax treaty between India and another country that helps prevent the same income from being taxed twice. Depending on the treaty and the nature of your income, it determines which country has the right to tax the income and whether you are eligible for a lower tax rate, exemption, or foreign tax credit under Sections 90 and 90A of the Income Tax Act, 1961.</p>
+        <p>DTAA Advisory helps you understand how these treaty provisions apply to your specific situation. NRIs earning income in India, foreign companies receiving payments from India, and Indian residents with overseas income all face the same underlying questions about how their income is taxed. The right advice can help you avoid unnecessary taxes, reduce withholding rates where applicable, and stay compliant with Indian tax regulations, a core part of managing DTAA income tax matters correctly.</p>
+        <p>At Cash Stream Advisors, we review your residency status, identify the applicable tax treaty, interpret the relevant treaty provisions, and guide you through the documentation required to claim treaty benefits, including the Tax Residency Certificate (TRC) and Form 10F where applicable. DTAA Advisory is part of our broader <a href="#"><strong>International Taxation</strong></a> practice, covering treaty planning, withholding tax, and cross-border compliance.</p>
+      </div>
+      <div class="highlight-card">Under Section 90(2), where a DTAA applies, you are entitled to whichever is more beneficial, the treaty rate or the rate under domestic tax law.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="ux-region reveal">
+  <span class="ux-tag">Problem Cards</span>
+  <div class="wrap">
+    <div class="eyebrow">The Problem</div>
+    <h2 class="h2">Are You Paying More Tax Than You Should?</h2>
+    <p class="lede">Many individuals and businesses with cross-border income unknowingly pay higher taxes simply because the correct DTAA benefits were never claimed. Understanding your treaty position before a payment is made can help you avoid unnecessary deductions and future compliance issues.</p>
+    <div class="card-grid-3">
+      <div class="problem-card"><span class="n">01</span><h3>Double Taxation</h3><p>The same income may be taxed in both countries if treaty benefits are not correctly applied.</p></div>
+      <div class="problem-card"><span class="n">02</span><h3>Excess Tax Deduction</h3><p>Without the required documents, payers often deduct tax at the higher domestic rate.</p></div>
+      <div class="problem-card"><span class="n">03</span><h3>Missed Treaty Benefits</h3><p>Not claiming available DTAA relief can result in avoidable tax costs and cash flow issues.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW RELIEF WORKS -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Icon Grid + Insight Card</span>
+  <div class="wrap">
+    <div class="eyebrow">How Relief Works</div>
+    <h2 class="h2">How DTAA Relief Works</h2>
+    <p class="lede">A Double Taxation Avoidance Agreement (DTAA) helps reduce or eliminate double taxation through different relief mechanisms. Depending on the applicable tax treaty, the nature of your income, and your tax residency, one or more of the following methods may apply.</p>
+    <div class="icon-grid">
+      <div class="icon-tile"><div class="icon-badge">01</div><h4>Exemption Method</h4><p>The income is taxed in only one country while the other country grants a complete exemption. Available only where the applicable DTAA specifically provides for it.</p></div>
+      <div class="icon-tile"><div class="icon-badge">02</div><h4>Foreign Tax Credit Method</h4><p>If both countries tax the same income, the country of residence generally allows you to claim credit for the tax already paid in the other country.</p></div>
+      <div class="icon-tile"><div class="icon-badge">03</div><h4>Deduction Method</h4><p>Where neither exemption nor full credit is available, foreign tax paid may be allowed as a deduction from taxable income in India under Section 91.</p></div>
+      <div class="icon-tile"><div class="icon-badge">04</div><h4>Reduced Treaty Tax Rate</h4><p>Many DTAAs prescribe concessional rates for dividends, interest, royalties, and Fees for Technical Services (FTS), subject to treaty conditions and documentation.</p></div>
+    </div>
+    <div class="callout">
+      <span class="callout-title">Section 90(2)</span>
+      Claiming any of these relief methods requires supporting documentation, primarily a Tax Residency Certificate (TRC) and Form 10F. Full details are covered under <a href="#documents"><strong>Documents You'll Typically Need</strong></a> below.
+    </div>
+    <div class="insight-card">
+      <span class="tag">Treaty Interpretation &amp; Compliance</span>
+      <h4>Two treaties rarely work the same way</h4>
+      <p>Technical service fees are taxed under a "Make Available" standard in the US and UK treaties, but not under most others. Getting the article right the first time avoids a rejected claim, a notice, or a documentation dispute later.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTRY COVERAGE (LEDGER, TABBED) -->
+<section class="ux-region reveal" id="countries">
+  <span class="ux-tag">Ledger — Interactive Tabs</span>
+  <div class="wrap">
+    <div class="eyebrow">Coverage</div>
+    <h2 class="h2">DTAA Treaty Rates Across Major Countries</h2>
+    <p class="lede">India has Double Taxation Avoidance Agreements with over 90 countries, and each treaty prescribes different tax rates for dividends, interest, royalties, fees for technical services, and other types of income. Select a country below to view an overview of commonly applicable treaty rates.</p>
+    <div class="ledger">
+      <div class="ledger-head">
+        <span class="lh-title">Treaty Snapshot</span>
+        <div class="tab-row" id="countryTabs">
+          <button class="ctab active" data-c="usa">🇺🇸 USA</button>
+          <button class="ctab" data-c="uk">🇬🇧 UK</button>
+          <button class="ctab" data-c="sg">🇸🇬 Singapore</button>
+          <button class="ctab" data-c="mu">🇲🇺 Mauritius</button>
+          <button class="ctab" data-c="de">🇩🇪 Germany</button>
+          <button class="ctab" data-c="au">🇦🇺 Australia</button>
+        </div>
+      </div>
+      <div class="ledger-body" id="countryBody"><!-- populated by JS --></div>
+    </div>
+    <div class="callout">
+      <span class="callout-title">Important</span>
+      Treaty rates vary depending on the applicable DTAA article, beneficial ownership conditions, nature of income, and supporting documentation such as the Tax Residency Certificate (TRC) and Form 10F. The figures shown above are for general guidance only and should not be relied upon without professional advice. You can view the <a href="https://www.incometaxindia.gov.in/Pages/utilities/Double-Taxation-Avoidance-Agreements.aspx" target="_blank" rel="noopener"><strong>official list of India's Double Taxation Avoidance Agreements</strong></a> on the Income Tax Department's website.
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Icon Grid</span>
+  <div class="wrap">
+    <div class="eyebrow">Who We Help</div>
+    <h2 class="h2">Who Can Benefit from DTAA Advisory?</h2>
+    <p class="lede">Individuals earning income across borders and businesses making international transactions both turn to our DTAA advisory services to understand treaty benefits, reduce unnecessary taxes, and stay compliant with Indian tax laws.</p>
+    <div class="icon-grid">
+      <div class="icon-tile"><div class="icon-badge">🇮🇳</div><h4>NRIs</h4><p>You're in the right place if you earn rental income, interest, dividends, or capital gains in India and want to claim DTAA benefits, reduce TDS, or avoid double taxation.</p></div>
+      <div class="icon-tile"><div class="icon-badge">🏢</div><h4>Foreign Companies</h4><p>You're in the right place if your business receives royalty, FTS, interest, or other payments from India and wants to apply the correct treaty withholding rates.</p></div>
+      <div class="icon-tile"><div class="icon-badge">🌍</div><h4>Expats &amp; Global Professionals</h4><p>You're in the right place if you've recently moved to or from India and need guidance on tax residency, employment income, or cross-border tax obligations.</p></div>
+      <div class="icon-tile"><div class="icon-badge">💼</div><h4>Residents with Foreign Income</h4><p>You're in the right place if you earn salary, dividends, investments, or other income abroad and need help claiming Foreign Tax Credit (FTC).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="ux-region reveal" id="documents">
+  <span class="ux-tag">Document Checklist — 3 Column</span>
+  <div class="wrap">
+    <div class="eyebrow">Preparation</div>
+    <h2 class="h2">Documents You'll Typically Need</h2>
+    <p class="lede">The documents required depend on your residency status, the type of income, and the DTAA benefit you're claiming. Having these documents ready can help avoid delays and ensure your treaty claim is supported with the correct evidence.</p>
+    <div class="doc-grid">
+      <div class="doc-col">
+        <h4>Identity &amp; Residency</h4>
+        <span class="sub">Establishes identity and tax residency</span>
+        <ul class="checklist">
+          <li><span class="check-box"></span>PAN Card</li>
+          <li><span class="check-box"></span>Passport</li>
+          <li><span class="check-box"></span>Proof of Tax Residency (if applicable)</li>
+        </ul>
+      </div>
+      <div class="doc-col">
+        <h4>Income &amp; Transaction</h4>
+        <span class="sub">Determines the nature and source of income</span>
+        <ul class="checklist">
+          <li><span class="check-box"></span>Rental Agreement or Lease Deed</li>
+          <li><span class="check-box"></span>Employment Contract or Service Agreement</li>
+          <li><span class="check-box"></span>Royalty or FTS Agreement</li>
+          <li><span class="check-box"></span>Dividend or Interest Statements</li>
+          <li><span class="check-box"></span>Bank Statements</li>
+          <li><span class="check-box"></span>Sale Agreement (for capital gains, where applicable)</li>
+        </ul>
+      </div>
+      <div class="doc-col">
+        <h4>DTAA Specific</h4>
+        <span class="sub">Required to claim treaty benefits</span>
+        <ul class="checklist">
+          <li><span class="check-box"></span>Tax Residency Certificate (TRC) issued by your country of residence</li>
+          <li><span class="check-box"></span>Form 10F (where applicable)</li>
+          <li><span class="check-box"></span>Foreign Tax Payment Proof (for FTC claims)</li>
+          <li><span class="check-box"></span>Supporting declarations or treaty-related documents, if required</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <span class="callout-title">Important</span>
+      A Tax Residency Certificate (TRC) establishes that you are a tax resident of the treaty country, while Form 10F provides additional information required to claim DTAA benefits when the TRC does not contain all the prescribed details. Without a valid TRC, treaty relief is generally not available, so it's worth starting this document early. Depending on your situation, additional documentation may also be required.
+      <br><br>
+      <strong style="color:var(--forest-ink);">Note:</strong> Effective 1 April 2026, Form 10F has been renumbered as <a href="https://www.incometax.gov.in/iec/foportal/newformpage/forms/form41" target="_blank" rel="noopener"><strong>Form 41</strong></a> under Section 159(8) of the Income Tax Act, 2025, read with Rule 75 of the Income Tax Rules, 2026. Form 10F continues to apply for income received up to 31 March 2026; Form 41 applies from 1 April 2026 onward.
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section ux-region reveal">
+  <span class="ux-tag">Process Phases — 5 Stage</span>
+  <div class="wrap">
+    <div class="eyebrow">Process</div>
+    <h2 class="h2">How Our DTAA Advisory Process Works</h2>
+    <p class="lede">Every cross-border tax situation is different, whether you're asking how NRIs can claim benefits under DTAA, or how a foreign company should apply the correct treaty rate. We begin by understanding your residency status and source of income before identifying the applicable DTAA provisions, documentation requirements, and available treaty benefits.</p>
+    <div class="phase-grid">
+      <div class="phase"><span class="ph-num">Step 1</span><h4>Assess Your Tax Residency</h4><p>We determine your residential status, country of tax residence, and the nature of your income to understand whether DTAA benefits are available.</p></div>
+      <div class="phase"><span class="ph-num">Step 2</span><h4>Identify the Applicable DTAA</h4><p>We review the relevant treaty and identify the article applicable to your income, dividends, interest, royalties, FTS, salary, or capital gains.</p></div>
+      <div class="phase"><span class="ph-num">Step 3</span><h4>Review &amp; Prepare Documentation</h4><p>We help you obtain and review the required documents, including the TRC and Form 10F/Form 41, along with supporting declarations.</p></div>
+      <div class="phase"><span class="ph-num">Step 4</span><h4>Apply the Correct Treaty Benefit</h4><p>We compare the DTAA provisions with the Income Tax Act and apply the reduced treaty rate or claim Foreign Tax Credit, depending on your circumstances.</p></div>
+      <div class="phase"><span class="ph-num">Step 5</span><h4>Ongoing Compliance &amp; Support</h4><p>Where required, we assist with return filing, treaty disclosures, FTC claims, and responses to tax notices to help ensure continued compliance.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE HIGHLIGHT -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Insight Card</span>
+  <div class="wrap">
+    <div class="insight-card" style="margin-top:0;">
+      <span class="tag">Keeping Up with Evolving DTAA Rules</span>
+      <h4>Two treaties rarely stay the same for long</h4>
+      <p>International tax rules are constantly evolving. The Multilateral Instrument has already modified how the Principal Purpose Test applies to several of India's treaties, including the UK and Singapore agreements, meaning a structure that qualified for treaty benefits a few years ago may need to be reassessed today. We track these changes, along with GAAR interaction and evolving CBDT guidance, so your treaty position stays defensible, not just technically correct on paper.</p>
+      <a href="#">Read our guide on MLI, PPT &amp; GAAR →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Comparison Table</span>
+  <div class="wrap">
+    <div class="eyebrow">Clarity</div>
+    <h2 class="h2">DTAA Advisory vs. Related Services</h2>
+    <p class="lede">International tax matters often overlap, but each service solves a different problem. The table below can help you identify which service best matches your requirements.</p>
+    <div class="ledger">
+      <table class="compare-table">
+        <thead><tr><th></th><th>DTAA Advisory</th><th>Lower Deduction Certificate</th><th>Withholding Tax Advisory</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="rowlabel">Who It's For</td>
+            <td class="self">NRIs, foreign companies, expats, and Indian residents with cross-border income.</td>
+            <td>Taxpayers expecting excess TDS deduction and seeking a lower or nil deduction certificate under Section 197.</td>
+            <td>Indian businesses and foreign entities making or receiving payments subject to TDS.</td>
+          </tr>
+          <tr>
+            <td class="rowlabel">When You'd Use It</td>
+            <td class="self">When you need to determine treaty benefits, avoid double taxation, or claim Foreign Tax Credit (FTC).</td>
+            <td>When you want tax to be deducted at a lower rate instead of claiming a refund later.</td>
+            <td>When you need to determine the correct TDS applicability and withholding rate on cross-border payments.</td>
+          </tr>
+          <tr>
+            <td class="rowlabel">What You Get</td>
+            <td class="self">DTAA interpretation, treaty eligibility, TRC &amp; Form 10F guidance, Foreign Tax Credit support, and cross-border tax advisory.</td>
+            <td>Assistance in obtaining a Lower Deduction Certificate, reducing TDS at source, and improving cash flow.</td>
+            <td>Advisory on withholding tax obligations, treaty rates, compliance requirements, and documentation for domestic and international payments.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ledger-footer" style="padding:20px 26px;justify-content:center;">Still not sure which service fits your situation? <a href="#" class="btn btn-ghost" style="padding:9px 18px;margin-left:10px;">Book a Consultation</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE DARK -->
+<section class="dark-stats ux-region reveal">
+  <span class="ux-tag">Dark Stat Band</span>
+  <div class="wrap">
+    <div class="eyebrow">What to Expect</div>
+    <h2 class="h2">Typical Processing Timelines</h2>
+    <p class="lede">Processing times vary based on your country of residence, documentation, and the applicable DTAA. Starting early can help ensure treaty benefits are available before tax is deducted.</p>
+    <div class="dstat-grid">
+      <div class="dstat"><div class="big">2–8 Weeks</div><div class="lbl">Tax Residency Certificate (TRC)</div></div>
+      <div class="dstat"><div class="big">1–3 Days</div><div class="lbl">Form 10F Preparation &amp; Filing</div></div>
+      <div class="dstat"><div class="big">Before Payment</div><div class="lbl">Apply DTAA Treaty Benefits</div></div>
+      <div class="dstat"><div class="big">During ITR Filing</div><div class="lbl">Claim Foreign Tax Credit (FTC)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISTAKES -->
+<section class="mistakes-section ux-region reveal">
+  <span class="ux-tag">Row Cards</span>
+  <div class="wrap">
+    <div class="eyebrow">Avoid These</div>
+    <h2 class="h2">Common Mistakes That Can Delay or Deny DTAA Benefits</h2>
+    <p class="lede">Many treaty claims fail not because the benefit is unavailable, but because of incorrect documentation, timing, or interpretation. Here are some of the most common issues we help clients avoid.</p>
+    <div class="mistake-list">
+      <div class="mistake-row"><span class="n">01</span><div><h4>Claiming DTAA Without a TRC</h4><p>A valid Tax Residency Certificate is generally required before treaty benefits can be applied.</p></div></div>
+      <div class="mistake-row"><span class="n">02</span><div><h4>Missing Form 10F</h4><p>Even with a TRC, failing to submit Form 10F can result in the treaty rate being denied.</p></div></div>
+      <div class="mistake-row"><span class="n">03</span><div><h4>Applying the Wrong Treaty Article</h4><p>Different income types are governed by different treaty provisions, each with its own conditions and tax rates.</p></div></div>
+      <div class="mistake-row"><span class="n">04</span><div><h4>Missing Foreign Tax Credit Deadlines</h4><p>Late filing of the required forms can lead to the rejection of an otherwise valid Foreign Tax Credit claim.</p></div></div>
+      <div class="mistake-row"><span class="n">05</span><div><h4>Assuming DTAA Benefits Are Automatic</h4><p>Treaty relief must be properly claimed and supported with the required documentation.</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <p class="lede" style="margin:0 auto 18px;text-align:center;">Avoid these issues before they cost you time and money.</p>
+      <a href="#" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Case Study Cards</span>
+  <div class="wrap">
+    <div class="eyebrow">Proof</div>
+    <h2 class="h2">Real Client Success Stories</h2>
+    <p class="lede">Every DTAA case is different, but the right treaty analysis and documentation can significantly reduce unnecessary tax costs and compliance issues. Here are a few examples of how we've helped clients with cross-border tax matters.</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">US-Based NRI · Rental Income</span>
+        <h3>Reducing TDS on Rental Income for a US Based NRI</h3>
+        <div class="case-flow">
+          <div class="row"><span class="k">Situation</span><span>A US resident earning rental income from India was facing tax deduction at the standard domestic rate.</span></div>
+          <div class="row"><span class="k">Action</span><span>Reviewed the India-US DTAA, obtained the required Tax Residency Certificate, and completed the necessary documentation.</span></div>
+        </div>
+        <div class="case-outcomes">
+          <div class="out"><span class="ok">✓</span><span>[X]% → [Y]% — TDS reduced (pending real figures)</span></div>
+          <div class="out"><span class="ok">✓</span><span>Cash flow improvement of approx. ₹[amount]/year (pending)</span></div>
+          <div class="out"><span class="ok">✓</span><span>Fully compliant DTAA claim, TRC and Form 10F on file</span></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">Singapore Company · FTS Payment</span>
+        <h3>Applying the Correct Treaty Rate for a Singapore Company</h3>
+        <div class="case-flow">
+          <div class="row"><span class="k">Situation</span><span>A Singapore based company receiving fees for technical services from an Indian client was being taxed at the domestic withholding rate.</span></div>
+          <div class="row"><span class="k">Action</span><span>Determined the applicable treaty provisions and completed the required documentation.</span></div>
+        </div>
+        <div class="case-outcomes">
+          <div class="out"><span class="ok">✓</span><span>[X]% → [Y]% withholding reduced (pending real figures)</span></div>
+          <div class="out"><span class="ok">✓</span><span>Approx. tax saving of ₹[amount] on the transaction (pending)</span></div>
+          <div class="out"><span class="ok">✓</span><span>Correct treaty rate applied before payment, avoiding a refund claim</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;"><a href="#" class="btn btn-primary">Book a Consultation</a></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="ux-region reveal">
+  <span class="ux-tag">Stat Tiles</span>
+  <div class="wrap">
+    <div class="eyebrow">Why Cash Stream Advisors</div>
+    <h2 class="h2">As One of the Trusted DTAA Consultants in India</h2>
+    <p class="lede">We know cross-border taxation requires more than knowing the law. It requires understanding tax treaties, documentation requirements, and practical compliance. Our team helps individuals and businesses navigate DTAA provisions with clear advice tailored to their specific situation.</p>
+    <div class="stat-grid">
+      <div class="stat-tile"><h4>International Tax Expertise</h4><p>[X]+ years advising NRIs, foreign companies, expatriates, and Indian residents with cross-border income</p></div>
+      <div class="stat-tile"><h4>Treaty Focused Advice</h4><p>Support across major DTAA jurisdictions including the US, UK, Singapore, Mauritius, Germany, Australia, and many other treaty countries.</p></div>
+      <div class="stat-tile"><h4>End to End Assistance</h4><p>From determining treaty eligibility to documentation, withholding tax planning, Foreign Tax Credit claims, and tax return support.</p></div>
+      <div class="stat-tile"><h4>Practical &amp; Compliant</h4><p>Advice based on current tax laws, treaty provisions, and documentation requirements to help reduce disputes and compliance risks.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;"><a href="#" class="btn btn-primary">Book a Consultation</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">FAQ Accordion — JS Driven</span>
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="h2">DTAA Advisory — Frequently Asked Questions</h2>
+    <div class="faq-list" id="faqList"><!-- populated by JS --></div>
+    <p class="disclaimer">This page provides general guidance on DTAA provisions and does not constitute personalised tax advice. Please book a consultation for advice specific to your situation.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta" class="final-cta ux-region reveal">
+  <span class="ux-tag" style="background:rgba(255,255,255,.15);">CTA Banner</span>
+  <div class="wrap">
+    <h2>Avoid Paying More Tax Than You Need To</h2>
+    <p>Our international tax advisors help you claim the right DTAA benefits while ensuring complete compliance with Indian tax laws. If a payment or filing deadline is approaching, starting your documentation review early can prevent excess TDS or a delayed refund.</p>
+    <div class="cta-row"><a href="#" class="btn btn-white">Book a Consultation</a></div>
+  </div>
+</section>
+
+<div class="mock-footer">
+  <div class="wrap footer-row">
+    <div class="footer-logo">Cash Stream Advisors</div>
+    <div>© 2026 Cash Stream Advisors — DTAA Advisory · International Taxation</div>
+  </div>
+</div>
+
+<script>
+  const rail = document.getElementById('stickyRail');
+  const hero = document.querySelector('.hero');
+  window.addEventListener('scroll', () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 0) rail.classList.add('visible'); else rail.classList.remove('visible');
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ===== country data (approved content, verbatim) ===== */
+  const countries = {
+    usa:{ flag:"🇺🇸", name:"India USA DTAA",
+      desc:"The India USA DTAA helps individuals and businesses avoid double taxation on income earned between India and the United States. The treaty includes a Limitation of Benefits (Article 24) clause and a 'Make Available' test that determines whether technical service fees qualify for the reduced rate, both are common points of dispute that require careful documentation.",
+      rows:[["Dividends","Up to 15%"],["Interest","Up to 15%"],["Royalties","10% – 15%"],["Fees for Technical Services (FTS)","10% – 15% (subject to the Make Available clause)"]] },
+    uk:{ flag:"🇬🇧", name:"India UK DTAA",
+      desc:"The India UK DTAA provides tax relief for individuals and businesses earning income across India and the United Kingdom. It covers dividends, interest, royalties, employment income, capital gains, and technical services while helping taxpayers claim treaty benefits and foreign tax credit where applicable. Since 2020, the UK treaty has also been modified by the Multilateral Instrument's Principal Purpose Test, which can affect eligibility for treaty benefits in certain structured arrangements.",
+      rows:[["Dividends","Up to 15%"],["Interest","Up to 15%"],["Royalties","10% – 15%"],["Fees for Technical Services (FTS)","Treaty specific"]] },
+    sg:{ flag:"🇸🇬", name:"India Singapore DTAA",
+      desc:"The India Singapore DTAA is widely used by businesses, investors, and multinational companies involved in cross-border transactions. The treaty provides specific rules for dividends, royalties, Fees for Technical Services, business income, and capital gains. Capital gains on shares acquired before April 2017 may still qualify for grandfathered exemption under the treaty's transitional provisions, subject to a Limitation of Benefits condition.",
+      rows:[["Dividends","Up to 10%"],["Interest","Up to 15%"],["Royalties","10%"],["Fees for Technical Services (FTS)","10%"]] },
+    mu:{ flag:"🇲🇺", name:"India Mauritius DTAA",
+      desc:"The India Mauritius DTAA is commonly referred to for cross-border investments, capital gains, dividend income, and tax residency matters. Professional interpretation is often required to determine treaty eligibility and the applicable tax treatment. Post-2017 investments are generally subject to India's capital gains tax rather than the treaty exemption that applied to earlier holdings, so the acquisition date of the underlying asset matters significantly.",
+      rows:[["Dividends","Treaty dependent"],["Interest","Up to 7.5% – 15%"],["Royalties","Up to 15%"],["Fees for Technical Services (FTS)","Treaty dependent"]] },
+    de:{ flag:"🇩🇪", name:"India Germany DTAA",
+      desc:"The India Germany DTAA helps residents and businesses avoid double taxation on income earned between India and Germany. The treaty covers royalties, technical services, employment income, business profits, dividends, interest, and foreign tax credit claims. Business profits are taxable in India only where a Permanent Establishment exists, making the nature of the German entity's presence in India a key factor in the analysis.",
+      rows:[["Dividends","Up to 10% – 15%"],["Interest","Up to 10%"],["Royalties","Up to 10%"],["Fees for Technical Services (FTS)","Treaty dependent"]] },
+    au:{ flag:"🇦🇺", name:"India Australia DTAA",
+      desc:"The India Australia DTAA provides tax relief for individuals, professionals, and businesses earning income across India and Australia. It contains provisions relating to employment income, business profits, royalties, dividends, interest, capital gains, and permanent establishments. Independent personal services and short-term employment assignments are treated differently under this treaty than under several other treaties, so the specific article that applies depends heavily on the nature of the engagement.",
+      rows:[["Dividends","Up to 15%"],["Interest","Up to 15%"],["Royalties","Up to 10%"],["Fees for Technical Services (FTS)","Treaty dependent"]] }
+  };
+  const countryBody = document.getElementById('countryBody');
+  function renderCountry(key){
+    const c = countries[key];
+    countryBody.innerHTML = `
+      <div class="cname">${c.flag} Treaty Snapshot</div>
+      <h3>${c.name}</h3>
+      <p class="desc">${c.desc}</p>
+      <table class="rate-table">
+        <thead><tr><th>Income Type</th><th>Indicative Treaty Rate*</th></tr></thead>
+        <tbody>${c.rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td></tr>`).join('')}</tbody>
+      </table>
+      <div class="ledger-footer">
+        <span>*Illustrative rates for general guidance only</span>
+        <a href="#">Learn More: ${c.name} Guide →</a>
+      </div>`;
+  }
+  document.querySelectorAll('#countryTabs .ctab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('#countryTabs .ctab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      renderCountry(tab.dataset.c);
+    });
+  });
+  renderCountry('usa');
+
+  /* ===== FAQ data (approved content, verbatim; related links shown inline) ===== */
+  const faqs = [
+    { q:"How do I know if I actually need a DTAA consultant, or can I just claim the benefit myself when filing my return?",
+      a:`<p>For straightforward cases, you may be able to claim DTAA benefits yourself. However, when your income involves multiple countries, large transactions, foreign companies, or treaty interpretation, professional advice can help reduce the risk of errors, excess tax deduction, and compliance issues.</p>
+         <p>You should consider professional advice if:</p>
+         <ul><li>You receive income from more than one country.</li><li>You are unsure which DTAA applies.</li><li>Tax has already been deducted at a higher rate.</li><li>You are claiming Foreign Tax Credit.</li><li>You have received a notice from the Income Tax Department.</li><li>Your transaction involves a foreign company, NRI, or cross-border investment.</li></ul>
+         <p>A proper review before filing is often simpler and more cost effective than correcting mistakes later.</p>`,
+      related:[{t:"Withholding Tax Advisory",link:true},{t:"Foreign Tax Credit blog post",link:false}] },
+    { q:"TDS was already deducted at the full rate on my payment. Can I still claim the DTAA benefit after the fact?",
+      a:`<p>Yes. If TDS has been deducted at the domestic rate instead of the applicable treaty rate, you may still be able to recover the excess tax, provided you satisfy the conditions of the applicable DTAA and maintain the required documentation.</p>
+         <p>Typical process:</p>
+         <ul><li>Verify your eligibility under the applicable DTAA.</li><li>Collect documents such as your Tax Residency Certificate and Form 10F where required.</li><li>File your Indian income tax return and claim the excess tax as a refund.</li></ul>
+         <p>The exact process depends on the nature of your income, the treaty involved, and your tax residency status.</p>`,
+      related:[{t:"Non-Resident / Foreign Company TDS Refund",link:true}] },
+    { q:"My deductor refused to apply the treaty rate even though I gave them a Tax Residency Certificate. Why would that happen?",
+      a:`<p>A Tax Residency Certificate is an important document, but it is not always the only requirement. The deductor must also be satisfied that all conditions for claiming treaty benefits have been met.</p>
+         <p>Common reasons include:</p>
+         <ul><li>Form 10F was not submitted.</li><li>Supporting declarations were incomplete.</li><li>The treaty article was interpreted differently.</li><li>The deductor was uncertain about treaty eligibility.</li><li>Required documents were submitted after the payment was processed.</li></ul>
+         <p>Reviewing the complete documentation before the payment is made can significantly reduce the chances of the treaty rate being rejected.</p>`,
+      related:[{t:"Tax Residency Certificate Guide",link:false},{t:"Form 10F Guide",link:false},{t:"Withholding Tax Advisory",link:true}] },
+    { q:"Do I need a fresh Tax Residency Certificate every financial year, or does one certificate cover multiple years?",
+      a:`<p>In most cases, a Tax Residency Certificate is issued for a specific tax year. If you wish to claim DTAA benefits in a different financial year, a fresh certificate is generally required.</p>
+         <table><thead><tr><th>Situation</th><th>Requirement</th></tr></thead><tbody>
+         <tr><td>Claiming benefits for the same tax year</td><td>Existing TRC may be valid</td></tr>
+         <tr><td>Claiming benefits in a new tax year</td><td>Fresh TRC is generally required</td></tr>
+         <tr><td>Multiple payments within the same year</td><td>The same TRC may usually be used, subject to the deductor's requirements</td></tr>
+         </tbody></table>
+         <p>Always verify the validity period mentioned on your certificate before relying on it.</p>`,
+      related:[{t:"Tax Residency Certificate Guide",link:false}] },
+    { q:"Does a US IRS Form 6166 count as a valid Tax Residency Certificate for claiming DTAA benefits in India?",
+      a:`<p>Yes. IRS Form 6166 is generally accepted as the Tax Residency Certificate issued by the United States tax authorities for claiming benefits under the India United States Double Taxation Avoidance Agreement.</p>
+         <p>You may also need:</p>
+         <ul><li>Form 10F, where applicable</li><li>Permanent Account Number if required</li><li>Supporting declarations requested by the deductor</li><li>Documents relating to the nature of income</li></ul>
+         <p>Meeting the documentation requirements before the payment is made helps ensure that the applicable treaty rate can be considered.</p>`,
+      related:[{t:"India USA DTAA",link:false},{t:"Form 10F Guide",link:false},{t:"Tax Residency Certificate Guide",link:false}] },
+    { q:"How far in advance of a payment date should I start the DTAA documentation process?",
+      a:`<p>Ideally, you should begin the DTAA documentation process several weeks before the payment date. This allows enough time to obtain a Tax Residency Certificate, complete Form 10F where required, and resolve any documentation issues before the deductor processes the payment.</p>
+         <table><thead><tr><th>Stage</th><th>Recommended Time</th></tr></thead><tbody>
+         <tr><td>Review DTAA eligibility</td><td>Before the payment is agreed</td></tr>
+         <tr><td>Obtain Tax Residency Certificate</td><td>As early as possible</td></tr>
+         <tr><td>Complete Form 10F and supporting documents</td><td>Before the payment date</td></tr>
+         <tr><td>Share documents with the deductor</td><td>Before tax is deducted</td></tr>
+         </tbody></table>
+         <p>Starting early can help avoid higher TDS and lengthy refund procedures.</p>`,
+      related:[{t:"Tax Residency Certificate Guide",link:false},{t:"Form 10F Guide",link:false}] },
+    { q:"Is it actually cheaper to just pay the higher TDS and claim a refund later, instead of paying for DTAA advisory upfront?",
+      a:`<p>Although claiming a refund later is possible, it is not always the most cost effective approach. Excess TDS can impact your cash flow and may require additional compliance, follow-up, and waiting time before the refund is processed.</p>
+         <table><thead><tr><th>Apply DTAA Before Payment</th><th>Claim Refund Later</th></tr></thead><tbody>
+         <tr><td>Lower tax deducted upfront</td><td>Higher tax deducted initially</td></tr>
+         <tr><td>Better cash flow</td><td>Funds remain blocked until refund</td></tr>
+         <tr><td>Fewer compliance issues</td><td>Additional return filing and refund process</td></tr>
+         <tr><td>Lower risk of documentation issues</td><td>Greater possibility of delays and notices</td></tr>
+         </tbody></table>
+         <p>The right approach depends on the transaction, treaty, and documentation available.</p>`,
+      related:[{t:"Non-Resident / Foreign Company TDS Refund",link:true}] },
+    { q:"Is DTAA advisory a one-time service, or do I need to engage a CA every year?",
+      a:`<p>The right approach depends on the nature of your income and transactions. Some taxpayers may only require advice for a single transaction, while others benefit from an annual review to remain compliant with changing tax laws and treaty provisions.</p>
+         <p>You may need a one-time review if:</p>
+         <ul><li>You sold property in India.</li><li>You received a one-time payment.</li><li>You completed a single cross-border transaction.</li></ul>
+         <p>An annual review may be helpful if:</p>
+         <ul><li>You earn recurring income from India.</li><li>You receive dividends, royalties, or interest every year.</li><li>Your business has ongoing international transactions.</li><li>Your tax residency changes over time.</li></ul>`,
+      related:[{t:"International Taxation (Pillar Page)",link:true}] },
+    { q:"Can I claim DTAA benefits on my India income if I do not have a PAN?",
+      a:`<p>Under Section 206AA of the Income Tax Act, a higher withholding rate, commonly 20%, generally applies if you don't have a PAN, regardless of the DTAA rate you would otherwise qualify for. Beyond that, eligibility depends on your income type, the applicable tax provisions, and whether you satisfy the conditions prescribed under Indian tax law. Treaty benefits may still be available in certain situations, but additional compliance requirements will usually apply.</p>
+         <p>Before making a claim, consider:</p>
+         <ul><li>The type of income earned.</li><li>The applicable DTAA.</li><li>Whether a Tax Residency Certificate is available.</li><li>Whether Form 10F is required.</li><li>The withholding tax provisions applicable to your case.</li></ul>
+         <p>A review of your facts helps determine the most appropriate approach.</p>`,
+      related:[{t:"Lower Deduction Certificate",link:true},{t:"Withholding Tax Advisory",link:true}] },
+    { q:"I am a tax resident of one country but a citizen of a different country. Which country's DTAA with India applies to me?",
+      a:`<p>In most cases, DTAA benefits are determined by your tax residency, not your citizenship. The country where you are considered a tax resident generally decides which treaty with India may apply.</p>
+         <table><thead><tr><th>Citizenship</th><th>Tax Residency</th></tr></thead><tbody>
+         <tr><td>Your nationality</td><td>The country where you are treated as a tax resident</td></tr>
+         <tr><td>Usually does not determine DTAA eligibility</td><td>Generally determines which DTAA can be claimed</td></tr>
+         <tr><td>Rarely changes your treaty position</td><td>Usually supported by a Tax Residency Certificate</td></tr>
+         </tbody></table>
+         <p>If your residency changes during the year or you qualify as a resident in more than one country, additional treaty provisions may need to be considered.</p>`,
+      related:[{t:"NRI Tax and Relocation Advisory",link:true},{t:"Tax Residency Certificate Guide",link:false},{t:"Country Specific DTAA Guides",link:false}] },
+    { q:"Does having a liaison office in India automatically create a Permanent Establishment under the treaty?",
+      a:`<p>No. Simply having a liaison office in India does not automatically create a Permanent Establishment under a Double Taxation Avoidance Agreement. The tax treatment depends on the nature of the activities carried out and the provisions of the applicable treaty.</p>
+         <p>Factors that determine Permanent Establishment:</p>
+         <ul><li>Activities performed by the liaison office</li><li>Authority to negotiate or conclude contracts</li><li>Nature and duration of business operations</li><li>Relevant article of the applicable DTAA</li><li>Judicial precedents and treaty interpretation</li></ul>
+         <p>A detailed review is often required before concluding whether a Permanent Establishment exists.</p>`,
+      related:[{t:"Foreign Company Tax Return in India",link:true},{t:"International Taxation (Pillar Page)",link:true}] },
+    { q:"My employer is sending me to India for an 8 month assignment. Will my salary be taxed in India under the treaty?",
+      a:`<p>Possibly. The taxability of your salary depends on the applicable DTAA, your period of stay in India, who pays your salary, and whether your employer has a Permanent Establishment in India.</p>
+         <p>Your tax position generally depends on:</p>
+         <ul><li>Number of days spent in India</li><li>Country of tax residency</li><li>Employer's presence in India</li><li>Who ultimately bears the salary cost</li><li>The relevant article of the applicable DTAA</li></ul>
+         <p>Since treaty conditions vary from country to country, it is advisable to review your position before your assignment begins.</p>`,
+      related:[{t:"NRI Tax and Relocation Advisory",link:true},{t:"India USA DTAA",link:false},{t:"India UK DTAA",link:false},{t:"India Singapore DTAA",link:false}] },
+    { q:"I have received a notice questioning my DTAA claim. What is the first thing I should do?",
+      a:`<p>Do not ignore the notice or respond without reviewing the facts. Understanding the reason for the notice and gathering the correct documentation is the first step towards preparing an appropriate response.</p>
+         <p>Recommended steps:</p>
+         <ul><li>Read the notice carefully.</li><li>Identify the issue raised by the Income Tax Department.</li><li>Collect your Tax Residency Certificate, Form 10F, and supporting documents.</li><li>Review the applicable DTAA provisions.</li><li>Submit a complete and timely response.</li></ul>
+         <p>A well prepared response supported by proper documentation can significantly improve the chances of resolving the matter efficiently.</p>`,
+      related:[{t:"Tax Litigation",link:true},{t:"Assessment and Scrutiny",link:true}] },
+    { q:"My TDS was deducted at the domestic rate instead of the lower treaty rate. How do I get the excess refunded?",
+      a:`<p>If you qualify for treaty benefits, you may be able to recover the excess TDS by filing an Indian income tax return and claiming a refund. The exact process depends on your residency status, the nature of your income, and the applicable DTAA.</p>
+         <p>Refund process:</p>
+         <ul><li>Confirm your eligibility under the applicable DTAA.</li><li>Gather documents such as the Tax Residency Certificate, Form 10F where applicable, and TDS certificate.</li><li>File your Indian income tax return.</li><li>Claim the excess TDS as a refund.</li><li>Respond to any queries raised during processing, if required.</li></ul>
+         <p>Maintaining complete documentation can help avoid unnecessary delays in processing the refund.</p>`,
+      related:[{t:"Non-Resident / Foreign Company TDS Refund",link:true},{t:"Withholding Tax Advisory",link:true}] },
+    { q:"My Foreign Tax Credit claim was rejected because Form 67 was filed late. Is there any way to still get the credit?",
+      a:`<p>A delayed filing of Form 67 does not always mean that Foreign Tax Credit is permanently unavailable. The outcome depends on the facts of your case, the applicable legal provisions, and the latest judicial decisions.</p>
+         <p>The next steps usually involve:</p>
+         <ul><li>Reviewing the reason for the rejection</li><li>Examining whether the delay can be explained or remedied</li><li>Evaluating relevant judicial precedents</li><li>Determining the most appropriate course of action based on your facts</li></ul>
+         <p>Since every case is different, the available remedies should be evaluated before taking further action.</p>`,
+      related:[{t:"Foreign Tax Credit Guide",link:false},{t:"Form 67 Guide",link:false},{t:"Tax Litigation",link:true}] }
+  ];
+
+  const faqList = document.getElementById('faqList');
+  faqList.innerHTML = faqs.map((f,i)=>`
+    <div class="faq-item ${i===0?'open':''}">
+      <button class="faq-q"><span><span class="num">${String(i+1).padStart(2,'0')}</span>${f.q}</span><span class="plus">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        ${f.a}
+        <div class="faq-related">Related: ${f.related.map(r=> r.link ? `<a href="#">${r.t}</a>` : `<span class="ph">${r.t}</span>`).join(' · ')}</div>
+      </div></div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click', ()=>{
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

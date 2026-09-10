@@ -171,7 +171,7 @@ const faqs = [
   },
 ];
 
-const pageUrl = 'https://cashstreamadvisors.com/withholding-tax-advisory';
+const pageUrl = 'https://cashstreamadvisors.com/international-taxation/withholding-tax-advisory/';
 
 function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
@@ -246,7 +246,7 @@ export default function WithholdingTax() {
                 "@type": "ListItem",
                 position: 2,
                 name: "International Taxation",
-                item: "https://cashstreamadvisors.com/tax-strategy",
+                item: "https://cashstreamadvisors.com/international-taxation/",
               },
               {
                 "@type": "ListItem",
@@ -313,7 +313,16 @@ export default function WithholdingTax() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-7 space-y-5 text-secondary leading-relaxed">
               <p>
-                Withholding tax in India, also known as TDS on foreign payments, applies whenever your business pays a non-resident or foreign company for royalty, technical services, interest, professional fees, or similar income. Section 195 of the Income Tax Act requires you to deduct tax at the time of crediting the amount to the recipient's account, or at the time of payment, whichever happens first. This deducted amount is deposited with the government on the recipient's behalf.
+                Withholding tax in India, also known as TDS on foreign payments, applies whenever your business pays a non-resident or foreign company for royalty, technical services, interest, professional fees, or similar income.{' '}
+                <a
+                  href="https://www.incometaxindia.gov.in/withholding-tax"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-primary underline underline-offset-2"
+                >
+                  Section 195 of the Income Tax Act
+                </a>{' '}
+                requires you to deduct tax at the time of crediting the amount to the recipient's account, or at the time of payment, whichever happens first. This deducted amount is deposited with the government on the recipient's behalf.
               </p>
               <p>
                 Unlike most domestic TDS provisions, Section 195 has no minimum threshold. Even a small one-time payment can attract withholding tax if the income is taxable in India. The rate depends on the nature of the payment and whether a tax treaty between India and the recipient's country works out better for the recipient than the Income Tax Act rate.
@@ -388,8 +397,8 @@ export default function WithholdingTax() {
               <p className="text-secondary text-[15px] leading-relaxed flex-grow">
                 If you're the one being paid and want TDS deducted at a reduced rate upfront, that's handled through a Lower Deduction Certificate.
               </p>
-              <Link to="/tax-strategy" className="self-start font-bold text-primary text-sm flex items-center gap-2 hover:gap-3 transition-all">
-                Visit Tax Strategy for treaty &amp; LDC advisory
+              <Link to="/international-taxation/lower-deduction-certificate/" className="self-start font-bold text-primary text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                Visit Lower Deduction Certificate advisory
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -531,8 +540,8 @@ export default function WithholdingTax() {
             </p>
             <p>
               For a full breakdown of how DTAA benefits work, see our{' '}
-              <Link to="/tax-strategy" className="font-bold text-primary underline underline-offset-4">
-                Tax Strategy
+              <Link to="/international-taxation/dtaa-advisory/" className="font-bold text-primary underline underline-offset-4">
+                DTAA Advisory
               </Link>{' '}
               page.
             </p>
@@ -731,8 +740,8 @@ export default function WithholdingTax() {
             </p>
             <ConsultButtons invert />
             <div className="mt-10 text-sm text-on-primary/70 relative z-10">
-              <Link to="/tax-strategy" className="hover:underline mx-2">
-                Tax Strategy
+              <Link to="/international-taxation/" className="hover:underline mx-2">
+                International Taxation
               </Link>
               ·
               <Link to="/compliance" className="hover:underline mx-2">

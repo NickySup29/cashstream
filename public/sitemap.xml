@@ -6,12 +6,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/tax-strategy</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cashstreamadvisors.com/withholding-tax-advisory</loc>
+    <loc>https://cashstreamadvisors.com/international-taxation/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -26,7 +21,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/international-taxation/withholding-tax-advisory/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/international-taxation/foreign-company-tds-refund/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/international-taxation/foreign-company-tax-return/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/international-taxation/nri-tax-relocation-advisory/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -66,7 +76,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/case-studies</loc>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -89,6 +99,76 @@
     <loc>https://cashstreamadvisors.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/nri-property-sale-tds-cut/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-consulting-nil-tds/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/us-nri-rental-dtaa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/singapore-fts-treaty-rate/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/german-royalty-correct-tds/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/saas-nil-tds-cloud-vendor/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/uk-nri-tds-refund/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-it-tds-refund/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/epc-contractor-pe-attribution/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/us-tech-royalty-substantiation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/uae-return-rnor-timing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/us-property-repatriation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/royalty-restructuring-20-to-10/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/multi-year-relocation-journey/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/blog/mca-updates</loc>

@@ -5,11 +5,13 @@ const SITE_URL = 'https://cashstreamadvisors.com';
 
 const staticRoutes = [
   '/',
-  '/tax-strategy',
-  '/withholding-tax-advisory',
+  '/international-taxation/',
   '/international-taxation/dtaa-advisory/',
   '/international-taxation/lower-deduction-certificate/',
+  '/international-taxation/withholding-tax-advisory/',
   '/international-taxation/foreign-company-tds-refund/',
+  '/international-taxation/foreign-company-tax-return/',
+  '/international-taxation/nri-tax-relocation-advisory/',
   '/compliance',
   '/fema',
   '/bookkeeping',

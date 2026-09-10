@@ -7,7 +7,6 @@ import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
 
 const pageUrl = 'https://cashstreamadvisors.com/international-taxation/dtaa-advisory/';
-const treatyReference = 'Sections 90, 90A, and 91 (the treaty relief provisions under Indian tax law)';
 const form67Reference = 'Form 67';
 
 const stripHtml = (value: string) =>
@@ -20,7 +19,7 @@ const stripHtml = (value: string) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-const faqData = [
+const faqData: { q: string; a: string; schemaText?: string }[] = [
   {
     q: 'How do I know if I actually need a DTAA consultant, or can I just claim the benefit myself when filing my return?',
     a: '<p>For straightforward cases, you may be able to claim DTAA benefits yourself. However, when your income involves multiple countries, large transactions, foreign companies, or treaty interpretation, professional advice can help reduce the risk of errors, excess tax deduction, and compliance issues.</p><p>You should consider professional advice if:</p><ul><li>You receive income from more than one country.</li><li>You are unsure which DTAA applies.</li><li>Tax has already been deducted at a higher rate.</li><li>You are claiming Foreign Tax Credit.</li><li>You have received a notice from the Income Tax Department.</li><li>Your transaction involves a foreign company, NRI, or cross-border investment.</li></ul><p>A proper review before filing is often simpler and more cost effective than correcting mistakes later.</p>',
@@ -36,14 +35,18 @@ const faqData = [
   {
     q: 'Do I need a fresh Tax Residency Certificate every financial year, or does one certificate cover multiple years?',
     a: '<p>In most cases, a Tax Residency Certificate is issued for a specific tax year. If you wish to claim DTAA benefits in a different financial year, a fresh certificate is generally required.</p><table><thead><tr><th>Situation</th><th>Requirement</th></tr></thead><tbody><tr><td>Claiming benefits for the same tax year</td><td>Existing TRC may be valid</td></tr><tr><td>Claiming benefits in a new tax year</td><td>Fresh TRC is generally required</td></tr><tr><td>Multiple payments within the same year</td><td>The same TRC may usually be used, subject to the deductor\'s requirements</td></tr></tbody></table><p>Always verify the validity period mentioned on your certificate before relying on it.</p>',
+    schemaText:
+      "In most cases, a Tax Residency Certificate is issued for a specific tax year. If you wish to claim DTAA benefits in a different financial year, a fresh certificate is generally required. Claiming benefits for the same tax year, an existing TRC may be valid. Claiming benefits in a new tax year, a fresh TRC is generally required. Multiple payments within the same year, the same TRC may usually be used, subject to the deductor's requirements. Always verify the validity period mentioned on your certificate before relying on it.",
   },
   {
     q: 'Does a US IRS Form 6166 count as a valid Tax Residency Certificate for claiming DTAA benefits in India?',
-    a: '<p>Yes. IRS Form 6166 is generally accepted as the Tax Residency Certificate issued by the United States tax authorities for claiming benefits under the India–US Double Taxation Avoidance Agreement.</p><p>You may also need:</p><ul><li>Form 10F, where applicable</li><li>Permanent Account Number if required</li><li>Supporting declarations requested by the deductor</li><li>Documents relating to the nature of income</li></ul><p>Meeting the documentation requirements before the payment is made helps ensure that the applicable treaty rate can be considered.</p>',
+    a: '<p>Yes. IRS Form 6166 is generally accepted as the Tax Residency Certificate issued by the United States tax authorities for claiming benefits under the India-US Double Taxation Avoidance Agreement.</p><p>You may also need:</p><ul><li>Form 10F, where applicable.</li><li>Permanent Account Number if required.</li><li>Supporting declarations requested by the deductor.</li><li>Documents relating to the nature of income.</li></ul><p>Meeting the documentation requirements before the payment is made helps ensure that the applicable treaty rate can be considered.</p>',
   },
   {
     q: 'How far in advance of a payment date should I start the DTAA documentation process?',
     a: '<p>Ideally, you should begin the DTAA documentation process several weeks before the payment date. This allows enough time to obtain a Tax Residency Certificate, complete Form 10F where required, and resolve any documentation issues before the deductor processes the payment.</p><table><thead><tr><th>Stage</th><th>Recommended Time</th></tr></thead><tbody><tr><td>Review DTAA eligibility</td><td>Before the payment is agreed</td></tr><tr><td>Obtain Tax Residency Certificate</td><td>As early as possible</td></tr><tr><td>Complete Form 10F and supporting documents</td><td>Before the payment date</td></tr><tr><td>Share documents with the deductor</td><td>Before tax is deducted</td></tr></tbody></table><p>Starting early can help avoid higher TDS and lengthy refund procedures.</p>',
+    schemaText:
+      'Ideally, you should begin the DTAA documentation process several weeks before the payment date. This allows enough time to obtain a Tax Residency Certificate, complete Form 10F where required, and resolve any documentation issues before the deductor processes the payment. Review DTAA eligibility before the payment is agreed. Obtain the Tax Residency Certificate as early as possible. Complete Form 10F and supporting documents before the payment date. Share documents with the deductor before tax is deducted. Starting early can help avoid higher TDS and lengthy refund procedures.',
   },
   {
     q: 'What is the DTAA full form and why does it matter?',
@@ -56,6 +59,8 @@ const faqData = [
   {
     q: 'Is it actually cheaper to just pay the higher TDS and claim a refund later, instead of paying for DTAA advisory upfront?',
     a: '<p>Although claiming a refund later is possible, it is not always the most cost effective approach. Excess TDS can impact your cash flow and may require additional compliance, follow-up, and waiting time before the refund is processed.</p><table><thead><tr><th>Apply DTAA Before Payment</th><th>Claim Refund Later</th></tr></thead><tbody><tr><td>Lower tax deducted upfront</td><td>Higher tax deducted initially</td></tr><tr><td>Better cash flow</td><td>Funds remain blocked until refund</td></tr><tr><td>Fewer compliance issues</td><td>Additional return filing and refund process</td></tr><tr><td>Lower risk of documentation issues</td><td>Greater possibility of delays and notices</td></tr></tbody></table><p>The right approach depends on the transaction, treaty, and documentation available.</p>',
+    schemaText:
+      'Although claiming a refund later is possible, it is not always the most cost effective approach. Excess TDS can impact your cash flow and may require additional compliance, follow-up, and waiting time before the refund is processed. Applying the DTAA rate before payment means lower tax deducted upfront, better cash flow, fewer compliance issues, and lower risk of documentation issues. Claiming a refund later means higher tax deducted initially, funds remaining blocked until the refund arrives, additional return filing, and a greater possibility of delays and notices. The right approach depends on the transaction, treaty, and documentation available.',
   },
   {
     q: 'Is DTAA advisory a one-time service, or do I need to engage a CA every year?',
@@ -68,6 +73,8 @@ const faqData = [
   {
     q: 'I am a tax resident of one country but a citizen of a different country. Which country\'s DTAA with India applies to me?',
     a: '<p>In most cases, DTAA benefits are determined by your tax residency, not your citizenship. The country where you are considered a tax resident generally decides which treaty with India may apply.</p><table><thead><tr><th>Citizenship</th><th>Tax Residency</th></tr></thead><tbody><tr><td>Your nationality</td><td>The country where you are treated as a tax resident</td></tr><tr><td>Usually does not determine DTAA eligibility</td><td>Generally determines which DTAA can be claimed</td></tr><tr><td>Rarely changes your treaty position</td><td>Usually supported by a Tax Residency Certificate</td></tr></tbody></table><p>If your residency changes during the year or you qualify as a resident in more than one country, additional treaty provisions may need to be considered.</p>',
+    schemaText:
+      'In most cases, DTAA benefits are determined by your tax residency, not your citizenship. The country where you are considered a tax resident generally decides which treaty with India may apply. Citizenship is your nationality and usually does not determine DTAA eligibility. Tax residency is the country where you are treated as a resident, and it generally determines which DTAA can be claimed and is usually supported by a Tax Residency Certificate. If your residency changes during the year or you qualify as a resident in more than one country, additional treaty provisions may need to be considered.',
   },
   {
     q: 'Does having a liaison office in India automatically create a Permanent Establishment under the treaty?',
@@ -75,7 +82,7 @@ const faqData = [
   },
   {
     q: 'My employer is sending me to India for an 8 month assignment. Will my salary be taxed in India under the treaty?',
-    a: '<p>Possibly. The taxability of your salary depends on the applicable DTAA, your period of stay in India, who pays your salary, and whether your employer has a Permanent Establishment in India.</p><p>Your tax position generally depends on:</p><ul><li>Number of days spent in India</li><li>Country of tax residency</li><li>Employer\'s presence in India</li><li>Who ultimately bears the salary cost</li><li>The relevant article of the applicable DTAA</li></ul><p>Since treaty conditions vary from country to country, it is advisable to review your position before your assignment begins.</p>',
+    a: '<p>Possibly. The taxability of your salary depends on the applicable DTAA, your period of stay in India, who pays your salary, and whether your employer has a Permanent Establishment in India.</p><p>Your tax position generally depends on:</p><ul><li>Number of days spent in India.</li><li>Country of tax residency.</li><li>Employer\'s presence in India.</li><li>Who ultimately bears the salary cost.</li><li>The relevant article of the applicable DTAA.</li></ul><p>Since treaty conditions vary from country to country, it is advisable to review your position before your assignment begins.</p>',
   },
   {
     q: 'I have received a notice questioning my DTAA claim. What is the first thing I should do?',
@@ -232,7 +239,7 @@ export default function DtaaAdvisory() {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'International Taxation',
-                item: 'https://cashstreamadvisors.com/tax-strategy',
+                item: 'https://cashstreamadvisors.com/international-taxation/',
               },
               {
                 '@type': 'ListItem',
@@ -250,7 +257,7 @@ export default function DtaaAdvisory() {
               name: faq.q,
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: stripHtml(faq.a),
+                text: faq.schemaText ?? stripHtml(faq.a),
               },
             })),
           },
@@ -299,7 +306,7 @@ export default function DtaaAdvisory() {
                 </a>
               </div>
               <div className="text-sm text-secondary">
-                [X]+ Years in Practice · [X]+ DTAA Cases Handled · Advised Across [X] Treaty Countries
+                6+ Years in Practice · 150+ DTAA Cases Handled · Advised Across 25+ Treaty Countries
               </div>
             </motion.div>
           </div>
@@ -348,14 +355,15 @@ export default function DtaaAdvisory() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-5 text-secondary leading-relaxed text-lg">
+              {/* PENDING CA CONFIRMATION */}
               <p>
-                DTAA full form: Double Taxation Avoidance Agreement. Also commonly written as a double tax avoidance agreement. A Double Taxation Avoidance Agreement (DTAA) is a tax treaty between India and another country that helps prevent the same income from being taxed twice. Depending on the treaty and the nature of your income, it determines which country has the right to tax the income and whether you are eligible for a lower tax rate, exemption, or foreign tax credit under Sections 90 and 90A of the Income Tax Act, 1961.
+                DTAA full form: Double Taxation Avoidance Agreement. Also commonly written as a double tax avoidance agreement. A Double Taxation Avoidance Agreement (DTAA) is a tax treaty between India and another country that helps prevent the same income from being taxed twice. Depending on the treaty and the nature of your income, it determines which country has the right to tax the income and whether you are eligible for a lower tax rate, exemption, or foreign tax credit under Sections 90 and 90A of the Income Tax Act, 1961 (Section 159 of the Income Tax Act, 2025).
               </p>
               <p>
                 DTAA Advisory helps you understand how these treaty provisions apply to your specific situation. NRIs earning income in India, foreign companies receiving payments from India, and Indian residents with overseas income all face the same underlying questions about how their income is taxed. The right advice can help you avoid unnecessary taxes, reduce withholding rates where applicable, and stay compliant with Indian tax regulations, a core part of managing DTAA income tax matters correctly.
               </p>
               <p>
-                At Cash Stream Advisors, we review your residency status, identify the applicable tax treaty, interpret the relevant treaty provisions, and guide you through the documentation required to claim treaty benefits, including the Tax Residency Certificate (TRC) and Form 10F where applicable. DTAA Advisory is part of our broader <Link to="/tax-strategy" className="font-bold text-primary underline-offset-4 hover:underline">International Taxation</Link> practice, covering treaty planning, withholding tax, and cross-border compliance.
+                At Cash Stream Advisors, we review your residency status, identify the applicable tax treaty, interpret the relevant treaty provisions, and guide you through the documentation required to claim treaty benefits, including the Tax Residency Certificate (TRC) and Form 10F where applicable. DTAA Advisory is part of our broader <Link to="/international-taxation/" className="font-bold text-primary underline-offset-4 hover:underline">International Taxation</Link> practice, covering treaty planning, withholding tax, and cross-border compliance.
               </p>
             </div>
             <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/10 p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
@@ -415,7 +423,8 @@ export default function DtaaAdvisory() {
             {[
               ['Exemption Method', 'The income is taxed in only one country while the other country grants a complete exemption. Available only where the applicable DTAA specifically provides for it.'],
               ['Foreign Tax Credit Method', 'If both countries tax the same income, the country of residence generally allows you to claim credit for the tax already paid in the other country.'],
-              ['Deduction Method', 'Where neither exemption nor full credit is available, foreign tax paid may be allowed as a deduction from taxable income in India under Section 91.'],
+              // PENDING CA CONFIRMATION
+              ['Deduction Method', 'Where neither exemption nor full credit is available, foreign tax paid may be allowed as a deduction from taxable income in India under Section 91 (Section 160 of the Income Tax Act, 2025).'],
               ['Reduced Treaty Tax Rate', 'Many DTAAs prescribe concessional rates for dividends, interest, royalties, and Fees for Technical Services (FTS), subject to treaty conditions and documentation.'],
             ].map(([title, body]) => (
               <div key={title} className="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
@@ -517,7 +526,7 @@ export default function DtaaAdvisory() {
               </div>
 
               <div className="mt-5 flex flex-col gap-3 text-sm text-secondary">
-                <p>Important: Treaty rates vary depending on the applicable DTAA article, beneficial ownership conditions, nature of income, and supporting documentation such as the Tax Residency Certificate (TRC) and Form 10F. The figures shown above are for general guidance only and should not be relied upon without professional advice. You can view the <a href="https://www.incometaxindia.gov.in" target="_blank" rel="noopener noreferrer" className="font-bold text-primary underline-offset-4 hover:underline">official list of India's Double Taxation Avoidance Agreements</a> on the Income Tax Department's website.</p>
+                <p>Important: Treaty rates vary depending on the applicable DTAA article, beneficial ownership conditions, nature of income, and supporting documentation such as the Tax Residency Certificate (TRC) and Form 10F. The figures shown above are for general guidance only and should not be relied upon without professional advice. You can view the <a href="https://www.incometaxindia.gov.in/dtaa" target="_blank" rel="noopener noreferrer" className="font-bold text-primary underline-offset-4 hover:underline">official list of India's Double Taxation Avoidance Agreements</a> on the Income Tax Department's website.</p>
               </div>
             </div>
           </div>
@@ -659,9 +668,13 @@ export default function DtaaAdvisory() {
                     <div className="space-y-2">
                       <Link to="/international-taxation/lower-deduction-certificate/" className="font-bold text-primary underline-offset-4 hover:underline">Lower Deduction Certificate</Link>
                       <br />
-                      <Link to="/withholding-tax-advisory" className="font-bold text-primary underline-offset-4 hover:underline">Withholding Tax Advisory</Link>
+                      <Link to="/international-taxation/withholding-tax-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">Withholding Tax Advisory</Link>
                       <br />
                       <Link to="/international-taxation/foreign-company-tds-refund/" className="font-bold text-primary underline-offset-4 hover:underline">TDS Refund for NRIs &amp; Foreign Companies</Link>
+                      <br />
+                      <Link to="/international-taxation/foreign-company-tax-return/" className="font-bold text-primary underline-offset-4 hover:underline">Foreign Company Tax Return in India</Link>
+                      <br />
+                      <Link to="/international-taxation/nri-tax-relocation-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">NRI Tax &amp; Relocation Advisory</Link>
                     </div>
                   </td>
                 </tr>
@@ -832,7 +845,7 @@ export default function DtaaAdvisory() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              ['International Tax Expertise', '[X]+ years advising NRIs, foreign companies, expatriates, and Indian residents with cross-border income'],
+              ['International Tax Expertise', '6+ years advising NRIs, foreign companies, expatriates, and Indian residents with cross-border income'],
               ['Treaty Focused Advice', 'Support across major DTAA jurisdictions including the US, UK, Singapore, Mauritius, Germany, Australia, and many other treaty countries.'],
               ['End to End Assistance', 'From determining treaty eligibility to documentation, withholding tax planning, Foreign Tax Credit claims, and tax return support.'],
               ['Practical & Compliant', 'Advice based on current tax laws, treaty provisions, and documentation requirements to help reduce disputes and compliance risks.'],

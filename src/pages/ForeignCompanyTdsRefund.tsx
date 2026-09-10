@@ -236,7 +236,7 @@ const caseStudies = [
   },
 ];
 
-const faqs: { q: string; a: string }[] = [
+const faqs: { q: string; a: string; schemaText?: string }[] = [
   {
     q: 'How long will my TDS refund take?',
     a: '<p>Typically 3 to 9 months from a verified, correctly filed return. Cases selected for scrutiny, or with documentation mismatches, take longer.</p>',
@@ -272,6 +272,8 @@ const faqs: { q: string; a: string }[] = [
   {
     q: 'Which ITR form should I file?',
     a: '<table><thead><tr><th>Applicant</th><th>Typical ITR Form</th></tr></thead><tbody><tr><td>NRI individual, no business/professional income</td><td>ITR-2</td></tr><tr><td>NRI individual with business/professional income</td><td>ITR-3</td></tr><tr><td>Partnership firms / LLPs</td><td>ITR-5</td></tr><tr><td>Foreign companies</td><td>ITR-6</td></tr></tbody></table>',
+    schemaText:
+      'NRI individuals with no business or professional income typically file ITR-2. NRI individuals with business or professional income file ITR-3. Partnership firms and LLPs file ITR-5. Foreign companies file ITR-6.',
   },
   {
     q: 'Can a foreign company claim a TDS refund without a permanent establishment in India?',
@@ -482,8 +484,7 @@ export default function ForeignCompanyTdsRefund() {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'International Taxation',
-                // Temporary stand-in until the dedicated hub page exists.
-                item: 'https://cashstreamadvisors.com/tax-strategy',
+                item: 'https://cashstreamadvisors.com/international-taxation/',
               },
               {
                 '@type': 'ListItem',
@@ -501,7 +502,7 @@ export default function ForeignCompanyTdsRefund() {
               name: faq.q,
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: stripHtml(faq.a),
+                text: faq.schemaText ?? stripHtml(faq.a),
               },
             })),
           },
@@ -649,8 +650,14 @@ export default function ForeignCompanyTdsRefund() {
           </div>
           <p className="mt-6 text-secondary text-[15px] leading-relaxed max-w-3xl">
             If your situation involves ongoing India operations, a project office, or questions about
-            permanent establishment, our <strong className="text-primary">Foreign Company Tax Return in India</strong> page
-            covers that in depth. This page focuses specifically on recovering excess TDS.
+            permanent establishment, our{' '}
+            <Link
+              to="/international-taxation/foreign-company-tax-return/"
+              className="font-bold text-primary underline-offset-4 hover:underline"
+            >
+              Foreign Company Tax Return in India
+            </Link>{' '}
+            page covers that in depth. This page focuses specifically on recovering excess TDS.
           </p>
         </motion.div>
       </section>
@@ -779,7 +786,16 @@ export default function ForeignCompanyTdsRefund() {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <span className="text-secondary text-[15px] italic max-w-2xl">
               That's the gap we close. We track your case on the Income Tax portal, reconcile it
-              against TRACES where relevant, and follow up directly with the department, so a stalled
+              against{' '}
+              <a
+                href="https://traces.tdscpc.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="not-italic font-semibold text-primary underline underline-offset-2"
+              >
+                TRACES
+              </a>{' '}
+              where relevant, and follow up directly with the department, so a stalled
               case doesn't sit untouched for months.
             </span>
             <a
@@ -929,9 +945,9 @@ export default function ForeignCompanyTdsRefund() {
             </div>
             <div className="space-y-4">
               {[
-                { num: '[X]+', lbl: 'NRI and foreign-company refund cases handled' },
-                { num: '[US · UK · UAE · SG]', lbl: 'treaty jurisdictions covered' },
-                { num: '[X]', lbl: 'years assisting non-resident clients with Indian tax compliance' },
+                { num: '250+', lbl: 'NRI and foreign-company refund cases handled' },
+                { num: 'US · UK · UAE · SG', lbl: 'treaty jurisdictions covered' },
+                { num: '6+', lbl: 'years assisting non-resident clients with Indian tax compliance' },
               ].map((tile) => (
                 <div
                   key={tile.lbl}
@@ -1078,11 +1094,17 @@ export default function ForeignCompanyTdsRefund() {
                 DTAA Advisory
               </Link>
               ·
-              <Link to="/withholding-tax-advisory" className="text-on-primary/90 hover:underline mx-2">
+              <Link to="/international-taxation/withholding-tax-advisory/" className="text-on-primary/90 hover:underline mx-2">
                 Withholding Tax Advisory
               </Link>
-              ·<span className="mx-2">Foreign Company Tax Return in India</span>·
-              <span className="mx-2">NRI Tax & Relocation Advisory</span>
+              ·
+              <Link to="/international-taxation/foreign-company-tax-return/" className="text-on-primary/90 hover:underline mx-2">
+                Foreign Company Tax Return in India
+              </Link>
+              ·
+              <Link to="/international-taxation/nri-tax-relocation-advisory/" className="text-on-primary/90 hover:underline mx-2">
+                NRI Tax & Relocation Advisory
+              </Link>
             </p>
           </div>
         </motion.div>

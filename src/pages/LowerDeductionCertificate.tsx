@@ -5,6 +5,15 @@ import { MessageCircle, Mail, ArrowRight, Plus } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
 
+// Strips tags so an HTML FAQ answer can still go into the FAQPage JSON-LD as
+// plain text. Answers here only contain inline markup (a single link), so
+// removing tags outright keeps the sentence intact.
+const stripHtml = (value: string) =>
+  value
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
 const benefits = [
   {
     title: 'Pay TDS on estimated liability',
@@ -238,20 +247,17 @@ const caseStudies = [
     tag: 'NRI Property Sale',
     title: 'Reducing excess TDS on sale proceeds',
     body: 'How proper estimated-tax computation brought a property sale’s TDS down to the client’s actual liability instead of the standard rate.',
+    href: '/about-us/case-studies/nri-property-sale-tds-cut/',
   },
   {
     tag: 'Foreign Company',
     title: 'Payments received from India',
     body: 'How a foreign company secured an appropriate deduction rate on royalty and technical service fee income.',
-  },
-  {
-    tag: 'NRI, End-to-End',
-    title: 'From application to approved certificate',
-    body: 'The challenge, filing process, and outcome achieved through proper computation and timely submission.',
+    href: '/about-us/case-studies/foreign-consulting-nil-tds/',
   },
 ];
 
-const faqs = [
+const faqs: { q: string; a: string; html?: boolean }[] = [
   {
     q: 'What is a Lower Deduction Certificate?',
     a: 'A certificate issued by the Income Tax Department under Section 197 (Section 395(1) of the Income Tax Act, 2025), allowing tax to be deducted at a lower rate or, where approved, a nil rate instead of the standard TDS rate.',
@@ -270,7 +276,8 @@ const faqs = [
   },
   {
     q: 'How do I download it from TRACES?',
-    a: 'Log in to TRACES, navigate to Section 197 certificate services (Section 395(1) of the Income Tax Act, 2025), locate the approved certificate, and download it to share with your deductor.',
+    html: true,
+    a: 'Log in to <a href="https://traces.tdscpc.gov.in/" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary underline underline-offset-2">TRACES</a>, navigate to Section 197 certificate services (Section 395(1) of the Income Tax Act, 2025), locate the approved certificate, and download it to share with your deductor.',
   },
   {
     q: 'Can an NRI apply?',
@@ -375,8 +382,7 @@ export default function LowerDeductionCertificate() {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'International Taxation',
-                // Temporary stand-in until the dedicated hub page exists.
-                item: 'https://cashstreamadvisors.com/tax-strategy',
+                item: 'https://cashstreamadvisors.com/international-taxation/',
               },
               {
                 '@type': 'ListItem',
@@ -394,7 +400,7 @@ export default function LowerDeductionCertificate() {
               name: faq.q,
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: faq.a,
+                text: faq.html ? stripHtml(faq.a) : faq.a,
               },
             })),
           },
@@ -502,7 +508,7 @@ export default function LowerDeductionCertificate() {
             A certificate that aligns TDS with what you actually owe
           </h2>
           <p className="text-secondary max-w-3xl leading-relaxed mb-12">
-            A Lower Deduction Certificate (LDC), also called an LTDC, is issued by the Income Tax Department under Section 197 (Section 395(1) of the Income Tax Act, 2025). It allows Tax Deducted at Source to happen at a lower rate, or in approved cases a nil rate, instead of the standard rate. It’s issued for a specific validity period, deductor, and transaction, and it does not automatically extend to every payment. For many foreign companies and NRIs, a treaty-based review can also be relevant before deciding whether the deductible rate should be assessed under a DTAA or the domestic regime. <Link to="/international-taxation/dtaa-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">Learn more about DTAA Advisory</Link>.
+            A Lower Deduction Certificate (LDC), also called an LTDC, is issued by the Income Tax Department under Section 197 (Section 395(1) of the Income Tax Act, 2025). It allows Tax Deducted at Source to happen at a lower rate, or in approved cases a nil rate, instead of the standard rate. It’s issued for a specific validity period, deductor, and transaction, and it does not automatically extend to every payment. For many foreign companies and NRIs, a treaty-based review can also be relevant before deciding whether the deductible rate should be assessed under a DTAA or the domestic regime. <Link to="/international-taxation/dtaa-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">Learn more about DTAA Advisory</Link>. A foreign company with a branch, project office, or other India-sourced income also has a return to file: our <Link to="/international-taxation/foreign-company-tax-return/" className="font-bold text-primary underline-offset-4 hover:underline">Foreign Company Tax Return in India</Link> page covers permanent establishment, rates, and ITR-6 filing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {benefits.map((item) => (
@@ -789,17 +795,16 @@ export default function LowerDeductionCertificate() {
         <div className="max-w-screen-2xl mx-auto px-8">
           <Eyebrow>Real outcomes</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-10">Case studies</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
             {caseStudies.map((study) => (
               <div key={study.title} className="bg-primary text-on-primary p-7 rounded-xl">
                 <span className="font-label text-[11px] uppercase tracking-[0.12em] text-primary-fixed block mb-3">{study.tag}</span>
                 <h3 className="text-xl font-bold mb-3">{study.title}</h3>
                 <p className="text-on-primary/80 text-[15px] leading-relaxed mb-5">{study.body}</p>
-                <a href="#" className="font-bold text-primary-fixed inline-flex items-center gap-2">
+                <Link to={study.href} className="font-bold text-primary-fixed inline-flex items-center gap-2">
                   Read the full case study
                   <ArrowRight size={16} />
-                  {/* TODO: replace with real case study URL, pending from firm */}
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -826,7 +831,17 @@ export default function LowerDeductionCertificate() {
                     <span className="font-semibold text-primary text-[15.5px]">{faq.q}</span>
                     <Plus size={20} className={`text-primary shrink-0 transition-transform ${open ? 'rotate-45' : ''}`} />
                   </button>
-                  {open && <p className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">{faq.a}</p>}
+                  {open &&
+                    (faq.html ? (
+                      <p
+                        className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl"
+                        dangerouslySetInnerHTML={{ __html: faq.a }}
+                      />
+                    ) : (
+                      <p className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">
+                        {faq.a}
+                      </p>
+                    ))}
                 </div>
               );
             })}

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income Tax Scrutiny & Assessment Help | Cash Stream Advisors</title>
+<meta name="description" content="Received a scrutiny, reassessment, or 143(2)/142(1)/148 notice? Get CA-led representation through faceless assessment, from response to final order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============ DESIGN TOKENS (identical across all CSA pages) ============ */
+:root{
+  --forest:#274F23;
+  --forest-ink:#1c3a19;
+  --leaf:#66B760;
+  --cream:#F8F8F3;
+  --sage:#92AB9F;
+  --sage-tint:#eef2ef;
+  --olive:#97A06A;
+  --brown:#895233;
+  --white:#ffffff;
+  --ink:#22291f;
+  --ink-soft:#4b5548;
+  --line:#dfe3da;
+  --error:#8a2f2f;
+  --error-tint:#fbecec;
+  --shadow: 0 12px 32px -18px rgba(39,79,35,0.35);
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Inter', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+  --maxw: 1120px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:var(--display);color:var(--forest-ink);margin:0;line-height:1.15;font-weight:600;}
+p{margin:0 0 1em;}
+a{color:var(--forest);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{padding:88px 0;position:relative;} /* consistent both-sides padding EVERYWHERE, the fix from today's lesson */
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brown);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--brown);display:inline-block;}
+.eyebrow.on-dark{color:var(--leaf);}
+.eyebrow.on-dark::before{background:var(--leaf);}
+.h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:18px;}
+.lede{color:var(--ink-soft);font-size:17px;max-width:640px;}
+
+/* ============ HEADER ============ */
+.site-header{position:sticky;top:0;z-index:300;background:rgba(248,248,243,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.logo{font-family:var(--display);font-weight:700;font-size:19px;color:var(--forest-ink);}
+.logo span{color:var(--leaf);}
+.breadcrumb{font-family:var(--mono);font-size:12px;color:var(--ink-soft);}
+.breadcrumb a{color:var(--ink-soft);text-decoration:none;}
+.breadcrumb .sep{margin:0 6px;color:var(--sage);}
+.breadcrumb .current{color:var(--forest);font-weight:600;}
+.header-cta{font-size:13.5px;font-weight:600;color:var(--white);background:var(--forest);padding:10px 18px;border-radius:3px;text-decoration:none;white-space:nowrap;}
+@media(max-width:760px){.breadcrumb{display:none;}}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:14.5px;padding:14px 26px;border-radius:3px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .15s ease, background .15s ease;}
+.btn-primary{background:var(--leaf);color:var(--forest-ink);}
+.btn-primary:hover{background:#59a653;transform:translateY(-1px);}
+.btn-ghost{border-color:var(--forest);color:var(--forest);background:transparent;}
+.btn-ghost:hover{background:var(--forest);color:#fff;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* ============ HERO ============ */
+.hero{background:linear-gradient(180deg, var(--cream) 0%, #f1f1e8 100%);padding:76px 0 92px;}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;} /* items-center: today's hero-alignment fix */
+.hero h1{font-size:clamp(34px,4.4vw,52px);margin-bottom:20px;letter-spacing:-.01em;}
+.hero .lede{font-size:18px;max-width:600px;margin-bottom:30px;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+
+/* Trust badges — replaces the plain "fine print" trust line with two attractive achievement badges */
+.trust-badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+.trust-badge{display:flex;align-items:flex-start;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px 16px;flex:1;min-width:240px;box-shadow:var(--shadow);}
+.trust-badge .check{width:22px;height:22px;border-radius:50%;background:var(--leaf);color:var(--forest-ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;margin-top:1px;}
+.trust-badge .tb-title{font-weight:700;font-size:14px;color:var(--forest-ink);margin-bottom:3px;}
+.trust-badge .tb-body{font-size:12.5px;color:var(--ink-soft);line-height:1.45;}
+
+/* Hero card */
+.hero-card{background:var(--forest);color:var(--cream);border-radius:16px;padding:32px;box-shadow:0 20px 46px -18px rgba(39,79,35,0.45);}
+.hero-card .hc-tag{display:flex;align-items:center;gap:8px;margin-bottom:22px;}
+.hero-card .hc-dot{width:8px;height:8px;border-radius:50%;background:var(--leaf);}
+.hero-card .hc-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--leaf);}
+.hero-card .hc-row{padding:16px 0;border-bottom:1px solid rgba(248,248,243,.14);}
+.hero-card .hc-row:last-of-type{border-bottom:none;}
+.hero-card .hc-eyebrow{font-size:13px;color:rgba(248,248,243,.6);margin-bottom:4px;}
+.hero-card .hc-value{font-size:19px;font-weight:700;}
+.hero-card .hc-note{margin-top:18px;padding-top:16px;border-top:1px solid rgba(248,248,243,.14);font-size:12.5px;color:rgba(248,248,243,.65);font-style:italic;}
+
+/* ============ PROBLEM CARDS ============ */
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;}
+.problem-card{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--forest);border-radius:8px;padding:26px 24px;}
+.problem-card h3{font-size:15.5px;font-family:var(--body);font-weight:700;color:var(--forest-ink);margin-bottom:10px;}
+.problem-card p{font-size:14px;color:var(--ink-soft);margin:0;}
+@media(max-width:980px){.card-grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.card-grid-3{grid-template-columns:1fr;}}
+
+/* ============ TWO-COL + HIGHLIGHT ============ */
+.two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:start;margin-top:10px;}
+.highlight-card{background:var(--forest);color:var(--cream);border-radius:12px;padding:30px 26px;font-family:var(--display);font-size:19px;line-height:1.5;font-style:italic;position:relative;}
+.highlight-card::before{content:"\201C";font-family:var(--display);font-size:60px;color:var(--leaf);position:absolute;top:-6px;left:18px;font-style:normal;}
+@media(max-width:860px){.two-col{grid-template-columns:1fr;}}
+
+/* ============ ACT UPDATE: STATUS-PILL TABLE (today's redesign) ============ */
+.act-card{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:34px;}
+.act-card-head{background:var(--forest);color:var(--cream);padding:16px 26px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;}
+.act-rows{padding:8px 0;}
+.act-row{display:grid;grid-template-columns:1.1fr 1.4fr 1.3fr;gap:20px;align-items:center;padding:16px 26px;border-bottom:1px solid var(--line);}
+.act-row:last-child{border-bottom:none;}
+.act-old{font-family:var(--mono);font-weight:700;font-size:14.5px;color:var(--forest-ink);}
+.act-new{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.act-new .num{font-family:var(--mono);font-weight:700;font-size:14.5px;color:var(--ink);}
+.status-pill{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 10px;border-radius:99px;}
+.status-pill.verified{background:var(--leaf);color:var(--forest-ink);}
+.status-pill.confirmed{background:var(--leaf);color:var(--forest-ink);}
+.status-pill.pending{background:#f3e9e2;color:var(--brown);}
+.act-covers{font-size:13.5px;color:var(--ink-soft);}
+.act-footnote{padding:16px 26px;background:var(--sage-tint);font-size:12.5px;color:var(--ink-soft);font-style:italic;border-top:1px solid var(--line);}
+@media(max-width:760px){.act-row{grid-template-columns:1fr;gap:8px;padding:18px 20px;}}
+
+/* ============ ICON GRID ============ */
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px;}
+.icon-tile{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:24px 22px;}
+.icon-badge{width:38px;height:38px;border-radius:8px;background:var(--sage-tint);color:var(--forest);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;margin-bottom:14px;}
+.icon-tile h4{font-size:15px;font-family:var(--body);font-weight:700;margin-bottom:8px;}
+.icon-tile p{font-size:13px;color:var(--ink-soft);margin:0;}
+@media(max-width:980px){.icon-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.icon-grid{grid-template-columns:1fr;}}
+
+/* ============ NOTICE DECODER (signature element) ============ */
+.notice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;}
+.notice-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow);}
+.notice-pill{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:7px 14px;border-radius:99px;margin-bottom:16px;}
+.notice-pill.info{background:var(--sage-tint);color:var(--forest);border:1.5px solid var(--olive);}
+.notice-pill.alert{background:#f6e4e4;color:var(--error);}
+.notice-pill.action{background:var(--leaf);color:var(--forest-ink);}
+.notice-card h3{font-family:var(--body);font-weight:700;font-size:16px;margin-bottom:10px;}
+.notice-card p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+.notice-cta{margin-top:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+@media(max-width:900px){.notice-grid{grid-template-columns:1fr;}}
+
+/* ============ PROCESS PHASES ============ */
+.process-section{background:var(--forest-ink);color:var(--cream);}
+.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px;background:rgba(255,255,255,.14);border-radius:10px;overflow:hidden;}
+.phase{background:var(--forest-ink);padding:28px 24px;}
+.phase.emphasis{background:#20401c;}
+.phase .ph-num{font-family:var(--mono);font-size:13px;color:var(--leaf);margin-bottom:14px;display:block;}
+.phase h4{color:var(--white);font-family:var(--body);font-weight:700;font-size:16px;margin-bottom:10px;}
+.phase p{color:rgba(248,248,243,.72);font-size:13.5px;margin:0;}
+@media(max-width:980px){.phase-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.phase-grid{grid-template-columns:1fr;}}
+.process-cta{margin-top:34px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.process-cta p{margin:0;font-size:14.5px;color:rgba(248,248,243,.85);max-width:600px;}
+
+/* ============ CHECKLIST ============ */
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:14px;max-width:680px;}
+.checklist li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--ink);}
+.check-box{width:20px;height:20px;border:2px solid var(--leaf);border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;}
+.check-box::after{content:"\2713";color:var(--leaf);font-size:12px;font-weight:700;}
+
+/* ============ MISTAKES (today's fix: title stacked above body, consistent rhythm) ============ */
+.mistake-list{display:grid;gap:14px;margin-top:34px;}
+.mistake-row{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--error);border-radius:8px;padding:20px 24px;}
+.mistake-row h4{font-family:var(--body);font-weight:700;font-size:15px;color:var(--error);margin:0 0 8px;}
+.mistake-row p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+/* ============ STAKE (today's fix: full width, 2-col grid) ============ */
+.stake-box{background:var(--error-tint);border:1px solid #e3c4c4;border-radius:14px;padding:32px;margin-top:32px;}
+.stake-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;}
+.stake-grid li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);list-style:none;}
+.stake-grid li::before{content:"!";width:20px;height:20px;border-radius:50%;background:var(--error);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+@media(max-width:760px){.stake-grid{grid-template-columns:1fr;}}
+
+/* ============ WHY CHOOSE + STATS (today's fix: items-stretch, tiles fill height) ============ */
+.why-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;margin-top:20px;align-items:stretch;}
+.why-copy{display:flex;flex-direction:column;justify-content:space-between;}
+.why-copy p{font-size:15.5px;color:rgba(248,248,243,.85);}
+.stat-stack{display:flex;flex-direction:column;gap:16px;}
+.stat-tile{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:20px 22px;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.stat-tile .num{font-family:var(--mono);font-weight:700;font-size:26px;color:var(--white);display:block;}
+.stat-tile .lbl{font-size:13px;color:rgba(248,248,243,.7);margin-top:5px;}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr;}}
+
+/* ============ REVIEWER STRIP ============ */
+.reviewer-strip{max-width:820px;display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--sage);border-radius:10px;padding:18px 24px;}
+.reviewer-strip .rv-badge{width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:17px;flex-shrink:0;}
+.reviewer-strip .rv-text{font-size:13.5px;color:var(--ink-soft);}
+.ux-note{font-family:var(--mono);font-size:10.5px;color:var(--brown);background:var(--sage-tint);border:1px dashed var(--olive);border-radius:4px;padding:8px 12px;margin-top:12px;line-height:1.5;}
+
+/* ============ CASE STUDIES ============ */
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px;}
+.case-card{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--brown);border-radius:10px;padding:26px 24px;}
+.case-tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--brown);margin-bottom:12px;display:block;}
+.case-card h4{font-family:var(--body);font-weight:700;font-size:16px;margin-bottom:10px;}
+.case-card p{font-size:14px;color:var(--ink-soft);margin-bottom:14px;}
+.case-card .case-link{font-size:13.5px;font-weight:600;color:var(--forest);}
+@media(max-width:760px){.case-grid{grid-template-columns:1fr;}}
+
+/* ============ FAQ ============ */
+.faq-list{margin-top:34px;border-top:1px solid var(--line);max-width:800px;}
+details.faq-item{border-bottom:1px solid var(--line);padding:6px 0;}
+details.faq-item summary{list-style:none;cursor:pointer;padding:18px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--body);font-weight:600;font-size:15px;color:var(--forest-ink);}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary .plus{font-family:var(--mono);font-size:20px;color:var(--leaf);flex-shrink:0;transition:transform .2s ease;}
+details.faq-item[open] summary .plus{transform:rotate(45deg);}
+.faq-answer{padding:0 4px 20px;font-size:14px;color:var(--ink-soft);max-width:740px;}
+
+/* ============ FINAL CTA ============ */
+.final-cta{background:var(--forest);color:var(--cream);text-align:center;}
+.final-cta h2{color:var(--white);font-size:clamp(26px,3.6vw,36px);margin-bottom:14px;}
+.final-cta p{color:rgba(248,248,243,.82);font-size:16px;margin-bottom:28px;}
+.final-cta .cta-row{justify-content:center;}
+.related-links{margin-top:34px;font-size:13px;color:rgba(248,248,243,.65);}
+.related-links a, .related-links span.pending{color:rgba(248,248,243,.9);text-decoration:none;margin:0 8px;}
+.related-links span.pending{opacity:.55;text-decoration:line-through;}
+.mock-footer{background:var(--forest-ink);color:rgba(248,248,243,.55);padding:26px 0;font-size:12px;text-align:center;font-family:var(--mono);}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">Cash Stream <span>Advisors</span></div>
+    <div class="breadcrumb"><a href="#">Tax Litigation</a><span class="sep">&rarr;</span><span class="current">Income Tax Assessment &amp; Scrutiny</span></div>
+    <a href="#final-cta" class="header-cta">Book a Consultation</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Tax Litigation &middot; Assessment &amp; Scrutiny</div>
+      <h1>Income Tax Assessment &amp; Scrutiny Support</h1>
+      <p class="lede">A scrutiny or reassessment notice doesn't mean you've done something wrong, it means the department wants specifics verified, and there's a clock running on your response. We represent you through the entire process, from the first notice to the final order, building the reconciliation before we build the argument.</p>
+      <div class="cta-row">
+        <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+        <a href="#" class="btn btn-ghost">Talk to a Tax Expert</a>
+      </div>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="check">&#10003;</div>
+          <div>
+            <div class="tb-title">Closed with no addition</div>
+            <div class="tb-body">Salaried NRI's property-purchase scrutiny, reconciled through NRE remittances.</div>
+          </div>
+        </div>
+        <div class="trust-badge">
+          <div class="check">&#10003;</div>
+          <div>
+            <div class="tb-title">Reassessment addition dropped</div>
+            <div class="tb-body">Trading company, three-year-old books and treaty position reconstructed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-tag"><span class="hc-dot"></span><span class="hc-label">Recent Case Outcomes</span></div>
+      <div class="hc-row"><div class="hc-eyebrow">Property Purchase Scrutiny</div><div class="hc-value">Closed with No Addition</div></div>
+      <div class="hc-row"><div class="hc-eyebrow">Three-Year Reassessment</div><div class="hc-value">Proposed Addition Dropped</div></div>
+      <div class="hc-note">Illustrative recent outcomes. Every case turns on its own facts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHEN PEOPLE COME TO US ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2 class="h2">When people come to us</h2>
+    <div class="card-grid-3">
+      <div class="problem-card"><h3>A scrutiny notice arrived and the deadline is running</h3><p>Section 143(2), or its faceless-era equivalent, and there's no time to figure this out by trial and error.</p></div>
+      <div class="problem-card"><h3>A high-value transaction triggered a mismatch</h3><p>A cash deposit, a property purchase, or a transaction that doesn't reconcile cleanly against AIS or 26AS.</p></div>
+      <div class="problem-card"><h3>A reassessment notice landed for an old return</h3><p>The facts have gone cold, and the records aren't sitting in an easy-to-find folder anymore.</p></div>
+      <div class="problem-card"><h3>A faceless query doesn't match how the business works</h3><p>The unit's question reads like it's about someone else's business, not yours.</p></div>
+      <div class="problem-card"><h3>The previous CA didn't respond in time</h3><p>The case is drifting toward an ex-parte best judgment order, and now it needs to be rescued, not just managed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT THIS COVERS ============ -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">What this service covers</div>
+    <h2 class="h2">Scrutiny and reassessment, handled end to end</h2>
+    <div class="two-col">
+      <div>
+        <p>When a filed return goes beyond routine automated processing into detailed examination, that's a scrutiny assessment. Where the department believes income has escaped assessment in an earlier year, it can reopen that year through a reassessment notice. Both processes have real deadlines, real documentation requirements, and a real cost to getting the response wrong.</p>
+        <p>We represent clients through the full lifecycle of both: reviewing the notice, reconstructing the financial position, drafting the submission, representing the case through faceless proceedings or before the jurisdictional officer, and reviewing the final order before advising on next steps.</p>
+      </div>
+      <div class="highlight-card">Receiving a scrutiny notice doesn't mean the department thinks you did something wrong. It means specific figures need verifying. How you respond decides which of those two things it turns into.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACT 2025 UPDATE ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Income Tax Act, 2025 update</div>
+    <h2 class="h2">Which Act actually applies to your notice</h2>
+    <p class="lede" style="max-width:760px;">If your notice was issued in 2026 or later, it's natural to assume it falls under the new Income Tax Act, 2025. For almost every current scrutiny or reassessment case, that assumption is wrong, and it's worth being precise about why.</p>
+    <p class="lede" style="max-width:760px; margin-top:14px;">Section 536 of the Income Tax Act, 2025, the repeal-and-savings clause, keeps the old Income-tax Act, 1961 governing any proceeding relating to a tax year that began before 1 April 2026. Since scrutiny and reassessment are, by definition, about returns already filed for past years, this covers essentially every live case right now. <strong style="color:var(--ink);">Your notice almost certainly cites, and should be responded to under, the old Act's section numbers, not the new ones.</strong></p>
+
+    <div class="act-card">
+      <div class="act-card-head">For reference only &mdash; not yet operative</div>
+      <div class="act-rows">
+        <div class="act-row">
+          <div class="act-old">Section 143(3)</div>
+          <div class="act-new"><span class="num">Section 270</span><span class="status-pill pending">Pending</span></div>
+          <div class="act-covers">Scrutiny assessment order</div>
+        </div>
+        <div class="act-row">
+          <div class="act-old">Section 144</div>
+          <div class="act-new"><span class="num">Section 271</span><span class="status-pill verified">Verified</span></div>
+          <div class="act-covers">Best judgment assessment</div>
+        </div>
+        <div class="act-row">
+          <div class="act-old">Sections 147 / 148</div>
+          <div class="act-new"><span class="num">Sections 279&ndash;280</span><span class="status-pill pending">Pending</span></div>
+          <div class="act-covers">Income escaping assessment (reassessment)</div>
+        </div>
+        <div class="act-row">
+          <div class="act-old">Sections 234A/B/C</div>
+          <div class="act-new"><span class="num">Sections 423&ndash;425</span><span class="status-pill confirmed">Confirmed</span></div>
+          <div class="act-covers">Interest for default, delay, or deferment</div>
+        </div>
+        <div class="act-row">
+          <div class="act-old">Section 270A</div>
+          <div class="act-new"><span class="num">Section 439</span><span class="status-pill confirmed">Confirmed</span></div>
+          <div class="act-covers">Penalty for under-reporting or misreporting</div>
+        </div>
+      </div>
+      <div class="act-footnote">New-provision numbers are pending independent confirmation except where marked Verified/Confirmed. None of this affects what you should actually do about a current notice: use the old Act numbers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO NEEDS THIS ============ -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Selection criteria</div>
+    <h2 class="h2">Who this is for</h2>
+    <div class="icon-grid">
+      <div class="icon-tile"><div class="icon-badge">1</div><h4>Selected for Scrutiny</h4><p>Individuals, NRIs, and businesses selected through algorithmic (CASS) or manual selection.</p></div>
+      <div class="icon-tile"><div class="icon-badge">2</div><h4>Flagged Mismatches</h4><p>Companies and firms with large-value transactions, AIS/26AS mismatches, or department-flagged risk parameters.</p></div>
+      <div class="icon-tile"><div class="icon-badge">3</div><h4>Received a 142(1) Notice</h4><p>Anyone asked to produce accounts, books, or explanations before scrutiny formally begins.</p></div>
+      <div class="icon-tile"><div class="icon-badge">4</div><h4>Reopened for an Earlier Year</h4><p>Anyone reopened under the income-escaping assessment provisions for a prior year.</p></div>
+    </div>
+    <p style="margin-top:28px; font-size:14.5px; color:var(--ink-soft); max-width:740px;">If your notice specifically concerns Indian income as an NRI, our <a href="#" style="font-weight:600;">Non-Resident / Foreign Company TDS Refund</a> and <a href="#" style="font-weight:600;">DTAA Advisory</a> pages may also be directly relevant, scrutiny cases involving cross-border income often touch both areas at once.</p>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE ELEMENT: NOTICE DECODER ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The question everyone asks first</div>
+    <h2 class="h2">What notice did you actually get?</h2>
+    <p class="lede">The three most common notices get confused with each other constantly. Here's what each one actually means.</p>
+    <div class="notice-grid">
+      <div class="notice-card">
+        <span class="notice-pill info">Section 142(1)</span>
+        <h3>&ldquo;We need more information first.&rdquo;</h3>
+        <p>Usually issued when a return hasn't been filed, or when the department wants specific accounts, books, or explanations before deciding whether to proceed further. Often a precursor step, not yet a full scrutiny.</p>
+      </div>
+      <div class="notice-card">
+        <span class="notice-pill alert">Section 143(2)</span>
+        <h3>&ldquo;Your return has been selected for scrutiny.&rdquo;</h3>
+        <p>The formal start of a detailed examination. Must be issued within a set window after you file, and leads to a scrutiny assessment order under Section 143(3), or, if you don't engage, a best judgment order under Section 144.</p>
+      </div>
+      <div class="notice-card">
+        <span class="notice-pill action">Section 148</span>
+        <h3>&ldquo;We're reopening an earlier year.&rdquo;</h3>
+        <p>A reassessment notice, issued when the department believes income from a prior year escaped assessment. Reopening reaches back further than most people expect, and the facts need to be reconstructed, not just recalled.</p>
+      </div>
+    </div>
+    <div class="notice-cta">
+      <span style="font-weight:600; color:var(--forest-ink); font-size:14.5px;">Not sure which one you're holding?</span>
+      <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process-section">
+  <div class="wrap">
+    <div class="eyebrow on-dark">How we work</div>
+    <h2 class="h2" style="color:var(--cream);">Our process, start to finish</h2>
+    <div class="phase-grid">
+      <div class="phase"><span class="ph-num">01</span><h4>Review the Notice</h4><p>We identify exactly which section it's issued under and the specific query or reason for selection.</p></div>
+      <div class="phase emphasis"><span class="ph-num">02</span><h4>Reconstruct Your Position</h4><p>We reconcile AIS, 26AS, and TIS against your books of account to establish the factual and financial position cleanly.</p></div>
+      <div class="phase"><span class="ph-num">03</span><h4>Draft the Submission</h4><p>A structured written response with computation, reconciliation statements, and supporting evidence, not a generic reply.</p></div>
+      <div class="phase"><span class="ph-num">04</span><h4>Represent You</h4><p>Through faceless assessment proceedings, written submissions and video conferencing where permitted, or before the jurisdictional Assessing Officer directly.</p></div>
+      <div class="phase"><span class="ph-num">05</span><h4>Track the Timeline</h4><p>We monitor the case to ensure it doesn't lapse into an ex-parte best judgment order through inaction.</p></div>
+      <div class="phase"><span class="ph-num">06</span><h4>Review the Final Order</h4><p>Before advising whether to accept, seek rectification, or appeal.</p></div>
+    </div>
+    <div class="process-cta">
+      <p>A generic reply without reconciliation is worse than a late one with proper backing. Both cost you, but only one of them is fixable.</p>
+      <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Preparation</div>
+    <h2 class="h2">Documents required</h2>
+    <ul class="checklist">
+      <li><span class="check-box"></span> Copy of the notice and any prior correspondence with the department</li>
+      <li><span class="check-box"></span> Filed return, computation of income, and audited financials, if applicable</li>
+      <li><span class="check-box"></span> Bank statements, and your AIS, TIS, and 26AS</li>
+      <li><span class="check-box"></span> Supporting documents for claims made in the return: investment proofs, sale or purchase agreements, loan confirmations</li>
+      <li><span class="check-box"></span> Books of account and ledgers for the relevant year</li>
+      <li><span class="check-box"></span> Prior years' assessment orders, if the issue is recurring</li>
+    </ul>
+    <p style="margin-top:28px; font-size:13.5px; color:var(--ink-soft); max-width:680px; border-top:1px solid var(--line); padding-top:20px;">The exact document list depends on which notice you've received and what it's asking about. We confirm the specific requirements once we've reviewed your notice. All documents you share are handled confidentially and used solely for your case.</p>
+  </div>
+</section>
+
+<!-- ============ MISTAKES ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Common pitfalls</div>
+    <h2 class="h2">Mistakes that create risk</h2>
+    <div class="mistake-list">
+      <div class="mistake-row"><h4>Ignoring Notices or Missing Deadlines</h4><p>This is what actually produces an ex-parte best judgment assessment, not the scrutiny itself.</p></div>
+      <div class="mistake-row"><h4>Sending Generic, Unreconciled Replies</h4><p>A response that doesn't reconcile against AIS/26AS reads as unresponsive even when it isn't meant to.</p></div>
+      <div class="mistake-row"><h4>Not Keeping Records Long Enough</h4><p>Reassessment can reach back several years, well past when most people stop keeping paperwork.</p></div>
+      <div class="mistake-row"><h4>Treating Scrutiny as Routine</h4><p>Engaging a professional early changes the outcome more than almost anything done later in the process.</p></div>
+      <div class="mistake-row"><h4>Inconsistent Explanations Across Notices</h4><p>Inconsistency reads as evasion even when it's just a memory gap.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT'S AT STAKE ============ -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">What's at stake</div>
+    <h2 class="h2">Getting this wrong compounds quickly, not slowly</h2>
+    <div class="stake-box">
+      <ul class="stake-grid">
+        <li>Additions to income, higher tax demand, and interest exposure, plus penalty exposure for under-reporting or misreporting</li>
+        <li>A best judgment assessment based on the officer's estimate rather than your actual facts</li>
+        <li>Demand recovery proceedings, and bank account attachment in serious cases</li>
+        <li>Escalation into appeal and litigation that a timely, well-documented response could have avoided</li>
+        <li>Reopening of subsequent years once one year has been flagged</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="process-section">
+  <div class="wrap">
+    <div class="eyebrow on-dark">Why choose us</div>
+    <h2 class="h2" style="color:var(--cream); max-width:640px;">Procedural discipline, not just a strong position</h2>
+    <div class="why-grid">
+      <div class="why-copy">
+        <p>We handle faceless assessment proceedings in a structured, deadline-driven way, because most of what goes wrong in scrutiny cases is procedural drift, not a weak underlying position. Strong reconciliation work comes first: we build the paper trail before we build the argument, since a well-supported submission does most of the work an eloquent one can't.</p>
+        <p>Our experience spans individual, NRI, and corporate scrutiny cases, and we flag appeal-worthy issues early, while there's still time to plan for them, rather than waiting for the order to arrive and reacting to it.</p>
+      </div>
+      <div class="stat-stack">
+        <div class="stat-tile"><span class="num">[X]+</span><span class="lbl">Scrutiny and reassessment cases handled</span></div>
+        <div class="stat-tile"><span class="num">[X]%</span><span class="lbl">Of cases closed without escalation to appeal</span></div>
+        <div class="stat-tile"><span class="num">6+</span><span class="lbl">Years representing clients in assessment proceedings</span></div>
+      </div>
+    </div>
+    <a href="#final-cta" class="btn btn-primary" style="margin-top:36px;">Book a Consultation</a>
+  </div>
+</section>
+
+<!-- ============ REVIEWER STRIP ============ -->
+<section style="background:var(--sage-tint); padding:44px 0;">
+  <div class="wrap">
+    <div class="reviewer-strip">
+      <div class="rv-badge">CA</div>
+      <div class="rv-text"><strong style="color:var(--forest-ink); font-family:var(--body);">Reviewed by [Name], Chartered Accountant</strong> &mdash; 6+ years representing clients in assessment and scrutiny proceedings.</div>
+    </div>
+    <div class="ux-note">Build note: do not launch this section until the firm supplies a named reviewer. Omit from the live page rather than ship a bracketed credential; the Hero trust badges cover this ground until then.</div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Real outcomes</div>
+    <h2 class="h2">Case studies</h2>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">Salaried NRI &middot; Property Purchase Scrutiny</span>
+        <h4>Scrutiny Closed With No Addition</h4>
+        <p>A salaried NRI client's return was flagged over a large property purchase. We reconciled the funding through NRE remittances and prior sale proceeds, and the assessment closed with no addition to income.</p>
+        <span class="case-link">Read the complete case study &rarr;</span>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">Trading Company &middot; Three-Year Reassessment</span>
+        <h4>Proposed Addition Dropped</h4>
+        <p>A trading company faced a reassessment notice for a transaction three years prior. We reconstructed the books and the treaty position, and the department dropped the proposed addition after our written submission.</p>
+        <span class="case-link">Read the complete case study &rarr;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Common questions</div>
+    <h2 class="h2">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item" open><summary>Why was my return picked up for scrutiny?<span class="plus">+</span></summary><div class="faq-answer">Selection happens either through the department's automated risk-based system (CASS) or manual selection, often triggered by mismatches with AIS or 26AS, large-value transactions, or parameters the department doesn't disclose in advance. Selection alone doesn't imply wrongdoing.</div></details>
+      <details class="faq-item"><summary>Do I need to appear in person, or can everything be handled online?<span class="plus">+</span></summary><div class="faq-answer">Most scrutiny today runs through faceless assessment, meaning written submissions and, where permitted, video conferencing, with no in-person appearance required in the majority of cases.</div></details>
+      <details class="faq-item"><summary>How far back can the department reopen my case?<span class="plus">+</span></summary><div class="faq-answer">Reassessment timelines depend on the amount of income believed to have escaped assessment, and can reach back significantly further than most people assume for larger amounts. This is exactly why records need to be kept longer than feels necessary at the time.</div></details>
+      <details class="faq-item"><summary>What happens if I don't respond in time?<span class="plus">+</span></summary><div class="faq-answer">The case can proceed to a best judgment assessment under the department's own estimate rather than your actual facts, which is rarely favorable and is genuinely avoidable with a timely response.</div></details>
+      <details class="faq-item"><summary>Will this affect my future returns or increase my audit risk?<span class="plus">+</span></summary><div class="faq-answer">Not automatically, but an unresolved or poorly handled scrutiny can make future selection more likely, and if one year gets flagged, related years sometimes follow.</div></details>
+      <details class="faq-item"><summary>What if I got a notice about an AIS or 26AS mismatch specifically?<span class="plus">+</span></summary><div class="faq-answer">This is one of the most common scrutiny triggers. It usually means a transaction, deposit, or income entry visible to the department doesn't yet reconcile against your filed return, which is a reconciliation problem to solve, not necessarily an error to admit to before checking.</div></details>
+      <details class="faq-item"><summary>Do NRIs get scrutiny notices on their Indian income too?<span class="plus">+</span></summary><div class="faq-answer">Yes. Property purchases, high-value remittances, and Indian-sourced income are common triggers for NRIs specifically, and the reconciliation often needs to account for NRE/NRO fund flows that a purely domestic case wouldn't involve.</div></details>
+      <details class="faq-item"><summary>Can I still respond if I've lost track of records from a few years ago?<span class="plus">+</span></summary><div class="faq-answer">Often, yes, through bank statements, AIS/TIS records, and reconstruction work, but it takes longer and costs more than if the records had been kept. This is worth starting immediately rather than waiting.</div></details>
+      <details class="faq-item"><summary>What's the difference between scrutiny and reassessment?<span class="plus">+</span></summary><div class="faq-answer">Scrutiny examines a return you've already filed for the same assessment cycle. Reassessment reopens a year that was already assessed, or accepted without scrutiny, because the department believes income escaped taxation in that year.</div></details>
+      <details class="faq-item"><summary>How much does assessment representation cost?<span class="plus">+</span></summary><div class="faq-answer">Fees depend on the complexity of the notice and the reconstruction work involved, and are discussed transparently during your initial consultation before any work begins.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="final-cta" class="final-cta">
+  <div class="wrap">
+    <h2>Received a Notice?</h2>
+    <p>The clock is already running. We review it, tell you exactly what it means, and handle the response, start to finish.</p>
+    <div class="cta-row"><a href="#" class="btn btn-primary">Book a Consultation</a></div>
+    <div class="related-links">
+      <span class="pending">CIT(A) Appeals</span>&middot;<span class="pending">ITAT Appeals</span>&middot;<span class="pending">DRP Appeals</span>&middot;<a href="#">DTAA Advisory</a>&middot;<a href="#">Non-Resident / Foreign Company TDS Refund</a>
+    </div>
+  </div>
+</section>
+
+<div class="mock-footer">UI/UX MOCKUP &middot; INCOME TAX ASSESSMENT &amp; SCRUTINY &middot; CASH STREAM ADVISORS &middot; FOR CLIENT REVIEW, NOT FOR PRODUCTION USE</div>
+
+</body>
+</html>

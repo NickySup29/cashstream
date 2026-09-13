@@ -528,7 +528,9 @@ export default function InternationalTaxation() {
         </motion.div>
       </section>
 
-      {/* SECTION 10: REVIEWER STRIP — omitted per mockup build note (no named reviewer supplied). */}
+      {/* SECTION 10: REVIEWED BY, OMITTED per client instruction: do not
+          display the reviewer's name on the site, publishing it could
+          affect their employment. */}
 
       {/* SECTION 11: CASE STUDIES */}
       <section className="bg-surface-container-lowest py-24">

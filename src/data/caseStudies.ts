@@ -85,6 +85,26 @@ const INTERNATIONAL_TAXATION_HUB: CaseStudyCategory = {
   id: 'international-taxation',
   label: 'International Taxation (Hub)',
 };
+const ASSESSMENT_SCRUTINY: CaseStudyCategory = {
+  id: 'assessment-scrutiny',
+  label: 'Assessment & Scrutiny',
+};
+const CIT_A_APPEALS: CaseStudyCategory = {
+  id: 'cit-a-appeals',
+  label: 'CIT(A) Appeals',
+};
+const ITAT_APPEALS: CaseStudyCategory = {
+  id: 'itat-appeals',
+  label: 'ITAT Appeals',
+};
+const DRP_APPEALS: CaseStudyCategory = {
+  id: 'drp-appeals',
+  label: 'DRP Appeals',
+};
+const TAX_LITIGATION_HUB: CaseStudyCategory = {
+  id: 'tax-litigation-hub',
+  label: 'Tax Litigation (Hub)',
+};
 
 const SERVICE_LDC: CaseStudyServiceRef = {
   label: 'Lower Deduction Certificate',
@@ -113,6 +133,26 @@ const SERVICE_NRI: CaseStudyServiceRef = {
 const SERVICE_HUB: CaseStudyServiceRef = {
   label: 'International Taxation',
   path: '/international-taxation/',
+};
+const SERVICE_ASSESSMENT_SCRUTINY: CaseStudyServiceRef = {
+  label: 'Income Tax Assessment & Scrutiny Support',
+  path: '/tax-litigation/income-tax-assessment-scrutiny/',
+};
+const SERVICE_CIT_A: CaseStudyServiceRef = {
+  label: 'CIT(A) Appeals',
+  path: '/tax-litigation/cit-a-appeals/',
+};
+const SERVICE_ITAT: CaseStudyServiceRef = {
+  label: 'ITAT Appeals',
+  path: '/tax-litigation/itat-appeals/',
+};
+const SERVICE_DRP: CaseStudyServiceRef = {
+  label: 'DRP Appeals',
+  path: '/tax-litigation/drp-appeals/',
+};
+const SERVICE_TAX_LITIGATION_HUB: CaseStudyServiceRef = {
+  label: 'Tax Litigation',
+  path: '/tax-litigation/',
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -325,6 +365,131 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       'Across the multi-year engagement, the client avoided double taxation at every stage and returned to India with a well-planned RNOR window, an estimated ₹40 to 50 lakh in cumulative tax saved or deferred through consistent, year-over-year planning rather than one-off fixes.',
     service: SERVICE_HUB,
+  },
+  {
+    id: 'nri-property-scrutiny-no-addition',
+    siteCategory: 'Tax Litigation',
+    category: ASSESSMENT_SCRUTINY,
+    tag: 'Salaried NRI · Property Purchase Scrutiny',
+    stat: 'Closed With No Addition',
+    title: 'Salaried NRI: Property Purchase Scrutiny Closed With No Addition',
+    situation: "A salaried NRI client's return was flagged over a large property purchase.",
+    approach: 'We reconciled the funding through NRE remittances and prior sale proceeds.',
+    outcome: 'The assessment closed with no addition to income.',
+    service: SERVICE_ASSESSMENT_SCRUTINY,
+  },
+  {
+    id: 'trading-company-reassessment-dropped',
+    siteCategory: 'Tax Litigation',
+    category: ASSESSMENT_SCRUTINY,
+    tag: 'Trading Company · Three-Year Reassessment',
+    stat: 'Proposed Addition Dropped',
+    title: 'Trading Company: Three-Year Reassessment Addition Dropped',
+    situation: 'A trading company faced a reassessment notice for a transaction three years prior.',
+    approach: 'We reconstructed the books and the treaty position.',
+    outcome: 'The department dropped the proposed addition after our written submission.',
+    service: SERVICE_ASSESSMENT_SCRUTINY,
+  },
+  {
+    id: 'nri-capital-gains-recomputation',
+    siteCategory: 'Tax Litigation',
+    category: CIT_A_APPEALS,
+    tag: 'NRI · Capital Gains Recomputation',
+    stat: 'Addition Substantially Reduced',
+    title: 'NRI: Capital Gains Addition Substantially Reduced at CIT(A)',
+    situation:
+      "An NRI's property sale was assessed with an incorrect cost of acquisition, inflating the capital gains figure.",
+    approach: 'We filed a well-documented appeal with valuation evidence.',
+    outcome: 'The addition was substantially reduced.',
+    service: SERVICE_CIT_A,
+  },
+  {
+    id: 'services-company-disallowed-expense',
+    siteCategory: 'Tax Litigation',
+    category: CIT_A_APPEALS,
+    tag: 'Services Company · Disallowed Expense',
+    stat: 'Full Relief at CIT(A)',
+    title: 'Services Company: Full Relief on a Disallowed Business Expense',
+    situation:
+      "A genuine business expense was disallowed for a technical documentation gap, not because the expense wasn't real.",
+    approach: 'We filed additional evidence with proper justification.',
+    outcome: 'We secured full relief.',
+    service: SERVICE_CIT_A,
+  },
+  {
+    id: 'manufacturing-client-transfer-pricing',
+    siteCategory: 'Tax Litigation',
+    category: ITAT_APPEALS,
+    tag: 'Manufacturing Client · Transfer Pricing',
+    stat: 'Adjustment Substantially Reduced',
+    title: 'Manufacturing Client: Transfer Pricing Adjustment Substantially Reduced at ITAT',
+    situation: 'A transfer pricing adjustment was upheld at CIT(A).',
+    approach: 'We built a detailed comparability analysis paper book for ITAT.',
+    outcome: 'We secured a substantial reduction in the adjustment.',
+    service: SERVICE_ITAT,
+  },
+  {
+    id: 'departmental-appeal-defeated',
+    siteCategory: 'Tax Litigation',
+    category: ITAT_APPEALS,
+    tag: 'Defending a Favorable Order',
+    stat: 'Departmental Appeal Defeated',
+    title: 'Defending a Favorable Order: Departmental Appeal Defeated at ITAT',
+    situation:
+      "A CIT(A) order deleting a bogus purchase addition had gone in the client's favor, but the Department cross-appealed it.",
+    approach: 'We strengthened the record.',
+    outcome: 'We successfully defended the order at ITAT.',
+    service: SERVICE_ITAT,
+  },
+  {
+    id: 'foreign-tech-pe-attribution',
+    siteCategory: 'Tax Litigation',
+    category: DRP_APPEALS,
+    tag: 'Foreign Technology Company · PE Attribution',
+    stat: 'Taxable Profit Reduced',
+    title: "Foreign Technology Company: Taxable Profit Reduced on PE Attribution Objections",
+    situation:
+      "A draft order attributed excess profit to a foreign technology company's India project office.",
+    approach: 'We filed detailed PE attribution objections before DRP.',
+    outcome: 'We secured a substantial reduction in the taxable profit.',
+    service: SERVICE_DRP,
+  },
+  {
+    id: 'subsidiary-tp-management-fees',
+    siteCategory: 'Tax Litigation',
+    category: DRP_APPEALS,
+    tag: 'Subsidiary · Transfer Pricing on Management Fees',
+    stat: 'Adjustment Narrowed',
+    title: "Subsidiary: Transfer Pricing Adjustment on Management Fees Narrowed at DRP",
+    situation: "A subsidiary faced a transfer pricing adjustment on management fee payments.",
+    approach: 'We presented a revised comparability analysis to DRP.',
+    outcome: 'DRP accepted the analysis, and the adjustment was successfully narrowed.',
+    service: SERVICE_DRP,
+  },
+  {
+    id: 'reassessment-mid-case-takeover',
+    siteCategory: 'Tax Litigation',
+    category: TAX_LITIGATION_HUB,
+    tag: 'Reassessment · Mid-Case Takeover',
+    stat: 'Favorable Outcome After Takeover',
+    title: 'Reassessment: Favorable Outcome After a Mid-Case Takeover',
+    situation:
+      "Took over a client's case mid-way through a reassessment that had already gone poorly under a prior consultant.",
+    approach: 'We rebuilt the documentation from the ground up.',
+    outcome: 'We secured a favorable outcome at CIT(A).',
+    service: SERVICE_TAX_LITIGATION_HUB,
+  },
+  {
+    id: 'foreign-company-draft-order-resolution',
+    siteCategory: 'Tax Litigation',
+    category: TAX_LITIGATION_HUB,
+    tag: 'Foreign Company · Draft Order to Resolution',
+    stat: 'Multi-Year ITAT Battle Avoided',
+    title: 'Foreign Company: Draft Order to Resolution, Multi-Year ITAT Battle Avoided',
+    situation: "A foreign company had a dispute starting with a draft assessment order.",
+    approach: 'We managed the matter through DRP objections to a substantially reduced final order.',
+    outcome: 'This avoided a multi-year ITAT battle altogether.',
+    service: SERVICE_TAX_LITIGATION_HUB,
   },
 ];
 

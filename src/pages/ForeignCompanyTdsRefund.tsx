@@ -974,7 +974,9 @@ export default function ForeignCompanyTdsRefund() {
         </motion.div>
       </section>
 
-      {/* SECTION 14: REVIEWER STRIP — omitted per mockup build note (no named reviewer supplied). */}
+      {/* SECTION 14: REVIEWED BY, OMITTED per client instruction: do not
+          display the reviewer's name on the site, publishing it could
+          affect their employment. */}
 
       {/* SECTION 15: OUR TDS REFUND SERVICES */}
       <section className="bg-surface-container-lowest py-24">

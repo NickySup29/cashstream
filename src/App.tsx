@@ -11,6 +11,11 @@ import DtaaAdvisory from './pages/DtaaAdvisory';
 import ForeignCompanyTdsRefund from './pages/ForeignCompanyTdsRefund';
 import ForeignCompanyTaxReturn from './pages/ForeignCompanyTaxReturn';
 import NriTaxRelocationAdvisory from './pages/NriTaxRelocationAdvisory';
+import AssessmentScrutiny from './pages/AssessmentScrutiny';
+import TaxLitigation from './pages/TaxLitigation';
+import CitAAppeals from './pages/CitAAppeals';
+import ItatAppeals from './pages/ItatAppeals';
+import DrpAppeals from './pages/DrpAppeals';
 import Compliance from './pages/Compliance';
 import Fema from './pages/Fema';
 import Bookkeeping from './pages/Bookkeeping';
@@ -70,6 +75,11 @@ export default function App() {
               <Route path="/international-taxation/foreign-company-tds-refund/" element={<ForeignCompanyTdsRefund />} />
               <Route path="/international-taxation/foreign-company-tax-return/" element={<ForeignCompanyTaxReturn />} />
               <Route path="/international-taxation/nri-tax-relocation-advisory/" element={<NriTaxRelocationAdvisory />} />
+              <Route path="/tax-litigation/" element={<TaxLitigation />} />
+              <Route path="/tax-litigation/income-tax-assessment-scrutiny/" element={<AssessmentScrutiny />} />
+              <Route path="/tax-litigation/cit-a-appeals/" element={<CitAAppeals />} />
+              <Route path="/tax-litigation/itat-appeals/" element={<ItatAppeals />} />
+              <Route path="/tax-litigation/drp-appeals/" element={<DrpAppeals />} />
               <Route path="/compliance" element={<Compliance />} />
               <Route path="/fema" element={<Fema />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />

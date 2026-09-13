@@ -441,7 +441,7 @@ export default function LowerDeductionCertificate() {
               <div className="w-full max-w-xs">
                 <svg viewBox="0 0 220 130" width="220" className="mx-auto" role="img" aria-label="Gauge chart showing TDS reduction from standard rate to approved rate">
                   <path d="M20 110 A90 90 0 0 1 200 110" fill="none" stroke="rgba(255,255,255,.14)" strokeWidth="14" strokeLinecap="round" />
-                  <path d="M20 110 A90 90 0 0 1 200 110" fill="none" stroke="#9ef88d" strokeWidth="14" strokeLinecap="round" strokeDasharray="283" strokeDashoffset="198" />
+                  <path d="M20 110 A90 90 0 0 1 200 110" fill="none" stroke="#66B760" strokeWidth="14" strokeLinecap="round" strokeDasharray="283" strokeDashoffset="198" />
                   <g transform="rotate(-58 110 110)">
                     <line x1="110" y1="110" x2="110" y2="34" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
                   </g>

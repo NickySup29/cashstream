@@ -87,6 +87,16 @@ the whole section, don't ship it with brackets instead.
   prose-table:text-sm (adjust as needed so bullets/tables are visibly
   styled, not plain text).
 
+## 11. REVIEWER CREDENTIALS — NO INDIVIDUAL NAMES
+Do not display a named individual's credentials (e.g. "Reviewed by
+[Name], Chartered Accountant") anywhere on the site, per client
+instruction, an individual's public association with this firm could
+create a real employment conflict. If a trust/reviewer element is
+wanted, use the firm's name only, or a generic, non-named credential
+line. The reviewer slot exists on 10 pages currently, left empty with
+an explanatory code comment, don't re-add a personal name without this
+rule being explicitly revisited first.
+
 ## 7. INCOME TAX ACT, 2025 — CONFIRMED RENUMBERING
 Annotate on FIRST mention per section, plain after that.
 
@@ -186,3 +196,9 @@ specific service actually works, a comparison, a status checker, a
 timeline, a decision tree, whatever fits the real content. If two pages
 in the same category would end up with visually identical signature
 elements, stop and design a different one for at least one of them.
+
+## 16. TAX LITIGATION URL CONVENTION
+This category's URLs follow the content docs' suggested slugs, not the
+original SEO Implementation Guide's Part 3 URL map, that guide predates
+these content docs and is superseded for this category. Confirmed:
+Assessment & Scrutiny -> /tax-litigation/income-tax-assessment-scrutiny/

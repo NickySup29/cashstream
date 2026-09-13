@@ -563,7 +563,7 @@ export default function DtaaAdvisory() {
         </motion.div>
       </section>
 
-      <section className="py-24">
+      <section id="documents" className="py-24">
         <motion.div
           className="max-w-screen-2xl mx-auto px-8"
           initial={{ opacity: 0, y: 24 }}

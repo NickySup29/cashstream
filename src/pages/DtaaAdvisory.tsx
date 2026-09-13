@@ -758,6 +758,10 @@ export default function DtaaAdvisory() {
         </motion.div>
       </section>
 
+      {/* ===== REVIEWED BY: OMITTED =====
+          Per client instruction: do not display the reviewer's name on
+          the site, publishing it could affect their employment. */}
+
       <section className="py-24">
         <motion.div
           className="max-w-screen-2xl mx-auto px-8"

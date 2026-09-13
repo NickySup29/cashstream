@@ -932,8 +932,9 @@ export default function NriTaxRelocationAdvisory() {
         </motion.div>
       </section>
 
-      {/* SECTION 14: REVIEWER STRIP. Omitted per mockup build note and page-specific
-          instruction (no named reviewer supplied; the hero trust line covers this ground). */}
+      {/* SECTION 14: REVIEWED BY, OMITTED per client instruction: do not
+          display the reviewer's name on the site, publishing it could
+          affect their employment. */}
 
       {/* SECTION 15: OUR NRI & RELOCATION SERVICES */}
       <section className="py-24">

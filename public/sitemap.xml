@@ -41,6 +41,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/tax-litigation/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/tax-litigation/income-tax-assessment-scrutiny/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/tax-litigation/cit-a-appeals/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/tax-litigation/itat-appeals/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/tax-litigation/drp-appeals/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/compliance</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -167,6 +192,56 @@
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/about-us/case-studies/multi-year-relocation-journey/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/nri-property-scrutiny-no-addition/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/trading-company-reassessment-dropped/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/nri-capital-gains-recomputation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/services-company-disallowed-expense/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/manufacturing-client-transfer-pricing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/departmental-appeal-defeated/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-tech-pe-attribution/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/subsidiary-tp-management-fees/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/reassessment-mid-case-takeover/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-company-draft-order-resolution/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

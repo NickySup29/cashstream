@@ -37,6 +37,19 @@ const navLinks: NavItem[] = [
       },
     ],
   },
+  {
+    name: 'Tax Litigation',
+    href: '/tax-litigation/',
+    children: [
+      {
+        name: 'Income Tax Assessment & Scrutiny',
+        href: '/tax-litigation/income-tax-assessment-scrutiny/',
+      },
+      { name: 'CIT(A) Appeals', href: '/tax-litigation/cit-a-appeals/' },
+      { name: 'ITAT Appeals', href: '/tax-litigation/itat-appeals/' },
+      { name: 'DRP Appeals', href: '/tax-litigation/drp-appeals/' },
+    ],
+  },
   { name: 'Compliance', href: '/compliance' },
   { name: 'FEMA', href: '/fema' },
   { name: 'Bookkeeping', href: '/bookkeeping' },

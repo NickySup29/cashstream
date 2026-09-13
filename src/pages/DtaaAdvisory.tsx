@@ -473,13 +473,12 @@ export default function DtaaAdvisory() {
                     key={key}
                     type="button"
                     onClick={() => setSelectedCountry(key as keyof typeof countryData)}
-                    className="px-4 py-2.5 text-sm font-semibold transition-colors border"
-                    style={{
-                      borderRadius: 9999,
-                      backgroundColor: isSelected ? '#0d4d3f' : '#ffffff',
-                      color: isSelected ? '#f7f7f3' : '#0d4d3f',
-                      borderColor: isSelected ? '#0d4d3f' : '#dfe5df',
-                    }}
+                    className={`px-4 py-2.5 text-sm font-semibold transition-colors border ${
+                      isSelected
+                        ? 'bg-primary text-on-primary border-primary'
+                        : 'bg-surface-container-lowest text-primary border-outline-variant'
+                    }`}
+                    style={{ borderRadius: 9999 }}
                   >
                     <country.flagIcon style={{ width: 24, height: 16, marginRight: 6, borderRadius: 2 }} />
                     {key === 'usa' ? 'USA' : key === 'uk' ? 'UK' : key === 'sg' ? 'Singapore' : key === 'mu' ? 'Mauritius' : key === 'de' ? 'Germany' : 'Australia'}

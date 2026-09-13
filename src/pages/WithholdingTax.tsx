@@ -329,7 +329,7 @@ export default function WithholdingTax() {
               </p>
             </div>
             <blockquote className="lg:col-span-5 bg-primary text-on-primary p-8 md:p-10 rounded-xl font-headline text-xl leading-relaxed italic relative">
-              <span className="absolute top-2 left-6 text-6xl text-primary-fixed/80 not-italic font-serif">“</span>
+              <span className="absolute top-2 left-6 text-6xl text-primary-fixed/80 not-italic font-headline">“</span>
               <p className="relative z-10 pt-6">
                 Withholding tax on foreign payments is the tax an Indian payer deducts at source before money leaves the country, applying whichever version, Act or treaty, works out better for the recipient.
               </p>
@@ -580,7 +580,7 @@ export default function WithholdingTax() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-on-primary/15 rounded-xl overflow-hidden">
             {phases.map((phase) => (
-              <div key={phase.n} className={`p-8 ${phase.emphasis ? 'bg-[#0a4d0c]' : 'bg-primary-container'}`}>
+              <div key={phase.n} className={`p-8 ${phase.emphasis ? 'bg-primary' : 'bg-primary-container'}`}>
                 <span className="font-label text-xs text-primary-fixed mb-4 block">{phase.n}</span>
                 <h3 className="font-bold text-lg mb-3">{phase.title}</h3>
                 <p className="text-on-primary/75 text-sm leading-relaxed">{phase.body}</p>

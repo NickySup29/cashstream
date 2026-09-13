@@ -62,7 +62,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#FAF9F5]/80 glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.03)] font-headline antialiased tracking-tight">
+    <header className="fixed top-0 w-full z-50 bg-background/80 glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.03)] font-nav antialiased tracking-tight">
       <div className="flex justify-between items-center h-20 px-4 md:px-8 max-w-screen-2xl mx-auto">
         <Link 
           to="/" 
@@ -91,7 +91,7 @@ export default function Navbar() {
                   />
                 </NavLink>
                 <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all absolute left-0 top-full pt-3 z-50">
-                  <div className="bg-[#FAF9F5] border border-outline-variant/20 rounded-xl shadow-lg py-2 min-w-[280px]">
+                  <div className="bg-background border border-outline-variant/20 rounded-xl shadow-lg py-2 min-w-[280px]">
                     {link.children.map((child) => (
                       <NavLink
                         key={child.href}
@@ -156,7 +156,7 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <nav className="xl:hidden bg-[#FAF9F5] border-t border-outline-variant/20 px-4 py-4 shadow-lg absolute w-full">
+        <nav className="xl:hidden bg-background border-t border-outline-variant/20 px-4 py-4 shadow-lg absolute w-full">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <div key={link.href} className="flex flex-col">

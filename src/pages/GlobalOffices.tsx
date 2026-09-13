@@ -98,7 +98,7 @@ export default function GlobalOffices() {
 
       <div className="w-full h-[400px] bg-surface-container-highest relative grayscale opacity-30 pointer-events-none mb-32 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-primary font-headline text-8xl font-black opacity-10">WORLDWIDE</span>
+          <span className="text-primary font-headline text-8xl font-bold opacity-10">WORLDWIDE</span>
         </div>
       </div>
     </motion.div>

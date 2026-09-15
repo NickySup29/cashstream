@@ -590,11 +590,11 @@ export default function ItatAppeals() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">50+</div>
                 <div className="text-on-primary/70 text-[13px]">ITAT appeals filed and represented</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]</div>
+                <div className="text-2xl font-extrabold">20+</div>
                 <div className="text-on-primary/70 text-[13px]">Departmental cross-appeals successfully defended</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

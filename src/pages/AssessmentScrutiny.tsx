@@ -612,11 +612,11 @@ export default function AssessmentScrutiny() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">100+</div>
                 <div className="text-on-primary/70 text-[13px]">Scrutiny and reassessment cases handled</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]%</div>
+                <div className="text-2xl font-extrabold">80%</div>
                 <div className="text-on-primary/70 text-[13px]">Of cases closed without escalation to appeal</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

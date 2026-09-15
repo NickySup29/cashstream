@@ -639,11 +639,11 @@ export default function DrpAppeals() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">75+</div>
                 <div className="text-on-primary/70 text-[13px]">DRP objections filed and represented</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]</div>
+                <div className="text-2xl font-extrabold">40+</div>
                 <div className="text-on-primary/70 text-[13px]">Foreign company and TP disputes handled</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

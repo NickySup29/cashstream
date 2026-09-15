@@ -693,11 +693,11 @@ export default function TaxLitigation() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">300+</div>
                 <div className="text-on-primary/70 text-[13px]">Tax litigation cases handled across all stages</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]%</div>
+                <div className="text-2xl font-extrabold">85%</div>
                 <div className="text-on-primary/70 text-[13px]">Of cases resolved without escalating to ITAT or beyond</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

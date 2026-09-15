@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash Stream Advisors | International Taxation, FEMA & Tax Litigation Experts</title>
+<meta name="description" content="Chartered accountants specializing in international taxation, FEMA advisory, tax litigation, and business setup in India for NRIs, foreign companies, and Indian businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============ DESIGN TOKENS (identical across all CSA pages) ============ */
+:root{
+  --forest:#274F23;
+  --forest-ink:#1c3a19;
+  --leaf:#66B760;
+  --cream:#F8F8F3;
+  --sage:#92AB9F;
+  --sage-tint:#eef2ef;
+  --olive:#97A06A;
+  --brown:#895233;
+  --white:#ffffff;
+  --ink:#22291f;
+  --ink-soft:#4b5548;
+  --line:#dfe3da;
+  --shadow: 0 12px 32px -18px rgba(39,79,35,0.35);
+  --radius: 4px;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Inter', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+  --maxw: 1120px;
+  --maxw-header: 1360px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--display);color:var(--forest-ink);margin:0;line-height:1.15;font-weight:600;}
+p{margin:0 0 1em;}
+a{color:var(--forest);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{padding:88px 0;position:relative;}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--brown);
+  font-weight:600;
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--brown);display:inline-block;}
+.h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:18px;}
+.lede{color:var(--ink-soft);font-size:17px;max-width:640px;}
+
+a:focus-visible, button:focus-visible, summary:focus-visible{
+  outline:3px solid var(--leaf); outline-offset:3px; border-radius:2px;
+}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+/* ============ UX ANNOTATION LAYER ============ */
+.ux-toggle{
+  position:fixed; top:18px; right:18px; z-index:400;
+  background:var(--forest-ink); color:var(--cream); border:none;
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.06em;
+  padding:10px 14px; border-radius:99px; cursor:pointer;
+  box-shadow:var(--shadow); text-transform:uppercase;
+  display:flex; align-items:center; gap:8px;
+}
+.ux-toggle::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf);}
+.ux-tag{
+  display:none;
+  position:absolute; top:14px; left:14px; z-index:20;
+  background:var(--forest-ink); color:#fff;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+  padding:5px 10px; border-radius:3px; box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+body.show-ux .ux-tag{display:inline-flex; align-items:center; gap:6px;}
+body.show-ux .ux-region{outline:1.5px dashed rgba(39,79,35,.35); outline-offset:-1px;}
+.ux-note{
+  display:none;
+  font-family:var(--mono); font-size:10.5px; color:var(--brown);
+  background:var(--sage-tint); border:1px dashed var(--olive); border-radius:4px;
+  padding:8px 12px; margin-top:12px; line-height:1.5;
+}
+body.show-ux .ux-note{display:block;}
+
+/* ============ HEADER / FULL NAV (homepage-specific: no breadcrumb, full dropdown nav) ============ */
+.site-header{
+  position:sticky; top:0; z-index:300;
+  background:rgba(248,248,243,.92); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{max-width:var(--maxw-header); margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:18px;}
+.logo{font-family:var(--display); font-weight:700; font-size:18px; color:var(--forest-ink); letter-spacing:.01em; text-decoration:none; flex-shrink:0;}
+.logo span{color:var(--leaf);}
+.main-nav{display:flex; gap:3px; align-items:center; flex-wrap:nowrap;}
+.nav-item{position:relative; padding:10px 0;}
+.nav-item > .nav-label{
+  display:flex; align-items:center; gap:3px; font-size:11.5px; font-weight:500;
+  color:var(--ink); cursor:default; white-space:nowrap; padding:0 6px;
+  letter-spacing:-.005em;
+}
+.nav-item .caret{font-size:7px; color:var(--sage); transition:transform .2s ease;}
+.nav-item:hover > .nav-label{color:var(--forest);}
+.nav-item:hover .caret{transform:rotate(180deg); color:var(--forest);}
+.nav-dropdown{
+  position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(6px);
+  background:var(--white); border:1px solid var(--line); border-radius:8px;
+  box-shadow:var(--shadow); min-width:250px; padding:8px 0;
+  opacity:0; pointer-events:none; transition:opacity .18s ease, transform .18s ease;
+  z-index:310;
+}
+.nav-item:hover .nav-dropdown{opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+.nav-dropdown a{display:block; padding:9px 20px; font-size:13px; color:var(--ink-soft); text-decoration:none;}
+.nav-dropdown a:hover{background:var(--sage-tint); color:var(--forest-ink);}
+.header-cta{
+  font-size:13px; font-weight:600; color:var(--white); background:var(--forest);
+  padding:10px 16px; border-radius:3px; text-decoration:none; white-space:nowrap; flex-shrink:0;
+}
+.header-cta:hover{background:var(--forest-ink);}
+.hamburger-btn{
+  display:none; background:none; border:1px solid var(--line); border-radius:4px;
+  padding:8px 10px; font-size:16px; color:var(--forest-ink); cursor:pointer;
+}
+.mobile-nav-panel{display:none;}
+@media(max-width:1180px){
+  .main-nav{display:none;}
+  .hamburger-btn{display:block;}
+  .mobile-nav-panel.open{
+    display:block; background:var(--white); border-top:1px solid var(--line);
+    max-height:70vh; overflow-y:auto;
+  }
+  .mobile-nav-panel details{border-bottom:1px solid var(--line);}
+  .mobile-nav-panel summary{
+    list-style:none; cursor:pointer; padding:14px 24px; font-size:14px; font-weight:600;
+    color:var(--forest-ink); display:flex; justify-content:space-between; align-items:center;
+  }
+  .mobile-nav-panel summary::-webkit-details-marker{display:none;}
+  .mobile-nav-panel .mob-sub{padding:0 24px 14px 34px; display:flex; flex-direction:column; gap:10px;}
+  .mobile-nav-panel .mob-sub a{font-size:13px; color:var(--ink-soft); text-decoration:none;}
+  .mobile-nav-panel .mob-cta{padding:16px 24px;}
+}
+
+/* ============ STICKY CONSULT RAIL (desktop) ============ */
+.sticky-rail{
+  position:fixed; right:26px; top:50%; transform:translateY(-50%);
+  z-index:250; background:var(--white); border:1px solid var(--line);
+  border-radius:8px; padding:20px 18px; width:198px; box-shadow:var(--shadow);
+  opacity:0; pointer-events:none; transition:opacity .35s ease, transform .35s ease;
+}
+.sticky-rail.visible{opacity:1; pointer-events:auto;}
+.sticky-rail .label{font-family:var(--mono); font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;}
+.sticky-rail .btn-primary{width:100%; text-align:center; margin-bottom:8px;}
+.sticky-rail .btn-ghost{width:100%; text-align:center; font-size:13px;}
+@media(max-width:980px){ .sticky-rail{display:none;} }
+
+.mobile-cta-bar{
+  display:none; position:fixed; bottom:0; left:0; right:0; z-index:260;
+  background:var(--forest-ink); padding:12px 16px; box-shadow:0 -8px 24px rgba(0,0,0,.22);
+  gap:10px;
+}
+@media(max-width:980px){ .mobile-cta-bar{display:flex;} body{padding-bottom:74px;} }
+.mobile-cta-bar a{flex:1; text-align:center; padding:12px 8px; border-radius:4px; font-weight:600; font-size:14px; text-decoration:none;}
+.mobile-cta-bar .btn-primary{background:var(--leaf); color:var(--forest-ink);}
+.mobile-cta-bar .btn-ghost-inv{border:1px solid rgba(255,255,255,.4); color:var(--cream);}
+
+/* WhatsApp float */
+.wa-float{
+  position:fixed; left:24px; bottom:24px; z-index:270;
+  width:54px; height:54px; border-radius:50%; background:#25D366;
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow);
+  color:#fff; text-decoration:none;
+}
+@media(max-width:980px){ .wa-float{bottom:90px;} }
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-block; font-family:var(--body); font-weight:600; font-size:14.5px;
+  padding:14px 26px; border-radius:3px; text-decoration:none; cursor:pointer; border:1px solid transparent;
+  transition:transform .15s ease, background .15s ease;
+}
+.btn-primary{background:var(--leaf); color:var(--forest-ink);}
+.btn-primary:hover{background:#59a653; transform:translateY(-1px);}
+.btn-ghost{border-color:var(--forest); color:var(--forest); background:transparent;}
+.btn-ghost:hover{background:var(--forest); color:#fff;}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+
+/* ============ HERO ============ */
+.hero{
+  background:linear-gradient(180deg, var(--cream) 0%, #f1f1e8 100%);
+  padding:76px 0 92px;
+  position:relative; overflow:hidden;
+}
+.hero-inner{max-width:760px; position:relative; z-index:2;}
+.hero h1{font-size:clamp(34px,4.6vw,54px); margin-bottom:20px; letter-spacing:-.01em;}
+.hero .lede{font-size:18px; max-width:640px; margin-bottom:30px;}
+.trust-line{
+  margin-top:26px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:13.5px; color:var(--ink-soft); display:flex; align-items:center; gap:10px;
+}
+.trust-line::before{content:"✓"; color:var(--leaf); font-weight:700; flex-shrink:0;}
+
+/* ============ TRUST BAR (new, homepage-specific) ============ */
+.trust-bar-section{background:var(--sage-tint); padding:50px 0 62px;}
+.trust-strip{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  background:var(--white); border:1px solid var(--line); border-radius:10px;
+  box-shadow:var(--shadow); overflow:hidden; position:relative;
+}
+.trust-strip::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--leaf), var(--olive), var(--brown));}
+.trust-cell{padding:32px 20px 26px; text-align:center; border-right:1px solid var(--line);}
+.trust-cell:last-child{border-right:none;}
+.trust-cell .num{font-family:var(--display); font-weight:700; font-size:29px; color:var(--sage); font-style:italic; display:block; margin-bottom:8px;}
+.trust-cell .lbl{font-size:12px; color:var(--ink-soft); line-height:1.45; max-width:150px; margin:0 auto;}
+@media(max-width:860px){
+  .trust-strip{grid-template-columns:repeat(2,1fr);}
+  .trust-cell{border-bottom:1px solid var(--line);}
+  .trust-cell:nth-child(2n){border-right:none;}
+  .trust-cell:nth-last-child(-n+2){border-bottom:none;}
+}
+@media(max-width:480px){ .trust-strip{grid-template-columns:1fr;} .trust-cell{border-right:none !important;} }
+
+/* ============ PROBLEM CARDS ============ */
+.problem-section{background:var(--sage-tint);}
+.card-grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:36px;}
+.problem-card{
+  background:var(--white); border:1px solid var(--line); border-radius:6px; padding:26px 22px;
+  border-top:3px solid var(--brown);
+}
+.problem-card .icon-badge{background:#f3e9e2; color:var(--brown); margin-bottom:16px;}
+.problem-card h3{font-size:16px; font-family:var(--body); font-weight:700; color:var(--forest-ink); margin-bottom:10px;}
+.problem-card p{font-size:14px; color:var(--ink-soft); margin:0;}
+@media(max-width:980px){ .card-grid-4{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .card-grid-4{grid-template-columns:1fr;} }
+.pivot-line{margin-top:30px; font-size:16px; color:var(--forest-ink); font-weight:600; font-family:var(--display); font-style:italic; max-width:680px;}
+
+/* ============ ICON GRID (services / who we serve) ============ */
+.icon-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:36px;}
+.icon-grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:36px;}
+.icon-tile{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:26px 22px; text-decoration:none; display:block; transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease;}
+.icon-tile:hover{transform:translateY(-5px); box-shadow:0 18px 34px -20px rgba(39,79,35,.38); border-color:var(--leaf);}
+.icon-badge{
+  width:38px; height:38px; border-radius:8px; background:var(--sage-tint); color:var(--forest);
+  display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; margin-bottom:14px;
+  transition:transform .3s cubic-bezier(.2,.7,.3,1), background .3s ease, color .3s ease;
+}
+.icon-badge svg{width:20px; height:20px; display:block;}
+.icon-tile:hover .icon-badge, .problem-card:hover .icon-badge{transform:scale(1.12) rotate(-6deg); background:var(--leaf); color:var(--forest-ink);}
+.icon-tile h4{font-size:15.5px; font-family:var(--body); font-weight:700; margin-bottom:8px; color:var(--forest-ink);}
+.icon-tile p{font-size:13.5px; color:var(--ink-soft); margin:0;}
+@media(max-width:980px){ .icon-grid,.icon-grid-3{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .icon-grid,.icon-grid-3{grid-template-columns:1fr;} }
+.section-cta{margin-top:30px;}
+
+/* ============ PROCESS PHASES (How We Work, 4-step) ============ */
+.process-section{background:var(--forest-ink); color:var(--cream);}
+.process-section .eyebrow{color:var(--leaf);}
+.process-section h2{color:var(--cream);}
+.phase-grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:40px; background:rgba(255,255,255,.14); border-radius:8px; overflow:hidden;}
+.phase{background:var(--forest-ink); padding:30px 22px; position:relative;}
+.phase .ph-num{font-family:var(--mono); font-size:13px; color:var(--leaf); margin-bottom:14px; display:block;}
+.phase h4{color:var(--white); font-family:var(--body); font-weight:700; font-size:16px; margin-bottom:10px;}
+.phase p{color:rgba(248,248,243,.72); font-size:13.5px; margin:0;}
+@media(max-width:860px){ .phase-grid-4{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .phase-grid-4{grid-template-columns:1fr;} }
+
+/* ============ HOW WE APPROACH EVERY CASE (checklist reused) ============ */
+.approach-section{background:var(--sage-tint);}
+.checklist{list-style:none; padding:0; margin:30px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:14px 26px; max-width:760px;}
+.checklist li{display:flex; align-items:flex-start; gap:12px; font-size:15px; color:var(--ink-soft); padding:4px 0;}
+.check-box{width:20px; height:20px; border:2px solid var(--leaf); border-radius:4px; flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center;}
+.check-box::after{content:"✓"; color:var(--leaf); font-size:13px; font-weight:700;}
+@media(max-width:640px){ .checklist{grid-template-columns:1fr;} }
+
+/* ============ CASE STUDIES ============ */
+.cases-section{background:var(--white);}
+.case-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px;}
+.case-card{background:var(--cream); border:1px solid var(--line); border-top:3px solid var(--brown); border-radius:6px; padding:28px 26px; transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease;}
+.case-card:hover{transform:translateY(-5px); box-shadow:0 18px 34px -20px rgba(39,79,35,.38); border-color:var(--leaf);}
+.case-tag{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--brown); margin-bottom:12px; display:block;}
+.case-card h4{font-family:var(--body); font-weight:700; font-size:16.5px; margin-bottom:10px; color:var(--forest-ink);}
+.case-card p{font-size:14.5px; color:var(--ink-soft); margin-bottom:14px;}
+.case-card a{font-size:13.5px; font-weight:600; text-decoration:none;}
+@media(max-width:760px){ .case-grid{grid-template-columns:1fr;} }
+
+/* ============ INSIGHTS TEASER (placeholder, dashed) ============ */
+.insights-section{background:var(--sage-tint);}
+.insight-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:34px;}
+.insight-card{background:var(--white); border:1px dashed var(--sage); border-radius:6px; padding:24px 22px;}
+.insight-card .case-tag{color:var(--sage); }
+.insight-card h4{font-family:var(--body); font-weight:700; font-size:15px; margin-bottom:8px; color:var(--ink-soft);}
+.insight-card p{font-size:13px; color:var(--ink-soft); margin:0; font-style:italic;}
+@media(max-width:860px){ .insight-grid{grid-template-columns:1fr;} }
+
+/* ============ FAQ ============ */
+.faq-section{background:var(--white);}
+.faq-list{margin-top:34px; border-top:1px solid var(--line);}
+details.faq-item{border-bottom:1px solid var(--line); padding:6px 0;}
+details.faq-item summary{
+  list-style:none; cursor:pointer; padding:18px 4px; display:flex; justify-content:space-between; align-items:center; gap:20px;
+  font-family:var(--body); font-weight:600; font-size:15.5px; color:var(--forest-ink);
+}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary .plus{
+  font-family:var(--mono); font-size:20px; color:var(--leaf); flex-shrink:0; transition:transform .2s ease; width:20px; text-align:center;
+}
+details.faq-item[open] summary .plus{transform:rotate(45deg);}
+.faq-answer{padding:0 4px 22px; font-size:14.5px; color:var(--ink-soft); max-width:760px;}
+
+/* ============ FINAL CTA ============ */
+.final-cta{background:var(--forest); color:var(--cream); text-align:center; padding:80px 0;}
+.final-cta h2{color:var(--white); font-size:clamp(26px,3.6vw,36px); margin-bottom:14px;}
+.final-cta p{color:rgba(248,248,243,.82); font-size:16px; margin-bottom:28px;}
+.final-cta .cta-row{justify-content:center;}
+.related-links{margin-top:34px; font-size:13px; color:rgba(248,248,243,.65);}
+.related-links a{color:rgba(248,248,243,.9); text-decoration:none; margin:0 8px;}
+.related-links a:hover{text-decoration:underline;}
+
+/* ============ REAL SITE FOOTER (new — see build note) ============ */
+.site-footer{background:var(--forest-ink); color:rgba(248,248,243,.7); padding:64px 0 0;}
+.footer-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1fr; gap:30px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.12);}
+.footer-brand .logo{color:var(--cream); font-size:19px;}
+.footer-brand .logo span{color:var(--leaf);}
+.footer-brand p{font-size:13px; color:rgba(248,248,243,.6); margin-top:12px; max-width:220px;}
+.footer-col h5{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--leaf); margin-bottom:16px; font-weight:600;}
+.footer-col a{display:block; font-size:13.5px; color:rgba(248,248,243,.72); text-decoration:none; margin-bottom:11px;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{
+  padding:22px 0 26px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  font-size:12px; color:rgba(248,248,243,.5); font-family:var(--mono);
+}
+.footer-bottom .legal-links a{color:rgba(248,248,243,.5); text-decoration:none; margin-left:16px;}
+.footer-bottom .legal-links a:hover{color:var(--white);}
+.footer-socials{display:flex; gap:10px;}
+.footer-socials a{
+  width:30px; height:30px; border-radius:50%; border:1px solid rgba(255,255,255,.25);
+  display:flex; align-items:center; justify-content:center; color:rgba(248,248,243,.7); text-decoration:none; font-size:12px;
+}
+.footer-socials a:hover{border-color:var(--leaf); color:var(--leaf);}
+@media(max-width:860px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:560px){ .footer-grid{grid-template-columns:1fr;} .footer-bottom{flex-direction:column; align-items:flex-start;} }
+
+.mock-footer{background:#152a12; color:rgba(248,248,243,.55); padding:26px 0; font-size:12px; text-align:center; font-family:var(--mono);}
+
+/* ============ MODERN POLISH LAYER ============ */
+body::before{
+  content:""; position:fixed; inset:0; z-index:1; pointer-events:none;
+  opacity:.025; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.scroll-progress{position:fixed; top:0; left:0; height:3px; width:0%; z-index:500; background:linear-gradient(90deg, var(--leaf), var(--forest)); transition:width .12s linear;}
+
+.hero-mesh{
+  position:absolute; inset:-25%; z-index:0; pointer-events:none; filter:blur(46px);
+  background:
+    radial-gradient(circle at 22% 28%, rgba(102,183,96,.20), transparent 42%),
+    radial-gradient(circle at 82% 18%, rgba(151,160,106,.16), transparent 46%),
+    radial-gradient(circle at 55% 85%, rgba(39,79,35,.12), transparent 42%);
+  animation:meshDrift 24s ease-in-out infinite alternate;
+}
+@keyframes meshDrift{ 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(-3%,2%) scale(1.06);} }
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,15%), rgba(102,183,96,.09), transparent 70%);
+}
+.hero-inner .eyebrow{animation:fadeUp .7s ease both;}
+.hero-inner h1{animation:fadeUp .7s ease .12s both;}
+.hero-inner .lede{animation:fadeUp .7s ease .24s both;}
+.hero-inner .cta-row{animation:fadeUp .7s ease .36s both;}
+.hero-inner .trust-line{animation:fadeUp .7s ease .48s both;}
+@keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+
+.btn-primary{position:relative; overflow:hidden;}
+.btn-primary::before{
+  content:""; position:absolute; top:0; left:-75%; width:45%; height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+  transform:skewX(-18deg); pointer-events:none;
+}
+.btn-primary:hover::before{ animation:shimmer .85s ease; }
+@keyframes shimmer{ from{left:-75%;} to{left:130%;} }
+
+.hl{
+  font-weight:700; color:var(--forest-ink);
+  background:linear-gradient(180deg, transparent 62%, rgba(102,183,96,.38) 62%);
+}
+
+.reveal{opacity:0; transform:translateY(18px) scale(.99); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);}
+.reveal.in{opacity:1; transform:none;}
+
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<button class="ux-toggle" onclick="document.body.classList.toggle('show-ux')">UX Annotations</button>
+
+<!-- HEADER / FULL NAV -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">Cash Stream <span>Advisors</span></a>
+    <nav class="main-nav">
+      <div class="nav-item">
+        <span class="nav-label">International Taxation <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">Lower Deduction Certificate</a>
+          <a href="#">DTAA Advisory</a>
+          <a href="#">Withholding Tax Advisory</a>
+          <a href="#">Non-Resident / Foreign Co. TDS Refund</a>
+          <a href="#">Foreign Company Tax Return in India</a>
+          <a href="#">NRI Tax & Relocation Advisory</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">Tax Litigation <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">Assessment & Scrutiny</a>
+          <a href="#">CIT(A) Appeals</a>
+          <a href="#">ITAT Appeals</a>
+          <a href="#">DRP Appeals</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">FEMA Advisory <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">ODI Advisory</a>
+          <a href="#">FDI Advisory</a>
+          <a href="#">Form FC / RBI Reporting</a>
+          <a href="#">FEMA Compliance</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">Business Setup <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">India Company Incorporation for Foreigners</a>
+          <a href="#">India Entry Strategy</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">Company Compliance <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">GST Compliance</a>
+          <a href="#">Income Tax Compliance</a>
+          <a href="#">ROC Compliance</a>
+          <a href="#">Corporate FEMA Compliance</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">Licensing <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">Money Lending License (Tamil Nadu)</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">About Us <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">About Us</a>
+          <a href="#">Industries We Serve</a>
+          <a href="#">Case Studies</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-label">Resources <span class="caret">▾</span></span>
+        <div class="nav-dropdown">
+          <a href="#">Blog / Insights</a>
+          <a href="#">FAQs</a>
+          <a href="#">Downloadable Guides</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </div>
+    </nav>
+    <a href="#final-cta" class="header-cta">Book a Consultation</a>
+    <button class="hamburger-btn" onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</button>
+  </div>
+  <div class="mobile-nav-panel" id="mobileNav">
+    <details><summary>International Taxation<span>+</span></summary>
+      <div class="mob-sub">
+        <a href="#">Lower Deduction Certificate</a><a href="#">DTAA Advisory</a><a href="#">Withholding Tax Advisory</a>
+        <a href="#">Non-Resident / Foreign Co. TDS Refund</a><a href="#">Foreign Company Tax Return in India</a><a href="#">NRI Tax & Relocation Advisory</a>
+      </div>
+    </details>
+    <details><summary>Tax Litigation<span>+</span></summary>
+      <div class="mob-sub"><a href="#">Assessment & Scrutiny</a><a href="#">CIT(A) Appeals</a><a href="#">ITAT Appeals</a><a href="#">DRP Appeals</a></div>
+    </details>
+    <details><summary>FEMA Advisory<span>+</span></summary>
+      <div class="mob-sub"><a href="#">ODI Advisory</a><a href="#">FDI Advisory</a><a href="#">Form FC / RBI Reporting</a><a href="#">FEMA Compliance</a></div>
+    </details>
+    <details><summary>Business Setup<span>+</span></summary>
+      <div class="mob-sub"><a href="#">India Company Incorporation for Foreigners</a><a href="#">India Entry Strategy</a></div>
+    </details>
+    <details><summary>Indian Company Compliance<span>+</span></summary>
+      <div class="mob-sub"><a href="#">GST Compliance</a><a href="#">Income Tax Compliance</a><a href="#">ROC Compliance</a><a href="#">Corporate FEMA Compliance</a></div>
+    </details>
+    <details><summary>Licensing<span>+</span></summary>
+      <div class="mob-sub"><a href="#">Money Lending License (Tamil Nadu)</a></div>
+    </details>
+    <details><summary>About Us<span>+</span></summary>
+      <div class="mob-sub"><a href="#">About Us</a><a href="#">Industries We Serve</a><a href="#">Case Studies</a><a href="#">Careers</a><a href="#">Contact Us</a></div>
+    </details>
+    <details><summary>Resources<span>+</span></summary>
+      <div class="mob-sub"><a href="#">Blog / Insights</a><a href="#">FAQs</a><a href="#">Downloadable Guides</a><a href="#">Newsletter</a></div>
+    </details>
+    <div class="mob-cta"><a href="#final-cta" class="btn btn-primary" style="display:block;text-align:center;">Book a Consultation</a></div>
+  </div>
+</header>
+
+<!-- STICKY RAIL -->
+<div class="sticky-rail" id="stickyRail">
+  <div class="label">Ready when you are</div>
+  <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+  <a href="#final-cta" class="btn btn-ghost">Talk to a Tax Expert</a>
+</div>
+
+<!-- WHATSAPP -->
+<a href="#" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A7.85 7.85 0 0012.05 4a7.94 7.94 0 00-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 003.85 1h0a7.94 7.94 0 007.94-7.94 7.9 7.9 0 00-2.4-5.64zm-5.55 12.2h0a6.6 6.6 0 01-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1112.28-3.5 6.6 6.6 0 01-6.69 6.6zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64s-.31-.1-.44.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 01-1.6-.98 6 6 0 01-1.1-1.37c-.12-.2 0-.3.09-.4.1-.1.2-.23.3-.35.1-.12.13-.2.2-.33a.36.36 0 000-.35c-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38a.72.72 0 00-.52.24 2.2 2.2 0 00-.68 1.63c0 .96.7 1.9.8 2.02.1.13 1.37 2.1 3.33 2.94.46.2.83.32 1.11.4.47.15.9.13 1.24.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.04-.08-.18-.13-.38-.23z"/></svg>
+</a>
+
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta-bar">
+  <a href="#final-cta" class="btn-primary">Book a Consultation</a>
+  <a href="#final-cta" class="btn-ghost-inv">Talk to an Expert</a>
+</div>
+
+<!-- ============ SECTION 1: HERO ============ -->
+<section class="hero ux-region reveal">
+  <span class="ux-tag">Hero Banner</span>
+  <div class="hero-mesh"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Chartered Accountants for Complex Tax and Cross-Border Matters</div>
+    <h1>Complicated tax problems. Clear, confident solutions.</h1>
+    <p class="lede">International taxation, FEMA compliance, tax litigation, and business setup in India. Handled end to end by chartered accountants who deal with <span class="hl">nothing else</span>.</p>
+    <div class="cta-row">
+      <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+      <a href="#final-cta" class="btn btn-ghost">Talk to a Tax Expert</a>
+    </div>
+    <div class="trust-line">Advising NRIs, foreign companies, and Indian businesses across international taxation, FEMA, litigation, and compliance.</div>
+    <div class="ux-note">Compliance note: dual CTA here matches the established pattern from built service pages (hero / sticky rail / mobile bar), which technically diverges from the single-CTA-architecture rule in the Brand Guidelines. Flagged for Nihar to reconcile either the docs or the pattern.</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: TRUST BAR ============ -->
+<section class="trust-bar-section ux-region reveal">
+  <span class="ux-tag">Trust Bar</span>
+  <div class="wrap">
+    <div class="trust-strip">
+      <div class="trust-cell"><span class="num">[X]+</span><span class="lbl">years of cross-border tax experience</span></div>
+      <div class="trust-cell"><span class="num">[X]+</span><span class="lbl">clients served in India and abroad</span></div>
+      <div class="trust-cell"><span class="num">[X]+</span><span class="lbl">tax notices and appeals handled</span></div>
+      <div class="trust-cell"><span class="num">[X]+</span><span class="lbl">countries where clients are based</span></div>
+    </div>
+    <div class="ux-note">Numbers are styled in muted italic sage deliberately, to read as "pending" rather than a broken bold stat. At launch, once real figures land, switch .num to solid forest-ink (non-italic) — that's the production style, this is the placeholder style.</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: PROBLEM FRAMING ============ -->
+<section class="problem-section ux-region reveal">
+  <span class="ux-tag">Problem Cards</span>
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2 class="h2">The Problems That Bring People To Us</h2>
+    <p class="lede">Not textbook tax questions. Real, urgent, expensive problems.</p>
+    <div class="card-grid-4">
+      <div class="problem-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/></svg></div>
+        <h3>Taxed in Two Countries. Refunded by Neither.</h3>
+        <p>Double taxation is common, and it's rarely solved by looking up a treaty rate online.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M12 9v4M12 16h.01"/></svg></div>
+        <h3>A Notice Arrives, and the Panic Starts.</h3>
+        <p>Scrutiny, reassessment, and appeals feel overwhelming mostly because the process is opaque.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 010 10h-1"/></svg></div>
+        <h3>TDS Eats Into Money That Was Never Owed.</h3>
+        <p>Excess deduction blocks cash flow for months, sometimes years, while a refund works its way through the system.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 15l6-6M9 9h6v6"/></svg></div>
+        <h3>Setting Up in India Feels Harder Than It Should.</h3>
+        <p>Incorporation, FEMA approval, and regulatory filings rarely move in the order anyone expects.</p>
+      </div>
+    </div>
+    <p class="pivot-line">If any of this sounds familiar, you're not looking for more information. You're looking for someone who has already solved it.</p>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: SERVICES OVERVIEW ============ -->
+<section class="ux-region reveal" style="background:var(--white);">
+  <span class="ux-tag">Services Overview — Primary Internal Link Hub</span>
+  <div class="wrap">
+    <div class="eyebrow">What we do</div>
+    <h2 class="h2">Everything Under One Roof</h2>
+    <p class="lede">Six areas of specialization. One firm handling all of them properly.</p>
+    <div class="icon-grid-3">
+      <a href="#" class="icon-tile"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3.5 3.5 14 0 18M12 3c-3.5 3.5-3.5 14 0 18"/></svg></div><h4>International Taxation</h4><p>Stop paying tax twice. We structure it correctly from the start.</p></a>
+      <a href="#" class="icon-tile"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5 8l14 0M7 8l-3 8a3.5 3.5 0 007 0l-3-8zM17 8l-3 8a3.5 3.5 0 007 0l-3-8zM9 21h6M12 5v16"/></svg></div><h4>Tax Litigation</h4><p>From the first notice to the tribunal. We represent you at every stage.</p></a>
+      <a href="#" class="icon-tile"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>FEMA Advisory</h4><p>Cross-border transactions, done within the rules, not around them.</p></a>
+      <a href="#" class="icon-tile"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div><h4>Foreign Business Setup</h4><p>Enter the Indian market without getting lost in its paperwork.</p></a>
+      <a href="#" class="icon-tile"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></div><h4>Indian Company Compliance</h4><p>GST, income tax, and ROC filings, tracked and filed on schedule.</p></a>
+      <a href="#" class="icon-tile"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M15 4.5a4 4 0 010 7"/></svg></div><h4>Licensing</h4><p>Specialized approvals, including the Money Lending License, managed end to end.</p></a>
+    </div>
+    <div class="ux-note">Cards 5 and 6 (Indian Company Compliance, Licensing) are written at a confident but general level since their category pages, and one sub-page (Corporate FEMA Compliance), aren't built yet. Open item carried from the content doc.</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: WHO WE SERVE ============ -->
+<section class="ux-region reveal" style="background:var(--sage-tint);">
+  <span class="ux-tag">Icon Grid — Who We Serve</span>
+  <div class="wrap">
+    <div class="eyebrow">Who this is for</div>
+    <h2 class="h2">Built for the People Who Actually Need This</h2>
+    <div class="icon-grid">
+      <div class="icon-tile" style="cursor:default;"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg></div><h4>NRIs</h4><p>Managing Indian income, investments, or property from anywhere in the world.</p></div>
+      <div class="icon-tile" style="cursor:default;"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-5h6v5M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></div><h4>Foreign Companies</h4><p>Operating in India, or earning from it, without a local tax team.</p></div>
+      <div class="icon-tile" style="cursor:default;"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.5 3.5 3.5 14 0 18M12 3c-3.5 3.5-3.5 14 0 18" opacity=".55"/><path d="M8 8l8 8"/></svg></div><h4>Indian Businesses</h4><p>Expanding overseas, or facing a cross-border transaction for the first time.</p></div>
+      <div class="icon-tile" style="cursor:default;"><div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 1-4.5 4.5L17.5 20 12 17l-5.5 3 1-6.5L3 9l6-1z"/></svg></div><h4>High Net Worth Individuals</h4><p>Complex portfolios, multiple jurisdictions, one point of accountability.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: HOW WE WORK ============ -->
+<section class="process-section ux-region reveal">
+  <span class="ux-tag">Process Phases: 4 Step</span>
+  <div class="wrap">
+    <div class="eyebrow">How we work</div>
+    <h2 class="h2">How We Work With You</h2>
+    <div class="phase-grid-4">
+      <div class="phase"><span class="ph-num">Step 1</span><h4>Understand</h4><p>We start by understanding your exact situation, not a generic checklist.</p></div>
+      <div class="phase"><span class="ph-num">Step 2</span><h4>Advise</h4><p>You get a clear recommendation, in plain language, before any filing happens.</p></div>
+      <div class="phase"><span class="ph-num">Step 3</span><h4>Execute</h4><p>We handle the filing, the paperwork, and the follow-up ourselves.</p></div>
+      <div class="phase"><span class="ph-num">Step 4</span><h4>Stay Available</h4><p>Tax situations evolve. So do we, alongside you, year after year.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: HOW WE APPROACH EVERY CASE ============ -->
+<section class="approach-section ux-region reveal">
+  <span class="ux-tag">Checklist — How We Approach Every Case</span>
+  <div class="wrap">
+    <div class="eyebrow">Why Cash Stream Advisors</div>
+    <h2 class="h2">How We Approach Every Case</h2>
+    <ul class="checklist">
+      <li><span class="check-box"></span>We specialize in cross-border and complex tax matters, not general accounting.</li>
+      <li><span class="check-box"></span>Every case is followed up on through to resolution.</li>
+      <li><span class="check-box"></span>DTAA, FEMA, litigation, and compliance are coordinated together, not treated as separate problems.</li>
+      <li><span class="check-box"></span>You will know where your case stands at every stage.</li>
+    </ul>
+    <div class="ux-note">Compliance note (ICAI Code of Ethics, effective April 2026): renamed from "Why Clients Choose to Stay" and softened absolute/comparative phrasing. See Facts to Verify sheet, item P0-1.</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: CASE STUDIES ============ -->
+<section class="cases-section ux-region reveal">
+  <span class="ux-tag">Case Study Cards — Anonymized, Factual (ICAI-compliant)</span>
+  <div class="wrap">
+    <div class="eyebrow">Recent work</div>
+    <h2 class="h2">How This Has Worked for Clients Before</h2>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">NRI · Property Sale</span>
+        <h4>Reducing Excess TDS on a Property Sale</h4>
+        <p>An NRI selling a Mumbai flat obtained a certificate reducing TDS from 20% to 6%, based on the actual computed capital gains rather than the standard deduction rate.</p>
+        <a href="#">Read the complete case study →</a>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">Foreign Company · Royalty</span>
+        <h4>Treaty Rate Substantiation on Royalty Income</h4>
+        <p>A foreign consulting firm secured a nil-deduction certificate on service fees by substantiating benefit under the India-US DTAA before payment.</p>
+        <a href="#">Read the complete case study →</a>
+      </div>
+    </div>
+    <div class="ux-note">Case studies pulled from the Lower Deduction Certificate page format, anonymized and factual per ICAI guidelines. Real case study URLs still pending, per standing open item.</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: INSIGHTS TEASER ============ -->
+<section class="insights-section ux-region reveal">
+  <span class="ux-tag">Insights Teaser — Placeholder</span>
+  <div class="wrap">
+    <div class="eyebrow">From our desk</div>
+    <h2 class="h2">From Our Desk</h2>
+    <div class="insight-grid">
+      <div class="insight-card"><span class="case-tag">[Pending]</span><h4>What Is a DTAA and How Does It Work</h4><p>Placeholder — evergreen explainer post recommended before launch.</p></div>
+      <div class="insight-card"><span class="case-tag">[Pending]</span><h4>How NRIs Can Reduce TDS on Property Sales</h4><p>Placeholder — pending Resources content.</p></div>
+      <div class="insight-card"><span class="case-tag">[Pending]</span><h4>[Third post title pending]</h4><p>Placeholder slot.</p></div>
+    </div>
+    <div class="ux-note">Recommend either omitting this section at launch or seeding it with 2 evergreen posts, per the content doc's open item, so the homepage doesn't ship with an empty shelf.</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 10: FAQ ============ -->
+<section class="faq-section ux-region reveal">
+  <span class="ux-tag">FAQ Accordion</span>
+  <div class="wrap">
+    <div class="eyebrow">Common questions</div>
+    <h2 class="h2">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>What does Cash Stream Advisors specialize in?<span class="plus">+</span></summary>
+        <div class="faq-answer">International taxation, FEMA advisory, tax litigation, business setup in India, and Indian company compliance.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with clients outside India?<span class="plus">+</span></summary>
+        <div class="faq-answer">Yes. Most of our international taxation and FEMA advisory work is for NRIs and foreign companies based outside India.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you help if a tax notice has already been received?<span class="plus">+</span></summary>
+        <div class="faq-answer">Yes. Assessment and scrutiny support, along with appeals before CIT(A), ITAT, and DRP, are handled from the point the notice arrives through to resolution.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you only work with NRIs, or also Indian businesses?<span class="plus">+</span></summary>
+        <div class="faq-answer">Both. Indian companies expanding abroad, foreign companies operating in India, NRIs, and high net worth individuals are all served.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What areas does Cash Stream Advisors focus on?<span class="plus">+</span></summary>
+        <div class="faq-answer">The firm specializes in cross-border and complex tax matters, including international taxation, FEMA advisory, and tax litigation, rather than general accounting services.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I get started?<span class="plus">+</span></summary>
+        <div class="faq-answer">Book a consultation. A chartered accountant will review the specific situation before recommending next steps.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 11: FINAL CTA ============ -->
+<section id="final-cta" class="final-cta ux-region reveal">
+  <span class="ux-tag" style="background:rgba(255,255,255,.15);">CTA Banner</span>
+  <div class="wrap">
+    <h2>Let's Solve This Properly.</h2>
+    <p>Book a consultation and talk to a chartered accountant who has handled this exact situation before.</p>
+    <div class="cta-row">
+      <a href="#" class="btn btn-primary">Book a Consultation</a>
+    </div>
+    <div class="related-links">
+      <a href="#">International Taxation</a>·<a href="#">Tax Litigation</a>·<a href="#">FEMA Advisory</a>·<a href="#">Foreign Business Setup</a>·<a href="#">Indian Company Compliance</a>·<a href="#">Licensing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL SITE FOOTER ============ -->
+<footer class="site-footer">
+  <span class="ux-tag" style="position:static; display:inline-flex; margin:0 32px 20px;">New Component — Not Yet Live on Other Pages</span>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Cash Stream <span>Advisors</span></div>
+        <p>Chartered accountants specializing in international taxation, FEMA advisory, tax litigation, and business setup in India.</p>
+        <p style="margin-top:14px; font-family:var(--mono); font-size:11.5px; color:rgba(248,248,243,.5);">[Office address / NAP — pending]</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#">International Taxation</a>
+        <a href="#">Tax Litigation</a>
+        <a href="#">FEMA Advisory</a>
+        <a href="#">Foreign Business Setup</a>
+        <a href="#">Indian Company Compliance</a>
+        <a href="#">Licensing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#">About Us</a>
+        <a href="#">Industries We Serve</a>
+        <a href="#">Case Studies</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="#">Blog / Insights</a>
+        <a href="#">FAQs</a>
+        <a href="#">Downloadable Guides</a>
+        <a href="#">Newsletter</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© [Year] Cash Stream Advisors. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="mock-footer">UI/UX MOCKUP · HOMEPAGE · CASH STREAM ADVISORS · FOR CLIENT REVIEW, NOT FOR PRODUCTION USE</div>
+
+<script>
+  // Scroll progress bar
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+  }, { passive: true });
+
+  // Hero cursor spotlight
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const r = heroSection.getBoundingClientRect();
+      heroSection.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      heroSection.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    }, { passive: true });
+  }
+
+  // Sticky rail visibility after hero
+  const rail = document.getElementById('stickyRail');
+  const hero = document.querySelector('.hero');
+  window.addEventListener('scroll', () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 0) rail.classList.add('visible');
+    else rail.classList.remove('visible');
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Only one FAQ open at a time (desktop FAQ section)
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

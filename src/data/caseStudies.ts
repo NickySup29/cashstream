@@ -125,6 +125,14 @@ const FEMA_ADVISORY_HUB: CaseStudyCategory = {
   id: 'fema-advisory-hub',
   label: 'FEMA Advisory (Hub)',
 };
+const INDIA_COMPANY_INCORPORATION: CaseStudyCategory = {
+  id: 'india-company-incorporation',
+  label: 'India Company Incorporation for Foreigners',
+};
+const FOREIGN_BUSINESS_SETUP_HUB: CaseStudyCategory = {
+  id: 'foreign-business-setup-hub',
+  label: 'Foreign Business Setup (Hub)',
+};
 
 const SERVICE_LDC: CaseStudyServiceRef = {
   label: 'Lower Deduction Certificate',
@@ -193,6 +201,14 @@ const SERVICE_FEMA_COMPLIANCE: CaseStudyServiceRef = {
 const SERVICE_FEMA_ADVISORY_HUB: CaseStudyServiceRef = {
   label: 'FEMA Advisory',
   path: '/fema-advisory/',
+};
+const SERVICE_INDIA_COMPANY_INCORPORATION: CaseStudyServiceRef = {
+  label: 'India Company Incorporation for Foreigners',
+  path: '/foreign-business-setup/india-company-incorporation-for-foreigners/',
+};
+const SERVICE_FOREIGN_BUSINESS_SETUP_HUB: CaseStudyServiceRef = {
+  label: 'Foreign Business Setup',
+  path: '/foreign-business-setup/',
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -650,6 +666,54 @@ export const caseStudies: CaseStudy[] = [
     approach: 'We guided the company through a multi-year FEMA compliance clean-up, including compounding the historical ODI lapse.',
     outcome: 'The company was ready for the strategic acquisition.',
     service: SERVICE_FEMA_ADVISORY_HUB,
+  },
+  {
+    id: 'european-tech-subsidiary-live-within-weeks',
+    siteCategory: 'Foreign Business Setup',
+    category: INDIA_COMPANY_INCORPORATION,
+    tag: 'European Technology Company',
+    stat: 'Subsidiary Live Within Weeks',
+    title: 'European Technology Company: Subsidiary Live Within Weeks',
+    situation: "A European technology company needed an Indian wholly owned subsidiary incorporated, banked, and FDI-reported quickly.",
+    approach: 'We handled the incorporation, banking, and FDI reporting within weeks.',
+    outcome: 'The client hired its first India team on schedule.',
+    service: SERVICE_INDIA_COMPANY_INCORPORATION,
+  },
+  {
+    id: 'foreign-founder-structure-corrected-before-filing',
+    siteCategory: 'Foreign Business Setup',
+    category: INDIA_COMPANY_INCORPORATION,
+    tag: 'Foreign Founder',
+    stat: 'Structure Corrected Before Filing',
+    title: 'Foreign Founder: Structure Corrected Before Filing',
+    situation: "A foreign founder's own initial research had led them toward an LLP structure.",
+    approach: 'We clarified the FDI conditions in their sector and guided them toward a private limited structure instead.',
+    outcome: 'This avoided a mistake before any filing was made.',
+    service: SERVICE_INDIA_COMPANY_INCORPORATION,
+  },
+  {
+    id: 'saas-strategy-through-first-gst-registration',
+    siteCategory: 'Foreign Business Setup',
+    category: FOREIGN_BUSINESS_SETUP_HUB,
+    tag: 'Global SaaS Company',
+    stat: 'Strategy Through First GST Registration',
+    title: 'Global SaaS Company: Strategy Through First GST Registration',
+    situation: 'A global SaaS company needed to go from initial India entry strategy through to an operational subsidiary.',
+    approach: 'We guided the company through entry strategy, subsidiary incorporation, FDI reporting, and first GST registration.',
+    outcome: 'All of it was completed within a single coordinated engagement.',
+    service: SERVICE_FOREIGN_BUSINESS_SETUP_HUB,
+  },
+  {
+    id: 'foreign-manufacturer-informal-presence-made-compliant',
+    siteCategory: 'Foreign Business Setup',
+    category: FOREIGN_BUSINESS_SETUP_HUB,
+    tag: 'Foreign Manufacturer',
+    stat: 'Informal Presence, Made Compliant',
+    title: 'Foreign Manufacturer: Informal Presence Made Compliant',
+    situation: "A foreign manufacturer's India presence had been operating informally through a distributor relationship.",
+    approach: 'We transitioned the business into a properly incorporated, FEMA-compliant Indian subsidiary.',
+    outcome: 'The company now operates through a fully compliant structure.',
+    service: SERVICE_FOREIGN_BUSINESS_SETUP_HUB,
   },
 ];
 

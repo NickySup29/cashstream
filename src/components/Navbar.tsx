@@ -60,6 +60,17 @@ const navLinks: NavItem[] = [
       { name: 'FEMA Compliance', href: '/fema-advisory/fema-compliance/' },
     ],
   },
+  {
+    name: 'Foreign Business Setup',
+    href: '/foreign-business-setup/',
+    children: [
+      { name: 'India Entry Strategy', href: '/foreign-business-setup/india-entry-strategy/' },
+      {
+        name: 'India Company Incorporation',
+        href: '/foreign-business-setup/india-company-incorporation-for-foreigners/',
+      },
+    ],
+  },
   { name: 'Compliance', href: '/compliance' },
   { name: 'Bookkeeping', href: '/bookkeeping' },
   { name: 'Insights', href: '/insights' },

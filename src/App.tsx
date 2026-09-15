@@ -22,6 +22,9 @@ import OdiAdvisory from './pages/OdiAdvisory';
 import FdiAdvisory from './pages/FdiAdvisory';
 import FormFcRbiReporting from './pages/FormFcRbiReporting';
 import FemaCompliance from './pages/FemaCompliance';
+import ForeignBusinessSetup from './pages/ForeignBusinessSetup';
+import IndiaEntryStrategy from './pages/IndiaEntryStrategy';
+import IndiaCompanyIncorporation from './pages/IndiaCompanyIncorporation';
 import Bookkeeping from './pages/Bookkeeping';
 import ContractReview from './pages/ContractReview';
 import Insights from './pages/Insights';
@@ -92,6 +95,12 @@ export default function App() {
               <Route path="/fema-advisory/fema-compliance/" element={<FemaCompliance />} />
               {/* Legacy flat /fema page removed; the primary redirect is the 301 in public/_redirects. */}
               <Route path="/fema" element={<Navigate to="/fema-advisory/" replace />} />
+              <Route path="/foreign-business-setup/" element={<ForeignBusinessSetup />} />
+              <Route path="/foreign-business-setup/india-entry-strategy/" element={<IndiaEntryStrategy />} />
+              <Route
+                path="/foreign-business-setup/india-company-incorporation-for-foreigners/"
+                element={<IndiaCompanyIncorporation />}
+              />
               <Route path="/bookkeeping" element={<Bookkeeping />} />
               <Route path="/contract-review" element={<ContractReview />} />
               <Route path="/insights" element={<Insights />} />

@@ -96,6 +96,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/foreign-business-setup/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/foreign-business-setup/india-entry-strategy/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/foreign-business-setup/india-company-incorporation-for-foreigners/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/bookkeeping</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -312,6 +327,26 @@
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/about-us/case-studies/fema-multi-year-cleanup-acquisition/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/european-tech-subsidiary-live-within-weeks/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-founder-structure-corrected-before-filing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/saas-strategy-through-first-gst-registration/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-manufacturer-informal-presence-made-compliant/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

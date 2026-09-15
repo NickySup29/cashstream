@@ -36,7 +36,7 @@ export default function Footer() {
               <Link to="/international-taxation/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">International Taxation</Link>
               <Link to="/international-taxation/withholding-tax-advisory/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Withholding Tax</Link>
               <Link to="/compliance" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Compliance</Link>
-              <Link to="/fema" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">FEMA Services</Link>
+              <Link to="/fema-advisory/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">FEMA Advisory</Link>
               <Link to="/bookkeeping" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Bookkeeping</Link>
               <Link to="/about-us/case-studies/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Case Studies</Link>
             </div>

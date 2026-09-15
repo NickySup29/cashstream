@@ -27,8 +27,11 @@ real data exists (e.g. a named reviewer, a real case study URL), omit
 the whole section, don't ship it with brackets instead.
 
 ## 3. DESIGN SYSTEM (do not use the mockup's own CSS/fonts/colors)
-- Fonts: Manrope (headings/body), Inter (labels) — already loaded in
-  index.css. Never use the mockup's Fraunces or monospace fonts.
+- Fonts: Fraunces for headings (font-headline), Inter for body text
+  (font-body), IBM Plex Mono for labels and mono content (font-label /
+  font-mono). Manrope is reserved specifically for Navbar and Footer
+  chrome only (font-nav), never for page content. This is the real,
+  live, sitewide font system, confirmed and in use on every built page.
 - Colors: use the real theme tokens already defined in index.css
   (text-primary, text-secondary, bg-surface-container-lowest, etc.),
   never the mockup's own custom CSS variables (forest, cream, brown).
@@ -40,7 +43,7 @@ the whole section, don't ship it with brackets instead.
   transition-all duration-300.
 - Hero headlines: bold and large — text-5xl md:text-7xl font-extrabold
   tracking-tighter leading-[1.05].
-- Section spacing: py-28 md:py-32 throughout.
+- Section spacing: py-20 md:py-24 throughout.
 - In each page, let at least one section break the "uniform grid of
   identical cards" pattern (a featured/highlighted item, different
   treatment from its siblings) for visual variety.

@@ -105,6 +105,26 @@ const TAX_LITIGATION_HUB: CaseStudyCategory = {
   id: 'tax-litigation-hub',
   label: 'Tax Litigation (Hub)',
 };
+const ODI_ADVISORY: CaseStudyCategory = {
+  id: 'odi-advisory',
+  label: 'ODI Advisory',
+};
+const FDI_ADVISORY: CaseStudyCategory = {
+  id: 'fdi-advisory',
+  label: 'FDI Advisory',
+};
+const FORM_FC_RBI_REPORTING: CaseStudyCategory = {
+  id: 'form-fc-rbi-reporting',
+  label: 'Form FC / RBI Reporting',
+};
+const FEMA_COMPLIANCE: CaseStudyCategory = {
+  id: 'fema-compliance',
+  label: 'FEMA Compliance',
+};
+const FEMA_ADVISORY_HUB: CaseStudyCategory = {
+  id: 'fema-advisory-hub',
+  label: 'FEMA Advisory (Hub)',
+};
 
 const SERVICE_LDC: CaseStudyServiceRef = {
   label: 'Lower Deduction Certificate',
@@ -153,6 +173,26 @@ const SERVICE_DRP: CaseStudyServiceRef = {
 const SERVICE_TAX_LITIGATION_HUB: CaseStudyServiceRef = {
   label: 'Tax Litigation',
   path: '/tax-litigation/',
+};
+const SERVICE_ODI: CaseStudyServiceRef = {
+  label: 'ODI Advisory',
+  path: '/fema-advisory/odi-advisory/',
+};
+const SERVICE_FDI: CaseStudyServiceRef = {
+  label: 'FDI Advisory',
+  path: '/fema-advisory/fdi-advisory/',
+};
+const SERVICE_FORM_FC: CaseStudyServiceRef = {
+  label: 'Form FC / RBI Reporting',
+  path: '/fema-advisory/form-fc-rbi-reporting/',
+};
+const SERVICE_FEMA_COMPLIANCE: CaseStudyServiceRef = {
+  label: 'FEMA Compliance',
+  path: '/fema-advisory/fema-compliance/',
+};
+const SERVICE_FEMA_ADVISORY_HUB: CaseStudyServiceRef = {
+  label: 'FEMA Advisory',
+  path: '/fema-advisory/',
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -490,6 +530,126 @@ export const caseStudies: CaseStudy[] = [
     approach: 'We managed the matter through DRP objections to a substantially reduced final order.',
     outcome: 'This avoided a multi-year ITAT battle altogether.',
     service: SERVICE_TAX_LITIGATION_HUB,
+  },
+  {
+    id: 'odi-us-step-down-subsidiary-form-fc',
+    siteCategory: 'FEMA Advisory',
+    category: ODI_ADVISORY,
+    tag: 'Software Company · US Step-Down Subsidiary',
+    stat: 'Clean UIN & Form FC Filing',
+    title: 'Software Company: Clean UIN & Form FC Filing',
+    situation: 'A software company was setting up a US step-down subsidiary structure.',
+    approach: 'We guided the company through UIN registration and Form FC filing.',
+    outcome: 'This avoided a classification error that would have triggered approval-route delays.',
+    service: SERVICE_ODI,
+  },
+  {
+    id: 'odi-undisclosed-investment-compounding',
+    siteCategory: 'FEMA Advisory',
+    category: ODI_ADVISORY,
+    tag: 'Promoter · Undisclosed Investment',
+    stat: 'Regularized Through Compounding',
+    title: 'Promoter: Undisclosed Overseas Investment Regularized Through Compounding',
+    situation: 'A promoter had made an undisclosed overseas investment years earlier.',
+    approach: 'We guided the promoter through the compounding process.',
+    outcome: 'The position was regularized, enabling future repatriation.',
+    service: SERVICE_ODI,
+  },
+  {
+    id: 'fdi-startup-series-a-foreign-vc',
+    siteCategory: 'FEMA Advisory',
+    category: FDI_ADVISORY,
+    tag: 'Startup · Series A, Foreign VC',
+    stat: 'Filed Within RBI Timelines',
+    title: 'Startup: Series A Round Filed Within RBI Timelines',
+    situation: 'A startup was closing a Series A round with a foreign VC fund.',
+    approach: 'We guided the startup through valuation, FCGPR filing, and downstream investment reporting for its own subsidiary.',
+    outcome: 'Everything was completed within RBI timelines.',
+    service: SERVICE_FDI,
+  },
+  {
+    id: 'fdi-overseas-family-fctrs-transfer',
+    siteCategory: 'FEMA Advisory',
+    category: FDI_ADVISORY,
+    tag: 'Overseas Family Member · Secondary Transfer',
+    stat: 'Contravention Avoided',
+    title: 'Secondary Share Transfer: Contravention Avoided',
+    situation: 'A secondary share transfer to an overseas family member was underway.',
+    approach: 'We guided the transfer through FCTRS filing and pricing compliance.',
+    outcome: 'This avoided a contravention that an earlier informal transfer had nearly caused.',
+    service: SERVICE_FDI,
+  },
+  {
+    id: 'manufacturing-fdi-ecb-rbi-reconciliation',
+    siteCategory: 'FEMA Advisory',
+    category: FORM_FC_RBI_REPORTING,
+    tag: 'Manufacturing Company · 3-Year Reconciliation',
+    stat: '3 Years Reconciled',
+    title: 'Manufacturing Company: Full Compliance History Restored',
+    situation: 'A mid-sized manufacturing company with FDI, an overseas subsidiary, and an ECB had three years of inconsistent RBI filings.',
+    approach: 'We reconciled and regularized the full compliance history.',
+    outcome: "We set up an ongoing calendar so the same deadlines don't get missed again.",
+    service: SERVICE_FORM_FC,
+  },
+  {
+    id: 'startup-fla-return-firms-registration',
+    siteCategory: 'FEMA Advisory',
+    category: FORM_FC_RBI_REPORTING,
+    tag: 'First-Time Foreign-Funded Startup',
+    stat: 'Penalty Avoided Entirely',
+    title: 'First-Time Foreign-Funded Startup: Penalty Avoided Entirely',
+    situation: 'A startup had never registered on the FIRMS portal and had days left before its first FLA return deadline.',
+    approach: 'We guided it through FIRMS portal registration and prepared the first FLA return.',
+    outcome: 'The return was filed within days of the deadline, avoiding a penalty entirely.',
+    service: SERVICE_FORM_FC,
+  },
+  {
+    id: 'trading-company-fema-health-check-compounding',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_COMPLIANCE,
+    tag: 'Trading Company · Pre-Funding Health-Check',
+    stat: 'Resolved Before Diligence',
+    title: 'Trading Company: FEMA Gap Compounded Before Diligence',
+    situation: 'A pre-funding FEMA health-check uncovered an old unreported FDI transaction.',
+    approach: 'We quantified the exposure and completed the compounding process.',
+    outcome: "The gap was resolved before the investor's due diligence began.",
+    service: SERVICE_FEMA_COMPLIANCE,
+  },
+  {
+    id: 'nri-family-lrs-remittance-compliance',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_COMPLIANCE,
+    tag: 'NRI Family · Recurring Remittances',
+    stat: 'No More Bank Queries',
+    title: 'NRI Family: No More Bank Queries on Recurring Remittances',
+    situation: 'An NRI family had recurring education and maintenance remittances that risked exceeding LRS limits or lacking proper documentation.',
+    approach: 'We guided them on structuring the remittances within LRS limits and documentation requirements.',
+    outcome: 'The family avoided repeated bank queries going forward.',
+    service: SERVICE_FEMA_COMPLIANCE,
+  },
+  {
+    id: 'fema-startup-series-a-rbi-timelines',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_ADVISORY_HUB,
+    tag: 'Foreign-Funded Startup · End-to-End Series A',
+    stat: 'Filed Within RBI Timelines',
+    title: 'Foreign-Funded Startup: Series A Filed Within RBI Timelines',
+    situation: 'A foreign-funded startup was closing its Series A round.',
+    approach: "We structured the round end-to-end: pricing, FCGPR filing, and downstream reporting for its own subsidiary.",
+    outcome: 'Everything was completed within RBI timelines.',
+    service: SERVICE_FEMA_ADVISORY_HUB,
+  },
+  {
+    id: 'fema-multi-year-cleanup-acquisition',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_ADVISORY_HUB,
+    tag: 'Multi-Year FEMA Clean-Up',
+    stat: 'Ready for Acquisition',
+    title: 'Multi-Year FEMA Clean-Up: Ready Ahead of Acquisition',
+    situation: 'A company had multiple years of FEMA compliance gaps, including a historical ODI lapse, ahead of a strategic acquisition.',
+    approach: 'We guided the company through a multi-year FEMA compliance clean-up, including compounding the historical ODI lapse.',
+    outcome: 'The company was ready for the strategic acquisition.',
+    service: SERVICE_FEMA_ADVISORY_HUB,
   },
 ];
 

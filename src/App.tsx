@@ -17,7 +17,11 @@ import CitAAppeals from './pages/CitAAppeals';
 import ItatAppeals from './pages/ItatAppeals';
 import DrpAppeals from './pages/DrpAppeals';
 import Compliance from './pages/Compliance';
-import Fema from './pages/Fema';
+import FemaAdvisory from './pages/FemaAdvisory';
+import OdiAdvisory from './pages/OdiAdvisory';
+import FdiAdvisory from './pages/FdiAdvisory';
+import FormFcRbiReporting from './pages/FormFcRbiReporting';
+import FemaCompliance from './pages/FemaCompliance';
 import Bookkeeping from './pages/Bookkeeping';
 import ContractReview from './pages/ContractReview';
 import Insights from './pages/Insights';
@@ -81,7 +85,13 @@ export default function App() {
               <Route path="/tax-litigation/itat-appeals/" element={<ItatAppeals />} />
               <Route path="/tax-litigation/drp-appeals/" element={<DrpAppeals />} />
               <Route path="/compliance" element={<Compliance />} />
-              <Route path="/fema" element={<Fema />} />
+              <Route path="/fema-advisory/" element={<FemaAdvisory />} />
+              <Route path="/fema-advisory/odi-advisory/" element={<OdiAdvisory />} />
+              <Route path="/fema-advisory/fdi-advisory/" element={<FdiAdvisory />} />
+              <Route path="/fema-advisory/form-fc-rbi-reporting/" element={<FormFcRbiReporting />} />
+              <Route path="/fema-advisory/fema-compliance/" element={<FemaCompliance />} />
+              {/* Legacy flat /fema page removed; the primary redirect is the 301 in public/_redirects. */}
+              <Route path="/fema" element={<Navigate to="/fema-advisory/" replace />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />
               <Route path="/contract-review" element={<ContractReview />} />
               <Route path="/insights" element={<Insights />} />

@@ -71,7 +71,27 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/fema</loc>
+    <loc>https://cashstreamadvisors.com/fema-advisory/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/fema-advisory/odi-advisory/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/fema-advisory/fdi-advisory/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/fema-advisory/form-fc-rbi-reporting/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/fema-advisory/fema-compliance/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -242,6 +262,56 @@
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-company-draft-order-resolution/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/odi-us-step-down-subsidiary-form-fc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/odi-undisclosed-investment-compounding/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/fdi-startup-series-a-foreign-vc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/fdi-overseas-family-fctrs-transfer/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/manufacturing-fdi-ecb-rbi-reconciliation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/startup-fla-return-firms-registration/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/trading-company-fema-health-check-compounding/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/nri-family-lrs-remittance-compliance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/fema-startup-series-a-rbi-timelines/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/fema-multi-year-cleanup-acquisition/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

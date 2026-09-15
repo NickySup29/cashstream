@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form FC, FC-GPR & FC-TRS Filing Support | Cash Stream Advisors</title>
+<meta name="description" content="FIRMS portal registration, FC-GPR, FC-TRS, FLA, and ECB-2 filing, handled and tracked so recurring RBI deadlines never get missed again.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#274F23;--forest-ink:#1c3a19;--leaf:#66B760;--cream:#F8F8F3;--sage:#92AB9F;--sage-tint:#eef2ef;--olive:#97A06A;--brown:#895233;--white:#ffffff;--ink:#22291f;--ink-soft:#4b5548;--line:#dfe3da;--error:#8a2f2f;--error-tint:#fbecec;--shadow:0 12px 32px -18px rgba(39,79,35,0.35);--display:'Fraunces',Georgia,serif;--body:'Inter',-apple-system,sans-serif;--mono:'IBM Plex Mono','SFMono-Regular',monospace;--maxw:1120px;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:var(--display);color:var(--forest-ink);margin:0;line-height:1.15;font-weight:700;}
+p{margin:0 0 1em;}
+a{color:var(--forest);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{padding:88px 0;position:relative;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brown);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--brown);display:inline-block;}
+.eyebrow.on-dark{color:var(--leaf);}
+.eyebrow.on-dark::before{background:var(--leaf);}
+.h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:18px;}
+.lede{color:var(--ink-soft);font-size:17px;max-width:640px;}
+.site-header{position:sticky;top:0;z-index:300;background:rgba(248,248,243,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+.header-inner{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.logo{font-family:var(--display);font-weight:700;font-size:19px;color:var(--forest-ink);}
+.logo span{color:var(--leaf);}
+.breadcrumb{font-family:var(--mono);font-size:12px;color:var(--ink-soft);}
+.breadcrumb .sep{margin:0 6px;color:var(--sage);}
+.breadcrumb .current{color:var(--forest);font-weight:600;}
+.header-cta{font-size:13.5px;font-weight:600;color:var(--white);background:var(--forest);padding:10px 18px;border-radius:3px;text-decoration:none;white-space:nowrap;}
+@media(max-width:760px){.breadcrumb{display:none;}}
+.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:14.5px;padding:14px 26px;border-radius:3px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .15s ease,background .15s ease;}
+.btn-primary{background:var(--leaf);color:var(--forest-ink);}
+.btn-primary:hover{background:#59a653;transform:translateY(-1px);}
+.btn-ghost{border-color:var(--forest);color:var(--forest);background:transparent;}
+.btn-ghost:hover{background:var(--forest);color:#fff;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.hero{background:linear-gradient(180deg,var(--cream) 0%,#f1f1e8 100%);padding:76px 0 92px;}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;}
+.hero h1{font-size:clamp(30px,4vw,48px);margin-bottom:20px;letter-spacing:-.01em;}
+.hero .lede{font-size:18px;max-width:600px;margin-bottom:30px;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+.trust-badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+.trust-badge{display:flex;align-items:flex-start;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px 16px;flex:1;min-width:240px;box-shadow:var(--shadow);}
+.trust-badge .check{width:22px;height:22px;border-radius:50%;background:var(--leaf);color:var(--forest-ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;margin-top:1px;}
+.trust-badge .tb-title{font-weight:700;font-size:14px;color:var(--forest-ink);margin-bottom:3px;}
+.trust-badge .tb-body{font-size:12.5px;color:var(--ink-soft);line-height:1.45;}
+.hero-card{background:var(--forest);color:var(--cream);border-radius:16px;padding:32px;box-shadow:0 20px 46px -18px rgba(39,79,35,0.45);}
+.hero-card .hc-tag{display:flex;align-items:center;gap:8px;margin-bottom:22px;}
+.hero-card .hc-dot{width:8px;height:8px;border-radius:50%;background:var(--leaf);}
+.hero-card .hc-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--leaf);}
+.hero-card .hc-row{padding:16px 0;border-bottom:1px solid rgba(248,248,243,.14);}
+.hero-card .hc-row:last-of-type{border-bottom:none;}
+.hero-card .hc-eyebrow{font-size:13px;color:rgba(248,248,243,.6);margin-bottom:4px;}
+.hero-card .hc-value{font-size:19px;font-weight:700;}
+.hero-card .hc-note{margin-top:18px;padding-top:16px;border-top:1px solid rgba(248,248,243,.14);font-size:12.5px;color:rgba(248,248,243,.65);font-style:italic;}
+.card-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:36px;}
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;}
+.problem-card{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--forest);border-radius:8px;padding:26px 24px;}
+.problem-card h3{font-size:15.5px;font-family:var(--body);font-weight:700;color:var(--forest-ink);margin-bottom:10px;}
+.problem-card p{font-size:14px;color:var(--ink-soft);margin:0;}
+@media(max-width:980px){.card-grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.card-grid-2,.card-grid-3{grid-template-columns:1fr;}}
+.two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:start;margin-top:10px;}
+.highlight-card{background:var(--forest);color:var(--cream);border-radius:12px;padding:30px 26px;font-family:var(--display);font-size:19px;line-height:1.5;font-style:italic;position:relative;}
+.highlight-card::before{content:"\201C";font-family:var(--display);font-size:60px;color:var(--leaf);position:absolute;top:-6px;left:18px;font-style:normal;}
+@media(max-width:860px){.two-col{grid-template-columns:1fr;}}
+.reg-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:30px 28px;box-shadow:var(--shadow);margin-top:34px;}
+.reg-card p{font-size:14.5px;color:var(--ink-soft);}
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px;}
+.icon-tile{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:24px 22px;}
+.icon-badge{width:38px;height:38px;border-radius:8px;background:var(--sage-tint);color:var(--forest);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;margin-bottom:14px;}
+.icon-tile h4{font-size:15px;font-family:var(--body);font-weight:700;margin-bottom:8px;}
+.icon-tile p{font-size:13px;color:var(--ink-soft);margin:0;}
+@media(max-width:980px){.icon-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.icon-grid{grid-template-columns:1fr;}}
+
+/* ===== SIGNATURE ELEMENT: VERTICAL COMPLIANCE-CALENDAR TIMELINE ===== */
+.calendar-timeline{margin-top:40px;position:relative;padding-left:36px;max-width:760px;}
+.calendar-timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line);}
+.cal-item{position:relative;padding-bottom:34px;}
+.cal-item:last-child{padding-bottom:0;}
+.cal-dot{position:absolute;left:-36px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--white);border:4px solid var(--forest);}
+.cal-dot.recurring{border-color:var(--brown);}
+.cal-freq{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--brown);margin-bottom:5px;}
+.cal-item h3{font-size:16.5px;margin-bottom:6px;}
+.cal-item p{font-size:14px;color:var(--ink-soft);margin:0;}
+.cal-note{margin-top:12px;background:var(--sage-tint);border-radius:10px;padding:20px 24px;font-size:14px;color:var(--ink-soft);max-width:760px;}
+.cal-cta{margin-top:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+
+.registration-steps{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:34px;}
+.reg-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 24px;box-shadow:var(--shadow);}
+.reg-step .rs-num{font-family:var(--mono);font-size:11px;color:var(--brown);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;}
+.reg-step h4{font-size:16px;margin-bottom:10px;}
+.reg-step p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+.reg-arrow{font-size:22px;color:var(--sage);text-align:center;}
+@media(max-width:760px){.registration-steps{grid-template-columns:1fr;}.reg-arrow{transform:rotate(90deg);}}
+
+.process-section{background:var(--forest-ink);color:var(--cream);}
+.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px;background:rgba(255,255,255,.14);border-radius:10px;overflow:hidden;}
+.phase{background:var(--forest-ink);padding:28px 24px;}
+.phase.emphasis{background:#20401c;}
+.phase .ph-num{font-family:var(--mono);font-size:13px;color:var(--leaf);margin-bottom:14px;display:block;}
+.phase h4{color:var(--white);font-family:var(--body);font-weight:700;font-size:16px;margin-bottom:10px;}
+.phase p{color:rgba(248,248,243,.72);font-size:13.5px;margin:0;}
+@media(max-width:980px){.phase-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.phase-grid{grid-template-columns:1fr;}}
+.process-cta{margin-top:34px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.process-cta p{margin:0;font-size:14.5px;color:rgba(248,248,243,.85);max-width:600px;}
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:14px;max-width:680px;}
+.checklist li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--ink);}
+.check-box{width:20px;height:20px;border:2px solid var(--leaf);border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;}
+.check-box::after{content:"\2713";color:var(--leaf);font-size:12px;font-weight:700;}
+.mistake-list{display:grid;gap:14px;margin-top:34px;}
+.mistake-row{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--error);border-radius:8px;padding:20px 24px;}
+.mistake-row h4{font-family:var(--body);font-weight:700;font-size:15px;color:var(--error);margin:0 0 8px;}
+.mistake-row p{margin:0;font-size:14px;color:var(--ink-soft);}
+.stake-box{background:var(--error-tint);border:1px solid #e3c4c4;border-radius:14px;padding:32px;margin-top:32px;}
+.stake-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;}
+.stake-grid li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);list-style:none;}
+.stake-grid li::before{content:"!";width:20px;height:20px;border-radius:50%;background:var(--error);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+@media(max-width:760px){.stake-grid{grid-template-columns:1fr;}}
+.why-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;margin-top:20px;align-items:stretch;}
+.why-copy{display:flex;flex-direction:column;justify-content:space-between;}
+.why-copy p{font-size:15.5px;color:rgba(248,248,243,.85);}
+.stat-stack{display:flex;flex-direction:column;gap:16px;}
+.stat-tile{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:20px 22px;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.stat-tile .num{font-family:var(--mono);font-weight:700;font-size:26px;color:var(--white);display:block;}
+.stat-tile .lbl{font-size:13px;color:rgba(248,248,243,.7);margin-top:5px;}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr;}}
+.reviewer-strip{max-width:820px;display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--sage);border-radius:10px;padding:18px 24px;}
+.reviewer-strip .rv-badge{width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:17px;flex-shrink:0;}
+.reviewer-strip .rv-text{font-size:13.5px;color:var(--ink-soft);}
+.ux-note{font-family:var(--mono);font-size:10.5px;color:var(--brown);background:var(--sage-tint);border:1px dashed var(--olive);border-radius:4px;padding:8px 12px;margin-top:12px;line-height:1.5;}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px;}
+.case-card{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--brown);border-radius:10px;padding:26px 24px;}
+.case-tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--brown);margin-bottom:12px;display:block;}
+.case-card h4{font-family:var(--body);font-weight:700;font-size:16px;margin-bottom:10px;}
+.case-card p{font-size:14px;color:var(--ink-soft);margin-bottom:14px;}
+.case-card .case-link{font-size:13.5px;font-weight:600;color:var(--forest);}
+@media(max-width:760px){.case-grid{grid-template-columns:1fr;}}
+.faq-list{margin-top:34px;border-top:1px solid var(--line);max-width:800px;}
+details.faq-item{border-bottom:1px solid var(--line);padding:6px 0;}
+details.faq-item summary{list-style:none;cursor:pointer;padding:18px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--body);font-weight:600;font-size:15px;color:var(--forest-ink);}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary .plus{font-family:var(--mono);font-size:20px;color:var(--leaf);flex-shrink:0;transition:transform .2s ease;}
+details.faq-item[open] summary .plus{transform:rotate(45deg);}
+.faq-answer{padding:0 4px 20px;font-size:14px;color:var(--ink-soft);max-width:740px;}
+.final-cta{background:var(--forest);color:var(--cream);text-align:center;}
+.final-cta h2{color:var(--white);font-size:clamp(26px,3.6vw,36px);margin-bottom:14px;}
+.final-cta p{color:rgba(248,248,243,.82);font-size:16px;margin-bottom:28px;}
+.final-cta .cta-row{justify-content:center;}
+.related-links{margin-top:34px;font-size:13px;color:rgba(248,248,243,.65);}
+.related-links a{color:rgba(248,248,243,.9);text-decoration:none;margin:0 8px;}
+.mock-footer{background:var(--forest-ink);color:rgba(248,248,243,.55);padding:26px 0;font-size:12px;text-align:center;font-family:var(--mono);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">Cash Stream <span>Advisors</span></div>
+    <div class="breadcrumb"><a href="#">FEMA Advisory</a><span class="sep">&rarr;</span><span class="current">Form FC / RBI Reporting</span></div>
+    <a href="#final-cta" class="header-cta">Book a Consultation</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">FEMA Advisory &middot; Form FC / RBI Reporting</div>
+      <h1>Form FC, FC-GPR &amp; FC-TRS Filing Support</h1>
+      <p class="lede">Once you know what needs to be filed, ODI, FDI, an FLA return, an ECB drawdown, the actual filing still has to happen correctly, on the FIRMS portal, within a deadline that doesn't move. We handle the portal registration, the form preparation, and the AD bank coordination, and we track every recurring deadline so a filing due in July doesn't get discovered in August.</p>
+      <div class="cta-row"><a href="#final-cta" class="btn btn-primary">Book a Consultation</a><a href="#" class="btn btn-ghost">Talk to a Tax Expert</a></div>
+      <div class="trust-badges">
+        <div class="trust-badge"><div class="check">&#10003;</div><div><div class="tb-title">3 years of filings reconciled</div><div class="tb-body">Manufacturing company with FDI, an overseas subsidiary, and an ECB.</div></div></div>
+        <div class="trust-badge"><div class="check">&#10003;</div><div><div class="tb-title">First FLA return, days from deadline</div><div class="tb-body">First-time foreign-funded startup through FIRMS portal registration.</div></div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-tag"><span class="hc-dot"></span><span class="hc-label">Recent Case Outcomes</span></div>
+      <div class="hc-row"><div class="hc-eyebrow">3-Year Filing Backlog</div><div class="hc-value">Reconciled &amp; Regularized</div></div>
+      <div class="hc-row"><div class="hc-eyebrow">First-Time FLA Return</div><div class="hc-value">Filed Before Deadline</div></div>
+      <div class="hc-note">Illustrative recent outcomes. Every case turns on its own facts.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2 class="h2">When people come to us</h2>
+    <div class="card-grid-3">
+      <div class="problem-card"><h3>The July 15 FLA deadline is approaching</h3><p>Data compilation hasn't started. One of the most commonly missed deadlines in FEMA compliance, and it sneaks up every year.</p></div>
+      <div class="problem-card"><h3>Never registered on the FIRMS portal</h3><p>A company just received foreign investment and has no filing history to build from.</p></div>
+      <div class="problem-card"><h3>ECB monthly reporting isn't happening consistently</h3><p>Form ECB-2 is a recurring obligation, not a one-time filing, and gaps compound.</p></div>
+      <div class="problem-card"><h3>Multiple RBI filings have piled up</h3><p>FCGPR, FCTRS, Form FC, FLA. Nobody set out to fall behind, it just happened one missed deadline at a time.</p></div>
+      <div class="problem-card"><h3>Wants an annual compliance calendar</h3><p>The goal isn't fixing this year's filing, it's not having this same conversation again next year.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">What this service covers</div>
+    <h2 class="h2">The execution layer, once the strategy's decided</h2>
+    <div class="two-col">
+      <div>
+        <p>This is the umbrella filing service covering the RBI and FEMA forms that businesses and individuals need for cross-border transactions: Form FC for ODI and OPI, FCGPR and FCTRS for FDI, the Annual Return on Foreign Liabilities and Assets (FLA), External Commercial Borrowing reporting, and other FIRMS portal filings.</p>
+        <p>This is especially relevant if you already know what type of transaction you're dealing with and just need it filed correctly, or if you have multiple, recurring cross-border reporting obligations and want them handled as one coordinated calendar rather than a series of separate scrambles.</p>
+      </div>
+      <div class="highlight-card">If you're still deciding whether an investment is ODI or OPI, or which entry route applies, our ODI Advisory and FDI Advisory pages cover those questions directly. This page is for once that's already decided.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">The forms</div>
+    <h2 class="h2">Which forms apply to you</h2>
+    <div class="icon-grid">
+      <div class="icon-tile"><div class="icon-badge">FC</div><h4>Form FC</h4><p>For Overseas Direct and Portfolio Investment reporting, covered in depth on our ODI Advisory page.</p></div>
+      <div class="icon-tile"><div class="icon-badge">GPR</div><h4>FCGPR &amp; FCTRS</h4><p>For fresh share issuance and transfers under FDI, covered in depth on our FDI Advisory page.</p></div>
+      <div class="icon-tile"><div class="icon-badge">FLA</div><h4>FLA Return</h4><p>The annual Foreign Liabilities and Assets return, required for any entity with foreign assets or liabilities as of March 31.</p></div>
+      <div class="icon-tile"><div class="icon-badge">ECB</div><h4>Form ECB &amp; ECB-2</h4><p>For External Commercial Borrowings, with ECB-2 required as a recurring monthly return while the borrowing is outstanding.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE ELEMENT: vertical compliance-calendar timeline -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Not knowing isn't the problem</div>
+    <h2 class="h2">Your annual RBI compliance calendar</h2>
+    <p class="lede">Most FEMA reporting problems aren't caused by not knowing a form exists, they're caused by a deadline arriving when nobody was tracking it.</p>
+    <div class="calendar-timeline">
+      <div class="cal-item">
+        <span class="cal-dot"></span>
+        <span class="cal-freq">Event-triggered</span>
+        <h3>FCGPR</h3>
+        <p>Within 30 days of share allotment, not a fixed calendar date.</p>
+      </div>
+      <div class="cal-item">
+        <span class="cal-dot"></span>
+        <span class="cal-freq">Event-triggered</span>
+        <h3>FCTRS</h3>
+        <p>Within 60 days of a share transfer, also event-triggered.</p>
+      </div>
+      <div class="cal-item">
+        <span class="cal-dot recurring"></span>
+        <span class="cal-freq">Fixed &middot; annual</span>
+        <h3>FLA Return</h3>
+        <p>By 15 July every year, due even if audited financials aren't ready, provisional figures should be used, with a revised filing later.</p>
+      </div>
+      <div class="cal-item">
+        <span class="cal-dot recurring"></span>
+        <span class="cal-freq">Recurring &middot; monthly</span>
+        <h3>ECB-2</h3>
+        <p>Monthly, for as long as an External Commercial Borrowing remains outstanding.</p>
+      </div>
+      <div class="cal-item">
+        <span class="cal-dot recurring"></span>
+        <span class="cal-freq">Recurring &middot; annual</span>
+        <h3>Annual Performance Report</h3>
+        <p>For existing ODI structures, annual, for as long as the overseas entity exists.</p>
+      </div>
+    </div>
+    <div class="cal-note">The event-triggered filings get missed when a transaction closes and everyone moves on. The fixed annual filings get missed simply because a year goes by. Both need the same thing: something tracking them that isn't a mental note.</div>
+    <div class="cal-cta">
+      <span style="font-weight:600; color:var(--forest-ink); font-size:14.5px;">Want this calendar built and tracked for your specific obligations?</span>
+      <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Portal mechanics</div>
+    <h2 class="h2">How FIRMS portal registration actually works</h2>
+    <p class="lede">Filing anything on the FIRMS portal requires two separate registrations, done in sequence, and the distinction between them trips people up more than the filings themselves.</p>
+    <div class="registration-steps">
+      <div class="reg-step">
+        <div class="rs-num">Step 1 &middot; First</div>
+        <h4>Entity User Registration</h4>
+        <p>Entity-specific, one Entity User per entity, authorized through a formal authority letter, responsible for the Entity Master data. RBI reviews and approves before credentials are issued.</p>
+      </div>
+      <div class="reg-arrow">&rarr;</div>
+      <div class="reg-step">
+        <div class="rs-num">Step 2 &middot; Second</div>
+        <h4>Business User Registration</h4>
+        <p>The credential that actually files forms in the Single Master Form system. One person can be authorized to file for multiple entities, with the right authorization for each.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:13.5px; color:var(--ink-soft); max-width:700px;">Neither registration is instant. RBI verification takes time, which is exactly why registering only once an urgent deadline is already close creates unnecessary pressure.</p>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="wrap">
+    <div class="eyebrow on-dark">How we work</div>
+    <h2 class="h2" style="color:var(--cream);">Our process, start to finish</h2>
+    <div class="phase-grid">
+      <div class="phase"><span class="ph-num">01</span><h4>Map Every Applicable Obligation</h4><p>Based on your specific cross-border transaction profile, not a generic checklist.</p></div>
+      <div class="phase emphasis"><span class="ph-num">02</span><h4>Complete Portal Registration</h4><p>Entity Master and Business User registration on FIRMS, where not already done.</p></div>
+      <div class="phase"><span class="ph-num">03</span><h4>Compile the Underlying Data</h4><p>Financial and shareholding data required for each specific form, gathered once and used consistently.</p></div>
+      <div class="phase"><span class="ph-num">04</span><h4>Prepare and File</h4><p>FC, FCGPR, FCTRS, FLA, or ECB returns, whichever applies, within statutory timelines.</p></div>
+      <div class="phase"><span class="ph-num">05</span><h4>Coordinate with the AD Bank</h4><p>For any filings routed through the bank rather than directly on the portal.</p></div>
+      <div class="phase"><span class="ph-num">06</span><h4>Set Up an Ongoing Compliance Calendar</h4><p>So recurring filings don't get missed in future years, not just this one.</p></div>
+    </div>
+    <div class="process-cta">
+      <p>The FLA return is due every year by 15 July, even without audited financials. Provisional figures work, waiting for a final number doesn't.</p>
+      <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Preparation</div>
+    <h2 class="h2">Documents required</h2>
+    <ul class="checklist">
+      <li><span class="check-box"></span> Shareholding pattern and foreign investment or overseas investment details</li>
+      <li><span class="check-box"></span> Audited or provisional financial statements, particularly for the FLA return</li>
+      <li><span class="check-box"></span> Prior filings, FCGPR, FCTRS, or Form FC acknowledgments</li>
+      <li><span class="check-box"></span> ECB loan agreement and drawdown or repayment schedule, if applicable</li>
+      <li><span class="check-box"></span> AD bank KYC and account details</li>
+      <li><span class="check-box"></span> PAN, CIN, and other entity identification documents</li>
+    </ul>
+    <p style="margin-top:28px; font-size:13.5px; color:var(--ink-soft); max-width:680px; border-top:1px solid var(--line); padding-top:20px;">The exact document list depends on which forms apply to your situation. We confirm the specific requirements once we've reviewed your cross-border transaction profile.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Common pitfalls</div>
+    <h2 class="h2">Mistakes that create risk</h2>
+    <div class="mistake-list">
+      <div class="mistake-row"><h4>Missing the FLA Return Deadline</h4><p>Applies even to companies with only provisional, unaudited financials, waiting isn't a valid reason to delay.</p></div>
+      <div class="mistake-row"><h4>Not Registering Until Forced To</h4><p>Registration takes time to process, starting it under deadline pressure removes any margin for error.</p></div>
+      <div class="mistake-row"><h4>Treating Each Filing as a One-Off Task</h4><p>Without an ongoing compliance calendar, the same deadline gets rediscovered, and sometimes missed, year after year.</p></div>
+      <div class="mistake-row"><h4>Filing Inconsistent Data Across Forms</h4><p>Inconsistency between forms is exactly what surfaces during future due diligence.</p></div>
+      <div class="mistake-row"><h4>Assuming Small or Dormant Entities Are Exempt</h4><p>Size and activity level don't create an exemption.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">What's at stake</div>
+    <h2 class="h2">Recurring lapses compound differently than one-off ones</h2>
+    <div class="stake-box">
+      <ul class="stake-grid">
+        <li>Late filing or non-filing penalties under FEMA, with exposure escalating the longer it continues</li>
+        <li>RBI or AD bank flags on your compliance record, complicating future foreign investment or overseas transactions</li>
+        <li>The need for compounding applications to regularize what timely filing would have avoided entirely</li>
+        <li>Data inconsistency across filings raising questions during any future due diligence, funding round, or IPO</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Behind on filings?</div>
+    <h2 class="h2">Multiple years behind? This is fixable</h2>
+    <div class="reg-card">
+      <p>A multi-year backlog of missed or inconsistent RBI filings feels bigger than it usually is once it's actually mapped out. This is a real, common situation, not a rare edge case, and it's fixable through a structured reconciliation: identifying every filing that should have happened, gathering the underlying data, and filing what's outstanding.</p>
+      <p style="margin:0;">The goal isn't just clearing the backlog. It's leaving you with a clean compliance history and a calendar that prevents the same situation from building up again.</p>
+    </div>
+    <div style="margin-top:24px;"><a href="#final-cta" class="btn btn-primary">Book a Consultation</a></div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="wrap">
+    <div class="eyebrow on-dark">Why choose us</div>
+    <h2 class="h2" style="color:var(--cream); max-width:640px;">Proactive by design, not scrambled after the fact</h2>
+    <div class="why-grid">
+      <div class="why-copy">
+        <p>We handle the entire spread of RBI and FEMA reporting as one team, rather than fragmented, form-by-form engagements that leave the connections between filings unmanaged. Our compliance calendar approach is proactive by design, filings get prepared before the deadline arrives.</p>
+        <p>We coordinate across multiple banking relationships as a matter of course, and we have real, practical experience cleaning up multi-year backlogs.</p>
+      </div>
+      <div class="stat-stack">
+        <div class="stat-tile"><span class="num">[X]+</span><span class="lbl">RBI/FEMA filings handled across FC, FCGPR, FCTRS, FLA, and ECB</span></div>
+        <div class="stat-tile"><span class="num">[X]</span><span class="lbl">Multi-year compliance backlogs reconciled and regularized</span></div>
+        <div class="stat-tile"><span class="num">6+</span><span class="lbl">Years of FIRMS portal and AD bank coordination experience</span></div>
+      </div>
+    </div>
+    <a href="#final-cta" class="btn btn-primary" style="margin-top:36px;">Book a Consultation</a>
+  </div>
+</section>
+
+<section style="background:var(--sage-tint); padding:44px 0;">
+  <div class="wrap">
+    <div class="reviewer-strip"><div class="rv-badge">CA</div><div class="rv-text"><strong style="color:var(--forest-ink); font-family:var(--body);">Reviewed by Cash Stream Advisors</strong> &mdash; 6+ years handling RBI and FEMA reporting compliance.</div></div>
+    <div class="ux-note">Note: per client instruction, no individual reviewer name is displayed. Firm-level attribution only.</div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Real outcomes</div>
+    <h2 class="h2">Case studies</h2>
+    <div class="case-grid">
+      <div class="case-card"><span class="case-tag">Manufacturing Company &middot; 3-Year Reconciliation</span><h4>Full Compliance History Restored</h4><p>A mid-sized manufacturing company with FDI, an overseas subsidiary, and an ECB had three years of inconsistent RBI filings. We reconciled and regularized the full compliance history and set up an ongoing calendar.</p><span class="case-link">Read the complete case study &rarr;</span></div>
+      <div class="case-card"><span class="case-tag">First-Time Foreign-Funded Startup</span><h4>Penalty Avoided Entirely</h4><p>A startup was guided through FIRMS portal registration and its first FLA return within days of the deadline, avoiding a penalty entirely.</p><span class="case-link">Read the complete case study &rarr;</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Common questions</div>
+    <h2 class="h2">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item" open><summary>Which RBI forms actually apply to my business?<span class="plus">+</span></summary><div class="faq-answer">It depends on your specific cross-border activity, foreign investment received, overseas investment made, or an outstanding external commercial borrowing all trigger different forms. We map this out based on your actual transaction profile rather than a generic checklist.</div></details>
+      <details class="faq-item"><summary>Do I need to file the FLA return if my financials aren't audited yet by 15 July?<span class="plus">+</span></summary><div class="faq-answer">Yes. Provisional, unaudited figures should be used to meet the deadline, followed by a revised filing later once final numbers are available. Waiting for audited financials isn't a valid reason to miss the date.</div></details>
+      <details class="faq-item"><summary>What happens if I've missed a filing for a couple of years?<span class="plus">+</span></summary><div class="faq-answer">This is more common, and more fixable, than it feels. The filings get reconstructed and filed, and where a formal contravention has occurred, it's regularized through a compounding application. The goal is a clean compliance history going forward.</div></details>
+      <details class="faq-item"><summary>Can this all be done without visiting the bank in person?<span class="plus">+</span></summary><div class="faq-answer">Largely, yes. FIRMS portal filings happen online, and most AD bank coordination can be handled without an in-person visit, though some banks may require specific documentation in original form depending on the transaction.</div></details>
+      <details class="faq-item"><summary>How do I make sure I don't miss these deadlines every year going forward?<span class="plus">+</span></summary><div class="faq-answer">An ongoing compliance calendar, tracking both fixed annual deadlines like the FLA return and event-triggered ones like FCGPR and FCTRS, is the actual fix. Treating each filing as a one-off task is exactly what causes deadlines to get missed.</div></details>
+      <details class="faq-item"><summary>What's the difference between FC-GPR and FC-TRS?<span class="plus">+</span></summary><div class="faq-answer">FC-GPR reports a fresh issue of shares or convertible instruments to a non-resident. FC-TRS reports a transfer of existing shares between a resident and a non-resident. Our FDI Advisory page covers which one applies to your specific transaction in more depth.</div></details>
+      <details class="faq-item"><summary>How do I register on the FIRMS portal for the first time?<span class="plus">+</span></summary><div class="faq-answer">Through a two-step process: Entity User registration first, which is entity-specific and requires a formal authority letter, followed by Business User registration, the credential actually used to file forms. Section above covers both steps in more detail.</div></details>
+      <details class="faq-item"><summary>How much does RBI/FEMA reporting support cost?<span class="plus">+</span></summary><div class="faq-answer">Fees depend on how many forms apply, whether there's a backlog to reconcile, and whether ongoing calendar management is included, and are discussed transparently during your initial consultation before any work begins.</div></details>
+    </div>
+  </div>
+</section>
+
+<section id="final-cta" class="final-cta">
+  <div class="wrap">
+    <h2>Know What Needs Filing, or Behind on Filings?</h2>
+    <p>We handle the FIRMS portal registration, the filing itself, and the calendar that keeps you current going forward.</p>
+    <div class="cta-row"><a href="#" class="btn btn-primary">Book a Consultation</a></div>
+    <div class="related-links"><a href="#">ODI Advisory</a>&middot;<a href="#">FDI Advisory</a>&middot;<a href="#">FEMA Compliance</a>&middot;<a href="#">Foreign Company Tax Return in India</a></div>
+  </div>
+</section>
+
+<div class="mock-footer">UI/UX MOCKUP &middot; FORM FC / RBI REPORTING &middot; CASH STREAM ADVISORS &middot; FOR CLIENT REVIEW, NOT FOR PRODUCTION USE</div>
+
+</body>
+</html>

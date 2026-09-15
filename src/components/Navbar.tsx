@@ -50,8 +50,17 @@ const navLinks: NavItem[] = [
       { name: 'DRP Appeals', href: '/tax-litigation/drp-appeals/' },
     ],
   },
+  {
+    name: 'FEMA Advisory',
+    href: '/fema-advisory/',
+    children: [
+      { name: 'ODI Advisory', href: '/fema-advisory/odi-advisory/' },
+      { name: 'FDI Advisory', href: '/fema-advisory/fdi-advisory/' },
+      { name: 'Form FC / RBI Reporting', href: '/fema-advisory/form-fc-rbi-reporting/' },
+      { name: 'FEMA Compliance', href: '/fema-advisory/fema-compliance/' },
+    ],
+  },
   { name: 'Compliance', href: '/compliance' },
-  { name: 'FEMA', href: '/fema' },
   { name: 'Bookkeeping', href: '/bookkeeping' },
   { name: 'Insights', href: '/insights' },
   { name: 'Case Studies', href: '/about-us/case-studies/' },

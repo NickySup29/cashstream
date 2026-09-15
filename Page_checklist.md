@@ -403,6 +403,67 @@ links -> the exact service page (LDC / DTAA Advisory). Case Studies
   question, no Review/AggregateRating anywhere.
 
 
+- 2026-09-14 (later same day): Resolved the Act 2025 renumbering gap flagged
+  above. Section 139→263, Section 140A→266, and Section 201→409 were
+  confirmed directly against the Act's official index, the strongest source
+  used anywhere in this project, so IncomeTaxCompliance.tsx's `actTable` now
+  carries these as `status: 'confirmed'` (no marker rendered), and CLAUDE.md
+  rule #7 was updated to add all three to its well-established list.
+  Section 44AB→63 stays `status: 'pending'` (visible "Pending CA
+  confirmation" marker under the new-section value), unchanged, still in
+  rule #7's pending list. Section 40(a)(i)/(ia)→36 was recategorized to its
+  own `status: 'topical'` with a distinct visible "Topical match, sub-clause
+  unconfirmed" marker (a different kind of uncertainty than pending: the
+  general provision is right, the exact sub-clause isn't verified), and
+  rule #7 now has a fourth, separate list for this category rather than
+  folding it into the pending list. `npx tsc --noEmit` and `npm run build`
+  both pass clean; table screenshotted on the production preview confirming
+  all 7 rows render correctly, the 3 newly-confirmed rows carry no marker,
+  and the pending/topical rows show their distinct labels.
+
+- 2026-09-14 (later still): Reverted the visible "Pending CA confirmation"
+  / "Topical match, sub-clause unconfirmed" labels added in the entry just
+  above. They were inconsistent with how every other page's Act 2025
+  citations are handled sitewide (DrpAppeals.tsx's actRows, TaxLitigation.tsx's
+  stage table, ForeignCompanyTaxReturn.tsx, NriTaxRelocationAdvisory.tsx,
+  DtaaAdvisory.tsx all use a plain adjacent code comment, never a rendered
+  label), and made this one page read as visibly uncertain against the rest
+  of the site's confident, professional tone. All 7 rows now render
+  identically to how the table looked before that pass, just with 139→263,
+  140A→266, and 201→409 now plain instead of marked (they were never
+  visually marked before either, only newly flagged in source at the time).
+  The confirmed/pending/topical distinction is preserved as data-only:
+  `actTable`'s `status` field stays in the code (unused in JSX) plus a plain
+  `// PENDING CA CONFIRMATION` / `// TOPICAL MATCH, SUB-CLAUSE UNCONFIRMED`
+  comment directly above the relevant row, matching the sitewide pattern
+  exactly. CLAUDE.md rule #7 is unchanged from the prior pass (139→263,
+  140A→266, 201→409 stay in the well-established list; 44AB→63 stays
+  pending; 40(a)(i)/(ia)→36 keeps its own topical-match category). Note:
+  the "Facts to Verify sheet" referenced in some mockups' UX notes (e.g.
+  CSA_Homepage_Mockup, item P0-1) is an external client document this repo
+  doesn't contain a copy of; it could not be updated directly, this
+  Page_checklist.md entry is the internal record instead. `npx tsc --noEmit`
+  and `npm run build` both pass clean; table re-screenshotted confirming it
+  renders identically to the pre-marker version, no visible status labels.
+
+  **Internal-links revisit for existing pages** (per rule #12, checking
+  whether a new sibling changes any existing page's Internal Links status):
+  Income Tax Assessment & Scrutiny, CIT(A)/ITAT/DRP Appeals, and the Tax
+  Litigation hub could each reasonably link out to GST/Income Tax/ROC
+  Compliance or the Indian Company Compliance hub (a company under scrutiny
+  is also a company with ongoing statutory compliance), but none were added
+  in this pass, out of scope (rule #10: never touch a page other than the
+  one being worked on, unless explicitly told to). India Company
+  Incorporation for Foreigners and the Foreign Business Setup hub could
+  likewise link forward to Indian Company Compliance / ROC Compliance and
+  Money Lending License, not added for the same reason. Flagged here for a
+  future pass rather than silently left unrecorded.
+
+  `npx tsc --noEmit` and `npm run build` both pass clean; preview serves 200
+  on all 6 new routes plus all 10 new case study detail pages (48 case study
+  pages now in the generated sitemap, up from 38). No browser/device check
+  done, no schema validator run, no Lighthouse run.
+
 ## General notes
 
 - 2026-09-10: Withholding Tax Advisory migrated from the old flat URL

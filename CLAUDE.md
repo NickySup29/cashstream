@@ -108,6 +108,12 @@ Well-established, no code comment needed:
 - Section 234A/B/C → 423/424/425
 - Section 270A → 439
 - Section 92CA → 166
+- Section 139 → Section 263 (return of income)
+- Section 140A → Section 266 (self-assessment tax)
+- Section 201 → Section 409 (assessee deemed in default, TDS)
+  (these three confirmed directly against the Act's official index, the
+  strongest source used anywhere in this project, during the Income Tax
+  Compliance page build)
 
 Newer mappings, verified against a published mapping table but not yet
 firm-confirmed, add a code comment "PENDING CA CONFIRMATION" wherever
@@ -118,6 +124,13 @@ these are used:
 - Form 67 → Form 44
 - Section 44DA → Section 59 (royalty/FTS computation connected to a PE)
 - Section 44AB → Section 63 (tax audit)
+
+Topical match, sub-clause unconfirmed — a different kind of uncertainty
+than "pending" above (the general provision is right, the exact
+sub-clause isn't verified), word it distinctly wherever it comes up,
+don't reuse the generic "PENDING CA CONFIRMATION" marker:
+- Section 40(a)(i)/(ia) → Section 36 (expense disallowance for
+  non-deduction of TDS)
 
 Still unconfirmed, do not guess a number, keep language exactly as
 "could not be independently confirmed" wherever it comes up:

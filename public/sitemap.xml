@@ -111,6 +111,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/indian-company-compliance/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/indian-company-compliance/gst-compliance/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/indian-company-compliance/income-tax-compliance/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/indian-company-compliance/roc-compliance/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/licensing/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/licensing/money-lending-license/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/bookkeeping</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -347,6 +377,56 @@
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-manufacturer-informal-presence-made-compliant/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/multi-state-itc-backlog-cleared/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/services-exporter-stuck-refund-resolved/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/professional-firm-through-the-year-discipline/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/individual-recurring-ais-notice-resolved/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/foreign-subsidiary-two-year-backlog-cleared/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/growing-startup-event-based-filings-reorganized/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/regional-lending-multi-state-licensing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/fintech-startup-lsp-faster-to-market/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/lending-business-correct-state-license-identified/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/about-us/case-studies/growing-business-expansion-licensing-evaluated-first/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

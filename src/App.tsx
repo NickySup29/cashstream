@@ -25,6 +25,12 @@ import FemaCompliance from './pages/FemaCompliance';
 import ForeignBusinessSetup from './pages/ForeignBusinessSetup';
 import IndiaEntryStrategy from './pages/IndiaEntryStrategy';
 import IndiaCompanyIncorporation from './pages/IndiaCompanyIncorporation';
+import IndianCompanyCompliance from './pages/IndianCompanyCompliance';
+import GstCompliance from './pages/GstCompliance';
+import IncomeTaxCompliance from './pages/IncomeTaxCompliance';
+import RocCompliance from './pages/RocCompliance';
+import Licensing from './pages/Licensing';
+import MoneyLendingLicense from './pages/MoneyLendingLicense';
 import Bookkeeping from './pages/Bookkeeping';
 import ContractReview from './pages/ContractReview';
 import Insights from './pages/Insights';
@@ -101,6 +107,12 @@ export default function App() {
                 path="/foreign-business-setup/india-company-incorporation-for-foreigners/"
                 element={<IndiaCompanyIncorporation />}
               />
+              <Route path="/indian-company-compliance/" element={<IndianCompanyCompliance />} />
+              <Route path="/indian-company-compliance/gst-compliance/" element={<GstCompliance />} />
+              <Route path="/indian-company-compliance/income-tax-compliance/" element={<IncomeTaxCompliance />} />
+              <Route path="/indian-company-compliance/roc-compliance/" element={<RocCompliance />} />
+              <Route path="/licensing/" element={<Licensing />} />
+              <Route path="/licensing/money-lending-license/" element={<MoneyLendingLicense />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />
               <Route path="/contract-review" element={<ContractReview />} />
               <Route path="/insights" element={<Insights />} />

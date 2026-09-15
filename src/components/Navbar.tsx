@@ -71,6 +71,16 @@ const navLinks: NavItem[] = [
       },
     ],
   },
+  {
+    name: 'Indian Company Compliance',
+    href: '/indian-company-compliance/',
+    children: [
+      { name: 'GST Compliance', href: '/indian-company-compliance/gst-compliance/' },
+      { name: 'Income Tax Compliance', href: '/indian-company-compliance/income-tax-compliance/' },
+      { name: 'ROC Compliance', href: '/indian-company-compliance/roc-compliance/' },
+    ],
+  },
+  { name: 'Licensing', href: '/licensing/' },
   { name: 'Compliance', href: '/compliance' },
   { name: 'Bookkeeping', href: '/bookkeeping' },
   { name: 'Insights', href: '/insights' },

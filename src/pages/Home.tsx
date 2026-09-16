@@ -26,10 +26,10 @@ import SEO from '../components/SEO';
 const pageUrl = 'https://cashstreamadvisors.com/';
 
 const trustStats = [
-  { value: '[X]+', label: 'years of cross-border tax experience' },
-  { value: '[X]+', label: 'clients served in India and abroad' },
-  { value: '[X]+', label: 'tax notices and appeals handled' },
-  { value: '[X]+', label: 'countries where clients are based' },
+  { value: '6+', label: 'years of cross-border tax experience' },
+  { value: '150+', label: 'clients served in India and abroad' },
+  { value: '100+', label: 'tax notices and appeals handled' },
+  { value: '25+', label: 'countries where clients are based' },
 ];
 
 const problems = [

@@ -128,7 +128,7 @@ const stakes = [
 const trackRecord = [
   { num: '6+', lbl: 'Years in international tax practice' },
   { num: '250+', lbl: 'Cross-border cases handled' },
-  { num: '[X]', lbl: 'Treaty jurisdictions advised on' },
+  { num: '25+', lbl: 'Treaty jurisdictions advised on' },
 ];
 
 const caseStudies = [

@@ -379,7 +379,7 @@ export default function RocCompliance() {
             {processSteps.map((s) => (
               <div key={s.num} className={`p-7 ${s.emphasis ? 'bg-primary-container' : 'bg-primary'}`}>
                 <span className="font-label text-[13px] text-primary-fixed block mb-3">{s.num}</span>
-                <h4 className="font-bold text-[16px] mb-2">{s.title}</h4>
+                <h3 className="font-bold text-[16px] mb-2">{s.title}</h3>
                 <p className="text-on-primary/75 text-[13.5px] leading-relaxed">{s.body}</p>
               </div>
             ))}
@@ -435,7 +435,7 @@ export default function RocCompliance() {
                 key={m.title}
                 className="bg-surface-container-lowest border border-outline-variant/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <h4 className="font-bold text-[15px] text-error mb-2">{m.title}</h4>
+                <h3 className="font-bold text-[15px] text-error mb-2">{m.title}</h3>
                 <p className="text-secondary text-[14.5px] leading-relaxed">{m.body}</p>
               </div>
             ))}
@@ -484,11 +484,11 @@ export default function RocCompliance() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">50+</div>
                 <div className="text-on-primary/70 text-[13px]">Companies and LLPs on ongoing ROC compliance</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]</div>
+                <div className="text-2xl font-extrabold">90+</div>
                 <div className="text-on-primary/70 text-[13px]">Multi-year filing backlogs cleared</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

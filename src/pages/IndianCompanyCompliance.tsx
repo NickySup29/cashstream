@@ -485,11 +485,11 @@ export default function IndianCompanyCompliance() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">50+</div>
                 <div className="text-on-primary/70 text-[13px]">Companies on coordinated multi-area compliance support</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]</div>
+                <div className="text-2xl font-extrabold">90+</div>
                 <div className="text-on-primary/70 text-[13px]">Compliance backlogs cleared across GST, income tax, and ROC</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

@@ -487,11 +487,11 @@ export default function GstCompliance() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">45+</div>
                 <div className="text-on-primary/70 text-[13px]">Businesses on ongoing GST compliance support</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]</div>
+                <div className="text-2xl font-extrabold">All States</div>
                 <div className="text-on-primary/70 text-[13px]">States and GSTINs actively managed</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

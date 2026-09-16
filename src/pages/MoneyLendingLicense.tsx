@@ -533,11 +533,11 @@ export default function MoneyLendingLicense() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">45+</div>
                 <div className="text-on-primary/70 text-[13px]">Money lending and NBFC licenses obtained</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]</div>
+                <div className="text-2xl font-extrabold">10+</div>
                 <div className="text-on-primary/70 text-[13px]">States with active licensing experience</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">

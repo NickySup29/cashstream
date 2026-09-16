@@ -424,7 +424,7 @@ function RefundTimelineMeter() {
               : 'border-outline-variant/20 bg-surface'
           }`}
         >
-          <h4 className="text-[15px] font-bold text-primary mb-2">What speeds it up</h4>
+          <h3 className="text-[15px] font-bold text-primary mb-2">What speeds it up</h3>
           <p className="text-sm text-secondary leading-relaxed">
             TDS correctly reflected in Form 26AS from the start, the return filed and verified without
             delay, and no mismatches between your computation and the department's records.
@@ -437,7 +437,7 @@ function RefundTimelineMeter() {
               : 'border-outline-variant/20 bg-surface'
           }`}
         >
-          <h4 className="text-[15px] font-bold text-primary mb-2">What slows it down</h4>
+          <h3 className="text-[15px] font-bold text-primary mb-2">What slows it down</h3>
           <p className="text-sm text-secondary leading-relaxed">
             In our experience, cases selected for scrutiny, incomplete documents, or unanswered
             notices, which is common for non-residents managing this from abroad without someone

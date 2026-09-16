@@ -471,7 +471,7 @@ export default function FormFcRbiReporting() {
               <span className="font-label text-[11px] uppercase tracking-[0.05em] text-secondary block mb-3">
                 {registrationSteps[0].num}
               </span>
-              <h4 className="font-bold text-[16px] text-on-surface mb-3">{registrationSteps[0].title}</h4>
+              <h3 className="font-bold text-[16px] text-on-surface mb-3">{registrationSteps[0].title}</h3>
               <p className="text-secondary text-[13.5px] leading-relaxed">{registrationSteps[0].body}</p>
             </div>
             <ArrowRight size={24} className="text-secondary mx-auto rotate-90 md:rotate-0" />
@@ -479,7 +479,7 @@ export default function FormFcRbiReporting() {
               <span className="font-label text-[11px] uppercase tracking-[0.05em] text-secondary block mb-3">
                 {registrationSteps[1].num}
               </span>
-              <h4 className="font-bold text-[16px] text-on-surface mb-3">{registrationSteps[1].title}</h4>
+              <h3 className="font-bold text-[16px] text-on-surface mb-3">{registrationSteps[1].title}</h3>
               <p className="text-secondary text-[13.5px] leading-relaxed">{registrationSteps[1].body}</p>
             </div>
           </div>
@@ -499,7 +499,7 @@ export default function FormFcRbiReporting() {
             {processPhases.map((s) => (
               <div key={s.num} className={`p-7 ${s.emphasis ? 'bg-primary-container' : 'bg-primary'}`}>
                 <span className="font-label text-[13px] text-primary-fixed block mb-3">{s.num}</span>
-                <h4 className="font-bold text-[16px] mb-2">{s.title}</h4>
+                <h3 className="font-bold text-[16px] mb-2">{s.title}</h3>
                 <p className="text-on-primary/75 text-[13.5px] leading-relaxed">{s.body}</p>
               </div>
             ))}
@@ -554,7 +554,7 @@ export default function FormFcRbiReporting() {
                 key={m.title}
                 className="bg-surface-container-lowest border border-outline-variant/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <h4 className="font-bold text-[15px] text-error mb-2">{m.title}</h4>
+                <h3 className="font-bold text-[15px] text-error mb-2">{m.title}</h3>
                 <p className="text-secondary text-[14.5px] leading-relaxed">{m.body}</p>
               </div>
             ))}

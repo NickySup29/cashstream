@@ -582,9 +582,9 @@ export default function TaxLitigation() {
                 <span className={`font-label text-[13px] block mb-3 ${s.emphasis ? 'text-primary-fixed' : 'text-primary'}`}>
                   {s.num}
                 </span>
-                <h4 className={`font-bold text-[16px] mb-2 ${s.emphasis ? 'text-on-primary' : 'text-on-surface'}`}>
+                <h3 className={`font-bold text-[16px] mb-2 ${s.emphasis ? 'text-on-primary' : 'text-on-surface'}`}>
                   {s.title}
-                </h4>
+                </h3>
                 <p className={`text-[13.5px] leading-relaxed ${s.emphasis ? 'text-on-primary/75' : 'text-secondary'}`}>
                   {s.body}
                 </p>
@@ -643,7 +643,7 @@ export default function TaxLitigation() {
                 key={m.title}
                 className="bg-surface-container-low border border-outline-variant/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <h4 className="font-bold text-[15px] text-error mb-2">{m.title}</h4>
+                <h3 className="font-bold text-[15px] text-error mb-2">{m.title}</h3>
                 <p className="text-secondary text-[14.5px] leading-relaxed">{m.body}</p>
               </div>
             ))}

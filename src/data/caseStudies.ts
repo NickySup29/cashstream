@@ -105,6 +105,54 @@ const TAX_LITIGATION_HUB: CaseStudyCategory = {
   id: 'tax-litigation-hub',
   label: 'Tax Litigation (Hub)',
 };
+const ODI_ADVISORY: CaseStudyCategory = {
+  id: 'odi-advisory',
+  label: 'ODI Advisory',
+};
+const FDI_ADVISORY: CaseStudyCategory = {
+  id: 'fdi-advisory',
+  label: 'FDI Advisory',
+};
+const FORM_FC_RBI_REPORTING: CaseStudyCategory = {
+  id: 'form-fc-rbi-reporting',
+  label: 'Form FC / RBI Reporting',
+};
+const FEMA_COMPLIANCE: CaseStudyCategory = {
+  id: 'fema-compliance',
+  label: 'FEMA Compliance',
+};
+const FEMA_ADVISORY_HUB: CaseStudyCategory = {
+  id: 'fema-advisory-hub',
+  label: 'FEMA Advisory (Hub)',
+};
+const INDIA_COMPANY_INCORPORATION: CaseStudyCategory = {
+  id: 'india-company-incorporation',
+  label: 'India Company Incorporation for Foreigners',
+};
+const FOREIGN_BUSINESS_SETUP_HUB: CaseStudyCategory = {
+  id: 'foreign-business-setup-hub',
+  label: 'Foreign Business Setup (Hub)',
+};
+const GST_COMPLIANCE: CaseStudyCategory = {
+  id: 'gst-compliance',
+  label: 'GST Compliance',
+};
+const INCOME_TAX_COMPLIANCE: CaseStudyCategory = {
+  id: 'income-tax-compliance',
+  label: 'Income Tax Compliance',
+};
+const ROC_COMPLIANCE: CaseStudyCategory = {
+  id: 'roc-compliance',
+  label: 'ROC Compliance',
+};
+const MONEY_LENDING_LICENSE: CaseStudyCategory = {
+  id: 'money-lending-license',
+  label: 'Money Lending License',
+};
+const LICENSING_HUB: CaseStudyCategory = {
+  id: 'licensing-hub',
+  label: 'Licensing (Hub)',
+};
 
 const SERVICE_LDC: CaseStudyServiceRef = {
   label: 'Lower Deduction Certificate',
@@ -153,6 +201,54 @@ const SERVICE_DRP: CaseStudyServiceRef = {
 const SERVICE_TAX_LITIGATION_HUB: CaseStudyServiceRef = {
   label: 'Tax Litigation',
   path: '/tax-litigation/',
+};
+const SERVICE_ODI: CaseStudyServiceRef = {
+  label: 'ODI Advisory',
+  path: '/fema-advisory/odi-advisory/',
+};
+const SERVICE_FDI: CaseStudyServiceRef = {
+  label: 'FDI Advisory',
+  path: '/fema-advisory/fdi-advisory/',
+};
+const SERVICE_FORM_FC: CaseStudyServiceRef = {
+  label: 'Form FC / RBI Reporting',
+  path: '/fema-advisory/form-fc-rbi-reporting/',
+};
+const SERVICE_FEMA_COMPLIANCE: CaseStudyServiceRef = {
+  label: 'FEMA Compliance',
+  path: '/fema-advisory/fema-compliance/',
+};
+const SERVICE_FEMA_ADVISORY_HUB: CaseStudyServiceRef = {
+  label: 'FEMA Advisory',
+  path: '/fema-advisory/',
+};
+const SERVICE_INDIA_COMPANY_INCORPORATION: CaseStudyServiceRef = {
+  label: 'India Company Incorporation for Foreigners',
+  path: '/foreign-business-setup/india-company-incorporation-for-foreigners/',
+};
+const SERVICE_FOREIGN_BUSINESS_SETUP_HUB: CaseStudyServiceRef = {
+  label: 'Foreign Business Setup',
+  path: '/foreign-business-setup/',
+};
+const SERVICE_GST_COMPLIANCE: CaseStudyServiceRef = {
+  label: 'GST Compliance',
+  path: '/indian-company-compliance/gst-compliance/',
+};
+const SERVICE_INCOME_TAX_COMPLIANCE: CaseStudyServiceRef = {
+  label: 'Income Tax Compliance',
+  path: '/indian-company-compliance/income-tax-compliance/',
+};
+const SERVICE_ROC_COMPLIANCE: CaseStudyServiceRef = {
+  label: 'ROC Compliance',
+  path: '/indian-company-compliance/roc-compliance/',
+};
+const SERVICE_MONEY_LENDING_LICENSE: CaseStudyServiceRef = {
+  label: 'Money Lending License',
+  path: '/licensing/money-lending-license/',
+};
+const SERVICE_LICENSING_HUB: CaseStudyServiceRef = {
+  label: 'Licensing',
+  path: '/licensing/',
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -490,6 +586,294 @@ export const caseStudies: CaseStudy[] = [
     approach: 'We managed the matter through DRP objections to a substantially reduced final order.',
     outcome: 'This avoided a multi-year ITAT battle altogether.',
     service: SERVICE_TAX_LITIGATION_HUB,
+  },
+  {
+    id: 'odi-us-step-down-subsidiary-form-fc',
+    siteCategory: 'FEMA Advisory',
+    category: ODI_ADVISORY,
+    tag: 'Software Company · US Step-Down Subsidiary',
+    stat: 'Clean UIN & Form FC Filing',
+    title: 'Software Company: Clean UIN & Form FC Filing',
+    situation: 'A software company was setting up a US step-down subsidiary structure.',
+    approach: 'We guided the company through UIN registration and Form FC filing.',
+    outcome: 'This avoided a classification error that would have triggered approval-route delays.',
+    service: SERVICE_ODI,
+  },
+  {
+    id: 'odi-undisclosed-investment-compounding',
+    siteCategory: 'FEMA Advisory',
+    category: ODI_ADVISORY,
+    tag: 'Promoter · Undisclosed Investment',
+    stat: 'Regularized Through Compounding',
+    title: 'Promoter: Undisclosed Overseas Investment Regularized Through Compounding',
+    situation: 'A promoter had made an undisclosed overseas investment years earlier.',
+    approach: 'We guided the promoter through the compounding process.',
+    outcome: 'The position was regularized, enabling future repatriation.',
+    service: SERVICE_ODI,
+  },
+  {
+    id: 'fdi-startup-series-a-foreign-vc',
+    siteCategory: 'FEMA Advisory',
+    category: FDI_ADVISORY,
+    tag: 'Startup · Series A, Foreign VC',
+    stat: 'Filed Within RBI Timelines',
+    title: 'Startup: Series A Round Filed Within RBI Timelines',
+    situation: 'A startup was closing a Series A round with a foreign VC fund.',
+    approach: 'We guided the startup through valuation, FCGPR filing, and downstream investment reporting for its own subsidiary.',
+    outcome: 'Everything was completed within RBI timelines.',
+    service: SERVICE_FDI,
+  },
+  {
+    id: 'fdi-overseas-family-fctrs-transfer',
+    siteCategory: 'FEMA Advisory',
+    category: FDI_ADVISORY,
+    tag: 'Overseas Family Member · Secondary Transfer',
+    stat: 'Contravention Avoided',
+    title: 'Secondary Share Transfer: Contravention Avoided',
+    situation: 'A secondary share transfer to an overseas family member was underway.',
+    approach: 'We guided the transfer through FCTRS filing and pricing compliance.',
+    outcome: 'This avoided a contravention that an earlier informal transfer had nearly caused.',
+    service: SERVICE_FDI,
+  },
+  {
+    id: 'manufacturing-fdi-ecb-rbi-reconciliation',
+    siteCategory: 'FEMA Advisory',
+    category: FORM_FC_RBI_REPORTING,
+    tag: 'Manufacturing Company · 3-Year Reconciliation',
+    stat: '3 Years Reconciled',
+    title: 'Manufacturing Company: Full Compliance History Restored',
+    situation: 'A mid-sized manufacturing company with FDI, an overseas subsidiary, and an ECB had three years of inconsistent RBI filings.',
+    approach: 'We reconciled and regularized the full compliance history.',
+    outcome: "We set up an ongoing calendar so the same deadlines don't get missed again.",
+    service: SERVICE_FORM_FC,
+  },
+  {
+    id: 'startup-fla-return-firms-registration',
+    siteCategory: 'FEMA Advisory',
+    category: FORM_FC_RBI_REPORTING,
+    tag: 'First-Time Foreign-Funded Startup',
+    stat: 'Penalty Avoided Entirely',
+    title: 'First-Time Foreign-Funded Startup: Penalty Avoided Entirely',
+    situation: 'A startup had never registered on the FIRMS portal and had days left before its first FLA return deadline.',
+    approach: 'We guided it through FIRMS portal registration and prepared the first FLA return.',
+    outcome: 'The return was filed within days of the deadline, avoiding a penalty entirely.',
+    service: SERVICE_FORM_FC,
+  },
+  {
+    id: 'trading-company-fema-health-check-compounding',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_COMPLIANCE,
+    tag: 'Trading Company · Pre-Funding Health-Check',
+    stat: 'Resolved Before Diligence',
+    title: 'Trading Company: FEMA Gap Compounded Before Diligence',
+    situation: 'A pre-funding FEMA health-check uncovered an old unreported FDI transaction.',
+    approach: 'We quantified the exposure and completed the compounding process.',
+    outcome: "The gap was resolved before the investor's due diligence began.",
+    service: SERVICE_FEMA_COMPLIANCE,
+  },
+  {
+    id: 'nri-family-lrs-remittance-compliance',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_COMPLIANCE,
+    tag: 'NRI Family · Recurring Remittances',
+    stat: 'No More Bank Queries',
+    title: 'NRI Family: No More Bank Queries on Recurring Remittances',
+    situation: 'An NRI family had recurring education and maintenance remittances that risked exceeding LRS limits or lacking proper documentation.',
+    approach: 'We guided them on structuring the remittances within LRS limits and documentation requirements.',
+    outcome: 'The family avoided repeated bank queries going forward.',
+    service: SERVICE_FEMA_COMPLIANCE,
+  },
+  {
+    id: 'fema-startup-series-a-rbi-timelines',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_ADVISORY_HUB,
+    tag: 'Foreign-Funded Startup · End-to-End Series A',
+    stat: 'Filed Within RBI Timelines',
+    title: 'Foreign-Funded Startup: Series A Filed Within RBI Timelines',
+    situation: 'A foreign-funded startup was closing its Series A round.',
+    approach: "We structured the round end-to-end: pricing, FCGPR filing, and downstream reporting for its own subsidiary.",
+    outcome: 'Everything was completed within RBI timelines.',
+    service: SERVICE_FEMA_ADVISORY_HUB,
+  },
+  {
+    id: 'fema-multi-year-cleanup-acquisition',
+    siteCategory: 'FEMA Advisory',
+    category: FEMA_ADVISORY_HUB,
+    tag: 'Multi-Year FEMA Clean-Up',
+    stat: 'Ready for Acquisition',
+    title: 'Multi-Year FEMA Clean-Up: Ready Ahead of Acquisition',
+    situation: 'A company had multiple years of FEMA compliance gaps, including a historical ODI lapse, ahead of a strategic acquisition.',
+    approach: 'We guided the company through a multi-year FEMA compliance clean-up, including compounding the historical ODI lapse.',
+    outcome: 'The company was ready for the strategic acquisition.',
+    service: SERVICE_FEMA_ADVISORY_HUB,
+  },
+  {
+    id: 'european-tech-subsidiary-live-within-weeks',
+    siteCategory: 'Foreign Business Setup',
+    category: INDIA_COMPANY_INCORPORATION,
+    tag: 'European Technology Company',
+    stat: 'Subsidiary Live Within Weeks',
+    title: 'European Technology Company: Subsidiary Live Within Weeks',
+    situation: "A European technology company needed an Indian wholly owned subsidiary incorporated, banked, and FDI-reported quickly.",
+    approach: 'We handled the incorporation, banking, and FDI reporting within weeks.',
+    outcome: 'The client hired its first India team on schedule.',
+    service: SERVICE_INDIA_COMPANY_INCORPORATION,
+  },
+  {
+    id: 'foreign-founder-structure-corrected-before-filing',
+    siteCategory: 'Foreign Business Setup',
+    category: INDIA_COMPANY_INCORPORATION,
+    tag: 'Foreign Founder',
+    stat: 'Structure Corrected Before Filing',
+    title: 'Foreign Founder: Structure Corrected Before Filing',
+    situation: "A foreign founder's own initial research had led them toward an LLP structure.",
+    approach: 'We clarified the FDI conditions in their sector and guided them toward a private limited structure instead.',
+    outcome: 'This avoided a mistake before any filing was made.',
+    service: SERVICE_INDIA_COMPANY_INCORPORATION,
+  },
+  {
+    id: 'saas-strategy-through-first-gst-registration',
+    siteCategory: 'Foreign Business Setup',
+    category: FOREIGN_BUSINESS_SETUP_HUB,
+    tag: 'Global SaaS Company',
+    stat: 'Strategy Through First GST Registration',
+    title: 'Global SaaS Company: Strategy Through First GST Registration',
+    situation: 'A global SaaS company needed to go from initial India entry strategy through to an operational subsidiary.',
+    approach: 'We guided the company through entry strategy, subsidiary incorporation, FDI reporting, and first GST registration.',
+    outcome: 'All of it was completed within a single coordinated engagement.',
+    service: SERVICE_FOREIGN_BUSINESS_SETUP_HUB,
+  },
+  {
+    id: 'foreign-manufacturer-informal-presence-made-compliant',
+    siteCategory: 'Foreign Business Setup',
+    category: FOREIGN_BUSINESS_SETUP_HUB,
+    tag: 'Foreign Manufacturer',
+    stat: 'Informal Presence, Made Compliant',
+    title: 'Foreign Manufacturer: Informal Presence Made Compliant',
+    situation: "A foreign manufacturer's India presence had been operating informally through a distributor relationship.",
+    approach: 'We transitioned the business into a properly incorporated, FEMA-compliant Indian subsidiary.',
+    outcome: 'The company now operates through a fully compliant structure.',
+    service: SERVICE_FOREIGN_BUSINESS_SETUP_HUB,
+  },
+  {
+    id: 'multi-state-itc-backlog-cleared',
+    siteCategory: 'Indian Company Compliance',
+    category: GST_COMPLIANCE,
+    tag: 'Multi-State Trading Business',
+    stat: 'ITC Backlog Cleared',
+    title: 'Multi-State Trading Business: ITC Backlog Cleared',
+    situation: 'A multi-state trading business had recurring ITC mismatches against GSTR-2B.',
+    approach: 'We moved the business onto a monthly reconciliation process, clearing the backlog of blocked credit.',
+    outcome: 'Cash flow was stabilized and the ITC backlog was cleared.',
+    service: SERVICE_GST_COMPLIANCE,
+  },
+  {
+    id: 'services-exporter-stuck-refund-resolved',
+    siteCategory: 'Indian Company Compliance',
+    category: GST_COMPLIANCE,
+    tag: 'Services Exporter',
+    stat: 'Stuck Refund Resolved',
+    title: 'Services Exporter: Stuck Refund Resolved',
+    situation: 'A services exporter had a GST refund claim stuck for months.',
+    approach: 'We guided the exporter on correct LUT filing and zero-rated supply documentation.',
+    outcome: 'The stuck refund claim was resolved.',
+    service: SERVICE_GST_COMPLIANCE,
+  },
+  {
+    id: 'professional-firm-through-the-year-discipline',
+    siteCategory: 'Indian Company Compliance',
+    category: INCOME_TAX_COMPLIANCE,
+    tag: 'Professional Services Firm',
+    stat: 'Through-the-Year Discipline',
+    title: 'Professional Services Firm: Through-the-Year Discipline',
+    situation: 'A professional services firm nearing the tax audit threshold faced a recurring year-end scramble and interest cost.',
+    approach: 'We moved the firm onto a through-the-year bookkeeping and advance tax process.',
+    outcome: 'The year-end scramble and interest cost were eliminated.',
+    service: SERVICE_INCOME_TAX_COMPLIANCE,
+  },
+  {
+    id: 'individual-recurring-ais-notice-resolved',
+    siteCategory: 'Indian Company Compliance',
+    category: INCOME_TAX_COMPLIANCE,
+    tag: 'Individual, Reconciled Filing',
+    stat: 'Recurring Notice Resolved',
+    title: 'Individual, Reconciled Filing: Recurring Notice Resolved',
+    situation: 'An individual with salary, capital gains, and foreign dividend income had a recurring AIS mismatch notice from prior years.',
+    approach: 'We guided the client through a fully reconciled return filing.',
+    outcome: 'The recurring AIS mismatch notice was resolved.',
+    service: SERVICE_INCOME_TAX_COMPLIANCE,
+  },
+  {
+    id: 'foreign-subsidiary-two-year-backlog-cleared',
+    siteCategory: 'Indian Company Compliance',
+    category: ROC_COMPLIANCE,
+    tag: 'Foreign-Owned Subsidiary',
+    stat: '2-Year Backlog Cleared Ahead of Funding',
+    title: 'Foreign-Owned Subsidiary: 2-Year Backlog Cleared Ahead of Funding',
+    situation: 'A foreign-owned subsidiary had two years of pending annual filings ahead of a planned funding round.',
+    approach: 'We brought the company current ahead of the funding round.',
+    outcome: 'A due diligence red flag was cleared before it became a deal issue.',
+    service: SERVICE_ROC_COMPLIANCE,
+  },
+  {
+    id: 'growing-startup-event-based-filings-reorganized',
+    siteCategory: 'Indian Company Compliance',
+    category: ROC_COMPLIANCE,
+    tag: 'Growing Startup',
+    stat: 'Event-Based Filings Reorganized',
+    title: 'Growing Startup: Event-Based Filings Reorganized',
+    situation: "A growing startup's event-based filings, multiple share allotments and director changes, were causing a recurring year-end compliance scramble.",
+    approach: 'We reorganized the event-based filings into a real-time process.',
+    outcome: 'The recurring year-end compliance scramble was eliminated.',
+    service: SERVICE_ROC_COMPLIANCE,
+  },
+  {
+    id: 'regional-lending-multi-state-licensing',
+    siteCategory: 'Licensing',
+    category: MONEY_LENDING_LICENSE,
+    tag: 'Regional Lending Business',
+    stat: 'Multi-State Licensing',
+    title: 'Regional Lending Business: Multi-State Licensing',
+    situation: 'A regional lending business was operating informally across two states.',
+    approach: "We guided the business into a properly licensed structure, separate state money lender's licenses in each, with compliant loan documentation.",
+    outcome: 'The business now operates under properly licensed, compliant structures in both states.',
+    service: SERVICE_MONEY_LENDING_LICENSE,
+  },
+  {
+    id: 'fintech-startup-lsp-faster-to-market',
+    siteCategory: 'Licensing',
+    category: MONEY_LENDING_LICENSE,
+    tag: 'Fintech Startup',
+    stat: 'Faster-to-Market Structure',
+    title: 'Fintech Startup: Faster-to-Market Structure',
+    situation: 'A fintech startup needed to choose between NBFC registration and a lending-service-provider partnership model for its initial launch.',
+    approach: 'We guided the startup through evaluating both routes.',
+    outcome: 'The startup chose the faster-to-market LSP structure for its initial launch.',
+    service: SERVICE_MONEY_LENDING_LICENSE,
+  },
+  {
+    id: 'lending-business-correct-state-license-identified',
+    siteCategory: 'Licensing',
+    category: LICENSING_HUB,
+    tag: 'Lending Business',
+    stat: 'Correct State License Identified',
+    title: 'Lending Business: Correct State License Identified',
+    situation: 'A lending business had been operating informally for over a year.',
+    approach: 'We helped the business identify the correct state-specific license.',
+    outcome: 'The business obtained the correct license and regularized its operations.',
+    service: SERVICE_LICENSING_HUB,
+  },
+  {
+    id: 'growing-business-expansion-licensing-evaluated-first',
+    siteCategory: 'Licensing',
+    category: LICENSING_HUB,
+    tag: 'Growing Business',
+    stat: 'Expansion Licensing Evaluated First',
+    title: 'Growing Business: Expansion Licensing Evaluated First',
+    situation: 'A growing business had expansion plans that might have required a new licensing category.',
+    approach: 'We guided the business through evaluating its expansion plans before committing.',
+    outcome: 'The business confirmed its licensing position before committing to the expansion.',
+    service: SERVICE_LICENSING_HUB,
   },
 ];
 

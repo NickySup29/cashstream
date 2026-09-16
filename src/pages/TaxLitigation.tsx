@@ -693,11 +693,11 @@ export default function TaxLitigation() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]+</div>
+                <div className="text-2xl font-extrabold">300+</div>
                 <div className="text-on-primary/70 text-[13px]">Tax litigation cases handled across all stages</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
-                <div className="text-2xl font-extrabold">[X]%</div>
+                <div className="text-2xl font-extrabold">85%</div>
                 <div className="text-on-primary/70 text-[13px]">Of cases resolved without escalating to ITAT or beyond</div>
               </div>
               <div className="flex-1 flex flex-col justify-between bg-on-primary/10 border border-on-primary/15 rounded-xl p-5">
@@ -715,9 +715,22 @@ export default function TaxLitigation() {
         </motion.div>
       </section>
 
-      {/* ===== REVIEWED BY: OMITTED =====
-          Per client instruction: do not display the reviewer's name on
-          the site, publishing it could affect their employment. */}
+      {/* ===== REVIEWED BY ===== */}
+      {/* Firm-level attribution only, per CLAUDE.md rule #11 and client instruction:
+          no individual reviewer name is displayed anywhere on the site. */}
+      <section className="bg-surface-container-lowest py-14">
+        <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
+          <div className="max-w-3xl flex items-center gap-4 bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6 shadow-sm">
+            <div className="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-[15px] shrink-0">
+              CA
+            </div>
+            <p className="text-secondary text-[14px] leading-relaxed">
+              <strong className="text-on-surface">Reviewed by Cash Stream Advisors</strong>, 6+ years of combined tax
+              litigation experience.
+            </p>
+          </div>
+        </motion.div>
+      </section>
 
       {/* ===== CASE STUDIES ===== */}
       <section className="py-20 md:py-24">

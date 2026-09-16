@@ -758,9 +758,28 @@ export default function DtaaAdvisory() {
         </motion.div>
       </section>
 
-      {/* ===== REVIEWED BY: OMITTED =====
-          Per client instruction: do not display the reviewer's name on
-          the site, publishing it could affect their employment. */}
+      {/* ===== REVIEWED BY ===== */}
+      {/* Firm-level attribution only, per CLAUDE.md rule #11 and client instruction:
+          no individual reviewer name is displayed anywhere on the site. */}
+      <section className="bg-surface-container-lowest py-14">
+        <motion.div
+          className="max-w-screen-2xl mx-auto px-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <div className="max-w-3xl flex items-center gap-4 bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6 shadow-sm">
+            <div className="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-[15px] shrink-0">
+              CA
+            </div>
+            <p className="text-secondary text-[14px] leading-relaxed">
+              <strong className="text-on-surface">Reviewed by Cash Stream Advisors</strong>, 6+ years in practice,
+              having handled 150+ DTAA cases across 25+ treaty countries.
+            </p>
+          </div>
+        </motion.div>
+      </section>
 
       <section className="py-24">
         <motion.div

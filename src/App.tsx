@@ -17,7 +17,20 @@ import CitAAppeals from './pages/CitAAppeals';
 import ItatAppeals from './pages/ItatAppeals';
 import DrpAppeals from './pages/DrpAppeals';
 import Compliance from './pages/Compliance';
-import Fema from './pages/Fema';
+import FemaAdvisory from './pages/FemaAdvisory';
+import OdiAdvisory from './pages/OdiAdvisory';
+import FdiAdvisory from './pages/FdiAdvisory';
+import FormFcRbiReporting from './pages/FormFcRbiReporting';
+import FemaCompliance from './pages/FemaCompliance';
+import ForeignBusinessSetup from './pages/ForeignBusinessSetup';
+import IndiaEntryStrategy from './pages/IndiaEntryStrategy';
+import IndiaCompanyIncorporation from './pages/IndiaCompanyIncorporation';
+import IndianCompanyCompliance from './pages/IndianCompanyCompliance';
+import GstCompliance from './pages/GstCompliance';
+import IncomeTaxCompliance from './pages/IncomeTaxCompliance';
+import RocCompliance from './pages/RocCompliance';
+import Licensing from './pages/Licensing';
+import MoneyLendingLicense from './pages/MoneyLendingLicense';
 import Bookkeeping from './pages/Bookkeeping';
 import ContractReview from './pages/ContractReview';
 import Insights from './pages/Insights';
@@ -81,7 +94,25 @@ export default function App() {
               <Route path="/tax-litigation/itat-appeals/" element={<ItatAppeals />} />
               <Route path="/tax-litigation/drp-appeals/" element={<DrpAppeals />} />
               <Route path="/compliance" element={<Compliance />} />
-              <Route path="/fema" element={<Fema />} />
+              <Route path="/fema-advisory/" element={<FemaAdvisory />} />
+              <Route path="/fema-advisory/odi-advisory/" element={<OdiAdvisory />} />
+              <Route path="/fema-advisory/fdi-advisory/" element={<FdiAdvisory />} />
+              <Route path="/fema-advisory/form-fc-rbi-reporting/" element={<FormFcRbiReporting />} />
+              <Route path="/fema-advisory/fema-compliance/" element={<FemaCompliance />} />
+              {/* Legacy flat /fema page removed; the primary redirect is the 301 in public/_redirects. */}
+              <Route path="/fema" element={<Navigate to="/fema-advisory/" replace />} />
+              <Route path="/foreign-business-setup/" element={<ForeignBusinessSetup />} />
+              <Route path="/foreign-business-setup/india-entry-strategy/" element={<IndiaEntryStrategy />} />
+              <Route
+                path="/foreign-business-setup/india-company-incorporation-for-foreigners/"
+                element={<IndiaCompanyIncorporation />}
+              />
+              <Route path="/indian-company-compliance/" element={<IndianCompanyCompliance />} />
+              <Route path="/indian-company-compliance/gst-compliance/" element={<GstCompliance />} />
+              <Route path="/indian-company-compliance/income-tax-compliance/" element={<IncomeTaxCompliance />} />
+              <Route path="/indian-company-compliance/roc-compliance/" element={<RocCompliance />} />
+              <Route path="/licensing/" element={<Licensing />} />
+              <Route path="/licensing/money-lending-license/" element={<MoneyLendingLicense />} />
               <Route path="/bookkeeping" element={<Bookkeeping />} />
               <Route path="/contract-review" element={<ContractReview />} />
               <Route path="/insights" element={<Insights />} />

@@ -27,8 +27,11 @@ real data exists (e.g. a named reviewer, a real case study URL), omit
 the whole section, don't ship it with brackets instead.
 
 ## 3. DESIGN SYSTEM (do not use the mockup's own CSS/fonts/colors)
-- Fonts: Manrope (headings/body), Inter (labels) — already loaded in
-  index.css. Never use the mockup's Fraunces or monospace fonts.
+- Fonts: Fraunces for headings (font-headline), Inter for body text
+  (font-body), IBM Plex Mono for labels and mono content (font-label /
+  font-mono). Manrope is reserved specifically for Navbar and Footer
+  chrome only (font-nav), never for page content. This is the real,
+  live, sitewide font system, confirmed and in use on every built page.
 - Colors: use the real theme tokens already defined in index.css
   (text-primary, text-secondary, bg-surface-container-lowest, etc.),
   never the mockup's own custom CSS variables (forest, cream, brown).
@@ -40,7 +43,7 @@ the whole section, don't ship it with brackets instead.
   transition-all duration-300.
 - Hero headlines: bold and large — text-5xl md:text-7xl font-extrabold
   tracking-tighter leading-[1.05].
-- Section spacing: py-28 md:py-32 throughout.
+- Section spacing: py-20 md:py-24 throughout.
 - In each page, let at least one section break the "uniform grid of
   identical cards" pattern (a featured/highlighted item, different
   treatment from its siblings) for visual variety.
@@ -108,6 +111,12 @@ Well-established, no code comment needed:
 - Section 234A/B/C → 423/424/425
 - Section 270A → 439
 - Section 92CA → 166
+- Section 139 → Section 263 (return of income)
+- Section 140A → Section 266 (self-assessment tax)
+- Section 201 → Section 409 (assessee deemed in default, TDS)
+  (these three confirmed directly against the Act's official index, the
+  strongest source used anywhere in this project, during the Income Tax
+  Compliance page build)
 
 Newer mappings, verified against a published mapping table but not yet
 firm-confirmed, add a code comment "PENDING CA CONFIRMATION" wherever
@@ -118,6 +127,13 @@ these are used:
 - Form 67 → Form 44
 - Section 44DA → Section 59 (royalty/FTS computation connected to a PE)
 - Section 44AB → Section 63 (tax audit)
+
+Topical match, sub-clause unconfirmed — a different kind of uncertainty
+than "pending" above (the general provision is right, the exact
+sub-clause isn't verified), word it distinctly wherever it comes up,
+don't reuse the generic "PENDING CA CONFIRMATION" marker:
+- Section 40(a)(i)/(ia) → Section 36 (expense disallowance for
+  non-deduction of TDS)
 
 Still unconfirmed, do not guess a number, keep language exactly as
 "could not be independently confirmed" wherever it comes up:

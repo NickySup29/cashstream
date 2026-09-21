@@ -9,4 +9,6 @@ command = "npm run build"
 [assets]
 directory = "./dist"
 binding = "ASSETS"
+# Run the Worker before static assets so bots get snapshots on every route, including "/"
+run_worker_first = true
 not_found_handling = "single-page-application"

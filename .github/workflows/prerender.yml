@@ -1,0 +1,54 @@
+# Generates the bot-facing HTML snapshots (public/_snapshots) with Playwright and commits
+# them. Cloudflare's build cannot run Chromium, so it never prerenders: Vite copies the
+# committed public/_snapshots into dist/ and the Worker serves them to known bots.
+# Committing to main triggers the normal Cloudflare build, which then deploys them.
+name: Prerender snapshots
+
+on:
+  push:
+    branches: ["main"]
+    # Do not re-run on our own snapshot commits.
+    paths-ignore:
+      - "public/_snapshots/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prerender-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prerender:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Build site
+        run: npm run build
+      - name: Generate snapshots
+        run: npm run prerender
+      - name: Commit snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all public/_snapshots
+          if git diff --cached --quiet; then
+            echo "Snapshots unchanged, nothing to commit."
+            exit 0
+          fi
+          git commit -m "Regenerate prerender snapshots"
+          # The build regenerates sitemap.xml and rss.xml; drop those changes so the rebase is clean.
+          git checkout -- .
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

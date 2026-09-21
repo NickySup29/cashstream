@@ -1,3 +1,5 @@
+import { serveSnapshotToBot } from './server/botPrerender.ts';
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -62,6 +64,10 @@ export default {
         });
       }
     }
+
+    // Known bots get the prerendered snapshot for the route
+    const snapshot = await serveSnapshotToBot(request, env.ASSETS);
+    if (snapshot) return snapshot;
 
     // All other requests — serve the static React site
     return env.ASSETS.fetch(request);

@@ -1,5 +1,8 @@
 // Bot-aware prerendering: visits every route of the built site (dist/) with
-// Playwright and saves the fully rendered HTML to dist/_snapshots/<route>/index.html.
+// Playwright and saves the fully rendered HTML to public/_snapshots/<route>/index.html.
+// This runs in GitHub Actions (.github/workflows/prerender.yml), NOT in Cloudflare's build,
+// which cannot run Chromium. The snapshots are committed; Vite copies public/ into dist/
+// on every Cloudflare build, so Cloudflare just deploys the already-generated files.
 // The Cloudflare middleware (functions/_middleware.ts, src/worker.js) serves these
 // to known bots only. Real visitors never see them.
 //
@@ -8,9 +11,8 @@
 //   - /about-us/case-studies/:slug/: ids from src/data/caseStudies.ts
 //   - /blog/:slug: slugs from the front matter of _posts/*.md
 //
-// Strict by default: if Chromium cannot run or any route fails, the build fails so a
-// broken prerender is never deployed silently. Escape hatches for environments that do
-// not need snapshots: PRERENDER_SKIP=1 (skip entirely) or PRERENDER_STRICT=0 (warn only).
+// Strict by default: if Chromium cannot run or any route fails, the workflow fails so a
+// broken prerender is never committed silently. PRERENDER_STRICT=0 downgrades to a warning.
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
@@ -18,7 +20,7 @@ import { execSync } from 'child_process';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const outDir = path.join(dist, '_snapshots');
+const outDir = path.join(root, 'public', '_snapshots');
 const CONCURRENCY = 4;
 const strict = process.env.PRERENDER_STRICT !== '0';
 export const SNAPSHOT_MARKER = '<!-- prerendered-snapshot -->';
@@ -92,10 +94,6 @@ async function launchChromium() {
 }
 
 async function main() {
-  if (process.env.PRERENDER_SKIP === '1') {
-    console.log('[prerender] PRERENDER_SKIP=1, skipping.');
-    return;
-  }
   if (!fs.existsSync(path.join(dist, 'index.html'))) bail('dist/index.html not found; run vite build first.');
   const routes = enumerateRoutes();
   console.log(`[prerender] ${routes.length} routes to snapshot`);
@@ -135,7 +133,7 @@ async function main() {
   await browser.close();
   server.close();
 
-  console.log(`[prerender] Saved ${routes.length - failures.length}/${routes.length} snapshots to dist/_snapshots`);
+  console.log(`[prerender] Saved ${routes.length - failures.length}/${routes.length} snapshots to public/_snapshots`);
   if (failures.length) {
     console.error('[prerender] Failed routes:\n  ' + failures.join('\n  '));
     if (strict) process.exit(1);

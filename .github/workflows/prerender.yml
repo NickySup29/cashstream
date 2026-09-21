@@ -6,7 +6,7 @@ name: Prerender snapshots
 
 on:
   push:
-    branches: ["main", "add-bot-prerendering"] # TEMP: branch trigger to verify CI, remove before merge
+    branches: ["main"]
     # Do not re-run on our own snapshot commits.
     paths-ignore:
       - "public/_snapshots/**"

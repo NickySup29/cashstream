@@ -48,5 +48,7 @@ jobs:
             exit 0
           fi
           git commit -m "Regenerate prerender snapshots"
+          # The build regenerates sitemap.xml and rss.xml; drop those changes so the rebase is clean.
+          git checkout -- .
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"

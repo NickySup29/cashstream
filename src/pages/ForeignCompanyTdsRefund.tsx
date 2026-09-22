@@ -322,7 +322,7 @@ function ConsultButtons({ invert = false, center = false }: { invert?: boolean; 
   return (
     <div className={`flex flex-wrap gap-4 ${center ? 'justify-center' : ''}`}>
       <a
-        href={CONTACT_INFO.emailUrl}
+        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -333,7 +333,7 @@ function ConsultButtons({ invert = false, center = false }: { invert?: boolean; 
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl}
+        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -723,7 +723,7 @@ export default function ForeignCompanyTdsRefund() {
               worth pursuing, before you commit to a full consultation.
             </span>
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -759,7 +759,7 @@ export default function ForeignCompanyTdsRefund() {
               the money is credited.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />
@@ -799,7 +799,7 @@ export default function ForeignCompanyTdsRefund() {
               case doesn't sit untouched for months.
             </span>
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -964,7 +964,7 @@ export default function ForeignCompanyTdsRefund() {
               You've seen how we work. The next step is a conversation about your specific case.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />
@@ -1012,7 +1012,7 @@ export default function ForeignCompanyTdsRefund() {
           </div>
           <div className="mt-8">
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />

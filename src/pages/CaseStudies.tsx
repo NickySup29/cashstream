@@ -206,14 +206,14 @@ export default function CaseStudies() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href={CONTACT_INFO.emailUrl}
+                href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
                 className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 <Mail size={16} />
                 Book a Consultation
               </a>
               <a
-                href={CONTACT_INFO.whatsappUrl}
+                href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
                 className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base border border-on-primary/40 text-on-primary hover:bg-on-primary/10 transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 <MessageCircle size={16} />

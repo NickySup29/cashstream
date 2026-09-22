@@ -22,7 +22,7 @@ export default function Compliance() {
             </p>
             <div className="flex flex-wrap gap-6 pt-4">
               <a 
-                href={CONTACT_INFO.whatsappUrl}
+                href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
                 className="flex items-center gap-3 px-8 py-4 bg-primary text-on-primary font-bold rounded-lg shadow-xl shadow-primary/10 hover:translate-y-[-2px] transition-all active:scale-95"
               >
                 Initiate Inquiry
@@ -98,10 +98,10 @@ export default function Compliance() {
               <p className="text-on-primary-container text-lg mb-8 max-w-md">Professional consultation on compliance architecture and litigation strategy. Available for immediate secure briefings.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
-              <a href={CONTACT_INFO.emailUrl} className="px-10 py-5 bg-surface text-primary font-bold rounded-xl text-lg hover:bg-surface-container transition-all text-center">
+              <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="px-10 py-5 bg-surface text-primary font-bold rounded-xl text-lg hover:bg-surface-container transition-all text-center">
                 Email Briefing
               </a>
-              <a href={CONTACT_INFO.whatsappUrl} className="px-10 py-5 bg-primary-container border border-on-primary-container/30 text-on-primary font-bold rounded-xl text-lg hover:bg-primary/80 transition-all flex items-center justify-center gap-3">
+              <a href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')} className="px-10 py-5 bg-primary-container border border-on-primary-container/30 text-on-primary font-bold rounded-xl text-lg hover:bg-primary/80 transition-all flex items-center justify-center gap-3">
                 <MessageCircle size={24} />
                 WhatsApp
               </a>

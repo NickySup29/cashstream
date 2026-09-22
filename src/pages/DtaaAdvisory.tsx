@@ -178,7 +178,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       <a
-        href={CONTACT_INFO.emailUrl}
+        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -189,7 +189,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl}
+        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -298,10 +298,10 @@ export default function DtaaAdvisory() {
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
             >
               <div className="flex flex-wrap gap-4 mb-8">
-                <a href={CONTACT_INFO.emailUrl} className="bg-primary text-on-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2">
+                <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="bg-primary text-on-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2">
                   Book a Consultation
                 </a>
-                <a href={CONTACT_INFO.whatsappUrl} className="border border-primary text-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2">
+                <a href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')} className="border border-primary text-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2">
                   Talk to a Tax Expert
                 </a>
               </div>
@@ -691,7 +691,7 @@ export default function DtaaAdvisory() {
             </table>
             <div className="px-6 py-5 border-t border-outline-variant/20 text-center text-secondary text-[15px]">
               Still not sure which service fits your situation?{' '}
-              <a href={CONTACT_INFO.emailUrl} className="font-bold text-primary underline-offset-4 hover:underline">Book a Consultation</a>
+              <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="font-bold text-primary underline-offset-4 hover:underline">Book a Consultation</a>
             </div>
           </div>
         </motion.div>

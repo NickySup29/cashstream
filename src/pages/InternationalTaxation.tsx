@@ -279,7 +279,7 @@ export default function InternationalTaxation() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 flex items-center gap-2"
             >
               <Mail size={16} />
@@ -627,7 +627,7 @@ export default function InternationalTaxation() {
             </p>
             <div className="flex justify-center">
               <a
-                href={CONTACT_INFO.emailUrl}
+                href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
                 className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 <Mail size={16} />

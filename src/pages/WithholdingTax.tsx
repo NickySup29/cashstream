@@ -186,7 +186,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl}
+        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -197,7 +197,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl}
+        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -385,7 +385,7 @@ export default function WithholdingTax() {
                 You're an Indian business making a payment and need to know what to deduct. You're in the right place.
               </p>
               <a
-                href={CONTACT_INFO.emailUrl}
+                href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
                 className="self-start bg-primary-fixed text-on-primary-fixed px-6 py-3 rounded-lg font-bold text-sm hover:opacity-90"
               >
                 Book a Consultation
@@ -405,7 +405,7 @@ export default function WithholdingTax() {
           </div>
           <p className="text-center text-secondary text-sm mt-8">
             Already had TDS deducted at the wrong rate on a payment you received?{' '}
-            <a href={CONTACT_INFO.emailUrl} className="font-bold text-primary underline underline-offset-4">
+            <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="font-bold text-primary underline underline-offset-4">
               See how to claim a refund →
             </a>
           </p>
@@ -444,7 +444,7 @@ export default function WithholdingTax() {
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <span className="text-secondary italic text-sm">Talk to a Tax Expert before your next remittance</span>
-            <a href={CONTACT_INFO.emailUrl} className="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-sm">
+            <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-sm">
               Book a Consultation
             </a>
           </div>
@@ -509,7 +509,7 @@ export default function WithholdingTax() {
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <span className="text-secondary italic text-sm">Confirm the exact rate for your payment</span>
-            <a href={CONTACT_INFO.emailUrl} className="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-sm">
+            <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-sm">
               Book a Consultation
             </a>
           </div>
@@ -565,7 +565,7 @@ export default function WithholdingTax() {
           </div>
           <p className="mt-5 text-secondary">
             Not sure if the exception applies to your payment?{' '}
-            <a href={CONTACT_INFO.whatsappUrl} className="font-bold text-primary underline underline-offset-4">
+            <a href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')} className="font-bold text-primary underline underline-offset-4">
               Ask us directly →
             </a>
           </p>
@@ -608,7 +608,7 @@ export default function WithholdingTax() {
           </ul>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <span className="text-secondary italic text-sm">Have these ready?</span>
-            <a href={CONTACT_INFO.emailUrl} className="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-sm">
+            <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-sm">
               Book a Consultation
             </a>
           </div>

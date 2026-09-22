@@ -93,7 +93,7 @@ export default function Careers() {
           <Zap className="text-primary mx-auto mb-8" size={64} />
           <h2 className="text-5xl font-extrabold text-primary mb-8 tracking-tighter">Don't see your domain?</h2>
           <p className="text-xl text-secondary mb-12 max-w-2xl mx-auto">We are always scouting for high-caliber talent in tax litigation, FEMA compliance, and institutional auditing. Send us your brief.</p>
-          <a href={CONTACT_INFO.emailUrl} className="inline-block bg-primary text-on-primary px-12 py-5 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-2xl">
+          <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="inline-block bg-primary text-on-primary px-12 py-5 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-2xl">
             Direct Line to HR
           </a>
         </div>

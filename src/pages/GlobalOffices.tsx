@@ -48,7 +48,7 @@ export default function GlobalOffices() {
               Strategically positioned in key financial corridors to facilitate seamless cross-border advisory.
             </p>
           </div>
-          <a href={CONTACT_INFO.whatsappUrl} className="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:translate-y-[-2px] transition-all shadow-lg active:scale-95">
+          <a href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')} className="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:translate-y-[-2px] transition-all shadow-lg active:scale-95">
             Connect Globally
           </a>
         </div>

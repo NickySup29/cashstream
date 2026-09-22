@@ -267,14 +267,14 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 flex items-center gap-2"
             >
               <Mail size={16} />
               Book a Consultation
             </a>
             <a
-              href={CONTACT_INFO.whatsappUrl}
+              href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center gap-2"
             >
               <MessageCircle size={16} />
@@ -511,7 +511,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center mb-10">
               <a
-                href={CONTACT_INFO.emailUrl}
+                href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
                 className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 <Mail size={16} />
@@ -541,14 +541,14 @@ export default function Home() {
           CLAUDE.md rule #3 bans it sitewide with no exception carved out for this page */}
       <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-primary flex">
         <a
-          href={CONTACT_INFO.emailUrl}
+          href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
           className="flex-1 flex items-center justify-center gap-2 py-4 text-on-primary font-bold text-sm border-r border-on-primary/15"
         >
           <Mail size={16} />
           Book a Consultation
         </a>
         <a
-          href={CONTACT_INFO.whatsappUrl}
+          href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
           className="flex-1 flex items-center justify-center gap-2 py-4 text-on-primary font-bold text-sm"
         >
           <MessageCircle size={16} />

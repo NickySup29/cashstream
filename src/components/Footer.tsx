@@ -15,11 +15,11 @@ export default function Footer() {
               Precision in financial archiving and regulatory adherence. The modern standard for corporate stewardship.
             </p>
             <div className="space-y-3">
-              <a href={CONTACT_INFO.emailUrl} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
+              <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
                 <Mail size={16} />
                 {CONTACT_INFO.email}
               </a>
-              <a href={CONTACT_INFO.whatsappUrl} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
+              <a href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
                 <MessageCircle size={16} />
                 {CONTACT_INFO.whatsapp}
               </a>

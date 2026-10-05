@@ -124,7 +124,7 @@ export default function ContractReview() {
         <p className="text-xl text-secondary mb-12">Whether it's a vendor contract or a merger agreement, clarity is your greatest asset.</p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           <a 
-            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+            href={CONTACT_INFO.emailUrl}
             className="w-full md:w-auto bg-primary text-on-primary px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 shadow-xl hover:scale-105 transition-transform active:scale-95"
           >
             <Mail size={20} />

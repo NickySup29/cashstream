@@ -516,7 +516,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 md:gap-4 shrink-0 ml-auto">
           <a
-            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+            href={`mailto:${CONTACT_INFO.headerEmail}`}
             aria-label="Email us"
             className="flex shrink-0 whitespace-nowrap bg-primary text-on-primary px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-bold text-xs hover:opacity-90 transition-all active:scale-95 items-center gap-1.5 md:gap-2"
           >

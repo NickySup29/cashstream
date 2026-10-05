@@ -408,7 +408,7 @@ export default function WithholdingTax() {
           </div>
           <p className="text-center text-secondary text-sm mt-8">
             Already had TDS deducted at the wrong rate on a payment you received?{' '}
-            <a href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click" className="font-bold text-primary underline underline-offset-4">
+            <a href={CONTACT_INFO.emailUrl} className="font-bold text-primary underline underline-offset-4">
               See how to claim a refund →
             </a>
           </p>

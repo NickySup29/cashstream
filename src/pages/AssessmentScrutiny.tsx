@@ -4,6 +4,9 @@ import { motion } from 'motion/react';
 import { Mail, MessageCircle, Plus, ArrowRight, CheckCircle2, FileQuestion, Search, RotateCcw, AlertTriangle, ShieldAlert } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/tax-litigation/income-tax-assessment-scrutiny/');
 
 const SITE = 'https://cashstreamadvisors.com';
 const pageUrl = `${SITE}/tax-litigation/income-tax-assessment-scrutiny/`;
@@ -21,7 +24,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -32,7 +35,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+        href={WHATSAPP_URL}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -487,7 +490,7 @@ export default function AssessmentScrutiny() {
           <div className="mt-10 flex items-center gap-4 flex-wrap">
             <span className="text-on-surface font-semibold text-[15px]">Not sure which one you're holding?</span>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95"
             >
               Book a Consultation
@@ -516,7 +519,7 @@ export default function AssessmentScrutiny() {
               only one of them is fixable.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 whitespace-nowrap"
             >
               Book a Consultation
@@ -626,7 +629,7 @@ export default function AssessmentScrutiny() {
             </div>
           </div>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
           >
             Book a Consultation
@@ -737,7 +740,7 @@ export default function AssessmentScrutiny() {
             to finish.
           </p>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-8 py-4 rounded-lg font-bold bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 mb-10"
           >
             Book a Consultation

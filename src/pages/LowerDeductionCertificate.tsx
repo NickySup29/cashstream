@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { MessageCircle, Mail, ArrowRight, Plus } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/international-taxation/lower-deduction-certificate/');
 
 // Strips tags so an HTML FAQ answer can still go into the FAQPage JSON-LD as
 // plain text. Answers here only contain inline markup (a single link), so
@@ -316,7 +319,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -327,7 +330,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+        href={WHATSAPP_URL}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'

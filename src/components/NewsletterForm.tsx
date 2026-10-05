@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { trackLead } from '../utils/analytics';
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');
@@ -28,6 +29,7 @@ export default function NewsletterForm() {
         throw new Error(data.error || 'Something went wrong');
       }
 
+      trackLead('newsletter_signup');
       setStatus('success');
       setEmail('');
     } catch (err: any) {

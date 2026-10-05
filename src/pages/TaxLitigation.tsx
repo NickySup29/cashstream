@@ -16,6 +16,9 @@ import {
 } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/tax-litigation/');
 
 const SITE = 'https://cashstreamadvisors.com';
 const pageUrl = `${SITE}/tax-litigation/`;
@@ -33,7 +36,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -44,7 +47,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+        href={WHATSAPP_URL}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -517,7 +520,7 @@ export default function TaxLitigation() {
               row.emphasis ? (
                 <a
                   key={row.label}
-                  href={row.href}
+                  href={row.href} data-ga-event="book_consultation_click"
                   className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-primary text-on-primary rounded-xl p-7 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <span className="italic text-on-primary/85 text-[15.5px]">{row.quote}</span>
@@ -597,7 +600,7 @@ export default function TaxLitigation() {
               notice or order arrives, not after the window has closed.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 whitespace-nowrap"
             >
               Book a Consultation
@@ -707,7 +710,7 @@ export default function TaxLitigation() {
             </div>
           </div>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
           >
             Book a Consultation
@@ -820,7 +823,7 @@ export default function TaxLitigation() {
             exactly where your case stands and what happens next.
           </p>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-8 py-4 rounded-lg font-bold bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 mb-10"
           >
             Book a Consultation

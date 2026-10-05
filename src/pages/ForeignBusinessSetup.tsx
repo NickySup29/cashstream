@@ -5,6 +5,9 @@ import { US, GB, AE, SG, DE } from 'country-flag-icons/react/3x2';
 import { Mail, MessageCircle, Plus, ArrowRight, CheckCircle2, ShieldAlert, Compass, Building2 } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/foreign-business-setup/');
 
 const SITE = 'https://cashstreamadvisors.com';
 const pageUrl = `${SITE}/foreign-business-setup/`;
@@ -22,7 +25,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -33,7 +36,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+        href={WHATSAPP_URL}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -374,7 +377,7 @@ export default function ForeignBusinessSetup() {
           </div>
           <p className="text-secondary text-[14.5px] mt-6">
             Not sure which describes you?{' '}
-            <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="text-primary font-semibold hover:underline">
+            <a href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click" className="text-primary font-semibold hover:underline">
               Book a Consultation
             </a>{' '}
             and we'll tell you directly.
@@ -430,7 +433,7 @@ export default function ForeignBusinessSetup() {
               doesn't fall behind soon after launch.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 whitespace-nowrap"
             >
               Book a Consultation
@@ -538,7 +541,7 @@ export default function ForeignBusinessSetup() {
             </div>
           </div>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
           >
             Book a Consultation
@@ -649,7 +652,7 @@ export default function ForeignBusinessSetup() {
             We handle the decision, the filing, and the path to genuinely operational, together.
           </p>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-8 py-4 rounded-lg font-bold bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 mb-10"
           >
             Book a Consultation

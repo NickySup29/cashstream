@@ -127,7 +127,7 @@ export default function Bookkeeping() {
                   Schedule Assessment
                 </a>
                 <a 
-                  href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+                  href={CONTACT_INFO.emailUrl}
                   className="flex items-center justify-center gap-2 text-on-primary font-bold hover:underline decoration-2 underline-offset-8 transition-all"
                 >
                   <Mail size={18} />
@@ -150,7 +150,7 @@ export default function Bookkeeping() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             <a 
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.emailUrl}
               className="bg-primary text-on-primary px-10 py-5 rounded-lg font-bold flex items-center justify-center gap-3 active:scale-95 transition-transform shadow-xl"
             >
               <Mail size={20} />

@@ -36,7 +36,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+        href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -160,7 +160,7 @@ const stageRouter: { quote: string; label: string; to?: string; href?: string; e
   {
     quote: "\"I'm not sure which stage I'm actually at.\"",
     label: 'Book a Consultation →',
-    href: CONTACT_INFO.emailUrl,
+    href: CONTACT_INFO.calendlyUrl,
     emphasis: true,
   },
 ];
@@ -520,7 +520,7 @@ export default function TaxLitigation() {
               row.emphasis ? (
                 <a
                   key={row.label}
-                  href={row.href} data-ga-event="book_consultation_click"
+                  href={row.href} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
                   className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-primary text-on-primary rounded-xl p-7 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <span className="italic text-on-primary/85 text-[15.5px]">{row.quote}</span>
@@ -600,7 +600,7 @@ export default function TaxLitigation() {
               notice or order arrives, not after the window has closed.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 whitespace-nowrap"
             >
               Book a Consultation
@@ -710,7 +710,7 @@ export default function TaxLitigation() {
             </div>
           </div>
           <a
-            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+            href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
             className="inline-block px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
           >
             Book a Consultation
@@ -823,7 +823,7 @@ export default function TaxLitigation() {
             exactly where your case stands and what happens next.
           </p>
           <a
-            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+            href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
             className="inline-block px-8 py-4 rounded-lg font-bold bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 mb-10"
           >
             Book a Consultation

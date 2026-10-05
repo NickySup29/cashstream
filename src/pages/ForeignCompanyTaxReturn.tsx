@@ -362,7 +362,7 @@ function ConsultButtons({ invert = false, center = false }: { invert?: boolean; 
   return (
     <div className={`flex flex-wrap gap-4 ${center ? 'justify-center' : ''}`}>
       <a
-        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+        href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -441,7 +441,7 @@ function PeStatusCards() {
           Not sure which category applies to you?
         </span>
         <a
-          href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+          href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
           className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
         >
           <Mail size={16} />
@@ -776,7 +776,7 @@ export default function ForeignCompanyTaxReturn() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <span className="text-secondary text-[15px] italic">Have these ready?</span>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -810,7 +810,7 @@ export default function ForeignCompanyTaxReturn() {
               They go wrong at the PE determination stage, before anyone’s even looked at the numbers.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />
@@ -928,7 +928,7 @@ export default function ForeignCompanyTaxReturn() {
               You’ve seen how we work. The next step is a conversation about your specific case.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />
@@ -976,7 +976,7 @@ export default function ForeignCompanyTaxReturn() {
           </div>
           <div className="mt-8">
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />

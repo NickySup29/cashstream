@@ -53,8 +53,8 @@ the whole section, don't ship it with brackets instead.
   section. No sliders, no carousels, no additional animation beyond this
   and card hover, unless explicitly requested.
 - No sticky consultation rail anywhere (decided site-wide).
-- No page-level nav, footer, or WhatsApp float — these render globally
-  in App.tsx already, don't duplicate them.
+- No page-level nav or footer, these render globally in App.tsx
+  already, don't duplicate them.
 
 ## 4. ROUTING & URLS
 - Nested with trailing slash: /international-taxation/[page-slug]/

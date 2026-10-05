@@ -3,4 +3,6 @@ export const CONTACT_INFO = {
   whatsappUrl: "https://wa.me/917010415175",
   email: "nihar@cashstreamadvisors.com",
   emailUrl: "mailto:nihar@cashstreamadvisors.com",
+  headerEmail: "ca.niharchandaliya@gmail.com",
+  calendlyUrl: "https://calendly.com/cashstreamadvisors/consultation-with-cash-stream-advisors",
 };

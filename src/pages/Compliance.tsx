@@ -101,7 +101,7 @@ export default function Compliance() {
               <p className="text-on-primary-container text-lg mb-8 max-w-md">Professional consultation on compliance architecture and litigation strategy. Available for immediate secure briefings.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
-              <a href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click" className="px-10 py-5 bg-surface text-primary font-bold rounded-xl text-lg hover:bg-surface-container transition-all text-center">
+              <a href={CONTACT_INFO.emailUrl} className="px-10 py-5 bg-surface text-primary font-bold rounded-xl text-lg hover:bg-surface-container transition-all text-center">
                 Email Briefing
               </a>
               <a href={WHATSAPP_URL} className="px-10 py-5 bg-primary-container border border-on-primary-container/30 text-on-primary font-bold rounded-xl text-lg hover:bg-primary/80 transition-all flex items-center justify-center gap-3">

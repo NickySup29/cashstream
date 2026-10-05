@@ -24,7 +24,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+        href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -485,7 +485,7 @@ export default function CitAAppeals() {
               Not sure how much you'd need to pay in your specific case?
             </span>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95"
             >
               Book a Consultation
@@ -514,7 +514,7 @@ export default function CitAAppeals() {
               doesn't extend itself.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 whitespace-nowrap"
             >
               Book a Consultation
@@ -623,7 +623,7 @@ export default function CitAAppeals() {
             </div>
           </div>
           <a
-            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+            href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
             className="inline-block px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
           >
             Book a Consultation
@@ -736,7 +736,7 @@ export default function CitAAppeals() {
             argue, and handle it, start to finish.
           </p>
           <a
-            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+            href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
             className="inline-block px-8 py-4 rounded-lg font-bold bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 mb-10"
           >
             Book a Consultation

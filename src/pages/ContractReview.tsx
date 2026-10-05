@@ -2,6 +2,9 @@ import { motion } from 'motion/react';
 import { ShieldCheck, ArrowRight, PhoneCall, Scale, Landmark, FileCheck2, Search, Plus, Mail, MessageCircle } from 'lucide-react';
 
 import { CONTACT_INFO } from '../constants';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/contract-review');
 
 export default function ContractReview() {
   const steps = [
@@ -28,14 +31,14 @@ export default function ContractReview() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+                href={WHATSAPP_URL}
                 className="bg-primary hover:bg-primary-container text-on-primary px-8 py-4 rounded-lg font-bold text-lg transition-all flex items-center gap-3 active:scale-95 shadow-lg"
               >
                 Initiate Review
                 <ArrowRight size={20} />
               </a>
               <a 
-                href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+                href={WHATSAPP_URL}
                 className="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg font-bold text-lg transition-all flex items-center gap-3 active:scale-95"
               >
                 <MessageCircle size={20} />
@@ -121,14 +124,14 @@ export default function ContractReview() {
         <p className="text-xl text-secondary mb-12">Whether it's a vendor contract or a merger agreement, clarity is your greatest asset.</p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           <a 
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="w-full md:w-auto bg-primary text-on-primary px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 shadow-xl hover:scale-105 transition-transform active:scale-95"
           >
             <Mail size={20} />
             Email Brief
           </a>
           <a 
-            href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+            href={WHATSAPP_URL}
             className="w-full md:w-auto bg-secondary-container text-on-secondary-container px-10 py-5 rounded-lg font-bold text-lg flex items-center justify-center gap-3 hover:bg-secondary-fixed transition-colors active:scale-95"
           >
             <MessageCircle size={20} />

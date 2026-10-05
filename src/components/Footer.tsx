@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Share2, Globe, Shield, Mail, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
+import { useWhatsappUrl } from '../utils/whatsapp';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const whatsappUrl = useWhatsappUrl();
 
   return (
     <footer className="w-full py-16 px-8 mt-20 bg-surface-container-low font-nav text-sm tracking-wide leading-relaxed">
@@ -15,11 +17,11 @@ export default function Footer() {
               Precision in financial archiving and regulatory adherence. The modern standard for corporate stewardship.
             </p>
             <div className="space-y-3">
-              <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
+              <a href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click" className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
                 <Mail size={16} />
                 {CONTACT_INFO.email}
               </a>
-              <a href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
+              <a href={whatsappUrl} className="flex items-center gap-2 text-secondary hover:text-primary transition-colors">
                 <MessageCircle size={16} />
                 {CONTACT_INFO.whatsapp}
               </a>

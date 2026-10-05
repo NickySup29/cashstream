@@ -19,6 +19,9 @@ import {
   RefreshCw,
   CheckCircle2,
 } from 'lucide-react';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/international-taxation/nri-tax-relocation-advisory/');
 
 type IconType = ComponentType<SVGProps<SVGSVGElement>>;
 import { CONTACT_INFO } from '../constants';
@@ -363,7 +366,7 @@ function ConsultButtons({ invert = false, center = false }: { invert?: boolean; 
   return (
     <div className={`flex flex-wrap gap-4 ${center ? 'justify-center' : ''}`}>
       <a
-        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -374,7 +377,7 @@ function ConsultButtons({ invert = false, center = false }: { invert?: boolean; 
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+        href={WHATSAPP_URL}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -637,7 +640,7 @@ export default function NriTaxRelocationAdvisory() {
               Not sure which category applies to you?
             </span>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -729,7 +732,7 @@ export default function NriTaxRelocationAdvisory() {
               , a short review that tells you exactly where you stand before anything else is decided.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />
@@ -779,7 +782,7 @@ export default function NriTaxRelocationAdvisory() {
               Not sure which category fits your situation?
             </span>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -922,7 +925,7 @@ export default function NriTaxRelocationAdvisory() {
               change.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />

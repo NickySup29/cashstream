@@ -4,6 +4,9 @@ import { motion } from 'motion/react';
 import { Mail, MessageCircle, Plus, ArrowRight, CheckCircle2, ShieldAlert, Building2, Rocket, Globe2, FileWarning } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
+import { whatsappUrlForPath } from '../utils/whatsapp';
+
+const WHATSAPP_URL = whatsappUrlForPath('/indian-company-compliance/');
 
 const SITE = 'https://cashstreamadvisors.com';
 const pageUrl = `${SITE}/indian-company-compliance/`;
@@ -21,7 +24,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -32,7 +35,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
         Book a Consultation
       </a>
       <a
-        href={CONTACT_INFO.whatsappUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'whatsapp_click')}
+        href={WHATSAPP_URL}
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 border ${
           invert
             ? 'border-on-primary/40 text-on-primary hover:bg-on-primary/10'
@@ -334,7 +337,7 @@ export default function IndianCompanyCompliance() {
           </div>
           <p className="text-secondary text-[14.5px] mt-6 text-center">
             Behind on more than one? That's exactly the situation this page exists for.{' '}
-            <a href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')} className="text-primary font-semibold hover:underline">
+            <a href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click" className="text-primary font-semibold hover:underline">
               Book a Consultation
             </a>{' '}
             and we'll map out what's actually outstanding.
@@ -390,7 +393,7 @@ export default function IndianCompanyCompliance() {
               at all three calendars at once.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 whitespace-nowrap"
             >
               Book a Consultation
@@ -499,7 +502,7 @@ export default function IndianCompanyCompliance() {
             </div>
           </div>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
           >
             Book a Consultation
@@ -573,7 +576,7 @@ export default function IndianCompanyCompliance() {
             Book a consultation and we'll map out exactly what applies to your company.
           </p>
           <a
-            href={CONTACT_INFO.emailUrl} onClick={() => (window as any).gtag && (window as any).gtag('event', 'book_consultation_click')}
+            href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
             className="inline-block px-8 py-4 rounded-lg font-bold bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 mb-10"
           >
             Book a Consultation

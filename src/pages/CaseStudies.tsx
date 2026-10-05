@@ -206,7 +206,7 @@ export default function CaseStudies() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+                href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
                 className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 <Mail size={16} />

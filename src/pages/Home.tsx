@@ -267,7 +267,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 flex items-center gap-2"
             >
               <Mail size={16} />
@@ -511,7 +511,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center mb-10">
               <a
-                href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+                href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
                 className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
               >
                 <Mail size={16} />
@@ -541,7 +541,7 @@ export default function Home() {
           CLAUDE.md rule #3 bans it sitewide with no exception carved out for this page */}
       <div data-ga-location="sticky_bar" className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-primary flex">
         <a
-          href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+          href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
           className="flex-1 flex items-center justify-center gap-2 py-4 text-on-primary font-bold text-sm border-r border-on-primary/15"
         >
           <Mail size={16} />

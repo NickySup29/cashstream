@@ -366,7 +366,7 @@ function ConsultButtons({ invert = false, center = false }: { invert?: boolean; 
   return (
     <div className={`flex flex-wrap gap-4 ${center ? 'justify-center' : ''}`}>
       <a
-        href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+        href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
         className={`px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 flex items-center gap-2 ${
           invert
             ? 'bg-surface-container-lowest text-primary hover:bg-surface-bright'
@@ -640,7 +640,7 @@ export default function NriTaxRelocationAdvisory() {
               Not sure which category applies to you?
             </span>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -732,7 +732,7 @@ export default function NriTaxRelocationAdvisory() {
               , a short review that tells you exactly where you stand before anything else is decided.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />
@@ -782,7 +782,7 @@ export default function NriTaxRelocationAdvisory() {
               Not sure which category fits your situation?
             </span>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base border border-primary text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />
@@ -925,7 +925,7 @@ export default function NriTaxRelocationAdvisory() {
               change.
             </p>
             <a
-              href={CONTACT_INFO.emailUrl} data-ga-event="book_consultation_click"
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2 shrink-0"
             >
               <Mail size={16} />

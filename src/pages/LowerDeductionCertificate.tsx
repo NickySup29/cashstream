@@ -726,7 +726,7 @@ export default function LowerDeductionCertificate() {
                   <span className="font-semibold text-primary text-[15.5px]">{item.q}</span>
                   <Plus size={20} className={`text-primary shrink-0 transition ${openTaxpayer === index ? 'rotate-45' : ''}`} />
                 </button>
-                {openTaxpayer === index && <p className="px-4 pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">{item.a}</p>}
+                <p className={`px-4 pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl ${openTaxpayer === index ? '' : 'hidden'}`}>{item.a}</p>
               </div>
             ))}
           </div>

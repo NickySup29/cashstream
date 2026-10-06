@@ -71,11 +71,25 @@ const foreignPersona = [
   'Need to file a return purely to recover excess withholding, typically a one-time filing with no other India compliance obligation',
 ];
 
-const incomeTypes: { title: string; body: string; icon: IconType }[] = [
+const incomeTypes: { title: string; body: ReactNode; icon: IconType }[] = [
   {
     icon: Home,
-    title: 'Property Sale (NRI)',
-    body: 'TDS deducted on the full sale consideration, not the capital gain. A refund is common where indexation or exemptions bring the actual gain, and the tax owed, well below the amount deducted.',
+    title: 'Can an NRI claim a TDS refund on a property sale?',
+    body: (
+      <>
+        Yes. An NRI can claim a TDS refund on the sale of immovable property by filing an Indian income tax return.
+        The buyer deducts TDS on the full sale value, but your tax is only on the capital gain, so the excess is
+        refundable once the return is filed and processed. Exemptions such as Section 54 or 54EC can reduce the tax
+        further. If you haven't sold yet, a{' '}
+        <Link
+          to="/international-taxation/lower-deduction-certificate/"
+          className="font-semibold text-primary underline underline-offset-2"
+        >
+          Lower Deduction Certificate
+        </Link>{' '}
+        reduces the TDS at the time of sale.
+      </>
+    ),
   },
   {
     icon: KeyRound,
@@ -358,8 +372,8 @@ const revealProps = {
 };
 
 /* Refund Timeline Meter: signature interactive element. The scale runs 0 to 12+
-   months. The typical band spans months 3 to 9 (25%–75%); the extended,
-   dashed band spans months 9 to roughly 12+ (75%–95%). Hovering or focusing a
+   months. The typical band spans months 3 to 9 (25% to 75%); the extended,
+   dashed band spans months 9 to roughly 12+ (75% to 95%). Hovering or focusing a
    segment surfaces the detail note for that stage. */
 function RefundTimelineMeter() {
   const [active, setActive] = useState<'typical' | 'extended' | null>(null);
@@ -458,7 +472,7 @@ export default function ForeignCompanyTdsRefund() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Foreign Company & NRI TDS Refund | International Taxation | CashStream Advisors"
+        title="NRI TDS Refund on Property Sale & Foreign Company Refunds"
         description="Excess TDS deducted on your Indian income, property, rent, interest, or dividends? Cash Stream Advisors handles the filing and follows it through to refund."
         url={pageUrl}
         structuredData={[
@@ -604,7 +618,14 @@ export default function ForeignCompanyTdsRefund() {
               TDS on payments to non-residents was governed by Section 195 of the Income Tax Act,
               1961. Under the Income Tax Act, 2025, this is now covered under Section 393(2).
               References to Section 195 in older correspondence or certificates should be read as
-              Section 393(2) going forward.
+              Section 393(2) going forward. Refunds are not claimed under Section 195 or 393(2). Those sections govern the deduction, and the refund is claimed by filing your return. To reduce TDS before it is deducted, see our{' '}
+              <Link
+                to="/international-taxation/lower-deduction-certificate/"
+                className="font-semibold text-primary underline underline-offset-2"
+              >
+                Lower Deduction Certificate
+              </Link>{' '}
+              (Section 197, now 395(1)).
             </p>
           </div>
         </motion.div>
@@ -1076,14 +1097,12 @@ export default function ForeignCompanyTdsRefund() {
                     <span className="font-semibold text-primary text-[15.5px]">{faq.q}</span>
                     <Plus size={20} className={`text-primary shrink-0 transition-transform ${open ? 'rotate-45' : ''}`} />
                   </button>
-                  {open && (
-                    <div className="pb-6">
+                  <div className={`pb-6 ${open ? '' : 'hidden'}`}>
                       <div
                         className="prose prose-sm max-w-none prose-p:text-secondary prose-p:text-[15px] prose-li:text-secondary prose-li:text-[15px] prose-headings:text-primary prose-strong:text-primary prose-table:text-sm prose-td:border-outline-variant/30 prose-th:border-outline-variant/30"
                         dangerouslySetInnerHTML={{ __html: faq.a }}
                       />
-                    </div>
-                  )}
+                  </div>
                 </div>
               );
             })}

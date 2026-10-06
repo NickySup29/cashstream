@@ -104,29 +104,6 @@ const formTiles = [
   },
 ];
 
-const calendarItems: { freq: string; recurring?: boolean; title: string; body: string }[] = [
-  { freq: 'Event-triggered', title: 'FCGPR', body: 'Within 30 days of share allotment, not a fixed calendar date.' },
-  { freq: 'Event-triggered', title: 'FCTRS', body: 'Within 60 days of a share transfer, also event-triggered.' },
-  {
-    freq: 'Fixed · annual',
-    recurring: true,
-    title: 'FLA Return',
-    body: "By 15 July every year, due even if audited financials aren't ready, provisional figures should be used, with a revised filing later. A revised return can be filed up to 30 September once audited figures are final.",
-  },
-  {
-    freq: 'Recurring · monthly',
-    recurring: true,
-    title: 'ECB-2',
-    body: 'Monthly, for as long as an External Commercial Borrowing remains outstanding.',
-  },
-  {
-    freq: 'Recurring · annual',
-    recurring: true,
-    title: 'Annual Performance Report',
-    body: 'For existing ODI structures, annual, for as long as the overseas entity exists.',
-  },
-];
-
 const registrationSteps = [
   {
     num: 'Step 1 · First',
@@ -411,51 +388,82 @@ export default function FormFcRbiReporting() {
         </motion.div>
       </section>
 
-      {/* ===== SIGNATURE ELEMENT: ANNUAL RBI COMPLIANCE CALENDAR ===== */}
-      <section className="bg-surface-container-lowest py-20 md:py-24">
+      {/* ===== RBI FILING DEADLINES TABLE ===== */}
+      <section id="rbi-deadlines" aria-labelledby="due-heading" className="bg-surface-container-lowest py-20 md:py-24">
         <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
           <Eyebrow>Not knowing isn't the problem</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary mb-4">
+          <h2 id="due-heading" className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary mb-4">
             When are FCGPR, FC-TRS and FLA returns due?
           </h2>
           <p className="text-secondary text-[15.5px] max-w-2xl mb-10">
             Most FEMA reporting problems aren't caused by not knowing a form exists, they're caused by a deadline
             arriving when nobody was tracking it.
           </p>
-          <div className="max-w-3xl relative pl-9">
-            <div className="absolute left-[9px] top-1.5 bottom-1.5 w-0.5 bg-outline-variant/30" />
-            <div className="space-y-8">
-              {calendarItems.map((item) => (
-                <div key={item.title} className="relative">
-                  <span
-                    className={`absolute -left-9 top-0.5 w-5 h-5 rounded-full bg-surface-container-lowest border-4 ${
-                      item.recurring ? 'border-secondary' : 'border-primary'
-                    }`}
-                  />
-                  <span className="font-label text-[11px] font-bold uppercase tracking-[0.04em] text-secondary block mb-1">
-                    {item.freq}
-                  </span>
-                  <h3 className="font-bold text-[16.5px] text-on-surface mb-1.5">{item.title}</h3>
-                  <p className="text-secondary text-[14px] leading-relaxed">{item.body}</p>
-                </div>
-              ))}
+          <div className="bg-surface-container-lowest border border-outline-variant/10 rounded-xl shadow-sm overflow-hidden">
+            <table className="w-full text-left border-collapse block md:table">
+              <caption className="sr-only">RBI filing deadlines by form</caption>
+              <thead className="sr-only md:not-sr-only md:table-header-group">
+                <tr>
+                  <th scope="col" className="px-7 py-4 bg-primary text-on-primary font-label text-xs uppercase tracking-[0.12em] font-semibold">Filing</th>
+                  <th scope="col" className="px-7 py-4 bg-primary text-on-primary font-label text-xs uppercase tracking-[0.12em] font-semibold">When it is due</th>
+                  <th scope="col" className="px-7 py-4 bg-primary text-on-primary font-label text-xs uppercase tracking-[0.12em] font-semibold">Type</th>
+                </tr>
+              </thead>
+              <tbody className="block md:table-row-group">
+                <tr className="block md:table-row p-5 md:p-0 border-t border-outline-variant/20 first:border-t-0 md:[&:first-child>*]:border-t-0 hover:bg-surface-container-low/40">
+                  <th scope="row" className="block md:table-cell md:w-[22%] p-0 md:px-7 md:py-5 mb-2.5 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-xl font-bold tracking-tight text-primary text-left">FCGPR</th>
+                  <td className="block md:table-cell md:w-1/2 p-0 md:px-7 md:py-5 mb-3 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-[16.5px] text-on-surface">Within 30 days of share allotment, not a fixed calendar date.</td>
+                  <td className="block md:table-cell md:w-[28%] p-0 md:px-7 md:py-5 md:border-t md:border-outline-variant/20 align-top">
+                    <span className="inline-block px-3 py-1.5 rounded-[999px] bg-tertiary-fixed text-tertiary text-[13px] font-semibold whitespace-nowrap">Event-triggered</span>
+                  </td>
+                </tr>
+                <tr className="block md:table-row p-5 md:p-0 border-t border-outline-variant/20 first:border-t-0 md:[&:first-child>*]:border-t-0 hover:bg-surface-container-low/40">
+                  <th scope="row" className="block md:table-cell md:w-[22%] p-0 md:px-7 md:py-5 mb-2.5 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-xl font-bold tracking-tight text-primary text-left">FCTRS</th>
+                  <td className="block md:table-cell md:w-1/2 p-0 md:px-7 md:py-5 mb-3 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-[16.5px] text-on-surface">Within 60 days of a share transfer, also event-triggered.</td>
+                  <td className="block md:table-cell md:w-[28%] p-0 md:px-7 md:py-5 md:border-t md:border-outline-variant/20 align-top">
+                    <span className="inline-block px-3 py-1.5 rounded-[999px] bg-tertiary-fixed text-tertiary text-[13px] font-semibold whitespace-nowrap">Event-triggered</span>
+                  </td>
+                </tr>
+                <tr className="block md:table-row p-5 md:p-0 border-t border-outline-variant/20 first:border-t-0 md:[&:first-child>*]:border-t-0 hover:bg-surface-container-low/40">
+                  <th scope="row" className="block md:table-cell md:w-[22%] p-0 md:px-7 md:py-5 mb-2.5 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-xl font-bold tracking-tight text-primary text-left">FLA Return</th>
+                  <td className="block md:table-cell md:w-1/2 p-0 md:px-7 md:py-5 mb-3 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-[16.5px] text-on-surface">By 15 July every year, due even if audited financials aren't ready, provisional figures should be used, with a revised filing later. A revised return can be filed up to 30 September once audited figures are final.</td>
+                  <td className="block md:table-cell md:w-[28%] p-0 md:px-7 md:py-5 md:border-t md:border-outline-variant/20 align-top">
+                    <span className="inline-block px-3 py-1.5 rounded-[999px] bg-secondary-fixed text-primary text-[13px] font-semibold whitespace-nowrap">Fixed · annual</span>
+                  </td>
+                </tr>
+                <tr className="block md:table-row p-5 md:p-0 border-t border-outline-variant/20 first:border-t-0 md:[&:first-child>*]:border-t-0 hover:bg-surface-container-low/40">
+                  <th scope="row" className="block md:table-cell md:w-[22%] p-0 md:px-7 md:py-5 mb-2.5 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-xl font-bold tracking-tight text-primary text-left">ECB-2</th>
+                  <td className="block md:table-cell md:w-1/2 p-0 md:px-7 md:py-5 mb-3 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-[16.5px] text-on-surface">Monthly, for as long as an External Commercial Borrowing remains outstanding.</td>
+                  <td className="block md:table-cell md:w-[28%] p-0 md:px-7 md:py-5 md:border-t md:border-outline-variant/20 align-top">
+                    <span className="inline-block px-3 py-1.5 rounded-[999px] bg-secondary-fixed text-primary text-[13px] font-semibold whitespace-nowrap">Recurring · monthly</span>
+                  </td>
+                </tr>
+                <tr className="block md:table-row p-5 md:p-0 border-t border-outline-variant/20 first:border-t-0 md:[&:first-child>*]:border-t-0 hover:bg-surface-container-low/40">
+                  <th scope="row" className="block md:table-cell md:w-[22%] p-0 md:px-7 md:py-5 mb-2.5 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-xl font-bold tracking-tight text-primary text-left">Annual Performance Report</th>
+                  <td className="block md:table-cell md:w-1/2 p-0 md:px-7 md:py-5 mb-3 md:mb-0 md:border-t md:border-outline-variant/20 align-top text-[16.5px] text-on-surface">For existing ODI structures, annual, for as long as the overseas entity exists.</td>
+                  <td className="block md:table-cell md:w-[28%] p-0 md:px-7 md:py-5 md:border-t md:border-outline-variant/20 align-top">
+                    <span className="inline-block px-3 py-1.5 rounded-[999px] bg-secondary-fixed text-primary text-[13px] font-semibold whitespace-nowrap">Recurring · annual</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 bg-primary text-on-primary rounded-xl p-8 grid gap-5 md:grid-cols-[1.6fr_1fr] md:items-center md:gap-10">
+            <p className="text-[17px] leading-relaxed text-on-primary/90">
+              The event-triggered filings get missed when a transaction closes and everyone moves on. The fixed annual
+              filings get missed simply because a year goes by. Both need the same thing: something tracking them that
+              isn't a mental note.
+            </p>
+            <div className="flex flex-col gap-3">
+              <p className="font-semibold text-on-primary">Want this calendar built and tracked for your specific obligations?</p>
+              <a
+                href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
+                className="self-start px-7 py-3.5 rounded-lg font-bold text-sm bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95"
+              >
+                Book a Consultation
+              </a>
             </div>
-          </div>
-          <div className="max-w-3xl mt-8 bg-surface-container-low rounded-xl p-6 text-secondary text-[14px] leading-relaxed">
-            The event-triggered filings get missed when a transaction closes and everyone moves on. The fixed annual
-            filings get missed simply because a year goes by. Both need the same thing: something tracking them that
-            isn't a mental note.
-          </div>
-          <div className="mt-8 flex items-center gap-4 flex-wrap">
-            <span className="text-on-surface font-semibold text-[15px]">
-              Want this calendar built and tracked for your specific obligations?
-            </span>
-            <a
-              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
-              className="px-7 py-3.5 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95"
-            >
-              Book a Consultation
-            </a>
           </div>
         </motion.div>
       </section>

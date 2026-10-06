@@ -89,7 +89,7 @@ const formTiles = [
   {
     badge: 'GPR',
     title: 'FCGPR & FCTRS',
-    body: 'For fresh share issuance and transfers under FDI, covered in depth on our FDI Advisory page.',
+    body: 'FCGPR reports fresh shares issued to a foreign investor. FC-TRS reports a transfer of shares between a resident and a non-resident. Both are covered in depth on our FDI Advisory page.',
     link: { to: '/fema-advisory/fdi-advisory/', label: 'FDI Advisory' },
   },
   {
@@ -111,7 +111,7 @@ const calendarItems: { freq: string; recurring?: boolean; title: string; body: s
     freq: 'Fixed · annual',
     recurring: true,
     title: 'FLA Return',
-    body: "By 15 July every year, due even if audited financials aren't ready, provisional figures should be used, with a revised filing later.",
+    body: "By 15 July every year, due even if audited financials aren't ready, provisional figures should be used, with a revised filing later. A revised return can be filed up to 30 September once audited figures are final.",
   },
   {
     freq: 'Recurring · monthly',
@@ -174,6 +174,14 @@ const stakes = [
 ];
 
 const faqs = [
+  {
+    q: 'What is FCGPR?',
+    a: "FCGPR (Form FC-GPR) is the report an Indian company files with RBI after issuing shares or other capital instruments to a foreign investor. It is filed on the FIRMS portal through the company's AD bank, within 30 days of allotment.",
+  },
+  {
+    q: 'What is the FCGPR filing deadline?',
+    a: '30 days from the date of allotment of shares. The clock runs from allotment, not from when the funds arrived. If the deadline is missed, the filing can still be made by paying a Late Submission Fee of Rs 7,500 plus 0.01% of the transaction amount per year of delay.',
+  },
   {
     q: 'Which RBI forms actually apply to my business?',
     a: 'It depends on your specific cross-border activity, foreign investment received, overseas investment made, or an outstanding external commercial borrowing all trigger different forms. We map this out based on your actual transaction profile rather than a generic checklist.',
@@ -244,8 +252,8 @@ export default function FormFcRbiReporting() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Form FC, FC-GPR & FC-TRS Filing Support | Cash Stream Advisors"
-        description="FIRMS portal registration, FC-GPR, FC-TRS, FLA, and ECB-2 filing, handled and tracked so recurring RBI deadlines never get missed again."
+        title="FCGPR, FC-TRS & Form FC Filing on the RBI FIRMS Portal"
+        description="FCGPR, FC-TRS, Form FC, FLA and ECB-2 filing on the RBI FIRMS portal. Registration, filing and AD bank coordination, with every RBI deadline tracked for you."
         url={pageUrl}
         structuredData={structuredData}
       />
@@ -256,13 +264,10 @@ export default function FormFcRbiReporting() {
           <div className="max-w-2xl">
             <Eyebrow>FEMA Advisory · Form FC / RBI Reporting</Eyebrow>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] text-primary mb-6">
-              Form FC, FC-GPR &amp; FC-TRS Filing Support
+              FCGPR, FC-TRS &amp; Form FC Filing on the FIRMS Portal
             </h1>
             <p className="text-lg md:text-xl text-secondary leading-relaxed mb-10">
-              Once you know what needs to be filed, ODI, FDI, an FLA return, an ECB drawdown, the actual filing still
-              has to happen correctly, on the FIRMS portal, within a deadline that doesn't move. We handle the portal
-              registration, the form preparation, and the AD bank coordination, and we track every recurring deadline
-              so a filing due in July doesn't get discovered in August.
+              FCGPR, FC-TRS, Form FC, the FLA return and ECB-2 are RBI filings made on the FIRMS portal, each with its own deadline. We handle the portal registration, the form preparation and the AD bank coordination, and we track every recurring deadline, so a filing due in July doesn't get discovered in August.
             </p>
             <ConsultButtons />
             <div className="mt-8 flex flex-wrap gap-4">
@@ -340,15 +345,12 @@ export default function FormFcRbiReporting() {
         <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
           <Eyebrow>What this service covers</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary mb-10">
-            The execution layer, once the strategy's decided
+            What does RBI reporting on the FIRMS portal cover?
           </h2>
           <div className="grid md:grid-cols-[1.3fr_1fr] gap-12 items-start">
             <div className="space-y-5 text-secondary text-[15.5px] leading-relaxed max-w-2xl">
               <p>
-                This is the umbrella filing service covering the RBI and FEMA forms that businesses and individuals
-                need for cross-border transactions: Form FC for ODI and OPI, FCGPR and FCTRS for FDI, the Annual
-                Return on Foreign Liabilities and Assets (FLA), External Commercial Borrowing reporting, and other
-                FIRMS portal filings.
+                RBI reporting covers every form a business or individual must file with the Reserve Bank for a cross-border investment or borrowing: FCGPR and FC-TRS for foreign investment into India, Form FC for overseas investment, the annual FLA return, and ECB reporting. All of them are filed through the RBI FIRMS portal.
               </p>
               <p>
                 This is especially relevant if you already know what type of transaction you're dealing with and just
@@ -378,7 +380,7 @@ export default function FormFcRbiReporting() {
         <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
           <Eyebrow>The forms</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary mb-10">
-            Which forms apply to you
+            Which RBI forms apply to you?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {formTiles.map((tile) => (
@@ -414,7 +416,7 @@ export default function FormFcRbiReporting() {
         <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
           <Eyebrow>Not knowing isn't the problem</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary mb-4">
-            Your annual RBI compliance calendar
+            When are FCGPR, FC-TRS and FLA returns due?
           </h2>
           <p className="text-secondary text-[15.5px] max-w-2xl mb-10">
             Most FEMA reporting problems aren't caused by not knowing a form exists, they're caused by a deadline
@@ -463,7 +465,7 @@ export default function FormFcRbiReporting() {
         <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
           <Eyebrow>Portal mechanics</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary mb-4">
-            How FIRMS portal registration actually works
+            How do you register on the RBI FIRMS portal?
           </h2>
           <p className="text-secondary text-[15.5px] max-w-2xl mb-10">
             Filing anything on the FIRMS portal requires two separate registrations, done in sequence, and the
@@ -485,6 +487,20 @@ export default function FormFcRbiReporting() {
               <h3 className="font-bold text-[16px] text-on-surface mb-3">{registrationSteps[1].title}</h3>
               <p className="text-secondary text-[13.5px] leading-relaxed">{registrationSteps[1].body}</p>
             </div>
+          </div>
+          <div className="mt-8 max-w-2xl rounded-xl border border-primary/20 border-l-4 border-l-primary bg-surface-container-lowest p-6">
+            <p className="text-secondary text-[14.5px] leading-relaxed">
+              <span className="font-bold text-primary">Logging in to the FIRMS portal:</span> the portal is at{' '}
+              <a
+                href="https://firms.rbi.org.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline underline-offset-2"
+              >
+                firms.rbi.org.in
+              </a>
+              . You sign in with the Entity User or Business User credential RBI has approved. If you don't have one yet, registration comes first, and that is where we start.
+            </p>
           </div>
           <p className="mt-8 text-secondary text-[13.5px] max-w-2xl">
             Neither registration is instant. RBI verification takes time, which is exactly why registering only once
@@ -746,7 +762,7 @@ export default function FormFcRbiReporting() {
                       className={`text-primary-fixed-dim shrink-0 transition-transform ${open ? 'rotate-45' : ''}`}
                     />
                   </button>
-                  {open && <p className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">{faq.a}</p>}
+                  <p className={`pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl ${open ? '' : 'hidden'}`}>{faq.a}</p>
                 </div>
               );
             })}

@@ -681,7 +681,7 @@ export default function ForeignCompanyTdsRefund() {
             Can an NRI claim a TDS refund on a property sale?
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-6 items-stretch">
-            <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+            <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-center">
               <span className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-[999px] bg-secondary-fixed text-primary text-[13px] font-semibold">
                 <i className="inline-block w-2 h-2 rounded-full bg-primary-fixed" />
                 Short answer: yes

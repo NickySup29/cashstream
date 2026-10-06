@@ -354,6 +354,7 @@ function ConsultButtons({ invert = false }: { invert?: boolean }) {
 
 export default function LowerDeductionCertificate() {
   const [openFaq, setOpenFaq] = useState(0);
+  const [openTaxpayer, setOpenTaxpayer] = useState(0);
   const [activeDocFilter, setActiveDocFilter] = useState('All categories');
 
   const filteredDocRows =
@@ -720,12 +721,12 @@ export default function LowerDeductionCertificate() {
                 <button
                   type="button"
                   className="w-full flex items-center justify-between gap-6 text-left py-5 px-4"
-                  onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
+                  onClick={() => setOpenTaxpayer(openTaxpayer === index ? -1 : index)}
                 >
                   <span className="font-semibold text-primary text-[15.5px]">{item.q}</span>
-                  <Plus size={20} className={`text-primary shrink-0 transition ${openFaq === index ? 'rotate-45' : ''}`} />
+                  <Plus size={20} className={`text-primary shrink-0 transition ${openTaxpayer === index ? 'rotate-45' : ''}`} />
                 </button>
-                {openFaq === index && <p className="px-4 pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">{item.a}</p>}
+                {openTaxpayer === index && <p className="px-4 pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">{item.a}</p>}
               </div>
             ))}
           </div>

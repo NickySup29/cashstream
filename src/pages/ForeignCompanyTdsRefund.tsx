@@ -22,6 +22,7 @@ import {
   MapPin,
   CreditCard,
   CheckCircle2,
+  Clock,
 } from 'lucide-react';
 import { whatsappUrlForPath } from '../utils/whatsapp';
 
@@ -74,22 +75,8 @@ const foreignPersona = [
 const incomeTypes: { title: string; body: ReactNode; icon: IconType }[] = [
   {
     icon: Home,
-    title: 'Can an NRI claim a TDS refund on a property sale?',
-    body: (
-      <>
-        Yes. An NRI can claim a TDS refund on the sale of immovable property by filing an Indian income tax return.
-        The buyer deducts TDS on the full sale value, but your tax is only on the capital gain, so the excess is
-        refundable once the return is filed and processed. Exemptions such as Section 54 or 54EC can reduce the tax
-        further. If you haven't sold yet, a{' '}
-        <Link
-          to="/international-taxation/lower-deduction-certificate/"
-          className="font-semibold text-primary underline underline-offset-2"
-        >
-          Lower Deduction Certificate
-        </Link>{' '}
-        reduces the TDS at the time of sale.
-      </>
-    ),
+    title: 'Property Sale (NRI)',
+    body: 'TDS is deducted on the full sale consideration, not the capital gain. The section above explains how an NRI claims the refund.',
   },
   {
     icon: KeyRound,
@@ -683,6 +670,98 @@ export default function ForeignCompanyTdsRefund() {
             </Link>{' '}
             page covers that in depth. This page focuses specifically on recovering excess TDS.
           </p>
+        </motion.div>
+      </section>
+
+      {/* NRI PROPERTY SALE: answer first, then the dark summary card and two follow-on tiles */}
+      <section id="nri-property-sale" className="bg-surface-container-low py-20 md:py-24">
+        <motion.div className="max-w-screen-2xl mx-auto px-8" {...revealProps}>
+          <Eyebrow>NRI Property Sale</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight max-w-3xl mb-10">
+            Can an NRI claim a TDS refund on a property sale?
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-6 items-stretch">
+            <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+              <span className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-[999px] bg-secondary-fixed text-primary text-[13px] font-semibold">
+                <i className="inline-block w-2 h-2 rounded-full bg-primary-fixed" />
+                Short answer: yes
+              </span>
+              <p className="text-lg md:text-[19px] leading-relaxed text-secondary">
+                <strong className="text-primary font-bold">Yes.</strong> An NRI can claim a TDS refund on the sale of
+                immovable property by filing an Indian income tax return. The buyer deducts TDS on the full sale value,
+                but your tax is only on the capital gain, so the excess is refundable once the return is filed and
+                processed.
+              </p>
+            </div>
+
+            <aside
+              aria-label="Where the refund comes from"
+              className="bg-primary text-on-primary p-8 rounded-xl shadow-sm flex flex-col justify-center"
+            >
+              <p className="mb-5 flex items-center gap-2.5 font-label text-xs uppercase tracking-[0.16em] font-semibold text-primary-fixed">
+                <span className="inline-block w-2 h-2 rounded-full bg-primary-fixed" />
+                Where the refund comes from
+              </p>
+              <div className="py-4 border-t border-on-primary/15 first-of-type:border-t-0 first-of-type:pt-0">
+                <p className="text-sm text-on-primary/70">The buyer deducts TDS on</p>
+                <p className="mt-0.5 text-2xl font-bold tracking-tight">The full sale value</p>
+              </div>
+              <div className="py-4 border-t border-on-primary/15">
+                <p className="text-sm text-on-primary/70">Your tax is charged on</p>
+                <p className="mt-0.5 text-2xl font-bold tracking-tight">The capital gain only</p>
+              </div>
+              <div className="my-2 grid gap-2" aria-hidden="true">
+                <div className="h-2.5 rounded-[999px] bg-on-primary/15 overflow-hidden">
+                  <span className="block h-full w-full rounded-[999px] bg-primary-fixed" />
+                </div>
+                <div className="h-2.5 rounded-[999px] bg-on-primary/15 overflow-hidden">
+                  <span className="block h-full w-[34%] rounded-[999px] bg-primary-fixed" />
+                </div>
+                <div className="flex justify-between text-xs text-on-primary/60">
+                  <span>Sale value</span>
+                  <span>Gain</span>
+                </div>
+              </div>
+              <div className="mt-1 p-4 rounded-xl border border-on-primary/20 bg-on-primary/5">
+                <p className="text-lg font-bold leading-snug">
+                  The excess is refundable once the return is filed and processed.
+                </p>
+              </div>
+            </aside>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm flex gap-5 items-start transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+              <div className="w-12 h-12 shrink-0 rounded-lg bg-secondary-fixed text-primary flex items-center justify-center" aria-hidden="true">
+                <Building2 width={24} height={24} strokeWidth={1.7} />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-primary mb-2">Reduce the tax further</h3>
+                <p className="text-secondary text-[15px] leading-relaxed">
+                  Exemptions such as Section 54 or 54EC can reduce the tax further.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm flex gap-5 items-start transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+              <div className="w-12 h-12 shrink-0 rounded-lg bg-secondary-fixed text-primary flex items-center justify-center" aria-hidden="true">
+                <Clock width={24} height={24} strokeWidth={1.7} />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-primary mb-2">Haven't sold yet?</h3>
+                <p className="text-secondary text-[15px] leading-relaxed">
+                  If you haven't sold yet, a{' '}
+                  <Link
+                    to="/international-taxation/lower-deduction-certificate/"
+                    className="font-semibold text-primary underline underline-offset-2"
+                  >
+                    Lower Deduction Certificate
+                  </Link>{' '}
+                  reduces the TDS at the time of sale.
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </section>
 

@@ -747,7 +747,7 @@ export default function ForeignCompanyTdsRefund() {
               worth pursuing, before you commit to a full consultation.
             </span>
             <a
-              href={CONTACT_INFO.emailUrl}
+              href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click"
               className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
             >
               <Mail size={16} />

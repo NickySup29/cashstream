@@ -1037,14 +1037,12 @@ export default function ForeignCompanyTaxReturn() {
                     <span className="font-semibold text-primary text-[15.5px]">{faq.q}</span>
                     <Plus size={20} className={`text-primary shrink-0 transition-transform ${open ? 'rotate-45' : ''}`} />
                   </button>
-                  {open && (
-                    <div className="pb-6">
+                    <div className={`pb-6 ${open ? '' : 'hidden'}`}>
                       <div
                         className="prose prose-sm max-w-none prose-p:text-secondary prose-p:text-[15px] prose-li:text-secondary prose-li:text-[15px] prose-headings:text-primary prose-strong:text-primary prose-table:text-sm prose-td:border-outline-variant/30 prose-th:border-outline-variant/30"
                         dangerouslySetInnerHTML={{ __html: faq.a }}
                       />
                     </div>
-                  )}
                 </div>
               );
             })}

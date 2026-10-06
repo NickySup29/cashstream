@@ -717,7 +717,7 @@ export default function CitAAppeals() {
                       className={`text-primary-fixed-dim shrink-0 transition-transform ${open ? 'rotate-45' : ''}`}
                     />
                   </button>
-                  {open && <p className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">{faq.a}</p>}
+                  <p className={`pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl ${open ? '' : 'hidden'}`}>{faq.a}</p>
                 </div>
               );
             })}

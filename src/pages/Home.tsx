@@ -486,11 +486,9 @@ export default function Home() {
                       className={`text-primary shrink-0 transition-transform ${open ? 'rotate-45' : ''}`}
                     />
                   </button>
-                  {open && (
-                    <div className="pb-6">
+                    <div className={`pb-6 ${open ? '' : 'hidden'}`}>
                       <p className="text-secondary text-[15px] leading-relaxed">{faq.a}</p>
                     </div>
-                  )}
                 </div>
               );
             })}

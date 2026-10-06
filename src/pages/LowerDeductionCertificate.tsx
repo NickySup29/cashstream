@@ -157,7 +157,7 @@ const docRows = [
 const infoCards = [
   {
     title: 'Processing time',
-    body: 'Depends on completeness of the application, supporting documents, and departmental review, and incomplete filings take longer.',
+    body: 'Around 45 days from filing Form 128, provided the application and documents are complete. Incomplete filings take longer.',
   },
   {
     title: 'Validity',
@@ -274,6 +274,14 @@ const faqs: { q: string; a: string; html?: boolean }[] = [
     a: 'Individuals, businesses, companies, firms, trusts, NRIs, and foreign companies, where estimated tax liability is lower than the applicable TDS rate. Approval is subject to departmental review.',
   },
   {
+    q: 'Who issues the certificate for lower rate deduction of TDS?',
+    a: 'The Income Tax Department issues it, through the jurisdictional Assessing Officer, after reviewing the Form 128 application filed on the e-Filing portal. Once issued, it is shared with the deductor so the approved rate is applied.',
+  },
+  {
+    q: 'What documents are required for a lower deduction certificate?',
+    a: 'PAN, an estimated income and tax computation, and previous income tax returns for all applicants. Businesses, companies and trusts add financial statements, firms and LLPs add the deed, and NRIs and foreign companies add passport or incorporation documents and India income details. The department may ask for more.',
+  },
+  {
     q: 'How do I apply?',
     a: 'Submit Form 128 through the Income Tax e-Filing portal with required documents and tax computation. The department reviews before issuing the certificate.',
   },
@@ -356,7 +364,7 @@ export default function LowerDeductionCertificate() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Lower Deduction Certificate | International Taxation | CashStream Advisors"
+        title="Lower Deduction Certificate: Apply for Lower or Nil TDS"
         description="Apply for a Lower Deduction Certificate under Section 197 to reduce excess TDS. Eligibility review, Form 128 filing, and follow-up support included."
         url={pageUrl}
         structuredData={[
@@ -511,7 +519,7 @@ export default function LowerDeductionCertificate() {
             A certificate that aligns TDS with what you actually owe
           </h2>
           <p className="text-secondary max-w-3xl leading-relaxed mb-12">
-            A Lower Deduction Certificate (LDC), also called an LTDC, is issued by the Income Tax Department under Section 197 (Section 395(1) of the Income Tax Act, 2025). It allows Tax Deducted at Source to happen at a lower rate, or in approved cases a nil rate, instead of the standard rate. It’s issued for a specific validity period, deductor, and transaction, and it does not automatically extend to every payment. For many foreign companies and NRIs, a treaty-based review can also be relevant before deciding whether the deductible rate should be assessed under a DTAA or the domestic regime. <Link to="/international-taxation/dtaa-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">Learn more about DTAA Advisory</Link>. A foreign company with a branch, project office, or other India-sourced income also has a return to file: our <Link to="/international-taxation/foreign-company-tax-return/" className="font-bold text-primary underline-offset-4 hover:underline">Foreign Company Tax Return in India</Link> page covers permanent establishment, rates, and ITR-6 filing.
+            A Lower Deduction Certificate (LDC), also called an LTDC, is issued by the Income Tax Department under Section 197 (Section 395(1) of the Income Tax Act, 2025). It allows Tax Deducted at Source to happen at a lower rate, or in approved cases a nil rate, instead of the standard rate. Searches for a certificate under Section 195 usually mean TDS on payments to non-residents. Section 195 (now 393(2)) is the provision that requires the deduction, and the certificate, applied for under Section 197 (now 395(1)) on Form 128, is what lowers the rate under it. It’s issued for a specific validity period, deductor, and transaction, and it does not automatically extend to every payment. For many foreign companies and NRIs, a treaty-based review can also be relevant before deciding whether the deductible rate should be assessed under a DTAA or the domestic regime. <Link to="/international-taxation/dtaa-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">Learn more about DTAA Advisory</Link>. A foreign company with a branch, project office, or other India-sourced income also has a return to file: our <Link to="/international-taxation/foreign-company-tax-return/" className="font-bold text-primary underline-offset-4 hover:underline">Foreign Company Tax Return in India</Link> page covers permanent establishment, rates, and ITR-6 filing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {benefits.map((item) => (
@@ -759,10 +767,10 @@ export default function LowerDeductionCertificate() {
             <div>
               <Eyebrow>Why CashStream Advisors</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-6">
-                Experience that gets applications approved, not just filed
+                How we prepare your application
               </h2>
               <p className="text-secondary leading-relaxed max-w-xl">
-                We don’t just submit paperwork. We build the computation that gets it approved on the first pass.
+                We prepare the tax computation that supports your application, and check it against your documents before filing.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -834,17 +842,16 @@ export default function LowerDeductionCertificate() {
                     <span className="font-semibold text-primary text-[15.5px]">{faq.q}</span>
                     <Plus size={20} className={`text-primary shrink-0 transition-transform ${open ? 'rotate-45' : ''}`} />
                   </button>
-                  {open &&
-                    (faq.html ? (
-                      <p
-                        className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl"
-                        dangerouslySetInnerHTML={{ __html: faq.a }}
-                      />
-                    ) : (
-                      <p className="pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl">
-                        {faq.a}
-                      </p>
-                    ))}
+                  {faq.html ? (
+                    <p
+                      className={`pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl ${open ? '' : 'hidden'}`}
+                      dangerouslySetInnerHTML={{ __html: faq.a }}
+                    />
+                  ) : (
+                    <p className={`pb-6 text-secondary text-[15px] leading-relaxed max-w-3xl ${open ? '' : 'hidden'}`}>
+                      {faq.a}
+                    </p>
+                  )}
                 </div>
               );
             })}

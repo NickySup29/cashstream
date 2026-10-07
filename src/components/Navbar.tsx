@@ -34,6 +34,7 @@ import {
   Calculator,
   BookCheck,
   KeyRound,
+  BookOpenCheck,
 } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import { useWhatsappUrl } from '../utils/whatsapp';
@@ -65,6 +66,7 @@ type MegaCategory = {
 //   - Foreign Co. TDS Refund: Undo2 (money coming back)
 //   - Foreign Company Tax Return: FileSpreadsheet (a filed return/computation)
 //   - NRI Tax & Relocation: Plane (moving to/from India)
+//   - Bookkeeping: BookOpenCheck (books kept and reconciled)
 // - Tax Litigation: Gavel (litigation/adjudication)
 //   - Assessment & Scrutiny: Search (being examined)
 //   - CIT(A) Appeals: FileStack (a first-level appeal filing)
@@ -126,6 +128,12 @@ const megaCategories: MegaCategory[] = [
         to: '/international-taxation/nri-tax-relocation-advisory/',
         desc: 'Residency status and tax planning for moving to or from India.',
         icon: Plane,
+      },
+      {
+        title: 'Bookkeeping',
+        to: '/bookkeeping',
+        desc: 'Monthly books, catch-up and cleanup, and tax filing in QuickBooks, Zoho Books or Xero.',
+        icon: BookOpenCheck,
       },
     ],
   },

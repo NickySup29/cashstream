@@ -149,6 +149,9 @@ Equalization levy is abolished, never mention it as active.
   (src/pages/InternationalTaxation.tsx) service list, same pattern as
   existing entries there. (The former src/pages/TaxStrategy.tsx has been
   removed.)
+- Bookkeeping appears in the navigation under International Taxation,
+  keeps the route /bookkeeping, and the hub presents it as a separate
+  section, not a seventh card.
 
 ## 9. NEVER USE EM DASHES
 Anywhere. Commas, periods, or colons instead.

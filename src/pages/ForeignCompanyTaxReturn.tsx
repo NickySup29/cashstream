@@ -748,8 +748,7 @@ export default function ForeignCompanyTaxReturn() {
             <div className="px-6 py-4 text-[12.5px] text-secondary italic border-t border-outline-variant/30 bg-surface-container-low">
               Where a DTAA applies and the treaty rate is more beneficial, Section 90(2) allows the
               treaty rate to be used instead, subject to furnishing a Tax Residency Certificate and
-              Form 41 (formerly Form 10F). Rates and surcharge slabs should be confirmed against the
-              applicable Finance Act before publishing.
+              Form 41 (formerly Form 10F).
             </div>
           </div>
         </motion.div>

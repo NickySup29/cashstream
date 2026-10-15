@@ -98,11 +98,8 @@ export default function CaseStudyDetail() {
               {
                 '@type': 'ListItem',
                 position: 2,
-                // Neutral placeholder: no /about-us/ page exists yet, so this
-                // points at the homepage rather than a misleading target.
-                // Repoint to the real About Us page once it is built.
                 name: 'About Us',
-                item: `${SITE}/`,
+                item: `${SITE}/about-us/`,
               },
               {
                 '@type': 'ListItem',
@@ -127,10 +124,7 @@ export default function CaseStudyDetail() {
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            {/* Neutral placeholder: no /about-us/ page exists yet, so this links
-                to the homepage rather than a misleading target. Repoint to the
-                real About Us page once it is built. */}
-            <Link to="/" className="hover:text-primary transition-colors">
+            <Link to="/about-us/" className="hover:text-primary transition-colors">
               About Us
             </Link>
             <span aria-hidden="true">/</span>

@@ -57,6 +57,9 @@
   --color-error-container: #FBECEC;
   --color-outline-variant: #DFE3DA;
   --color-outline: #92AB9F;
+  /* Deeper sage than --color-outline, for eyebrow/mono label text that needs to pass
+     contrast on the cream background (About Us page). */
+  --color-sage-ink: #567163;
 
   --radius-DEFAULT: 0.125rem;
   --radius-lg: 0.25rem;

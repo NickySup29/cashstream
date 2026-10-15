@@ -37,6 +37,7 @@ const staticRoutes = [
   '/insights',
   '/global-offices',
   '/careers',
+  '/about-us/',
   '/about-us/case-studies/',
   '/privacy-policy',
   '/regulatory-compliance',

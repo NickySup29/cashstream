@@ -33,6 +33,7 @@ const SERVICE_BY_PATH: Record<string, string> = {
   '/licensing/money-lending-license': 'the Money Lending License',
   '/bookkeeping': 'Bookkeeping services',
   '/contract-review': 'Contract Review',
+  '/about-us': 'Cash Stream Advisors',
 };
 
 export function whatsappUrlForPath(pathname: string): string {

@@ -176,17 +176,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/privacy-policy</loc>
+    <loc>https://cashstreamadvisors.com/privacy-policy/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/terms-and-conditions/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/disclaimer/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/regulatory-compliance</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cashstreamadvisors.com/terms-of-service</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

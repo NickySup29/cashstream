@@ -88,3 +88,39 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
+/* Legal pages (/terms-and-conditions/, /privacy-policy/, /disclaimer/): native <details>
+   "Jump to section" dropdown needs a +/- indicator driven by its own [open] state, which
+   Tailwind utilities can't express on a pseudo-element. */
+.legal-jump > summary::-webkit-details-marker {
+  display: none;
+}
+.legal-jump > summary::after {
+  content: "+";
+}
+.legal-jump[open] > summary::after {
+  content: "\2212";
+}
+
+/* Print: no sidebar/jump dropdown, no sitewide nav/footer chrome, black on white. */
+@media print {
+  header, footer {
+    display: none !important;
+  }
+  body:has(.legal-page) {
+    background: #fff !important;
+  }
+  .legal-page {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .legal-page h1, .legal-page h2, .legal-page strong, .legal-page a {
+    color: #000 !important;
+  }
+  .legal-page a {
+    text-decoration: underline;
+  }
+  .legal-toc, .legal-jump {
+    display: none !important;
+  }
+}
+

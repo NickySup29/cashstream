@@ -265,11 +265,11 @@ const megaCategories: MegaCategory[] = [
 
 type SimpleLink = { name: string; href: string };
 
-// About Us and Resources: sub-pages don't exist yet, linked to "#" as a deliberate,
-// temporary placeholder pending real pages being built separately. Careers, Insights, and
-// Case Studies are real, already-built routes and stay real here.
+// Resources: sub-pages don't exist yet, linked to "#" as a deliberate,
+// temporary placeholder pending real pages being built separately. Careers, Insights,
+// Case Studies, and now About Us are real, already-built routes and stay real here.
 const aboutUsLinks: SimpleLink[] = [
-  { name: 'About Us', href: '#' },
+  { name: 'About Us', href: '/about-us/' },
   { name: 'Careers', href: '/careers' },
 ];
 

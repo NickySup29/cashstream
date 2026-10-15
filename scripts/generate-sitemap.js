@@ -39,9 +39,10 @@ const staticRoutes = [
   '/careers',
   '/about-us/',
   '/about-us/case-studies/',
-  '/privacy-policy',
+  '/privacy-policy/',
+  '/terms-and-conditions/',
+  '/disclaimer/',
   '/regulatory-compliance',
-  '/terms-of-service',
   '/blog'
 ];
 

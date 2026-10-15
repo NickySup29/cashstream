@@ -41,7 +41,8 @@ import CaseStudies from './pages/CaseStudies';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegulatoryCompliance from './pages/RegulatoryCompliance';
-import TermsOfService from './pages/TermsOfService';
+import TermsAndConditions from './pages/TermsAndConditions';
+import Disclaimer from './pages/Disclaimer';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 
@@ -122,9 +123,10 @@ export default function App() {
               <Route path="/about-us/" element={<AboutUs />} />
               <Route path="/about-us/case-studies/" element={<CaseStudies />} />
               <Route path="/about-us/case-studies/:slug/" element={<CaseStudyDetail />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
               <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/terms-and-conditions/" element={<TermsAndConditions />} />
+              <Route path="/disclaimer/" element={<Disclaimer />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
             </Routes>

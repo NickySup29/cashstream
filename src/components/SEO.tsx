@@ -6,15 +6,17 @@ interface SEOProps {
   url?: string;
   image?: string;
   type?: string;
+  robots?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-export default function SEO({ 
+export default function SEO({
   title = "CashStream Advisors | Cross-Border Tax & Regulatory Experts",
   description = "Tactical intelligence on cross-border tax, FEMA regulations, and global corporate stewardship for high-net-worth individuals and corporations.",
   url = "https://cashstreamadvisors.com",
   image = "https://cashstreamadvisors.com/og-image.jpg",
   type = "website",
+  robots,
   structuredData
 }: SEOProps) {
   const pageStructuredData = structuredData
@@ -27,6 +29,7 @@ export default function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      {robots && <meta name="robots" content={robots} />}
 
       {/* Open Graph / Facebook tags */}
       <meta property="og:type" content={type} />

@@ -50,9 +50,10 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-4">
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Legal</span>
-              <Link to="/privacy-policy" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Privacy Policy</Link>
+              <Link to="/privacy-policy/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Privacy Policy</Link>
+              <Link to="/terms-and-conditions/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Terms &amp; Conditions</Link>
+              <Link to="/disclaimer/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Disclaimer</Link>
               <Link to="/regulatory-compliance" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Regulatory Compliance</Link>
-              <Link to="/terms-of-service" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Terms of Service</Link>
             </div>
           </div>
         </div>

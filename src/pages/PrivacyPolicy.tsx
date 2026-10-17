@@ -130,7 +130,7 @@ const sections: LegalSection[] = [
           </li>
         </ul>
         <p>
-          To use any of these rights, write to <a href="mailto:nihar@cashstreamadvisors.com">nihar@cashstreamadvisors.com</a>.
+          To use any of these rights, write to <a href="mailto:contact@cashstreamadvisors.com">contact@cashstreamadvisors.com</a>.
         </p>
       </>
     ),
@@ -167,7 +167,7 @@ const sections: LegalSection[] = [
     body: (
       <p>
         Cashstream Advisors, No. 729/2, Flat 503, 5th Floor, Tamilnadu Towers, Chennai 600081, India.{' '}
-        <a href="mailto:nihar@cashstreamadvisors.com">nihar@cashstreamadvisors.com</a>
+        <a href="mailto:contact@cashstreamadvisors.com">contact@cashstreamadvisors.com</a>
       </p>
     ),
   },
@@ -186,7 +186,7 @@ export default function PrivacyPolicy() {
         <>
           We collect only what you send us and basic site analytics. We do not sell your data. We keep client
           records for seven years. You can ask us to correct or delete your data at any time by writing to{' '}
-          <a href="mailto:nihar@cashstreamadvisors.com">nihar@cashstreamadvisors.com</a>.
+          <a href="mailto:contact@cashstreamadvisors.com">contact@cashstreamadvisors.com</a>.
         </>
       }
       sections={sections}

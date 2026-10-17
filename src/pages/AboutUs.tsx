@@ -209,7 +209,7 @@ const steps = [
     body: 'We look at what you sent and identify what it is, which rule it falls under, and how urgent it is. If a deadline is running, we say so first.',
   },
   {
-    title: 'We tell you in plain English.',
+    title: 'We tell you with unmatched clarity.',
     body: 'A short, direct answer: what this is, what it means for you, and what your options are.',
   },
   {
@@ -231,7 +231,7 @@ const faqs = [
   },
   {
     q: 'What does Cash Stream Advisors do?',
-    a: 'We take over the paperwork that comes with cross-border tax and compliance: replying to notices, filing returns and RBI forms, preparing documents, and explaining the outcome in plain English.',
+    a: 'We take over the paperwork that comes with cross-border tax and compliance: replying to notices, filing returns and RBI forms, preparing documents, and explaining the outcome with unmatched clarity.',
   },
   {
     q: 'Can a business in another country hire a CA firm in India?',
@@ -616,7 +616,7 @@ export default function AboutUs() {
               </a>
             </div>
             <p className="text-primary font-medium text-[14.5px] mt-5">
-              Speedy answers. Plain-English clarity. Throw it at us.
+              Speedy answers. Unmatched clarity. Throw it at us.
             </p>
           </div>
 
@@ -664,7 +664,7 @@ export default function AboutUs() {
                 </p>
                 <p className="text-[17px] text-secondary mb-4">
                   That method is what we do. We read the notice, work out which rule applies, prepare the filing,
-                  and tell you in plain English what happened and what comes next.
+                  and tell you with unmatched clarity what happened and what comes next.
                 </p>
                 <p className="text-[17px] text-on-surface">
                   The point is simple: the boring part, handled properly, so the people we work for can do what
@@ -793,7 +793,7 @@ export default function AboutUs() {
             </div>
             <div>
               <span className="font-label text-xs tracking-[0.14em] text-sage-ink font-semibold block mb-3.5">CLARITY</span>
-              <h3 className="font-headline font-bold text-on-surface text-[22px] mb-3">Plain-English clarity.</h3>
+              <h3 className="font-headline font-bold text-on-surface text-[22px] mb-3">Unmatched clarity.</h3>
               <p className="text-secondary text-[15.5px]">
                 Every answer is written for someone who is not a tax professional. If a term has to be used, it is
                 explained the first time.

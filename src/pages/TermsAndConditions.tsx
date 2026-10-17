@@ -112,7 +112,7 @@ const sections: LegalSection[] = [
     body: (
       <p>
         Cashstream Advisors, No. 729/2, Flat 503, 5th Floor, Tamilnadu Towers, Chennai 600081, India.{' '}
-        <a href="mailto:nihar@cashstreamadvisors.com">nihar@cashstreamadvisors.com</a>
+        <a href="mailto:contact@cashstreamadvisors.com">contact@cashstreamadvisors.com</a>
       </p>
     ),
   },

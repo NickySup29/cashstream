@@ -45,6 +45,8 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import Disclaimer from './pages/Disclaimer';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import ContactUs from './pages/ContactUs';
+import { CONTACT_INFO } from './constants';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -70,6 +72,15 @@ export default function App() {
               "@id": "https://cashstreamadvisors.com/#professional-service",
               name: "Cash Stream Advisors",
               url: "https://cashstreamadvisors.com",
+              email: CONTACT_INFO.email,
+              telephone: CONTACT_INFO.whatsapp,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "No. 729/2, Flat 503, 5th Floor, Tamilnadu Towers",
+                addressLocality: "Chennai",
+                postalCode: "600081",
+                addressCountry: "IN",
+              },
             })}
           </script>
         </Helmet>
@@ -120,6 +131,7 @@ export default function App() {
               <Route path="/insights" element={<Insights />} />
               <Route path="/global-offices" element={<GlobalOffices />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/contact-us/" element={<ContactUs />} />
               <Route path="/about-us/" element={<AboutUs />} />
               <Route path="/about-us/case-studies/" element={<CaseStudies />} />
               <Route path="/about-us/case-studies/:slug/" element={<CaseStudyDetail />} />

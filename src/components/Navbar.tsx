@@ -282,9 +282,7 @@ const resourcesLinks: SimpleLink[] = [
   { name: 'Newsletter', href: '#' },
 ];
 
-// Contact Us has no real page yet either, same deliberate "#" placeholder as above. It's a
-// plain link, not a dropdown, matching the Licensing precedent: a dropdown with nothing to
-// expand reads as broken.
+// Contact Us is a plain link, not a dropdown: a dropdown with nothing to expand reads as broken.
 
 const triggerClass =
   'flex items-center gap-1 whitespace-nowrap px-2.5 py-1 text-[13px] font-medium tracking-tight transition-all cursor-pointer border-b-2 text-secondary border-transparent hover:text-primary';
@@ -516,10 +514,19 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* CONTACT US — plain link, no dropdown (no real page yet, same "#" placeholder) */}
-          <span className="whitespace-nowrap px-2.5 py-1 text-[13px] font-medium tracking-tight transition-all cursor-pointer border-b-2 text-secondary border-transparent hover:text-primary">
+          {/* CONTACT US — plain link, no dropdown */}
+          <NavLink
+            to="/contact-us/"
+            className={({ isActive }) =>
+              `whitespace-nowrap px-2.5 py-1 text-[13px] font-medium tracking-tight transition-all border-b-2 ${
+                isActive
+                  ? 'text-primary font-bold border-primary'
+                  : 'text-secondary border-transparent hover:text-primary'
+              }`
+            }
+          >
             Contact Us
-          </span>
+          </NavLink>
         </nav>
 
         <div className="flex items-center gap-2 md:gap-4 shrink-0 ml-auto">
@@ -845,9 +852,19 @@ export default function Navbar() {
             </div>
 
             {/* CONTACT US — plain link, no accordion */}
-            <span className="text-sm font-medium transition-all cursor-pointer py-3 border-l-4 pl-4 rounded-r-lg text-secondary border-transparent hover:text-primary hover:bg-surface-container">
+            <NavLink
+              to="/contact-us/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-all py-3 border-l-4 pl-4 rounded-r-lg ${
+                  isActive
+                    ? 'text-primary font-bold border-primary bg-surface-container'
+                    : 'text-secondary border-transparent hover:text-primary hover:bg-surface-container'
+                }`
+              }
+            >
               Contact Us
-            </span>
+            </NavLink>
           </div>
         </nav>
       )}

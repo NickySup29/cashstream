@@ -59,7 +59,7 @@ Three months. Use it.
 
 *+91 7010415175*
 
-*[nihar@cashstreamadvisors.com](mailto:nihar@cashstreamadvisors.com)*
+*[contact@cashstreamadvisors.com](mailto:contact@cashstreamadvisors.com)*
 
 **Hashtags:**
 

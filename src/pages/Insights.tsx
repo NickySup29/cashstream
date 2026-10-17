@@ -9,7 +9,7 @@ const blogPosts = [
     id: 1,
     title: "Understanding the US-India DTAA: A 2026 Perspective",
     excerpt: "Exploring the nuances of double taxation avoidance and how high-net-worth individuals can optimize their global income flows.",
-    author: "Nihar Jain",
+    author: "Tax Advisory Team",
     date: "April 15, 2026",
     category: "Tax Strategy",
     image: "https://picsum.photos/seed/tax/800/600"

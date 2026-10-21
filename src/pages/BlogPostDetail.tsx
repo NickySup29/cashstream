@@ -1,22 +1,12 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import {
-  Mail,
-  MessageCircle,
-  Plus,
-  Clock,
-  Calendar,
-  FileText,
-  Award,
-  Globe2,
-  BookOpen,
-  CheckCircle2,
-} from 'lucide-react';
+import { Mail, MessageCircle, Plus, Clock, Calendar, CheckCircle2 } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
 import { getBlogPost } from '../content/blogs';
 import type { BlogBlock, BlogPostContent, FaqItem, HeroVariant } from '../content/blogs/types';
+import { stripHtml, getReadingMinutes, formatPostDate, HeroIcon } from '../content/blogs/render-utils';
 
 const SITE = 'https://cashstreamadvisors.com';
 
@@ -27,55 +17,10 @@ const revealProps = {
   transition: { duration: 0.5, ease: 'easeOut' as const },
 };
 
-const stripHtml = (value: string) =>
-  value
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&rsquo;|&#8217;/g, '’')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/\s+/g, ' ')
-    .trim();
-
-function wordsInBlock(block: BlogBlock): string {
-  switch (block.type) {
-    case 'answerBox':
-    case 'lede':
-      return block.text;
-    case 'h2':
-      return block.text;
-    case 'paragraph':
-      return stripHtml(block.html);
-    case 'bulletList':
-    case 'numberedSteps':
-      return block.items.map(stripHtml).join(' ');
-    case 'comparisonTable':
-      return [block.headers.join(' '), ...block.rows.map((r) => r.join(' '))].join(' ');
-    case 'callout':
-    case 'sourceCite':
-      return stripHtml(block.html);
-    case 'processTimeline':
-      return block.stages.map((s) => `${s.title} ${s.desc}`).join(' ');
-    case 'inlineCta':
-      return block.heading;
-    case 'whoNeeds':
-      return block.items.map(stripHtml).join(' ');
-    case 'faq':
-      return block.items.map((f) => `${f.q} ${stripHtml(f.a)}`).join(' ');
-    case 'relatedCards':
-    case 'ctaBand':
-      return '';
-    default:
-      return '';
-  }
-}
-
 function HERO_ICON({ variant }: { variant: HeroVariant }) {
-  const Icon = { document: FileText, certificate: Award, globe: Globe2, ledger: BookOpen }[variant];
   return (
     <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-      <Icon size={56} className="text-primary" strokeWidth={1.5} />
+      <HeroIcon variant={variant} size={56} />
     </div>
   );
 }
@@ -410,13 +355,8 @@ export default function BlogPostDetail() {
   if (!post) return <Navigate to="/insights" replace />;
 
   const pageUrl = `${SITE}/insights/${post.slug}/`;
-  const wordCount = post.blocks.map(wordsInBlock).join(' ').trim().split(/\s+/).filter(Boolean).length;
-  const readingMinutes = Math.max(1, Math.round(wordCount / 200));
-  const dateLabel = new Date(`${post.datePublished}T00:00:00`).toLocaleDateString('en-IN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const readingMinutes = getReadingMinutes(post);
+  const dateLabel = formatPostDate(post.datePublished);
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">

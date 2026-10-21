@@ -56,6 +56,17 @@ export function enumerateRoutes() {
       if (slug) routes.add(`/blog/${slug[1].trim().replace(/['"]/g, '')}`);
     }
   }
+
+  // Insights posts: one typed .ts file per post in src/content/blogs/.
+  const blogsDir = path.join(root, 'src', 'content', 'blogs');
+  if (fs.existsSync(blogsDir)) {
+    for (const file of fs.readdirSync(blogsDir).filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')) {
+      const src = fs.readFileSync(path.join(blogsDir, file), 'utf8');
+      for (const m of src.matchAll(/^\s{2}slug:\s*'([a-z0-9-]+)'/gm)) {
+        routes.add(`/insights/${m[1]}/`);
+      }
+    }
+  }
   return [...routes];
 }
 

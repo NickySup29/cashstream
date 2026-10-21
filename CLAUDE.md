@@ -221,3 +221,15 @@ This category's URLs follow the content docs' suggested slugs, not the
 original SEO Implementation Guide's Part 3 URL map, that guide predates
 these content docs and is superseded for this category. Confirmed:
 Assessment & Scrutiny -> /tax-litigation/income-tax-assessment-scrutiny/
+
+## 17. "INSIGHTS", NEVER "BLOG", IN ANYTHING VISIBLE
+The blog is called Insights on this site. Never show the word "Blog" as
+a label anywhere a visitor can see it:
+- breadcrumbs: Home / Insights / [post title], not Home / Resources / Blog
+- the listing hub's H1, title tag, meta description, and nav label
+- BreadcrumbList schema: Home, Insights, post title
+- "Related reading" / "All insights" style labels
+Code names (folders, file names, component names, internal variables) may
+keep "blog" freely, e.g. src/content/blogs/, BlogPostDetail.tsx. Only
+visible text is restricted. scripts/check-blog.mjs enforces this by
+failing if the word "Blog" appears in a post's visible text fields.

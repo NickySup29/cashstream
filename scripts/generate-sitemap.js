@@ -103,6 +103,28 @@ async function generateSitemap() {
     }
   }
 
+  // 4. Add Insights (blog) posts. Each post is a typed .ts file in
+  //    src/content/blogs/ (excluding index.ts and types.ts); slugs are read
+  //    with a regex, the same way case study ids are read above, since this
+  //    script runs under plain node (no TypeScript loader).
+  const blogsDir = path.join(process.cwd(), 'src', 'content', 'blogs');
+  const blogSlugs = fs
+    .readdirSync(blogsDir)
+    .filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')
+    .flatMap((f) => {
+      const src = fs.readFileSync(path.join(blogsDir, f), 'utf8');
+      return [...src.matchAll(/^\s{2}slug:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
+    });
+  for (const slug of blogSlugs) {
+    urls += `
+  <url>
+    <loc>${SITE_URL}/insights/${slug}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+  console.log(`Added ${blogSlugs.length} Insights post(s) to sitemap`);
+
   const sitemap = `${sitemapHeader}${urls}\n${sitemapFooter}`;
   
   // Write to public/sitemap.xml so it gets bundled by Vite

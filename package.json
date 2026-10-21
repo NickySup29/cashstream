@@ -9,6 +9,7 @@
     "build": "vite build",
     "postbuild": "node scripts/copy-404.js",
     "prerender": "node scripts/prerender.js",
+    "check:blog": "tsx scripts/check-blog.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"

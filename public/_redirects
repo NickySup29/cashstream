@@ -4,6 +4,7 @@
 /about-us  /about-us/  301
 /about-us/case-studies  /about-us/case-studies/  301
 /about-us/case-studies/:slug  /about-us/case-studies/:slug/  301
+/insights/:slug  /insights/:slug/  301
 /international-taxation  /international-taxation/  301
 /international-taxation/lower-deduction-certificate  /international-taxation/lower-deduction-certificate/  301
 /international-taxation/dtaa-advisory  /international-taxation/dtaa-advisory/  301

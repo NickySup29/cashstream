@@ -75,8 +75,8 @@ export const formVsForm13: BlogPostContent = {
       src: '/images/insights/form-128-vs-form-13-comparison.webp',
       alt: 'Comparison table of Form 13 under the Income-tax Act, 1961 and Form 128 under the Income-tax Act, 2025, showing Section 197 replaced by Section 395(1), Rule 213 and the 1 April 2026 start date',
       caption: 'Form 13 and Form 128 side by side. Source: Income Tax Department, Form 128 FAQs.',
-      width: 1400,
-      height: 781,
+      width: 1200,
+      height: 750,
     },
     { type: 'h2', id: 'changed-in-practice', text: 'What changed in practice, and what did not?' },
     {
@@ -215,6 +215,7 @@ export const formVsForm13: BlogPostContent = {
       heading: 'Related reading',
       cards: [
         { label: 'SERVICE', title: 'Lower Deduction Certificate service page', href: '/international-taxation/lower-deduction-certificate/' },
+        { label: 'INSIGHTS', title: 'How Long Does a Lower Deduction Certificate Take?', href: '/insights/lower-deduction-certificate-time/' },
         { label: 'SERVICE', title: 'NRI tax relocation advisory', href: '/international-taxation/nri-tax-relocation-advisory/' },
         { label: 'INSIGHTS', title: 'All insights', href: '/insights' },
         { label: 'ABOUT', title: 'About Cash Stream Advisors', href: '/about-us/' },

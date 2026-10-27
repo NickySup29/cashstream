@@ -211,7 +211,7 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
       );
     case 'image':
       return (
-        <figure className="my-8">
+        <figure className="my-8" style={block.displayMaxWidth ? { maxWidth: block.displayMaxWidth, marginLeft: 'auto', marginRight: 'auto' } : undefined}>
           <img
             src={block.src}
             alt={block.alt}

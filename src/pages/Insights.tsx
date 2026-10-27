@@ -58,11 +58,23 @@ export default function Insights() {
           <p className="text-secondary text-lg">New Insights posts are on the way.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {postsNewestFirst.map((post) => (
+            {postsNewestFirst.map((post, index) => (
               <article key={post.slug} className="group">
                 <Link to={`/insights/${post.slug}/`} className="block">
                   <div className="aspect-[16/10] overflow-hidden rounded-xl mb-6 relative bg-primary/10 flex items-center justify-center">
-                    <HeroIcon variant={post.heroVariant} size={64} />
+                    {post.heroImage ? (
+                      <img
+                        src={post.heroImage.src}
+                        alt={post.heroImage.alt}
+                        width={post.heroImage.width}
+                        height={post.heroImage.height}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        fetchPriority={index === 0 ? 'high' : undefined}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <HeroIcon variant={post.heroVariant} size={64} />
+                    )}
                     <div className="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest">
                       {post.tag}
                     </div>

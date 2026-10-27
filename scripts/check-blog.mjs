@@ -143,6 +143,12 @@ for (const block of post.blocks) {
       if (!block.width || !block.height) {
         problems.push(`Image block (${block.src}) is missing width or height.`);
       }
+      if (block.alt && /[–—]/.test(block.alt)) {
+        problems.push(`Em or en dash found in image alt (${block.src}): "${block.alt}"`);
+      }
+      if (block.caption && /[–—]/.test(block.caption)) {
+        problems.push(`Em or en dash found in image caption (${block.src}): "${block.caption}"`);
+      }
       {
         const imgFile = path.join(root, 'public', block.src.replace(/^\//, ''));
         if (!fs.existsSync(imgFile)) {
@@ -248,7 +254,7 @@ if (internalLinkFailures.length > 0) {
 // check only fails on draft-process leftovers: VERIFY/TODO/TBD/lorem text and
 // the specific [LOGO_URL]/[OG_IMAGE_URL]-style asset placeholders from the
 // source copy, which must be resolved (or explicitly omitted) before ship.
-const draftPlaceholderPattern = /\b(VERIFY|TODO|TBD)\b|lorem ipsum/i;
+const draftPlaceholderPattern = /\b(VERIFY|TODO|TBD|CONFIRM)\b|lorem ipsum|⟦/i;
 const assetPlaceholderPattern = /\[(LOGO_URL|OG_IMAGE_URL)\]/;
 if (draftPlaceholderPattern.test(allText)) {
   problems.push('Draft placeholder (VERIFY / TODO / TBD / lorem ipsum) found in visible text.');

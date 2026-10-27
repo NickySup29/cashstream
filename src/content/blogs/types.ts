@@ -116,6 +116,10 @@ export interface ImageBlock {
   caption?: string;
   width: number;
   height: number;
+  // Caps the on-page display width (px) and centers the figure, for tall/
+  // portrait images that would otherwise stretch full-width. Omit for the
+  // default full-width treatment.
+  displayMaxWidth?: number;
 }
 
 export type BlogBlock =

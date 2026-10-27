@@ -147,7 +147,7 @@ export const formVsForm13: BlogPostContent = {
       type: 'whoNeeds',
       heading: 'Who needs a lower deduction certificate?',
       items: [
-        'NRI property sellers, where the buyer would otherwise deduct tax on the full sale price.',
+        'NRI property sellers, where the buyer would otherwise deduct tax on the full sale price. See <a href="https://cashstreamadvisors.com/insights/tds-on-sale-of-property-by-nri/">TDS on Sale of Property by NRI: 15 Questions Answered</a>.',
         'Foreign companies receiving royalty from an Indian payer.',
         'Foreign companies receiving fees for technical services.',
         'Foreign companies or non-resident vendors receiving interest from India.',
@@ -215,6 +215,7 @@ export const formVsForm13: BlogPostContent = {
       heading: 'Related reading',
       cards: [
         { label: 'SERVICE', title: 'Lower Deduction Certificate service page', href: '/international-taxation/lower-deduction-certificate/' },
+        { label: 'INSIGHTS', title: 'TDS on Sale of Property by NRI: 15 Questions Answered', href: '/insights/tds-on-sale-of-property-by-nri/' },
         { label: 'INSIGHTS', title: 'How Long Does a Lower Deduction Certificate Take?', href: '/insights/lower-deduction-certificate-time/' },
         { label: 'SERVICE', title: 'NRI tax relocation advisory', href: '/international-taxation/nri-tax-relocation-advisory/' },
         { label: 'INSIGHTS', title: 'All insights', href: '/insights' },

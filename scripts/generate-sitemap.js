@@ -113,7 +113,7 @@ async function generateSitemap() {
     .filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')
     .flatMap((f) => {
       const src = fs.readFileSync(path.join(blogsDir, f), 'utf8');
-      return [...src.matchAll(/^\s{2}slug:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
+      return [...src.matchAll(/^\s{2}"?slug"?:\s*['"]([a-z0-9-]+)['"]/gm)].map((m) => m[1]);
     });
   for (const slug of blogSlugs) {
     urls += `

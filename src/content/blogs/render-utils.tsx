@@ -45,6 +45,14 @@ export function wordsInBlock(block: BlogBlock): string {
       return '';
     case 'image':
       return block.caption ?? '';
+    case 'dateCalculator':
+      return [block.heading, block.intro, block.inputLabel, block.disclaimer, ...block.offsets.map((o) => o.label)].join(' ');
+    case 'decisionTree':
+      return [block.heading, block.intro, ...block.questions.map((q) => `${q.question} ${q.options.map((o) => o.label).join(' ')} ${q.result ? stripHtml(q.result.html) : ''}`)].join(' ');
+    case 'docChecklist':
+      return [block.heading, block.intro, ...block.scenarios.flatMap((s) => [s.label, ...s.documents])].join(' ');
+    case 'quoteStarter':
+      return [block.heading, block.intro, ...block.groups.flatMap((g) => [g.label, ...g.options])].join(' ');
     default:
       return '';
   }

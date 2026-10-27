@@ -109,6 +109,73 @@ export interface CtaBandBlock {
   heading: string;
 }
 
+// ---------- Lead-capture tool blocks ----------
+// At most one of these per post (enforced by scripts/check-blog.mjs), and it
+// must be a different kind from whatever lead-capture element already exists
+// on the service page this post links to. All result text renders into the
+// DOM unconditionally (see BlogPostDetail.tsx) so prerendered snapshots always
+// carry the full content; only the reveal is state-driven.
+
+export interface DateOffset {
+  label: string; // e.g. "File by (typical 45 days)"
+  days: number;
+}
+
+export interface DateCalculatorBlock {
+  type: 'dateCalculator';
+  heading: string;
+  intro: string;
+  inputLabel: string; // label for the single date input, e.g. "Payment date"
+  offsets: DateOffset[]; // fixed day offsets from the docx, never invented
+  disclaimer: string; // general-information disclaimer shown with every result
+  whatsappMessage: string; // template; {result} is replaced with the computed summary
+}
+
+export interface DecisionTreeQuestion {
+  id: string;
+  question: string;
+  options: { label: string; next: string | null }[]; // next: question id, or null to end at `result`
+  result?: { title: string; html: string }; // shown when this question is a leaf
+}
+
+export interface DecisionTreeBlock {
+  type: 'decisionTree';
+  heading: string;
+  intro: string;
+  startId: string;
+  questions: DecisionTreeQuestion[]; // 2 to 4 questions total
+  whatsappMessage: string; // template; {result} is replaced with the resulting card title
+}
+
+export interface DocChecklistScenario {
+  id: string;
+  label: string; // tab label, e.g. "Property sale"
+  documents: string[];
+}
+
+export interface DocChecklistBlock {
+  type: 'docChecklist';
+  heading: string;
+  intro: string;
+  scenarios: DocChecklistScenario[];
+  whatsappMessage: string; // template; {result} is replaced with "I ticked X of Y on the <scenario> checklist"
+}
+
+export interface QuoteStarterChoiceGroup {
+  label: string; // e.g. "Service"
+  options: string[];
+}
+
+export interface QuoteStarterBlock {
+  type: 'quoteStarter';
+  heading: string;
+  intro: string;
+  groups: QuoteStarterChoiceGroup[]; // exactly 3: service, country, timeline
+  whatsappMessage: string; // template; {result} is replaced with the three choices joined
+}
+
+export type ToolBlock = DateCalculatorBlock | DecisionTreeBlock | DocChecklistBlock | QuoteStarterBlock;
+
 export interface ImageBlock {
   type: 'image';
   src: string;
@@ -138,7 +205,10 @@ export type BlogBlock =
   | WhoNeedsBlock
   | RelatedCardsBlock
   | CtaBandBlock
-  | ImageBlock;
+  | ImageBlock
+  | ToolBlock;
+
+export type InfographicKind = 'comparison' | 'timeline' | 'steps' | 'checklist' | 'none';
 
 export interface BlogPostContent {
   slug: string;
@@ -152,6 +222,9 @@ export interface BlogPostContent {
   author: { type: 'Organization' | 'Person'; name: string; url?: string };
   heroVariant: HeroVariant;
   targetWords: number;
+  // Which generated infographic (if any) scripts/make-images.mjs should produce,
+  // sourced only from a block already in this post. 'none' when no block fits.
+  infographic?: InfographicKind;
   // Short line shown under the hero meta row, e.g. the Act/effective-date context sentence.
   heroNote?: string;
   // Real photo/illustration used as the hero visual instead of the generic

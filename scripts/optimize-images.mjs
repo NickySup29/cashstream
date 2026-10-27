@@ -14,19 +14,22 @@
 
 import sharp from 'sharp';
 import { readdirSync, existsSync, mkdirSync, renameSync, statSync } from 'fs';
-import { join, basename } from 'path';
+import { join, basename, isAbsolute } from 'path';
 
 const MAX_BYTES = 300 * 1024;
 const MAX_WIDTH_BANNER = 1600;
 const MAX_WIDTH_OTHER = 1200;
 
 const prefix = process.argv[2];
+const customDir = process.argv[3]; // optional: used by scripts/make-images.mjs dry runs (--out-dir)
 if (!prefix) {
-  console.error('Usage: npm run images -- <slug-prefix>');
+  console.error('Usage: npm run images -- <slug-prefix> [imagesDir]');
   process.exit(1);
 }
 
-const imagesDir = join(process.cwd(), 'public', 'images', 'insights');
+const imagesDir = customDir
+  ? isAbsolute(customDir) ? customDir : join(process.cwd(), customDir)
+  : join(process.cwd(), 'public', 'images', 'insights');
 const originalsDir = join(imagesDir, '_originals');
 if (!existsSync(originalsDir)) mkdirSync(originalsDir, { recursive: true });
 

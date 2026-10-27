@@ -5,9 +5,12 @@
 import fs from 'fs';
 import path from 'path';
 import { getBlogPost } from '../src/content/blogs/index.ts';
+import { loadSiteRoutes, isExternalOk } from './lib/siteRoutes.mjs';
 
 const root = process.cwd();
-const slug = process.argv[2];
+const args = process.argv.slice(2);
+const fileArg = args.find((a) => a.startsWith('--file='));
+const slugArg = args.find((a) => !a.startsWith('--'));
 
 function fail(messages) {
   console.error(`\n[check:blog] FAILED for "${slug}":\n`);
@@ -16,15 +19,30 @@ function fail(messages) {
   process.exit(1);
 }
 
-if (!slug) {
-  console.error('[check:blog] Usage: npm run check:blog -- <slug>');
-  process.exit(1);
-}
-
-const post = getBlogPost(slug);
-if (!post) {
-  console.error(`[check:blog] No post with slug "${slug}" found in src/content/blogs/index.ts`);
-  process.exit(1);
+let post;
+let slug;
+if (fileArg) {
+  // Dry-run mode: check a generated content file that is not (yet) registered
+  // in src/content/blogs/index.ts, e.g. ingest-blog.mjs's --out output.
+  const filePath = path.resolve(root, fileArg.slice('--file='.length));
+  const mod = await import(`file://${filePath.replace(/\\/g, '/')}?t=${Date.now()}`);
+  post = mod.default ?? Object.values(mod).find((v) => v && Array.isArray(v.blocks));
+  slug = post?.slug ?? '(unknown)';
+  if (!post) {
+    console.error(`[check:blog] Could not find a BlogPostContent export in ${filePath}`);
+    process.exit(1);
+  }
+} else {
+  slug = slugArg;
+  if (!slug) {
+    console.error('[check:blog] Usage: npm run check:blog -- <slug>  OR  tsx scripts/check-blog.mjs --file=<path>');
+    process.exit(1);
+  }
+  post = getBlogPost(slug);
+  if (!post) {
+    console.error(`[check:blog] No post with slug "${slug}" found in src/content/blogs/index.ts`);
+    process.exit(1);
+  }
 }
 
 const problems = [];
@@ -134,6 +152,28 @@ for (const block of post.blocks) {
     case 'ctaBand':
       visibleTexts.push(block.heading);
       break;
+    case 'dateCalculator':
+      visibleTexts.push(block.heading, block.intro, block.inputLabel, block.disclaimer);
+      for (const o of block.offsets) visibleTexts.push(o.label);
+      break;
+    case 'decisionTree':
+      visibleTexts.push(block.heading, block.intro);
+      for (const q of block.questions) {
+        visibleTexts.push(q.question);
+        for (const opt of q.options) visibleTexts.push(opt.label);
+        if (q.result) visibleTexts.push(q.result.title, stripHtml(q.result.html));
+      }
+      break;
+    case 'docChecklist':
+      visibleTexts.push(block.heading, block.intro);
+      for (const s of block.scenarios) {
+        visibleTexts.push(s.label, ...s.documents);
+      }
+      break;
+    case 'quoteStarter':
+      visibleTexts.push(block.heading, block.intro);
+      for (const g of block.groups) visibleTexts.push(g.label, ...g.options);
+      break;
     case 'image':
       if (block.alt) visibleTexts.push(block.alt);
       if (block.caption) visibleTexts.push(block.caption);
@@ -205,39 +245,13 @@ if (badHrefs.length > 0) {
 }
 
 // ---------- 6. internal links resolve to a real route ----------
-const appTsx = fs.readFileSync(path.join(root, 'src', 'App.tsx'), 'utf8');
-const staticRoutes = new Set();
-for (const m of appTsx.matchAll(/<Route\s+path="([^"]+)"/g)) {
-  if (!m[1].includes(':')) staticRoutes.add(m[1].replace(/\/+$/, '') || '/');
-}
-// Known dynamic-route id sources.
-const caseStudiesSrc = fs.readFileSync(path.join(root, 'src', 'data', 'caseStudies.ts'), 'utf8');
-const caseStudyIds = [...caseStudiesSrc.matchAll(/^\s{4}id:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
-const blogsDir = path.join(root, 'src', 'content', 'blogs');
-const blogSlugs = fs
-  .readdirSync(blogsDir)
-  .filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')
-  .flatMap((f) => {
-    const src = fs.readFileSync(path.join(blogsDir, f), 'utf8');
-    return [...src.matchAll(/^\s{2}slug:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
-  });
+const { isResolvable } = loadSiteRoutes(root);
 
-function isResolvable(pathname) {
-  const clean = pathname.replace(/\/+$/, '') || '/';
-  if (staticRoutes.has(clean)) return true;
-  if (caseStudyIds.some((id) => clean === `/about-us/case-studies/${id}`)) return true;
-  if (blogSlugs.some((s) => clean === `/insights/${s}`)) return true;
-  if (clean === '/insights') return true; // existing hub, out of scope for this build
-  return false;
-}
-
-const externalOk = (href) =>
-  /^https?:\/\//.test(href) && !href.startsWith('https://cashstreamadvisors.com');
 const internalLinkFailures = [];
 for (const href of allHrefs) {
   if (!href || href === '#') continue; // already reported above
   if (href.startsWith('mailto:') || href.startsWith('tel:')) continue;
-  if (externalOk(href)) continue;
+  if (isExternalOk(href)) continue;
   const pathname = href.startsWith('https://cashstreamadvisors.com')
     ? href.replace('https://cashstreamadvisors.com', '') || '/'
     : href;
@@ -254,10 +268,16 @@ if (internalLinkFailures.length > 0) {
 // check only fails on draft-process leftovers: VERIFY/TODO/TBD/lorem text and
 // the specific [LOGO_URL]/[OG_IMAGE_URL]-style asset placeholders from the
 // source copy, which must be resolved (or explicitly omitted) before ship.
-const draftPlaceholderPattern = /\b(VERIFY|TODO|TBD|CONFIRM)\b|lorem ipsum|⟦/i;
+// CONFIRM is matched case-sensitively: "confirm" as an ordinary verb is legitimate
+// prose, but the all-caps marker is always a draft leftover.
+const draftPlaceholderPattern = /\b(VERIFY|TODO|TBD)\b|lorem ipsum|[⟦⟧]/i;
+const draftConfirmPattern = /\bCONFIRM\b/;
 const assetPlaceholderPattern = /\[(LOGO_URL|OG_IMAGE_URL)\]/;
 if (draftPlaceholderPattern.test(allText)) {
   problems.push('Draft placeholder (VERIFY / TODO / TBD / lorem ipsum) found in visible text.');
+}
+if (draftConfirmPattern.test(allText)) {
+  problems.push('Draft placeholder (CONFIRM) found in visible text.');
 }
 if (assetPlaceholderPattern.test(allText) || allHrefs.some((h) => assetPlaceholderPattern.test(h))) {
   problems.push('Asset placeholder like [LOGO_URL] or [OG_IMAGE_URL] found; use a real URL or omit the field.');
@@ -282,6 +302,13 @@ if (wordCount < low || wordCount > high) {
   problems.push(
     `Body word count is ${wordCount}, far from the ~${post.targetWords}-word target (expected roughly ${Math.round(low)}-${Math.round(high)}).`
   );
+}
+
+// ---------- 10b. at most one lead-capture tool block per post ----------
+const TOOL_BLOCK_TYPES = new Set(['dateCalculator', 'decisionTree', 'docChecklist', 'quoteStarter']);
+const toolBlocks = post.blocks.filter((b) => TOOL_BLOCK_TYPES.has(b.type));
+if (toolBlocks.length > 1) {
+  problems.push(`Found ${toolBlocks.length} lead-capture tool blocks (${toolBlocks.map((b) => b.type).join(', ')}); at most one is allowed per post.`);
 }
 
 // ---------- 10. "Insights", never "Blog", in visible text (client naming rule) ----------

@@ -10,7 +10,10 @@
     "postbuild": "node scripts/copy-404.js",
     "prerender": "node scripts/prerender.js",
     "check:blog": "tsx scripts/check-blog.mjs",
+    "ingest": "node scripts/ingest-blog.mjs",
     "images": "node scripts/optimize-images.mjs",
+    "images:make": "tsx scripts/make-images.mjs",
+    "verify:live": "node scripts/verify-live.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
@@ -33,10 +36,13 @@
     "vite": "^6.2.0"
   },
   "devDependencies": {
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "@tailwindcss/typography": "^0.5.19",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
+    "mammoth": "^1.13.0",
     "playwright": "^1.63.0",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.1.14",

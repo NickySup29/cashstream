@@ -11,11 +11,14 @@ GitHub Actions workflow. Never push to main, never merge.
    step 2). If a branch with that name already exists, continue on it instead of recreating it.
 2. Run `npm run ingest -- $ARGUMENTS`. It finds the matching source in `Content/Blogs/_Source/`
    (a `.docx`, read with mammoth, or a hand-written `_final_copy.html`; `.docx` wins if both
-   exist), stops with a clear list of problems if it finds VERIFY/TODO/TBD/CONFIRM, lorem ipsum,
-   U+27E6/U+27E7, an em or en dash, `[DATE]`/`[LOGO_URL]`/`[OG_IMAGE_URL]`, an over-length title
-   tag or meta description, or a structure it cannot map to an existing block type in
-   `src/content/blogs/types.ts`. If it stops, show me the problem list and stop here; do not try
-   to work around the checker.
+   exist), stops with a clear list of problems if it finds VERIFY/TODO/TBD, the all-caps word
+   CONFIRM specifically, lorem ipsum, U+27E6/U+27E7, an em or en dash,
+   `[DATE]`/`[LOGO_URL]`/`[OG_IMAGE_URL]`, an over-length title tag or meta description, or a
+   structure it cannot map to an existing block type in `src/content/blogs/types.ts`.
+   If it stops **and** a `_final_copy.html` with the same id exists in `Content/Blogs/_Source/`,
+   re-run with `npm run ingest -- $ARGUMENTS --prefer=html` to use that clean copy instead, and
+   tell me you did this and why. If it stops and no clean HTML copy exists, show me the problem
+   list and stop here; do not try to work around the checker.
    If it succeeds, show me: the detected outline, every link it removed because the target isn't
    live, and the generated-schema-vs-source-schema differences.
 3. Run `npm run images:make -- <slug>`. Show me the banner, og crop, and infographic (if any) it

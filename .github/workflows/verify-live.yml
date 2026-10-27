@@ -1,0 +1,96 @@
+# Checks a newly merged Insights post against the live site once Cloudflare
+# has deployed it. There is no in-repo Cloudflare deploy workflow (Cloudflare
+# deploys via its own dashboard Git integration), so this runs after the
+# "Prerender snapshots" workflow (the last in-repo signal after a merge to
+# main) and scripts/verify-live.mjs itself retries for up to 15 minutes to
+# cover Cloudflare's own deploy lag.
+#
+# This workflow only reads the live site and comments on the merged PR; it
+# never builds, never runs ingest/images:make, and is not part of the
+# Cloudflare build.
+name: Verify live post
+
+on:
+  workflow_run:
+    workflows: ["Prerender snapshots"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  verify:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Find slugs touched by this push
+        id: slugs
+        run: |
+          HEAD_SHA="${{ github.event.workflow_run.head_sha }}"
+          CHANGED=$(git diff --name-only "${HEAD_SHA}^" "${HEAD_SHA}" -- 'src/content/blogs/*.ts' | grep -v -E '/(index|types)\.ts$' || true)
+          SLUGS=""
+          for f in $CHANGED; do
+            s=$(grep -m1 "^  slug: '" "$f" | sed -E "s/^  slug: '([a-z0-9-]+)'.*/\1/")
+            if [ -n "$s" ]; then SLUGS="$SLUGS $s"; fi
+          done
+          echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
+
+      - name: Verify live
+        id: verify
+        if: steps.slugs.outputs.slugs != ''
+        run: |
+          set +e
+          OUTPUT=""
+          STATUS=0
+          for s in ${{ steps.slugs.outputs.slugs }}; do
+            RESULT=$(npm run verify:live -- "$s" 2>&1)
+            CODE=$?
+            OUTPUT="$OUTPUT
+          $RESULT"
+            if [ $CODE -ne 0 ]; then STATUS=1; fi
+          done
+          {
+            echo "result<<EOF"
+            echo "$OUTPUT"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          exit 0
+          # Non-fatal by design: this job's job is to report, not to gate anything.
+
+      - name: Find the merged PR
+        id: pr
+        if: steps.slugs.outputs.slugs != ''
+        run: |
+          PR=$(gh api repos/${{ github.repository }}/commits/${{ github.event.workflow_run.head_sha }}/pulls --jq '.[0].number' || true)
+          echo "number=$PR" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on the PR
+        if: steps.slugs.outputs.slugs != '' && steps.pr.outputs.number != ''
+        run: |
+          gh pr comment "${{ steps.pr.outputs.number }}" --repo "${{ github.repository }}" --body "$(cat <<'BODY'
+          ### verify:live result
+
+          \`\`\`
+          ${{ steps.verify.outputs.result }}
+          \`\`\`
+          BODY
+          )"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

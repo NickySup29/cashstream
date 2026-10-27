@@ -1,0 +1,23 @@
+<!-- BASE TEMPLATE (approved design). 1600x1000. Tokens ({{...}}) are filled by scripts/make-images.mjs from the post's own processTimeline or stage comparisonTable block; never retyped by hand. Fonts: @fontsource/fraunces and @fontsource/inter. -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+{{FONT_FACES}}
+*{box-sizing:border-box;margin:0}
+body{width:1600px;height:1000px;background:#F8F8F3;font-family:I,sans-serif;color:#1E2A1B;position:relative;overflow:hidden}
+h1{font-family:F;font-weight:700;color:#274F23;font-size:50px;text-align:center;padding-top:46px;letter-spacing:-.4px;margin:0 80px}
+.line{position:absolute;left:216px;right:216px;top:232px;height:4px;background:#66B760;border-radius:2px}
+.st{position:absolute;top:208px;width:272px;text-align:center}
+.dot{width:52px;height:52px;border-radius:50%;background:#66B760;margin:0 auto;border:6px solid #F8F8F3;box-shadow:0 0 0 3px #66B760}
+.st.last .dot{background:#274F23;box-shadow:0 0 0 3px #274F23}
+.card{margin:30px 8px 0;background:#fff;border:1.5px solid #E3E2D8;border-radius:18px;padding:24px 14px 22px;min-height:230px}
+.t{font-family:F;font-weight:700;font-size:30px;color:#274F23;line-height:1.1}
+.d{font-size:21px;line-height:1.35;color:#2B3A28;margin-top:12px}
+.chip{display:inline-block;margin-top:14px;background:#EAF3E8;color:#274F23;font-weight:700;font-size:21px;line-height:1.25;padding:8px 14px;border-radius:12px}
+.band{position:absolute;left:0;right:0;bottom:84px;height:92px;background:#66B760;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:31px;color:#10240E;padding:0 80px;text-align:center}
+.src{position:absolute;left:0;right:0;bottom:0;height:84px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#5E7A69}
+</style></head><body>
+<h1>{{TITLE}}</h1>
+<div class="line"></div>
+{{STAGES}}
+<div class="band">{{BAND_TEXT}}</div>
+<div class="src">{{SRC_TEXT}}</div>
+</body></html>

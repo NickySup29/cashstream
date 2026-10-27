@@ -1,0 +1,26 @@
+<!-- BASE TEMPLATE (approved design). 1600x1000. Tokens ({{...}}) are filled by scripts/make-images.mjs from the post's own comparisonTable block; never retyped by hand. Fonts: @fontsource/fraunces and @fontsource/inter. -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+{{FONT_FACES}}
+*{box-sizing:border-box;margin:0}
+body{width:1600px;height:1000px;background:#F8F8F3;font-family:I,sans-serif;color:#1E2A1B;position:relative;overflow:hidden}
+h1{font-family:F;font-weight:700;color:#274F23;font-size:56px;text-align:center;padding-top:48px;letter-spacing:-.5px;margin:0 60px}
+.grid{position:absolute;left:80px;right:80px;top:170px}
+.row{display:grid;grid-template-columns:400px 1fr 1fr;align-items:center;min-height:100px;border-bottom:1.5px solid #E3E2D8}
+.head{min-height:84px;border-bottom:none;margin-bottom:8px}
+.pill{margin:0 14px;padding:14px 0;border-radius:34px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:#fff;text-align:center}
+.pill.a{background:#92AB9F}.pill.b{background:#274F23}
+.lab{font-weight:600;font-size:25px;color:#4A6B45;line-height:1.25;padding:14px 14px 14px 0}
+.v{text-align:center;font-weight:600;font-size:30px;color:#1E2A1B;padding:14px;line-height:1.2}
+.v.n{color:#274F23}
+.row:nth-child(odd):not(.head){background:#fff}
+.band{position:absolute;left:0;right:0;bottom:84px;height:92px;background:#66B760;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:30px;color:#10240E;padding:0 80px;text-align:center}
+.src{position:absolute;left:0;right:0;bottom:0;height:84px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#5E7A69}
+</style></head><body>
+<h1>{{TITLE}}</h1>
+<div class="grid">
+<div class="row head"><div></div><div class="pill a">{{HEADER_A}}</div><div class="pill b">{{HEADER_B}}</div></div>
+{{ROWS}}
+</div>
+<div class="band">{{BAND_TEXT}}</div>
+<div class="src">{{SRC_TEXT}}</div>
+</body></html>

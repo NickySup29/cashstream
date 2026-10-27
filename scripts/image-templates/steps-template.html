@@ -1,0 +1,18 @@
+<!-- Approved design, same visual language as comparison/timeline templates. 1600x1000. Tokens filled by scripts/make-images.mjs from the post's own numberedSteps block. -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+{{FONT_FACES}}
+*{box-sizing:border-box;margin:0}
+body{width:1600px;height:1000px;background:#F8F8F3;font-family:I,sans-serif;color:#1E2A1B;position:relative;overflow:hidden}
+h1{font-family:F;font-weight:700;color:#274F23;font-size:52px;text-align:center;padding-top:46px;letter-spacing:-.4px;margin:0 80px}
+.grid{position:absolute;left:80px;right:80px;top:200px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border:1.5px solid #E3E2D8;border-radius:18px;padding:26px 24px}
+.num{width:48px;height:48px;border-radius:50%;background:#274F23;color:#fff;font-family:F;font-weight:700;font-size:24px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.d{font-size:22px;line-height:1.4;color:#2B3A28}
+.band{position:absolute;left:0;right:0;bottom:84px;height:92px;background:#66B760;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:31px;color:#10240E;padding:0 80px;text-align:center}
+.src{position:absolute;left:0;right:0;bottom:0;height:84px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#5E7A69}
+</style></head><body>
+<h1>{{TITLE}}</h1>
+<div class="grid">{{STEPS}}</div>
+<div class="band">{{BAND_TEXT}}</div>
+<div class="src">{{SRC_TEXT}}</div>
+</body></html>

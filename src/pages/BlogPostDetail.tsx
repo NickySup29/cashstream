@@ -5,8 +5,18 @@ import { Mail, MessageCircle, Plus, Clock, Calendar, CheckCircle2 } from 'lucide
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
 import { getBlogPost } from '../content/blogs';
-import type { BlogBlock, BlogPostContent, FaqItem, HeroVariant } from '../content/blogs/types';
+import type {
+  BlogBlock,
+  BlogPostContent,
+  DateCalculatorBlock,
+  DecisionTreeBlock,
+  DocChecklistBlock,
+  FaqItem,
+  HeroVariant,
+  QuoteStarterBlock,
+} from '../content/blogs/types';
 import { stripHtml, getReadingMinutes, formatPostDate, HeroIcon } from '../content/blogs/render-utils';
+import { trackEvent } from '../utils/analytics';
 
 const SITE = 'https://cashstreamadvisors.com';
 
@@ -67,7 +77,262 @@ function ConsultLinks({ invert = false }: { invert?: boolean }) {
 const proseClasses =
   'prose prose-sm max-w-none prose-p:text-secondary prose-p:text-[16px] prose-li:text-secondary prose-li:text-[16px] prose-headings:text-primary prose-strong:text-primary prose-table:text-sm prose-a:text-primary prose-a:font-semibold';
 
-function BlockRenderer({ block }: { block: BlogBlock }) {
+function toolWhatsappUrl(template: string, result: string) {
+  const text = template.replace('{result}', result);
+  return `${CONTACT_INFO.whatsappUrl}?text=${encodeURIComponent(text)}`;
+}
+
+function ToolCta({ href, toolName, slug }: { href: string; toolName: string; slug: string }) {
+  return (
+    <div className="flex flex-wrap gap-3 mt-5">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackEvent('cta_click', { slug, tool: toolName, cta: 'whatsapp' })}
+        className="px-6 py-3 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center gap-2"
+      >
+        <MessageCircle size={16} />
+        Send on WhatsApp
+      </a>
+      <a
+        href={CONTACT_INFO.calendlyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-ga-event="book_consultation_click"
+        onClick={() => trackEvent('cta_click', { slug, tool: toolName, cta: 'consult' })}
+        className="px-6 py-3 rounded-lg font-bold text-sm border border-primary text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-95 inline-flex items-center gap-2"
+      >
+        <Mail size={16} />
+        Book a Consultation
+      </a>
+    </div>
+  );
+}
+
+function DateCalculatorTool({ block, slug }: { block: DateCalculatorBlock; slug: string }) {
+  const today = new Date().toISOString().slice(0, 10);
+  const [date, setDate] = useState(today);
+  const [started, setStarted] = useState(false);
+
+  const results = useMemo(() => {
+    const base = new Date(`${date}T00:00:00`);
+    if (Number.isNaN(base.getTime())) return [];
+    return block.offsets.map((offset) => {
+      const d = new Date(base);
+      d.setDate(d.getDate() + offset.days);
+      return { label: offset.label, date: d.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) };
+    });
+  }, [date, block.offsets]);
+
+  const resultSummary = results.map((r) => `${r.label}: ${r.date}`).join('; ');
+
+  return (
+    <div className="bg-surface-container-lowest border border-outline-variant/15 rounded-2xl p-7 md:p-9 my-9">
+      <div className="font-headline font-semibold text-[19px] text-primary mb-2">{block.heading}</div>
+      <p className="text-secondary text-[15px] mb-5">{block.intro}</p>
+      <label className="block font-label text-[12px] font-semibold uppercase tracking-wide text-secondary mb-2">
+        {block.inputLabel}
+      </label>
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => {
+          setDate(e.target.value);
+          if (!started) {
+            setStarted(true);
+            trackEvent('tool_start', { slug, tool: 'dateCalculator' });
+          }
+        }}
+        className="border border-outline-variant/40 rounded-lg px-4 py-2.5 text-[15px] text-primary mb-6 w-full max-w-xs"
+      />
+      <div className="space-y-2.5 mb-5">
+        {results.map((r, i) => (
+          <div key={i} className="flex items-center justify-between gap-4 bg-surface-container-low rounded-lg px-4 py-3">
+            <span className="text-[14.5px] text-secondary">{r.label}</span>
+            <span className="font-label text-[14px] font-bold text-primary">{r.date}</span>
+          </div>
+        ))}
+      </div>
+      <p className="text-[13px] text-secondary italic mb-2">{block.disclaimer}</p>
+      {results.length > 0 && (
+        <ToolCta href={toolWhatsappUrl(block.whatsappMessage, resultSummary)} toolName="dateCalculator" slug={slug} />
+      )}
+    </div>
+  );
+}
+
+function DecisionTreeTool({ block, slug }: { block: DecisionTreeBlock; slug: string }) {
+  const [path, setPath] = useState<string[]>([block.startId]);
+  const currentId = path[path.length - 1];
+  const current = block.questions.find((q) => q.id === currentId);
+
+  function choose(nextId: string | null, questionId: string, optionLabel: string) {
+    if (path.length === 1) trackEvent('tool_start', { slug, tool: 'decisionTree' });
+    if (nextId) {
+      setPath((p) => [...p, nextId]);
+    } else {
+      const leaf = block.questions.find((q) => q.id === questionId);
+      trackEvent('tool_complete', { slug, tool: 'decisionTree', result: leaf?.result?.title ?? optionLabel });
+      setPath((p) => [...p, `${questionId}::done`]);
+    }
+  }
+
+  return (
+    <div className="bg-surface-container-lowest border border-outline-variant/15 rounded-2xl p-7 md:p-9 my-9">
+      <div className="font-headline font-semibold text-[19px] text-primary mb-2">{block.heading}</div>
+      <p className="text-secondary text-[15px] mb-6">{block.intro}</p>
+
+      {current && (
+        <div className="mb-2">
+          <div className="font-headline font-semibold text-[16px] text-primary mb-3">{current.question}</div>
+          <div className="flex flex-wrap gap-3">
+            {current.options.map((opt, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => choose(opt.next, current.id, opt.label)}
+                className="px-5 py-2.5 rounded-lg border border-primary text-primary font-semibold text-[14px] hover:bg-primary hover:text-on-primary transition-all active:scale-95"
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* All result cards render into the DOM up front; only the matching one is shown. */}
+      {block.questions.map((q) =>
+        q.result ? (
+          <div key={q.id} className={path.includes(`${q.id}::done`) ? 'mt-6' : 'hidden'}>
+            <div className="bg-primary text-on-primary rounded-xl p-6">
+              <div className="font-headline font-semibold text-[17px] mb-2">{q.result.title}</div>
+              <div
+                className="text-on-primary/90 text-[15px] leading-relaxed [&_a]:underline"
+                dangerouslySetInnerHTML={{ __html: q.result.html }}
+              />
+            </div>
+            <ToolCta href={toolWhatsappUrl(block.whatsappMessage, q.result.title)} toolName="decisionTree" slug={slug} />
+          </div>
+        ) : null
+      )}
+    </div>
+  );
+}
+
+function DocChecklistTool({ block, slug }: { block: DocChecklistBlock; slug: string }) {
+  const [activeId, setActiveId] = useState(block.scenarios[0]?.id ?? '');
+  const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [started, setStarted] = useState(false);
+  const active = block.scenarios.find((s) => s.id === activeId) ?? block.scenarios[0];
+
+  function toggle(key: string) {
+    if (!started) {
+      setStarted(true);
+      trackEvent('tool_start', { slug, tool: 'docChecklist' });
+    }
+    setChecked((c) => ({ ...c, [key]: !c[key] }));
+  }
+
+  const tickedCount = active ? active.documents.filter((_, i) => checked[`${active.id}:${i}`]).length : 0;
+  const resultSummary = active ? `I ticked ${tickedCount} of ${active.documents.length} on the ${active.label} checklist` : '';
+
+  return (
+    <div className="bg-surface-container-lowest border border-outline-variant/15 rounded-2xl p-7 md:p-9 my-9">
+      <div className="font-headline font-semibold text-[19px] text-primary mb-2">{block.heading}</div>
+      <p className="text-secondary text-[15px] mb-6">{block.intro}</p>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {block.scenarios.map((s) => (
+          <button
+            key={s.id}
+            type="button"
+            onClick={() => setActiveId(s.id)}
+            className={`px-4 py-2 rounded-[999px] font-label text-[13px] font-semibold border transition-all ${
+              activeId === s.id ? 'bg-primary text-on-primary border-primary' : 'border-outline-variant/40 text-secondary hover:border-primary'
+            }`}
+          >
+            {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Every scenario's full list stays in the DOM; only the active one is visible. */}
+      {block.scenarios.map((s) => (
+        <ul key={s.id} className={`space-y-2 mb-5 ${s.id === activeId ? '' : 'hidden'}`}>
+          {s.documents.map((doc, i) => {
+            const key = `${s.id}:${i}`;
+            return (
+              <li key={key} className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  checked={Boolean(checked[key])}
+                  onChange={() => toggle(key)}
+                  className="mt-1 shrink-0"
+                />
+                <span className="text-secondary text-[15px]">{doc}</span>
+              </li>
+            );
+          })}
+        </ul>
+      ))}
+
+      {active && (
+        <ToolCta
+          href={toolWhatsappUrl(block.whatsappMessage, resultSummary)}
+          toolName="docChecklist"
+          slug={slug}
+        />
+      )}
+    </div>
+  );
+}
+
+function QuoteStarterTool({ block, slug }: { block: QuoteStarterBlock; slug: string }) {
+  const [choices, setChoices] = useState<string[]>(block.groups.map(() => ''));
+  const complete = choices.every(Boolean);
+
+  function pick(groupIndex: number, value: string) {
+    if (!choices.some(Boolean)) trackEvent('tool_start', { slug, tool: 'quoteStarter' });
+    const next = [...choices];
+    next[groupIndex] = value;
+    setChoices(next);
+    if (next.every(Boolean)) trackEvent('tool_complete', { slug, tool: 'quoteStarter', result: next.join(', ') });
+  }
+
+  return (
+    <div className="bg-surface-container-lowest border border-outline-variant/15 rounded-2xl p-7 md:p-9 my-9">
+      <div className="font-headline font-semibold text-[19px] text-primary mb-2">{block.heading}</div>
+      <p className="text-secondary text-[15px] mb-6">{block.intro}</p>
+      <div className="space-y-5 mb-5">
+        {block.groups.map((g, gi) => (
+          <div key={g.label}>
+            <div className="font-label text-[12px] font-semibold uppercase tracking-wide text-secondary mb-2">{g.label}</div>
+            <div className="flex flex-wrap gap-2">
+              {g.options.map((opt) => (
+                <button
+                  key={opt}
+                  type="button"
+                  onClick={() => pick(gi, opt)}
+                  className={`px-4 py-2 rounded-[999px] font-label text-[13px] font-semibold border transition-all ${
+                    choices[gi] === opt ? 'bg-primary text-on-primary border-primary' : 'border-outline-variant/40 text-secondary hover:border-primary'
+                  }`}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      {complete && (
+        <ToolCta href={toolWhatsappUrl(block.whatsappMessage, choices.join(', '))} toolName="quoteStarter" slug={slug} />
+      )}
+    </div>
+  );
+}
+
+function BlockRenderer({ block, slug }: { block: BlogBlock; slug: string }) {
   switch (block.type) {
     case 'answerBox':
       return (
@@ -258,6 +523,14 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
       );
     case 'faq':
       return <FaqAccordion items={block.items} />;
+    case 'dateCalculator':
+      return <DateCalculatorTool block={block} slug={slug} />;
+    case 'decisionTree':
+      return <DecisionTreeTool block={block} slug={slug} />;
+    case 'docChecklist':
+      return <DocChecklistTool block={block} slug={slug} />;
+    case 'quoteStarter':
+      return <QuoteStarterTool block={block} slug={slug} />;
     default:
       return null;
   }
@@ -482,7 +755,7 @@ export default function BlogPostDetail() {
 
           <motion.article {...revealProps} className="max-w-[700px]">
             {post.blocks.map((block, i) => (
-              <BlockRenderer key={i} block={block} />
+              <BlockRenderer key={i} block={block} slug={post.slug} />
             ))}
           </motion.article>
         </div>

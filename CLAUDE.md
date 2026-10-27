@@ -233,3 +233,57 @@ Code names (folders, file names, component names, internal variables) may
 keep "blog" freely, e.g. src/content/blogs/, BlogPostDetail.tsx. Only
 visible text is restricted. scripts/check-blog.mjs enforces this by
 failing if the word "Blog" appears in a post's visible text fields.
+
+## 18. BLOG PUBLISHING PIPELINE
+Publishing an Insights post is `/blog-publish BL-xx` (see
+.claude/commands/blog-publish.md): drop a finished source file in
+Content/Blogs/_Source/ (exact casing; never renamed or recreated), run the
+command, review the PR it opens, click Merge yourself. `/blog-batch` runs
+several in parallel git worktrees. Neither command ever pushes to main or
+merges.
+
+- **Source format**: a `.docx` (preferred, read with mammoth, no pandoc, no
+  system dependency) or a hand-written `_final_copy.html` source copy in the
+  same shape as the existing BL-02/BL-03 files. If both exist for one id, the
+  `.docx` wins. See docs/BLOG_DOCX_TEMPLATE.md for the exact structure.
+- **scripts/ingest-blog.mjs** (`npm run ingest -- BL-xx`) parses the source
+  with scripts/lib/parseBlogSource.mjs (a Playwright DOM walk, not a regex
+  HTML parser) and writes src/content/blogs/<slug>.ts, registering it in
+  index.ts. It stops with a clear list of problems and writes nothing if it
+  finds VERIFY/TODO/TBD, the all-caps word CONFIRM specifically (ordinary
+  lowercase "confirm" in a sentence is fine), lorem ipsum, U+27E6/U+27E7, an
+  em or en dash, [DATE]/[LOGO_URL]/[OG_IMAGE_URL], an over-length title tag
+  or meta description, or a structure it cannot map to an existing block
+  type in src/content/blogs/types.ts. It removes any internal link that
+  doesn't resolve to a real route and lists what it removed. datePublished
+  and dateModified are always the real date ingest ran on. It generates its
+  own schema from the content and diffs it against the source's own trailing
+  JSON-LD block for review; the generated schema always ships.
+- **scripts/make-images.mjs** (`npm run images:make -- <slug>`) renders the
+  banner, og crop, and (if post.infographic isn't 'none') one infographic
+  with Playwright against scripts/image-templates/*.html, using
+  @fontsource/fraunces and @fontsource/inter loaded locally, then compresses
+  through the existing scripts/optimize-images.mjs. All infographic text is
+  parameterized from the post's own block (comparisonTable, numberedSteps,
+  docChecklist), never retyped by hand. A manually-dropped
+  <slug>-banner.png is used as-is. Writes heroImage.alt back into the
+  content file afterward.
+- **Lead-capture tool blocks**: dateCalculator, decisionTree, docChecklist,
+  quoteStarter in src/content/blogs/types.ts, at most one per post
+  (scripts/check-blog.mjs enforces this), authored via a `TOOL:` section in
+  the source file (see docs/BLOG_DOCX_TEMPLATE.md). All result text always
+  renders into the DOM; only the reveal is state-driven, same principle as
+  the FAQ accordion. They reuse the existing trackEvent() GA4 hook
+  (tool_start/tool_complete/cta_click) and the existing WhatsApp/Calendly
+  constants in src/constants.ts, never a new tracker or a new contact
+  channel.
+- **scripts/verify-live.mjs** (`npm run verify:live -- <slug>` or
+  `--all-new`) checks a merged post against the live URL; retries for up to
+  15 minutes to cover Cloudflare's own deploy lag, since there is no in-repo
+  Cloudflare deploy workflow to wait on. .github/workflows/verify-live.yml
+  runs it after the existing "Prerender snapshots" workflow and comments the
+  result on the merged PR.
+- **Local tools only**: ingest-blog.mjs, make-images.mjs, verify-live.mjs
+  and check-blog.mjs are never wired into npm run build/prebuild/postbuild
+  and never run as part of Cloudflare's build. Only generate-sitemap.js and
+  generate-rss.js run during prebuild, unchanged.

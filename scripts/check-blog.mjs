@@ -29,6 +29,31 @@ if (!post) {
 
 const problems = [];
 
+// ---------- hero image / og image ----------
+if (post.heroImage) {
+  const { src, alt, width, height } = post.heroImage;
+  if (!alt || !alt.trim()) problems.push(`heroImage (${src}) has no alt text.`);
+  if (!width || !height) problems.push(`heroImage (${src}) is missing width or height.`);
+  const file = path.join(root, 'public', src.replace(/^\//, ''));
+  if (!fs.existsSync(file)) {
+    problems.push(`heroImage references a file that does not exist: ${src}`);
+  } else {
+    const sizeKb = fs.statSync(file).size / 1024;
+    if (sizeKb > 300) problems.push(`heroImage ${src} is ${sizeKb.toFixed(1)} KB, over the 300 KB limit.`);
+  }
+  if (alt && /[–—]/.test(alt)) problems.push(`Em or en dash found in heroImage alt: "${alt}"`);
+}
+if (post.ogImage) {
+  const rel = post.ogImage.replace('https://cashstreamadvisors.com', '');
+  const file = path.join(root, 'public', rel.replace(/^\//, ''));
+  if (!fs.existsSync(file)) {
+    problems.push(`ogImage references a file that does not exist: ${post.ogImage}`);
+  } else {
+    const sizeKb = fs.statSync(file).size / 1024;
+    if (sizeKb > 300) problems.push(`ogImage ${post.ogImage} is ${sizeKb.toFixed(1)} KB, over the 300 KB limit.`);
+  }
+}
+
 // ---------- gather every visible string on the page ----------
 const stripHtml = (v) =>
   String(v)
@@ -108,6 +133,27 @@ for (const block of post.blocks) {
       break;
     case 'ctaBand':
       visibleTexts.push(block.heading);
+      break;
+    case 'image':
+      if (block.alt) visibleTexts.push(block.alt);
+      if (block.caption) visibleTexts.push(block.caption);
+      if (!block.alt || !block.alt.trim()) {
+        problems.push(`Image block (${block.src}) has no alt text.`);
+      }
+      if (!block.width || !block.height) {
+        problems.push(`Image block (${block.src}) is missing width or height.`);
+      }
+      {
+        const imgFile = path.join(root, 'public', block.src.replace(/^\//, ''));
+        if (!fs.existsSync(imgFile)) {
+          problems.push(`Image block references a file that does not exist: ${block.src}`);
+        } else {
+          const sizeKb = fs.statSync(imgFile).size / 1024;
+          if (sizeKb > 300) {
+            problems.push(`Image ${block.src} is ${sizeKb.toFixed(1)} KB, over the 300 KB limit.`);
+          }
+        }
+      }
       break;
     default:
       break;

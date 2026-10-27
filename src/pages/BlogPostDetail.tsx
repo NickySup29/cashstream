@@ -209,6 +209,22 @@ function BlockRenderer({ block }: { block: BlogBlock }) {
           <ConsultLinks invert />
         </div>
       );
+    case 'image':
+      return (
+        <figure className="my-8">
+          <img
+            src={block.src}
+            alt={block.alt}
+            width={block.width}
+            height={block.height}
+            loading="lazy"
+            className="w-full h-auto rounded-xl border border-outline-variant/10 shadow-sm"
+          />
+          {block.caption && (
+            <figcaption className="mt-2.5 text-[13px] text-secondary text-center">{block.caption}</figcaption>
+          )}
+        </figure>
+      );
     case 'relatedCards':
       return (
         <div className="mt-6 mb-5">
@@ -293,7 +309,9 @@ function buildStructuredData(post: BlogPostContent, pageUrl: string) {
       url: `${SITE}/`,
       logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` },
     },
-    image: `${SITE}/og-image.jpg`,
+    image: post.ogImage
+      ? { '@type': 'ImageObject', url: post.ogImage, width: 1200, height: 630 }
+      : `${SITE}/og-image.jpg`,
     datePublished: `${post.datePublished}T09:00:00+05:30`,
     dateModified: `${post.dateModified}T09:00:00+05:30`,
     mainEntityOfPage: pageUrl,
@@ -364,6 +382,7 @@ export default function BlogPostDetail() {
         title={post.titleTag}
         description={post.metaDescription}
         url={pageUrl}
+        image={post.ogImage}
         type="article"
         structuredData={buildStructuredData(post, pageUrl)}
       />
@@ -408,8 +427,19 @@ export default function BlogPostDetail() {
                 </span>
               </div>
             </div>
-            <HERO_ICON variant={post.heroVariant} />
+            {!post.heroImage && <HERO_ICON variant={post.heroVariant} />}
           </div>
+          {post.heroImage && (
+            <img
+              src={post.heroImage.src}
+              alt={post.heroImage.alt}
+              width={post.heroImage.width}
+              height={post.heroImage.height}
+              loading="eager"
+              fetchPriority="high"
+              className="w-full h-auto rounded-2xl border border-outline-variant/10 shadow-sm mt-8"
+            />
+          )}
         </motion.div>
       </section>
 

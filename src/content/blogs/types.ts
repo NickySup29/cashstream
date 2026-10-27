@@ -109,6 +109,15 @@ export interface CtaBandBlock {
   heading: string;
 }
 
+export interface ImageBlock {
+  type: 'image';
+  src: string;
+  alt: string;
+  caption?: string;
+  width: number;
+  height: number;
+}
+
 export type BlogBlock =
   | AnswerBoxBlock
   | LedeBlock
@@ -124,7 +133,8 @@ export type BlogBlock =
   | FaqBlock
   | WhoNeedsBlock
   | RelatedCardsBlock
-  | CtaBandBlock;
+  | CtaBandBlock
+  | ImageBlock;
 
 export interface BlogPostContent {
   slug: string;
@@ -140,5 +150,11 @@ export interface BlogPostContent {
   targetWords: number;
   // Short line shown under the hero meta row, e.g. the Act/effective-date context sentence.
   heroNote?: string;
+  // Real photo/illustration used as the hero visual instead of the generic
+  // HeroIcon SVG. Loaded eagerly since it is above the fold.
+  heroImage?: { src: string; alt: string; width: number; height: number };
+  // Absolute URL for og:image / twitter:image / schema image, 1200x630.
+  // Falls back to the sitewide og-image.jpg when omitted.
+  ogImage?: string;
   blocks: BlogBlock[];
 }

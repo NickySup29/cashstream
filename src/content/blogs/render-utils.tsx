@@ -43,6 +43,8 @@ export function wordsInBlock(block: BlogBlock): string {
     case 'relatedCards':
     case 'ctaBand':
       return '';
+    case 'image':
+      return block.caption ?? '';
     default:
       return '';
   }

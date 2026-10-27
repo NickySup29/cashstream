@@ -21,6 +21,13 @@ export const formVsForm13: BlogPostContent = {
   targetWords: 1000,
   heroNote:
     'Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.',
+  heroImage: {
+    src: '/images/insights/form-128-vs-form-13-banner.webp',
+    alt: 'Form 128 vs Form 13: what changed for the Lower Deduction Certificate',
+    width: 1600,
+    height: 893,
+  },
+  ogImage: 'https://cashstreamadvisors.com/images/insights/form-128-vs-form-13-banner-og.webp',
   blocks: [
     {
       type: 'answerBox',
@@ -62,6 +69,14 @@ export const formVsForm13: BlogPostContent = {
     {
       type: 'sourceCite',
       html: 'Source: <a href="https://www.incometaxindia.gov.in/documents/d/guest/form-128-faqs" target="_blank" rel="noopener noreferrer">Form 128 FAQs, Income Tax Department</a>. Procedure: <a href="https://www.incometaxindia.gov.in/w/rule-213-1" target="_blank" rel="noopener noreferrer">Rule 213, Income-tax Rules, 2026</a>.',
+    },
+    {
+      type: 'image',
+      src: '/images/insights/form-128-vs-form-13-comparison.webp',
+      alt: 'Comparison table of Form 13 under the Income-tax Act, 1961 and Form 128 under the Income-tax Act, 2025, showing Section 197 replaced by Section 395(1), Rule 213 and the 1 April 2026 start date',
+      caption: 'Form 13 and Form 128 side by side. Source: Income Tax Department, Form 128 FAQs.',
+      width: 1400,
+      height: 781,
     },
     { type: 'h2', id: 'changed-in-practice', text: 'What changed in practice, and what did not?' },
     {

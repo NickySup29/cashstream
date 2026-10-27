@@ -128,7 +128,7 @@ export const lowerDeductionCertificateTime: BlogPostContent = {
     },
     {
       type: 'paragraph',
-      html: 'The payer deducts tax at the normal applicable rates, and the seller claims the excess back through the income tax return. A certificate cannot reduce tax that has already been deducted, because it must reach the payer before deduction. Where the contract allows, the payer can hold the next payment until the certificate arrives.',
+      html: 'The payer deducts tax at the normal applicable rates, and the seller claims the excess back through the income tax return. A certificate cannot reduce tax that has already been deducted, because it must reach the payer before deduction. Where the contract allows, the payer can hold the next payment until the certificate arrives. For a property sale, see <a href="https://cashstreamadvisors.com/insights/tds-on-sale-of-property-by-nri/">TDS on Sale of Property by NRI</a>.',
     },
     { type: 'h2', id: 'how-early-should-i-apply', text: 'How early should I apply?' },
     {
@@ -188,6 +188,7 @@ export const lowerDeductionCertificateTime: BlogPostContent = {
       cards: [
         { label: 'SERVICE', title: 'Lower Deduction Certificate service page', href: '/international-taxation/lower-deduction-certificate/' },
         { label: 'INSIGHTS', title: 'Form 128 vs Form 13: What Changed for the Lower Deduction Certificate', href: '/insights/form-128-vs-form-13/' },
+        { label: 'INSIGHTS', title: 'TDS on Sale of Property by NRI: 15 Questions Answered', href: '/insights/tds-on-sale-of-property-by-nri/' },
         { label: 'SERVICE', title: 'NRI tax relocation advisory', href: '/international-taxation/nri-tax-relocation-advisory/' },
         { label: 'INSIGHTS', title: 'All insights', href: '/insights' },
         { label: 'ABOUT', title: 'About Cash Stream Advisors', href: '/about-us/' },

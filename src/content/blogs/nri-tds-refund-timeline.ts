@@ -16,7 +16,7 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "ledger",
-  "targetWords": 761,
+  "targetWords": 785,
   "infographic": "comparison",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -38,7 +38,7 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Each source is measuring a different clock. Some count from processing, some from filing, and some describe a case that went wrong. Ask which clock a TDS refund time figure measures and whose case it describes."
+      "html": "So, how long does NRI TDS refund take in practice? Each source measures a different clock. Some count from processing, some from filing, and some describe a case that went wrong. People ask in how many days TDS is refunded, but the TDS amount refund time also depends on size and checks. The portal gives guidance, not a fixed TDS refund time limit."
     },
     {
       "type": "comparisonTable",
@@ -108,7 +108,7 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Our rule: if the refund has not arrived 6 weeks after the portal shows the return as processed, start checking, and do not wait months hoping it will move. Check in this order."
+      "html": "This is how to get TDS refund fast: remove the delays you control. If the refund has not arrived 6 weeks after the portal shows the return as processed, start checking, and do not wait months. Check in this order."
     },
     {
       "type": "numberedSteps",
@@ -129,7 +129,7 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<a href=\"https://cashstreamadvisors.com/international-taxation/foreign-company-tds-refund/\">We prepare and file NRI returns with the refund in mind</a>: we check your TDS against AIS before filing, confirm your Indian bank account is validated, and track the return until the refund is credited. If a refund is already delayed, we find the cause and raise the right request. <a href=\"https://calendly.com/cashstreamadvisors/consultation-with-cash-stream-advisors\">Book a Consultation</a> to have your case reviewed."
+      "html": "<a href=\"https://cashstreamadvisors.com/international-taxation/foreign-company-tds-refund/\">We file NRI returns with the refund in mind</a>: we check TDS against AIS, confirm your Indian bank account is validated, and track the return until the refund is credited. If a refund is delayed, we find the cause and raise the right request. <a href=\"https://calendly.com/cashstreamadvisors/consultation-with-cash-stream-advisors\">Book a Consultation</a>."
     },
     {
       "type": "faq",

@@ -16,7 +16,7 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "certificate",
-  "targetWords": 861,
+  "targetWords": 876,
   "infographic": "timeline",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -57,7 +57,7 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "You track the application with the ARN (Acknowledgement Receipt Number) you receive on submitting Form 128. This is how to <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">check lower deduction certificate status online</a>, including on the new portal."
+      "html": "Use the ARN (Acknowledgement Receipt Number) you receive on submitting Form 128. This is how to <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">track lower deduction certificate application status on TRACES</a>. It is also how to check lower deduction certificate online, and how to check lower deduction certificate in TRACES new portal screens."
     },
     {
       "type": "numberedSteps",
@@ -83,13 +83,6 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
     },
     {
       "type": "comparisonTable",
-      "infographicStages": [
-        "Submitted",
-        "Pending for AO Assignment",
-        "Pending with AO",
-        "Clarification Required by AO",
-        "Approved"
-      ],
       "headers": [
         "Status on TRACES",
         "What it means",
@@ -136,6 +129,13 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
           "The certificate was refused",
           "Read the reason, fix the gap and file afresh if time allows"
         ]
+      ],
+      "infographicStages": [
+        "Submitted",
+        "Pending for AO Assignment",
+        "Pending with AO",
+        "Clarification Required by AO",
+        "Approved"
       ]
     },
     {

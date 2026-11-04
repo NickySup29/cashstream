@@ -14,7 +14,7 @@ const LANDMARKS = {
   pageDetails: /^page details$/i,
   shortAnswer: /^the short answer$/i,
   whoQuestions: /^questions people ask/i,
-  closingCta: /^talk to a tax advisor/i,
+  closingCta: /^talk to an? (tax )?advisor/i,
   relatedReading: /^related reading$/i,
   officialReferences: /^official references$/i,
 };

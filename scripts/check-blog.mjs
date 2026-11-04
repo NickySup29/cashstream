@@ -275,13 +275,18 @@ if (internalLinkFailures.length > 0) {
 // check only fails on draft-process leftovers: VERIFY/TODO/TBD/lorem text and
 // the specific [LOGO_URL]/[OG_IMAGE_URL]-style asset placeholders from the
 // source copy, which must be resolved (or explicitly omitted) before ship.
-// CONFIRM is matched case-sensitively: "confirm" as an ordinary verb is legitimate
-// prose, but the all-caps marker is always a draft leftover.
-const draftPlaceholderPattern = /\b(VERIFY|TODO|TBD)\b|lorem ipsum|[⟦⟧]/i;
+// VERIFY and CONFIRM are matched case-sensitively: "verify"/"confirm" as an
+// ordinary verb is legitimate prose, but the all-caps marker is always a
+// draft leftover.
+const draftPlaceholderPattern = /\b(TODO|TBD)\b|lorem ipsum|[⟦⟧]/i;
+const draftVerifyPattern = /\bVERIFY\b/;
 const draftConfirmPattern = /\bCONFIRM\b/;
 const assetPlaceholderPattern = /\[(LOGO_URL|OG_IMAGE_URL)\]/;
 if (draftPlaceholderPattern.test(allText)) {
-  problems.push('Draft placeholder (VERIFY / TODO / TBD / lorem ipsum) found in visible text.');
+  problems.push('Draft placeholder (TODO / TBD / lorem ipsum) found in visible text.');
+}
+if (draftVerifyPattern.test(allText)) {
+  problems.push('Draft placeholder (VERIFY) found in visible text.');
 }
 if (draftConfirmPattern.test(allText)) {
   problems.push('Draft placeholder (CONFIRM) found in visible text.');

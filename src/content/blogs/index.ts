@@ -1,4 +1,9 @@
 import type { BlogPostContent } from './types';
+import { trackLowerDeductionCertificateTraces } from './track-lower-deduction-certificate-traces';
+import { lowerDeductionCertificateDocuments } from './lower-deduction-certificate-documents';
+import { lowerTdsCertificateNriPropertySale } from './lower-tds-certificate-nri-property-sale';
+import { tdsPaymentsForeignCompaniesLowerDeductionCertificate } from './tds-payments-foreign-companies-lower-deduction-certificate';
+import { nilVsLowerTdsCertificate } from './nil-vs-lower-tds-certificate';
 import { tdsOnSaleOfPropertyByNri } from './tds-on-sale-of-property-by-nri';
 import { formVsForm13 } from './form-128-vs-form-13';
 import { lowerDeductionCertificateTime } from './lower-deduction-certificate-time';
@@ -6,7 +11,7 @@ import { lowerDeductionCertificateTime } from './lower-deduction-certificate-tim
 // Registry of every Insights post. Adding a new post is one import + one
 // array entry here; the listing hub, the detail route, the sitemap and the
 // prerender script all pick it up from this file.
-export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri];
+export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces];
 
 export function getBlogPost(slug: string): BlogPostContent | undefined {
   return blogPosts.find((post) => post.slug === slug);

@@ -16,7 +16,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "document",
-  "targetWords": 1341,
+  "targetWords": 1355,
   "infographic": "matrix",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -75,7 +75,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "If you are asking how to claim refund of 26QB or whether a seller can claim TDS refund on property sale, the answer is the same: the seller's money comes back only through the seller's own return. The buyer can claim back only tax paid in error. For the TDS rules themselves, read <a href=\"https://cashstreamadvisors.com/insights/tds-on-sale-of-property-by-nri/\">TDS on Sale of Property by NRI</a>."
+      "html": "If you are asking how to claim refund of 26QB, can NRI claim TDS refund, or can seller claim TDS refund on property sale, the answer is the same: the seller's money comes back only through the seller's own return. The buyer can claim back only tax paid in error. For the TDS rules themselves, read <a href=\"https://cashstreamadvisors.com/insights/tds-on-sale-of-property-by-nri/\">TDS on Sale of Property by NRI</a>."
     },
     {
       "type": "h2",
@@ -122,7 +122,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Here is how to claim TDS on sale of property as an NRI. You claim the excess by filing your return for the tax year of sale and showing the TDS as a credit. This is the order we follow for an <a href=\"https://cashstreamadvisors.com/international-taxation/foreign-company-tds-refund/\">NRI TDS refund on property sale</a>."
+      "html": "Here is how to claim back TDS on property sale as an NRI, and how to claim TDS on sale of property in practice. You claim the excess by filing your return for the tax year of sale and showing the TDS as a credit. This is the order we follow for an <a href=\"https://cashstreamadvisors.com/international-taxation/foreign-company-tds-refund/\">NRI TDS refund on property sale</a>."
     },
     {
       "type": "numberedSteps",

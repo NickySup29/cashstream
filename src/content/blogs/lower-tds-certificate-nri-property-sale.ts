@@ -16,7 +16,7 @@ export const lowerTdsCertificateNriPropertySale: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "ledger",
-  "targetWords": 1303,
+  "targetWords": 1313,
   "infographic": "comparison",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -129,7 +129,7 @@ export const lowerTdsCertificateNriPropertySale: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "A lower tax deduction certificate for NRI sellers rests on five steps."
+      "html": "A lower tax deduction certificate for NRI sellers, also called a lower TDS deduction certificate for NRI sellers, rests on five steps."
     },
     {
       "type": "numberedSteps",
@@ -156,8 +156,6 @@ export const lowerTdsCertificateNriPropertySale: BlogPostContent = {
     },
     {
       "type": "comparisonTable",
-      "useForInfographic": true,
-      "sourceNote": "Illustrative example, not the actual case computation",
       "headers": [
         "",
         "Transfer before 23 July 2024",
@@ -189,7 +187,8 @@ export const lowerTdsCertificateNriPropertySale: BlogPostContent = {
           "₹1,67,44,000 (23.92%)",
           "₹1,04,65,000 (14.95%)"
         ]
-      ]
+      ],
+      "useForInfographic": true
     },
     {
       "type": "image",

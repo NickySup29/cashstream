@@ -16,7 +16,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "globe",
-  "targetWords": 1428,
+  "targetWords": 1450,
   "infographic": "matrix",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -38,7 +38,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "TDS on foreign payments applies when the payment is chargeable to tax in India in the hands of the foreign company. The payer, whether company, firm or individual, deducts it at the earlier of crediting the amount in the books or paying it. The same rule governs TDS on payment to non resident vendors."
+      "html": "TDS on foreign payments applies when the payment is chargeable to tax in India in the hands of the foreign company. The payer, whether company, firm or individual, deducts it at the earlier of crediting the amount in the books or paying it. The same rule governs TDS on non resident vendors, and TDS on payment to non resident vendors."
     },
     {
       "type": "paragraph",
@@ -55,11 +55,11 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "The rate depends on what the payment is for, not who receives it. Start with the Act rate (the sec 195 TDS rates, now under Section 393(2)), compare it with the treaty rate, and apply the lower one only with a Tax Residency Certificate (TRC, issued by the foreign tax authority to show residence) and Form 41 (formerly Form 10F)."
+      "html": "TDS on foreign remittance depends on what the payment is for, not who receives it. Start with the Act rate (the sec 195 TDS rates, now under Section 393(2)), compare it with the treaty rate, and apply the lower one only with a Tax Residency Certificate (TRC, issued by the foreign tax authority to show residence) and Form 41 (formerly Form 10F)."
     },
     {
       "type": "paragraph",
-      "html": "TDS on royalty payment to foreign company, on payment to foreign company for technical services, and on interest payment to foreign company is commonly 20% under the Act. Rates below are before 4% cess and a surcharge of 2% or 5% on higher payments. Treaty rates vary by country, so the ranges are typical, not fixed."
+      "html": "TDS on royalty payment to foreign company is commonly 20% under the Act. So is TDS on payment to foreign company for technical services, and TDS on interest payment to foreign company. This is the usual TDS 195 rate for each type. Rates below are before 4% cess and a surcharge of 2% or 5% on higher payments. Treaty rates vary by country, so the ranges are typical, not fixed."
     },
     {
       "type": "comparisonTable",

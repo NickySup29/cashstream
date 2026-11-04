@@ -16,7 +16,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "ledger",
-  "targetWords": 1337,
+  "targetWords": 1357,
   "infographic": "comparison",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -38,7 +38,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "The buyer deducts TDS on the whole sale value, not on your profit. The law asks the buyer to withhold tax at the time of payment, and the buyer cannot check what you paid for the property, what you spent on it, or whether you made a gain. That is why TDS on property sale with no capital gain still bites, and why TDS on sale of property at loss is a real cash problem."
+      "html": "The buyer deducts TDS on the whole sale value, not on your profit. The law asks the buyer to withhold tax at the time of payment, and the buyer cannot check what you paid for the property, what you spent on it, or whether you made a gain. That is why TDS on property sale no capital gain cases still bite, and why TDS on sale of property at loss is a real cash problem."
     },
     {
       "type": "paragraph",
@@ -59,7 +59,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Yes, you can apply for a lower deduction certificate for sale of property at a loss, and a loss is one of the clearer cases for it. What decides the result is not the loss alone."
+      "html": "Searching for TDS on sale of property at loss lower deduction certificate? The short answer is yes. You can apply for a lower deduction certificate for sale of property at a loss, and a loss is one of the clearer cases for it. What decides the result is not the loss alone."
     },
     {
       "type": "paragraph",
@@ -71,7 +71,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "In our loss cases, about 2 in 10 ended with a nil TDS certificate for the property sale. The rest carried a lower rate. In one sale at a loss of about ₹12 lakh, the officer granted 2.5%, not nil. No one can promise the outcome, so apply early, ideally as soon as the sale terms are agreed. For the nil and lower distinction, read <a href=\"https://cashstreamadvisors.com/insights/nil-vs-lower-tds-certificate/\">Nil vs Lower TDS Certificate</a>."
+      "html": "A nil TDS certificate property sale outcome is the exception: about 2 in 10 of our loss cases. The rest carried a lower rate. In one sale at a loss of about ₹12 lakh, the officer granted 2.5%, not nil. No one can promise the outcome, so apply early, ideally as soon as the sale terms are agreed. For the nil and lower distinction, read <a href=\"https://cashstreamadvisors.com/insights/nil-vs-lower-tds-certificate/\">Nil vs Lower TDS Certificate</a>."
     },
     {
       "type": "h2",
@@ -84,7 +84,6 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     },
     {
       "type": "comparisonTable",
-      "useForInfographic": true,
       "headers": [
         "Case",
         "What the computation shows",
@@ -106,7 +105,8 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
           "A meaningful gain, taxed at the normal capital gains rate.",
           "The saving is smaller, but a certificate still helps where an exemption such as reinvestment in a new house applies."
         ]
-      ]
+      ],
+      "useForInfographic": true
     },
     {
       "type": "image",
@@ -122,7 +122,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "A capital loss is not wasted either. A long term capital loss can be carried forward for eight years and set off against future long term gains, provided you file your return on time."
+      "html": "A capital loss on sale of property is not wasted either. A long term capital loss can be carried forward for eight years and set off against future long term gains, provided you file your return on time."
     },
     {
       "type": "h2",

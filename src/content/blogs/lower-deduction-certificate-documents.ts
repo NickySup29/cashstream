@@ -16,7 +16,7 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "document",
-  "targetWords": 1356,
+  "targetWords": 1406,
   "infographic": "checklist",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -38,7 +38,7 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Here is our list of <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">documents required for lower deduction certificate cases</a>, in the order an officer reads them: the transaction, the cost, identity, the numbers, then history. A typical property case runs to about 10 to 12 documents."
+      "html": "Here is our list of lower deduction certificate documents, in the order an officer reads them: the transaction, the cost, identity, the numbers, then history. Wondering how many <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">documents required for lower deduction certificate cases</a>? A typical property case runs to about 10 to 12. This list of documents required for lower deduction certificate is the same whether you call it a lower TDS certificate or an LDC."
     },
     {
       "type": "paragraph",
@@ -50,8 +50,6 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     },
     {
       "type": "comparisonTable",
-      "checklistDocColumn": 0,
-      "checklistFlagColumn": 2,
       "headers": [
         "Document",
         "Why the officer asks for it",
@@ -113,7 +111,9 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
           "Supports the estimated profit and any loss claimed",
           "Sometimes"
         ]
-      ]
+      ],
+      "checklistDocColumn": 0,
+      "checklistFlagColumn": 2
     },
     {
       "type": "image",
@@ -130,7 +130,7 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "An NRI or a foreign payee files the same core set, plus papers that prove residence and the basis of the tax claimed. For the documents required for lower deduction certificate for NRI sellers, add the following."
+      "html": "An NRI or a foreign payee files the same core set, plus papers that prove residence and the basis of the tax claimed. Searching for lower TDS certificate for NRI documents required? Add the following to the documents required for lower deduction certificate for NRI sellers."
     },
     {
       "type": "paragraph",
@@ -156,7 +156,7 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "The set is the same. What changes is how strong the proof must be. A nil TDS certificate application must show that no tax is due at all: several years of losses with audited financials and returns, a sale below cost backed by every cost paper, or agricultural land outside the taxable limits. Even then, many nil certificates carry a nominal rate such as 0.1%. Read <a href=\"https://cashstreamadvisors.com/insights/nil-vs-lower-tds-certificate/\">Nil vs Lower TDS Certificate</a>."
+      "html": "The set is the same, and so are the documents required for lower TDS certificate cases generally. What changes is how strong the proof must be. A nil TDS certificate application must show that no tax is due at all: several years of losses with audited financials and returns, a sale below cost backed by every cost paper, or agricultural land outside the taxable limits. Even then, many nil certificates carry a nominal rate such as 0.1%. Read <a href=\"https://cashstreamadvisors.com/insights/nil-vs-lower-tds-certificate/\">Nil vs Lower TDS Certificate</a>."
     },
     {
       "type": "h2",

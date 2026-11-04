@@ -16,7 +16,7 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "document",
-  "targetWords": 1306,
+  "targetWords": 1302,
   "infographic": "comparison",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -90,7 +90,6 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
     },
     {
       "type": "comparisonTable",
-      "useForInfographic": true,
       "headers": [
         "",
         "Nil certificate",
@@ -117,7 +116,8 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
           "Audited financials, computation and ITR; deeds showing cost above sale value",
           "Agreement, purchase deed, improvement bills, gains computation"
         ]
-      ]
+      ],
+      "useForInfographic": true
     },
     {
       "type": "image",
@@ -174,7 +174,7 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
         ],
         [
           "Property held about 10 years",
-          "Sold for about ₹7 crore, cost about ₹2 crore. Improvements raised the cost, and the computation showed a gain of about ₹2.6 crore",
+          "Sold for about ₹7 crore, cost about ₹2 crore. Improvements raised the cost, so the taxable gain was small against the price",
           "5.5%",
           "37"
         ]
@@ -182,7 +182,7 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "The first showed a loss on paper and the second a real gain of about ₹2.6 crore, and neither ended at nil. So we tell sellers to plan for a <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">lower deduction certificate for TDS</a> and treat nil as the exception."
+      "html": "One showed a loss on paper, the other a small gain against a large price, and neither ended at nil. So we tell sellers to plan for a <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">lower deduction certificate for TDS</a> and treat nil as the exception."
     },
     {
       "type": "h2",
@@ -235,8 +235,8 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
     },
     {
       "type": "h2",
-      "id": "how-to-apply-for-a-lower-deduction-certificate-in-5-steps",
-      "text": "How to apply for a lower deduction certificate, in 5 steps"
+      "id": "how-to-apply-for-lower-deduction-certificate-in-5-steps",
+      "text": "How to apply for lower deduction certificate in 5 steps"
     },
     {
       "type": "paragraph",
@@ -329,7 +329,7 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
         },
         {
           "q": "Does a loss on sale guarantee a nil certificate?",
-          "a": "<p>No, it depends on the officer's discretion. In one of our property sales the computation showed a loss on paper, yet the officer granted 2.5%, not nil. A loss helps your case, but plan for a lower certificate and treat nil as the exception.</p>"
+          "a": "<p>No, it depends on the officer's discretion. In one of our property sales the computation showed a loss on paper, yet the officer granted 2.5%, not nil. In another, a small gain on a large sale got 5.5%. Plan for a lower certificate and treat nil as the exception.</p>"
         },
         {
           "q": "What rate does a lower deduction certificate usually carry?",

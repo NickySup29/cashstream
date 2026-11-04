@@ -17,6 +17,19 @@ export interface ComparisonTableBlock {
   headers: string[];
   rows: string[][];
   sourceNote?: string;
+  // When a post has more than one comparisonTable block, make-images.mjs
+  // picks the first one by default. Set this on the block that should feed
+  // the infographic instead; rendering of the table itself is unaffected.
+  useForInfographic?: boolean;
+  // For infographic kind "checklist": which column holds the document name
+  // and which marks it as often forgotten (0-indexed into `rows`). Optional;
+  // only read when no docChecklist tool block exists on the post.
+  checklistDocColumn?: number;
+  checklistFlagColumn?: number;
+  // For infographic kind "timeline": render only these rows, identified by
+  // their first-column label, in this order, instead of the table's own row
+  // order. The table itself stays complete and in its original order.
+  infographicStages?: string[];
 }
 
 export interface AnswerBoxBlock {

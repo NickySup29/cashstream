@@ -128,10 +128,12 @@ const targetWordsFromDoc = (() => {
 // Values only (never the Page details LABEL column) — real source copies
 // legitimately use the word "confirm" inside a label like
 // "Slug (proposed, confirm)", which must not trip this check.
-// VERIFY/TODO/TBD are draft markers regardless of case. CONFIRM is matched
-// case-sensitively only: ordinary prose legitimately uses "confirm" as a verb
-// ("confirm eligibility"), but the all-caps marker is always a draft leftover.
-const DRAFT_WORD = /\b(VERIFY|TODO|TBD)\b/i;
+// TODO/TBD are draft markers regardless of case. VERIFY and CONFIRM are
+// matched case-sensitively only: ordinary prose legitimately uses "verify"
+// and "confirm" as verbs ("verify the certificate", "confirm eligibility"),
+// but the all-caps marker is always a draft leftover.
+const DRAFT_WORD = /\b(TODO|TBD)\b/i;
+const DRAFT_VERIFY = /\bVERIFY\b/;
 const DRAFT_CONFIRM = /\bCONFIRM\b/;
 const LOREM = /lorem ipsum/i;
 const GARBLED_BRACKETS = /[⟦⟧]/;
@@ -173,7 +175,7 @@ for (const r of ir.officialReferences) textFragments.push({ where: 'Official ref
 // draft markers (VERIFY/TODO/TBD/CONFIRM/lorem/garbled brackets).
 if (ir.schema) {
   const schemaText = JSON.stringify(ir.schema);
-  if (DRAFT_WORD.test(schemaText) || DRAFT_CONFIRM.test(schemaText) || LOREM.test(schemaText) || GARBLED_BRACKETS.test(schemaText)) {
+  if (DRAFT_WORD.test(schemaText) || DRAFT_VERIFY.test(schemaText) || DRAFT_CONFIRM.test(schemaText) || LOREM.test(schemaText) || GARBLED_BRACKETS.test(schemaText)) {
     textFragments.push({ where: 'Trailing schema block', text: schemaText });
   }
 }
@@ -181,7 +183,8 @@ if (ir.schema) {
 const problems = [];
 for (const { where, text } of textFragments) {
   if (!text) continue;
-  if (DRAFT_WORD.test(text)) problems.push(`${where}: draft placeholder (VERIFY/TODO/TBD) in "${text.slice(0, 120)}"`);
+  if (DRAFT_WORD.test(text)) problems.push(`${where}: draft placeholder (TODO/TBD) in "${text.slice(0, 120)}"`);
+  if (DRAFT_VERIFY.test(text)) problems.push(`${where}: draft placeholder (VERIFY) in "${text.slice(0, 120)}"`);
   if (DRAFT_CONFIRM.test(text)) problems.push(`${where}: draft placeholder (CONFIRM) in "${text.slice(0, 120)}"`);
   if (LOREM.test(text)) problems.push(`${where}: "lorem ipsum" found`);
   if (GARBLED_BRACKETS.test(text)) problems.push(`${where}: U+27E6/U+27E7 bracket character found in "${text.slice(0, 120)}"`);

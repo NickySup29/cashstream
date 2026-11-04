@@ -167,7 +167,8 @@ async function main() {
   // 2. infographic
   const kind = post.infographic ?? 'none';
   if (kind === 'comparison' || kind === 'timeline') {
-    const table = post.blocks.find((b) => b.type === 'comparisonTable');
+    const comparisonTables = post.blocks.filter((b) => b.type === 'comparisonTable');
+    const table = comparisonTables.find((b) => b.useForInfographic) ?? comparisonTables[0];
     if (!table) {
       console.log(`[images:make] infographic is "${kind}" but no comparisonTable block was found; skipping.`);
     } else if (kind === 'comparison') {
@@ -192,10 +193,13 @@ async function main() {
       infographicSuffix = 'comparison';
       infographicSourceBlock = table;
     } else {
-      const stagesHtml = table.rows
+      const stageRows = table.infographicStages
+        ? table.infographicStages.map((label) => table.rows.find((r) => r[0] === label)).filter(Boolean)
+        : table.rows;
+      const stagesHtml = stageRows
         .map((r, i) => {
-          const left = 80 + i * ((1600 - 160 - 272) / Math.max(1, table.rows.length - 1));
-          const isLast = i === table.rows.length - 1;
+          const left = 80 + i * ((1600 - 160 - 272) / Math.max(1, stageRows.length - 1));
+          const isLast = i === stageRows.length - 1;
           return `<div class="st${isLast ? ' last' : ''}" style="left:${Math.round(left)}px"><div class="dot"></div><div class="card"><div class="t">${escapeHtml(r[0])}</div><div class="d">${escapeHtml(r[2] ?? '')}</div><div class="chip">${escapeHtml(r[1] ?? '')}</div></div></div>`;
         })
         .join('');
@@ -233,11 +237,33 @@ async function main() {
     }
   } else if (kind === 'checklist') {
     const checklistBlock = post.blocks.find((b) => b.type === 'docChecklist');
-    const items = checklistBlock ? checklistBlock.scenarios[0]?.documents ?? [] : [];
+    let items = checklistBlock ? checklistBlock.scenarios[0]?.documents ?? [] : [];
+    let flags = items.map(() => false);
+    let sourceBlockForChecklist = checklistBlock;
     if (items.length === 0) {
-      console.log('[images:make] infographic is "checklist" but no docChecklist block was found; skipping.');
+      // No docChecklist tool block on this post: fall back to reading the
+      // document name + "often forgotten" columns straight off a
+      // comparisonTable block (checklistDocColumn/checklistFlagColumn).
+      const tableBlock = post.blocks.find((b) => b.type === 'comparisonTable' && b.checklistDocColumn !== undefined);
+      if (tableBlock) {
+        const docCol = tableBlock.checklistDocColumn;
+        const flagCol = tableBlock.checklistFlagColumn;
+        items = tableBlock.rows.map((r) => r[docCol]);
+        flags = tableBlock.rows.map((r) => /^(yes|sometimes)$/i.test((r[flagCol] ?? '').trim()));
+        sourceBlockForChecklist = tableBlock;
+      }
+    }
+    if (items.length === 0) {
+      console.log('[images:make] infographic is "checklist" but no docChecklist block or checklistDocColumn-tagged comparisonTable was found; skipping.');
     } else {
-      const itemsHtml = items.map((d) => `<div class="item"><div class="tick"></div><div class="d">${stripHtmlLocal(d)}</div></div>`).join('');
+      const itemsHtml = items
+        .map(
+          (d, i) =>
+            `<div class="item${flags[i] ? ' flag' : ''}"><div class="tick"></div><div class="d">${stripHtmlLocal(d)}${
+              flags[i] ? '<span class="badge">Often forgotten</span>' : ''
+            }</div></div>`
+        )
+        .join('');
       const html = fillTemplate('checklist-template.html', {
         TITLE: escapeHtml(post.title),
         ITEMS: itemsHtml,
@@ -248,7 +274,7 @@ async function main() {
       await renderPng(html, 1600, 1000, outPng);
       results.push(`${post.slug}-checklist.png (1600x1000)`);
       infographicSuffix = 'checklist';
-      infographicSourceBlock = checklistBlock;
+      infographicSourceBlock = sourceBlockForChecklist;
     }
   } else {
     console.log('[images:make] infographic is "none"; no infographic generated.');
@@ -261,8 +287,11 @@ async function main() {
   // infographic as a real image block in the body (registered, machine-
   // generated posts only; never rewrites a hand-authored file)
   if (!fileArg) {
-    patchContentFile(post, kind);
+    // insertInfographicBlock serializes the whole post from its in-memory
+    // copy (stale heroImage.alt), so it must run before patchContentFile's
+    // on-disk string replace, or it would clobber that alt-text fix.
     if (infographicSuffix) await insertInfographicBlock(post, infographicSuffix, infographicSourceBlock);
+    patchContentFile(post, kind);
   } else {
     console.log('[images:make] Dry run (--file): not patching the content file.');
   }

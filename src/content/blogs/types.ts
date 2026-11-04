@@ -221,7 +221,7 @@ export type BlogBlock =
   | ImageBlock
   | ToolBlock;
 
-export type InfographicKind = 'comparison' | 'timeline' | 'steps' | 'checklist' | 'none';
+export type InfographicKind = 'comparison' | 'timeline' | 'steps' | 'checklist' | 'matrix' | 'none';
 
 export interface BlogPostContent {
   slug: string;

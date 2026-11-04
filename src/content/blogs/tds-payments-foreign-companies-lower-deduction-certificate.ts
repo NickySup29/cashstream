@@ -17,7 +17,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
   },
   "heroVariant": "globe",
   "targetWords": 1428,
-  "infographic": "none",
+  "infographic": "matrix",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
     "src": "/images/insights/tds-payments-foreign-companies-lower-deduction-certificate-banner.webp",
@@ -107,6 +107,14 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
           "Usually yes: the payer otherwise deducts on the full price, not the gain"
         ]
       ]
+    },
+    {
+      "type": "image",
+      "src": "/images/insights/tds-payments-foreign-companies-lower-deduction-certificate-matrix.webp",
+      "alt": "Payment type matrix showing when a lower deduction certificate applies to payments to foreign companies.",
+      "caption": "Payment type Default withholding Treaty route Certificate worth it?; Royalty 20% on the gross amount Often 10% to 15% with TRC and Form 41 Yes, if the treaty rate is unclear or the amount is large and recurring; Fees for technical services 20% on the gross amount Often 10% to 15%; some treaties exclude it unless skills are made available Yes, where the services may not be taxable in India at all. Source: Cash Stream Advisors",
+      "width": 1200,
+      "height": 1448
     },
     {
       "type": "h2",

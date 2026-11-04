@@ -17,7 +17,7 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
   },
   "heroVariant": "document",
   "targetWords": 1356,
-  "infographic": "none",
+  "infographic": "checklist",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
     "src": "/images/insights/lower-deduction-certificate-documents-banner.webp",
@@ -50,6 +50,8 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     },
     {
       "type": "comparisonTable",
+      "checklistDocColumn": 0,
+      "checklistFlagColumn": 2,
       "headers": [
         "Document",
         "Why the officer asks for it",
@@ -112,6 +114,14 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
           "Sometimes"
         ]
       ]
+    },
+    {
+      "type": "image",
+      "src": "/images/insights/lower-deduction-certificate-documents-checklist.webp",
+      "alt": "Checklist of documents needed for a Form 128 lower deduction certificate application.",
+      "caption": "Document Why the officer asks for it Often forgotten?; Sale agreement, draft agreement or contract with the payer Shows the payment the certificate will cover, with amount and dates No; Purchase deed (property) Proves cost and purchase date, which decide long or short term No. Source: Cash Stream Advisors",
+      "width": 1200,
+      "height": 959
     },
     {
       "type": "h2",

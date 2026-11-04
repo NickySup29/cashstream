@@ -91,6 +91,23 @@ async function renderPng(html, width, height, outPath) {
   }
 }
 
+// Like renderPng, but for templates that use normal document flow (no fixed
+// body height / absolute positioning): measures the real rendered content
+// height first, then resizes the viewport to match before screenshotting, so
+// nothing is ever silently clipped regardless of row/text count.
+async function renderPngAuto(html, width, outPath) {
+  const browser = await chromium.launch();
+  try {
+    const page = await browser.newPage({ viewport: { width, height: 800 } });
+    await page.setContent(html, { waitUntil: 'networkidle' });
+    const height = await page.evaluate(() => Math.ceil(document.documentElement.scrollHeight));
+    await page.setViewportSize({ width, height });
+    await page.screenshot({ path: outPath });
+  } finally {
+    await browser.close();
+  }
+}
+
 function optimize(prefix) {
   const scriptArgs = [path.join(root, 'scripts', 'optimize-images.mjs'), prefix];
   if (outDirArg) scriptArgs.push(imagesDir);
@@ -249,32 +266,68 @@ async function main() {
         const docCol = tableBlock.checklistDocColumn;
         const flagCol = tableBlock.checklistFlagColumn;
         items = tableBlock.rows.map((r) => r[docCol]);
-        flags = tableBlock.rows.map((r) => /^(yes|sometimes)$/i.test((r[flagCol] ?? '').trim()));
+        // Only an exact "Yes" gets the badge; "Sometimes" does not.
+        flags = tableBlock.rows.map((r) => /^yes$/i.test((r[flagCol] ?? '').trim()));
         sourceBlockForChecklist = tableBlock;
       }
     }
     if (items.length === 0) {
       console.log('[images:make] infographic is "checklist" but no docChecklist block or checklistDocColumn-tagged comparisonTable was found; skipping.');
     } else {
-      const itemsHtml = items
-        .map(
-          (d, i) =>
-            `<div class="item${flags[i] ? ' flag' : ''}"><div class="tick"></div><div class="d">${stripHtmlLocal(d)}${
-              flags[i] ? '<span class="badge">Often forgotten</span>' : ''
-            }</div></div>`
-        )
-        .join('');
+      const itemHtml = (d, i) =>
+        `<div class="item${flags[i] ? ' flag' : ''}"><div class="tick"></div><div class="d">${stripHtmlLocal(d)}${
+          flags[i] ? '<span class="badge">Often forgotten</span>' : ''
+        }</div></div>`;
+      const splitAt = Math.ceil(items.length / 2);
+      const colA = items.slice(0, splitAt).map((d, i) => itemHtml(d, i)).join('');
+      const colB = items.slice(splitAt).map((d, i) => itemHtml(d, i + splitAt)).join('');
       const html = fillTemplate('checklist-template.html', {
         TITLE: escapeHtml(post.title),
-        ITEMS: itemsHtml,
+        COL_A: colA,
+        COL_B: colB,
         BAND_TEXT: escapeHtml(post.heroNote ?? ''),
         SRC_TEXT: 'Cash Stream Advisors',
       });
       const outPng = path.join(imagesDir, `${post.slug}-checklist.png`);
-      await renderPng(html, 1600, 1000, outPng);
-      results.push(`${post.slug}-checklist.png (1600x1000)`);
+      await renderPngAuto(html, 1600, outPng);
+      results.push(`${post.slug}-checklist.png (1600 wide, auto height)`);
       infographicSuffix = 'checklist';
       infographicSourceBlock = sourceBlockForChecklist;
+    }
+  } else if (kind === 'matrix') {
+    // Card-per-row layout for a comparisonTable with more than 2 value
+    // columns (4+ headers), where the "comparison" pill-table kind would
+    // force long sentences into narrow columns. Every column's value is
+    // shown, labelled, full width, wrapped at a legible size.
+    const table = post.blocks.find((b) => b.type === 'comparisonTable' && b.useForInfographic) ?? post.blocks.find((b) => b.type === 'comparisonTable');
+    if (!table) {
+      console.log('[images:make] infographic is "matrix" but no comparisonTable block was found; skipping.');
+    } else {
+      const valueHeaders = table.headers.slice(1);
+      const cardHtml = (row) => {
+        const fields = valueHeaders
+          .map(
+            (h, i) =>
+              `<div class="field"><div class="k">${escapeHtml(h)}</div><div class="v">${escapeHtml(row[i + 1] ?? '')}</div></div>`
+          )
+          .join('');
+        return `<div class="card"><h2>${escapeHtml(row[0])}</h2>${fields}</div>`;
+      };
+      const splitAt = Math.ceil(table.rows.length / 2);
+      const colA = table.rows.slice(0, splitAt).map(cardHtml).join('');
+      const colB = table.rows.slice(splitAt).map(cardHtml).join('');
+      const html = fillTemplate('matrix-template.html', {
+        TITLE: escapeHtml(post.title),
+        COL_A: colA,
+        COL_B: colB,
+        BAND_TEXT: escapeHtml(table.sourceNote ?? post.heroNote ?? ''),
+        SRC_TEXT: 'Cash Stream Advisors',
+      });
+      const outPng = path.join(imagesDir, `${post.slug}-matrix.png`);
+      await renderPngAuto(html, 1600, outPng);
+      results.push(`${post.slug}-matrix.png (1600 wide, auto height)`);
+      infographicSuffix = 'matrix';
+      infographicSourceBlock = table;
     }
   } else {
     console.log('[images:make] infographic is "none"; no infographic generated.');
@@ -321,7 +374,9 @@ async function insertInfographicBlock(p, suffix, sourceBlock) {
   const imageBlock = {
     type: 'image',
     src: `/images/insights/${p.slug}-${suffix}.webp`,
-    alt: `${suffix === 'comparison' || suffix === 'timeline' ? 'Comparison table' : suffix === 'steps' ? 'Step-by-step' : 'Checklist'} illustrating ${stripHtmlLocal(p.title)}`,
+    alt: `${
+      suffix === 'comparison' || suffix === 'timeline' || suffix === 'matrix' ? 'Comparison table' : suffix === 'steps' ? 'Step-by-step' : 'Checklist'
+    } illustrating ${stripHtmlLocal(p.title)}`,
     caption: `${sourceText}. Source: Cash Stream Advisors`,
     width: meta.width,
     height: meta.height,

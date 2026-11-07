@@ -152,6 +152,7 @@ for (const [k, v] of Object.entries(pd)) {
 textFragments.push({ where: 'Title', text: ir.title });
 textFragments.push({ where: 'Reviewer line', text: ir.reviewerLine });
 textFragments.push({ where: 'Answer box', text: ir.answerBox });
+for (const text of ir.lede) textFragments.push({ where: 'Lede', text });
 for (const s of ir.sections) {
   textFragments.push({ where: `Section heading: ${s.heading}`, text: s.heading });
   for (const n of s.nodes) {
@@ -300,6 +301,7 @@ function mapSectionNodes(section) {
 }
 
 const bodyBlocks = [{ type: 'answerBox', text: ir.answerBox }];
+for (const text of ir.lede) bodyBlocks.push({ type: 'lede', text });
 for (const section of ir.sections) bodyBlocks.push(...mapSectionNodes(section));
 
 if (ir.midCta) {
@@ -593,6 +595,7 @@ if (outDir) {
 console.log('\n[ingest] Outline detected:');
 console.log(`  - Page details table (${Object.keys(pd).length} fields)`);
 console.log('  - Answer box');
+if (ir.lede.length) console.log(`  - Lede (${ir.lede.length} paragraph${ir.lede.length > 1 ? 's' : ''})`);
 for (const s of ir.sections) {
   const shape = s.nodes.map((n) => n.tag).join(',');
   console.log(`  - H2 "${s.heading}" (${s.headingSource}) [${shape || 'empty'}]`);

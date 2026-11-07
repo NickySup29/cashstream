@@ -23,7 +23,7 @@ const TOOL_MARKER = /^TOOL:/i;
 /**
  * @param {string} html full source document HTML (one <body>, flat top-level children)
  * @returns {Promise<{pageDetails: Record<string,string>, title: string, reviewerLine: string,
- *   answerBox: string, sections: Array<{heading: string, headingSource: 'bold'|'question-fallback',
+ *   answerBox: string, lede: string[], sections: Array<{heading: string, headingSource: 'bold'|'question-fallback',
  *   nodes: Array<{tag: string, html: string, text: string, href?: string, rows?: string[][], items?: string[]}>}>,
  *   midCta: {text: string, html: string} | null,
  *   faqHeading: string, faqItems: Array<{q: string, a: string, source: 'bold'|'question-fallback'}>,
@@ -145,6 +145,7 @@ export async function parseBlogSourceHtml(html) {
     i++;
   }
 
+  const lede = [];
   const sections = [];
   const toolSections = [];
   let midCta = null;
@@ -228,7 +229,11 @@ export async function parseBlogSourceHtml(html) {
         continue;
       }
       if (currentSection) currentSection.nodes.push(node);
-      else warnings.push(`Body content found before any section heading: "${node.text ?? node.tag}"`);
+      else if (node.tag === 'p' && sections.length === 0) {
+        // A plain paragraph between the answer box and the first H2 is a lede
+        // (hook) paragraph: maps to a LedeBlock, not a parse failure.
+        lede.push(node.text);
+      } else warnings.push(`Body content found before any section heading: "${node.text ?? node.tag}"`);
       i++;
       continue;
     }
@@ -293,6 +298,7 @@ export async function parseBlogSourceHtml(html) {
     title,
     reviewerLine,
     answerBox,
+    lede,
     sections,
     midCta,
     faqHeading,

@@ -8,20 +8,20 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
   "titleTag": "Claim Back TDS on Property Sale: NRI Seller's Guide",
   "metaDescription": "Buyer deducted TDS on your Indian property sale? See who can claim it back, the ITR route, the documents, and why 26QB refund advice does not fit NRI sellers.",
   "tag": "Insights",
-  "datePublished": "2026-11-04",
-  "dateModified": "2026-11-04",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
   "author": {
     "type": "Organization",
     "name": "Cash Stream Advisors",
     "url": "https://cashstreamadvisors.com/about-us/"
   },
-  "heroVariant": "document",
-  "targetWords": 1355,
-  "infographic": "matrix",
+  "heroVariant": "globe",
+  "targetWords": 1309,
+  "infographic": "comparison",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
     "src": "/images/insights/claim-back-tds-property-sale-nri-banner.webp",
-    "alt": "NRI seller checking TDS credit before claiming a refund.",
+    "alt": "How to Claim Back TDS Deducted on Your Property Sale: A Guide for NRI Sellers (comparison illustration). Cash Stream Advisors",
     "width": 1600,
     "height": 893
   },
@@ -64,14 +64,6 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
           "Claim the credit in your own return, usually ITR-2. The buyer corrects the TDS return if details are wrong"
         ]
       ]
-    },
-    {
-      "type": "image",
-      "src": "/images/insights/claim-back-tds-property-sale-nri-matrix.webp",
-      "alt": "Table of the three routes to claim back TDS on a property sale: buyer, resident seller and NRI seller.",
-      "caption": "Who you are Where the TDS comes from How you claim; Buyer who paid too much Payment made in error or twice, through Form 26QB or a challan Refund request on the e-filing portal; Resident seller 1% TDS deducted by the buyer through Form 26QB Claim the credit in your own return. The buyer corrects 26QB only if the PAN, amount or date is wrong. Source: Cash Stream Advisors",
-      "width": 1200,
-      "height": 917
     },
     {
       "type": "paragraph",
@@ -128,7 +120,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
       "type": "numberedSteps",
       "items": [
         "<p><strong>Compute the gain.</strong> Sale value less cost of acquisition, cost of improvement and sale expenses. For a sale on or after 23 July 2024, an NRI's long term gain is taxed at 12.5% without indexation. Claim any exemption, such as reinvestment in a house, only with proof.</p>",
-        "<p><strong>Pick the return.</strong> We file ITR-2 for an NRI with capital gains and no business income. If the NRI also has business or professional income in India, it becomes ITR-3. Form names can change for later years, so check them for the year you file.</p>",
+        "<p><strong>Pick the return.</strong> We file ITR-2 for an NRI with capital gains and no business income. If the NRI also has business or professional income in India, it becomes ITR-3.</p>",
         "<p><strong>Report the sale.</strong> Fill the capital gains schedule with the dates, sale value, stamp duty value and cost figures, and mark your residential status as non-resident.</p>",
         "<p><strong>Claim the credit.</strong> The TDS from Form 26AS comes into the TDS schedule. Check that it matches, then add your other Indian income and the tax on it.</p>",
         "<p><strong>Choose the refund account.</strong> Add a pre-validated Indian bank account, usually your NRO account, with the name matching your PAN.</p>",
@@ -137,7 +129,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Processing follows, and interest may be paid on the refund under Section 244A of the 1961 Act. For the refund of TDS on sale of property timeline, read <a href=\"https://cashstreamadvisors.com/insights/nri-tds-refund-timeline/\">How Long Does an NRI TDS Refund Take?</a>"
+      "html": "For the refund of TDS on sale of property timeline, read <a href=\"https://cashstreamadvisors.com/insights/nri-tds-refund-timeline/\">How Long Does an NRI TDS Refund Take?</a>"
     },
     {
       "type": "h2",
@@ -208,7 +200,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "We check your credit, work with the buyer to fix any TDS return errors, compute the gain, file the right return and follow the refund through processing. If you are about to sell, we can apply for a lower deduction certificate first. Every case depends on its facts, so the first step is a short conversation. <a href=\"https://calendly.com/cashstreamadvisors/consultation-with-cash-stream-advisors\">Book a Consultation</a>, or <a href=\"https://wa.me/917010415175\">message us on WhatsApp</a>."
+      "html": "We check your credit, work with the buyer to fix any TDS return errors, compute the gain, file the right return and follow the refund through processing. If you are about to sell, we can apply for a lower deduction certificate first. <a href=\"https://calendly.com/cashstreamadvisors/consultation-with-cash-stream-advisors\">Book a Consultation</a>, or <a href=\"https://wa.me/917010415175\">message us on WhatsApp</a>."
     },
     {
       "type": "faq",

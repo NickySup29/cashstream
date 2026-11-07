@@ -1,4 +1,7 @@
 import type { BlogPostContent } from './types';
+import { nroVsNreAccountPropertySaleProceeds } from './nro-vs-nre-account-property-sale-proceeds';
+import { nriTdsRefundStuckFailedFix } from './nri-tds-refund-stuck-failed-fix';
+import { tdsNotShowingForm26asAisNriPropertySale } from './tds-not-showing-form-26as-ais-nri-property-sale';
 import { nriTdsRefundTimeline } from './nri-tds-refund-timeline';
 import { claimBackTdsPropertySaleNri } from './claim-back-tds-property-sale-nri';
 import { lowerDeductionCertificatePropertySaleLoss } from './lower-deduction-certificate-property-sale-loss';
@@ -14,7 +17,7 @@ import { lowerDeductionCertificateTime } from './lower-deduction-certificate-tim
 // Registry of every Insights post. Adding a new post is one import + one
 // array entry here; the listing hub, the detail route, the sitemap and the
 // prerender script all pick it up from this file.
-export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline];
+export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline, tdsNotShowingForm26asAisNriPropertySale, nriTdsRefundStuckFailedFix, nroVsNreAccountPropertySaleProceeds];
 
 export function getBlogPost(slug: string): BlogPostContent | undefined {
   return blogPosts.find((post) => post.slug === slug);

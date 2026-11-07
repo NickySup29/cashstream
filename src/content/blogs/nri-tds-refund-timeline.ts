@@ -8,20 +8,20 @@ export const nriTdsRefundTimeline: BlogPostContent = {
   "titleTag": "How Long Does an NRI TDS Refund Take?",
   "metaDescription": "NRI TDS refunds are quoted anywhere from 20 days to 9 months. See what the portal says, what really slows a refund, and when to follow up.",
   "tag": "Insights",
-  "datePublished": "2026-11-04",
-  "dateModified": "2026-11-04",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
   "author": {
     "type": "Organization",
     "name": "Cash Stream Advisors",
     "url": "https://cashstreamadvisors.com/about-us/"
   },
-  "heroVariant": "ledger",
-  "targetWords": 785,
+  "heroVariant": "globe",
+  "targetWords": 749,
   "infographic": "comparison",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
     "src": "/images/insights/nri-tds-refund-timeline-banner.webp",
-    "alt": "NRI checking income tax refund status on the e-filing portal.",
+    "alt": "How Long Does an NRI TDS Refund Take? What to Expect and Why Quotes Differ (comparison illustration). Cash Stream Advisors",
     "width": 1600,
     "height": 893
   },
@@ -66,14 +66,6 @@ export const nriTdsRefundTimeline: BlogPostContent = {
       ]
     },
     {
-      "type": "image",
-      "src": "/images/insights/nri-tds-refund-timeline-comparison.webp",
-      "alt": "Comparison of NRI TDS refund timelines: portal guidance, a simple clean return, and a mismatch or scrutiny case.",
-      "caption": "Source or case What is quoted Why it differs; Portal guidance About 4 to 5 weeks Credit time once the return is e-verified and processed. It does not count mismatches, notices or scrutiny.; Simple, clean return About 1 to 3 months from filing Early filing, e-verified at once, TDS matches AIS, and the bank account is validated.. Source: Cash Stream Advisors",
-      "width": 1200,
-      "height": 750
-    },
-    {
       "type": "paragraph",
       "html": "Articles that say 20 to 45 days usually describe a resident salaried taxpayer with one Form 16 and a clean match. NRI returns are rarely that simple. <a href=\"https://cashstreamadvisors.com/insights/tds-on-sale-of-property-by-nri/\">TDS on property sale</a>, NRO interest or rent is deducted at higher rates, so refunds are larger and more often checked."
     },
@@ -99,7 +91,7 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Most of these show up on the portal within weeks of filing. Checking early saves months. For a missing credit, read TDS Not in Form 26AS or AIS."
+      "html": "For a missing credit, read TDS Not in Form 26AS or AIS."
     },
     {
       "type": "h2",
@@ -120,7 +112,7 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Then raise the right request. If the refund failed, validate or update the bank account and file a refund reissue request on the portal. If TDS was short allowed, ask the deductor to correct their TDS return, then file a rectification request. If nothing moves for months, raise a grievance on the portal (e-Nivaran), and if it is still stuck, write to the Assessing Officer (AO, the officer in charge of your PAN). Following up does not guarantee a faster refund, but it removes the delays you control. For a stuck refund, read NRI TDS Refund Stuck."
+      "html": "If the refund failed, validate or update the bank account and file a refund reissue request on the portal. If TDS was short allowed, ask the deductor to correct their TDS return, then file a rectification request. If nothing moves for months, raise a grievance on the portal (e-Nivaran), and if it is still stuck, write to the Assessing Officer (AO, the officer in charge of your PAN). For a stuck refund, read NRI TDS Refund Stuck."
     },
     {
       "type": "h2",

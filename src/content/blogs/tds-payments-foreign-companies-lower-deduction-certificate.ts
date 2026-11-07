@@ -8,20 +8,20 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
   "titleTag": "TDS on Foreign Company Payments: When an LDC Helps",
   "metaDescription": "Paying a foreign company from India? See how TDS works by payment type, and when a lower deduction certificate or treaty relief can cut the rate.",
   "tag": "Insights",
-  "datePublished": "2026-11-04",
-  "dateModified": "2026-11-04",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
   "author": {
     "type": "Organization",
     "name": "Cash Stream Advisors",
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "globe",
-  "targetWords": 1450,
+  "targetWords": 1598,
   "infographic": "matrix",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
     "src": "/images/insights/tds-payments-foreign-companies-lower-deduction-certificate-banner.webp",
-    "alt": "TDS on Payments to Foreign Companies: When a Lower Deduction Certificate Applies (banner illustration). Cash Stream Advisors",
+    "alt": "TDS on Payments to Foreign Companies: When a Lower Deduction Certificate Applies (matrix illustration). Cash Stream Advisors",
     "width": 1600,
     "height": 893
   },
@@ -29,7 +29,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
   "blocks": [
     {
       "type": "answerBox",
-      "text": "Yes. When an Indian payer pays a foreign company income that is taxable in India, TDS on payment to foreign company must be withheld at the rate for that payment type, or at the treaty rate if it is lower and the papers support it. A lower deduction certificate from the Assessing Officer can reduce the deduction further, or to nil."
+      "text": "Yes. When an Indian payer pays a foreign company income that is taxable in India, tax must be withheld at the rate for that payment type, or at the treaty rate if it is lower and the papers support it. A lower deduction certificate from the Assessing Officer can reduce the deduction further, or to nil."
     },
     {
       "type": "h2",
@@ -38,11 +38,11 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "TDS on foreign payments applies when the payment is chargeable to tax in India in the hands of the foreign company. The payer, whether company, firm or individual, deducts it at the earlier of crediting the amount in the books or paying it. The same rule governs TDS on non resident vendors, and TDS on payment to non resident vendors."
+      "html": "TDS on foreign payments applies when the payment is chargeable to tax in India in the hands of the foreign company. The payer, whether company, firm or individual, deducts it at the earlier of crediting the amount in the books or paying it. The same rule governs payments to non resident vendors."
     },
     {
       "type": "paragraph",
-      "html": "Under the Income-tax Act 2025 this sits in Section 393(2), which replaces Section 195 of the old Act. Before the money goes abroad, the payer also files Form 145 (formerly Form 15CA), and usually Form 146 (formerly Form 15CB) from a chartered accountant."
+      "html": "Under the Income-tax Act 2025 this sits in Section 393(2), which replaces Section 195 of the old Act. Before the money goes abroad, the payer also files <a href=\"https://cashstreamadvisors.com/insights/form-15ca-15cb-form-145-146-nri-remittance/\">Form 145 (formerly Form 15CA)</a>, and usually Form 146 (formerly Form 15CB) from a chartered accountant."
     },
     {
       "type": "paragraph",
@@ -55,11 +55,11 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "TDS on foreign remittance depends on what the payment is for, not who receives it. Start with the Act rate (the sec 195 TDS rates, now under Section 393(2)), compare it with the treaty rate, and apply the lower one only with a Tax Residency Certificate (TRC, issued by the foreign tax authority to show residence) and Form 41 (formerly Form 10F)."
+      "html": "TDS on a foreign remittance depends on what the payment is for, not who receives it. Start with the Act rate (the sec 195 TDS rates, now under Section 393(2)), compare it with the treaty rate, and apply the lower one only with a Tax Residency Certificate (TRC, issued by the foreign tax authority to show residence) and Form 41 (formerly Form 10F)."
     },
     {
       "type": "paragraph",
-      "html": "TDS on royalty payment to foreign company is commonly 20% under the Act. So is TDS on payment to foreign company for technical services, and TDS on interest payment to foreign company. This is the usual TDS 195 rate for each type. Rates below are before 4% cess and a surcharge of 2% or 5% on higher payments. Treaty rates vary by country, so the ranges are typical, not fixed."
+      "html": "Royalty is commonly taxed at 20% under the Act. So are fees for technical services and interest. This is the usual Section 195 rate for each type, now under Section 393(2). Rates below are before 4% cess and a surcharge of 2% or 5% on higher payments. Treaty rates vary by country, so the ranges are typical, not fixed."
     },
     {
       "type": "comparisonTable",
@@ -109,14 +109,6 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
       ]
     },
     {
-      "type": "image",
-      "src": "/images/insights/tds-payments-foreign-companies-lower-deduction-certificate-matrix.webp",
-      "alt": "Payment type matrix showing when a lower deduction certificate applies to payments to foreign companies.",
-      "caption": "Payment type Default withholding Treaty route Certificate worth it?; Royalty 20% on the gross amount Often 10% to 15% with TRC and Form 41 Yes, if the treaty rate is unclear or the amount is large and recurring; Fees for technical services 20% on the gross amount Often 10% to 15%; some treaties exclude it unless skills are made available Yes, where the services may not be taxable in India at all. Source: Cash Stream Advisors",
-      "width": 1200,
-      "height": 1448
-    },
-    {
       "type": "h2",
       "id": "who-needs-a-lower-deduction-certificate-and-who-does-not",
       "text": "Who needs a lower deduction certificate, and who does not"
@@ -127,7 +119,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "People search for a lower deduction certificate under Section 195. Strictly, a certificate for a foreign payee comes from Section 197 (now Section 395(1)), or from an order on the payer's application under Section 195(2) (now Section 395(2)). A <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">lower deduction certificate for payment to foreign company</a> is not needed when the treaty rate is clear, the TRC and Form 41 are in hand, and the payer is comfortable relying on them. Then the 40 to 45 days a certificate typically takes add little."
+      "html": "People search for a lower deduction certificate under Section 195. Strictly, a certificate for a foreign payee comes from Section 197 (now Section 395(1)), or from an order on the payer's application under Section 195(2) (now Section 395(2)). A lower deduction certificate is not needed when the treaty rate is clear, the TRC and Form 41 are in hand, and the payer is comfortable relying on them. Then the 40 to 45 days a certificate typically takes add little."
     },
     {
       "type": "h2",
@@ -145,10 +137,6 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     {
       "type": "paragraph",
       "html": "<strong>The Indian payer</strong> applies on Form 129 under Section 395(2) (formerly Form 15E under Section 195(2)), asking the officer to decide how much of a specific payment is chargeable. It is filed before the remittance and covers that payment."
-    },
-    {
-      "type": "paragraph",
-      "html": "A one off payment usually suits the payer's application, as the payer carries the risk. A foreign company with many Indian payers may prefer Form 128."
     },
     {
       "type": "h2",
@@ -169,7 +157,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "<strong>No permanent establishment (PE).</strong> If the foreign company has no fixed place of business or dependent agent in India, business income such as commission is usually not taxable here. This is the position for TDS on payment to foreign company not having PE in India, supported by a no PE declaration."
+      "html": "<strong>No permanent establishment (PE).</strong> If the foreign company has no fixed place of business or dependent agent in India, business income such as commission is usually not taxable here. This is the position for a foreign company with no PE in India, supported by a no PE declaration."
     },
     {
       "type": "paragraph",
@@ -190,12 +178,33 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "h2",
+      "id": "can-a-foreign-company-claim-a-refund-of-tds-deducted-in-indi",
+      "text": "Can a foreign company claim a refund of TDS deducted in India?"
+    },
+    {
+      "type": "paragraph",
+      "html": "Yes. A foreign company claims a TDS refund by filing an Indian income tax return in Form ITR-6, the return for companies. A return is needed when the company has income from India and tax was deducted on it. The refund of excess TDS usually arises because the treaty rate is lower than the rate deducted, or because the income is not taxable in India at all."
+    },
+    {
+      "type": "paragraph",
+      "html": "The refund claim needs an Indian PAN, a registered authorised signatory and a digital signature. In our files a power of attorney has not been required. The TDS credit must show against the company's PAN in Form 26AS (now Form 168) or AIS. If it does not, read <a href=\"https://cashstreamadvisors.com/insights/tds-not-showing-form-26as-ais-nri-property-sale/\">TDS Not in Form 26AS or AIS</a>."
+    },
+    {
+      "type": "paragraph",
+      "html": "We do not attach Form 16A (now Form 131), the tax residency certificate or Form 41 to the return, but we keep them ready for queries. The refund goes to a validated Indian bank account. In our files such refunds have mostly come in about six months or less, and no timeline can be promised. If the refund is stuck, read <a href=\"https://cashstreamadvisors.com/insights/nri-tds-refund-stuck-failed-fix/\">NRI TDS Refund Stuck or Failed</a>. To claim a refund of excess TDS for a foreign company, see our <a href=\"https://cashstreamadvisors.com/international-taxation/foreign-company-tds-refund/\">TDS refund service</a>."
+    },
+    {
+      "type": "paragraph",
+      "html": "Do not confuse this with Form 67. Form 67 claims credit in India for tax paid abroad, which is a different question."
+    },
+    {
+      "type": "h2",
       "id": "mistakes-payers-make",
       "text": "Mistakes payers make"
     },
     {
       "type": "paragraph",
-      "html": "These are the five mistakes we see most."
+      "html": "These are the four mistakes we see most."
     },
     {
       "type": "numberedSteps",
@@ -203,7 +212,6 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
         "<p><strong>Deducting at the wrong rate.</strong> The domestic rate where a treaty applies, or the treaty rate without a TRC. Too much locks up the vendor's cash. Too little makes the payer an assessee in default.</p>",
         "<p><strong>Ignoring a pending certificate.</strong> Remitting before it arrives means the default rate applies, and the excess comes back only through the vendor's refund claim.</p>",
         "<p><strong>Wrong payment type.</strong> Treating technical fees as business income, or royalty as a service fee, changes the rate and whether tax is due at all.</p>",
-        "<p><strong>Missing TRC or Form 41.</strong> Without them the treaty rate cannot be applied, so the full Act rate applies.</p>",
         "<p><strong>Grossing up errors.</strong> Where the contract says the payer bears the tax, tax is deducted on the grossed up amount. A mistake here means a short deduction and interest.</p>"
       ]
     },
@@ -235,7 +243,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "A no to any of these is a reason to Book a Consultation."
+      "html": "A no to any of these is a reason to <a href=\"https://calendly.com/cashstreamadvisors/consultation-with-cash-stream-advisors\">Book a Consultation</a>."
     },
     {
       "type": "h2",
@@ -244,7 +252,7 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     },
     {
       "type": "paragraph",
-      "html": "Check the payment type and treaty position before every remittance, and keep the TRC, Form 41 and contract on file. If the payment is large, recurring or of unclear taxability, speak to us before you pay, so there is time to apply. See <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">our lower deduction certificate service</a>."
+      "html": "If the payment is large, recurring or of unclear taxability, speak to us before you pay, so there is time to apply. See our <a href=\"https://cashstreamadvisors.com/international-taxation/lower-deduction-certificate/\">lower deduction certificate service</a>."
     },
     {
       "type": "faq",
@@ -277,6 +285,10 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
         {
           "q": "Is Form 146 still needed if the payer has a certificate?",
           "a": "<p>Usually not. Where the payer holds a certificate or order from the Assessing Officer, Form 145 is still filed, in the part that relies on that order, and a separate Form 146 is not needed. Form 146 applies where the payment is taxable, above the limit, and no such order exists.</p>"
+        },
+        {
+          "q": "How does a non-resident company get a refund of excess TDS in India?",
+          "a": "<p>A non-resident company files an Indian income tax return, in Form ITR-6, and claims the TDS credit shown against its PAN. The refund arises when the treaty rate is lower than the rate deducted, or the income is not taxable in India. It is paid to a validated bank account.</p>"
         }
       ]
     },
@@ -315,6 +327,21 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
           "label": "INSIGHTS",
           "title": "Nil vs Lower TDS Certificate: Which Can You Get?",
           "href": "/insights/nil-vs-lower-tds-certificate/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "TDS on Your Property Sale Not in Form 26AS or AIS? What an NRI Seller Should Do",
+          "href": "/insights/tds-not-showing-form-26as-ais-nri-property-sale/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "NRI TDS Refund Stuck or Failed? Bank Validation, Reissue and Other Causes",
+          "href": "/insights/nri-tds-refund-stuck-failed-fix/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Form 15CA and 15CB, Now Form 145 and 146: NRI Guide to Remitting Sale Proceeds",
+          "href": "/insights/form-15ca-15cb-form-145-146-nri-remittance/"
         },
         {
           "label": "SERVICE",

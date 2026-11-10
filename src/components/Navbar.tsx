@@ -131,7 +131,7 @@ const megaCategories: MegaCategory[] = [
       },
       {
         title: 'Bookkeeping',
-        to: '/bookkeeping',
+        to: '/bookkeeping/',
         desc: 'Monthly books, catch-up and cleanup, and tax filing in QuickBooks, Zoho Books or Xero.',
         icon: BookOpenCheck,
       },
@@ -270,11 +270,11 @@ type SimpleLink = { name: string; href: string };
 // Case Studies, and now About Us are real, already-built routes and stay real here.
 const aboutUsLinks: SimpleLink[] = [
   { name: 'About Us', href: '/about-us/' },
-  { name: 'Careers', href: '/careers' },
+  { name: 'Careers', href: '/careers/' },
 ];
 
 const resourcesLinks: SimpleLink[] = [
-  { name: 'Insights', href: '/insights' },
+  { name: 'Insights', href: '/insights/' },
   { name: 'Case Studies', href: '/about-us/case-studies/' },
   { name: 'Industries We Serve', href: '#' },
   { name: 'FAQs', href: '#' },

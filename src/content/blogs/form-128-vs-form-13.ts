@@ -218,7 +218,7 @@ export const formVsForm13: BlogPostContent = {
         { label: 'INSIGHTS', title: 'TDS on Sale of Property by NRI: 15 Questions Answered', href: '/insights/tds-on-sale-of-property-by-nri/' },
         { label: 'INSIGHTS', title: 'How Long Does a Lower Deduction Certificate Take?', href: '/insights/lower-deduction-certificate-time/' },
         { label: 'SERVICE', title: 'NRI tax relocation advisory', href: '/international-taxation/nri-tax-relocation-advisory/' },
-        { label: 'INSIGHTS', title: 'All insights', href: '/insights' },
+        { label: 'INSIGHTS', title: 'All insights', href: '/insights/' },
         { label: 'ABOUT', title: 'About Cash Stream Advisors', href: '/about-us/' },
         { label: 'CONTACT', title: 'Contact us', href: '/contact-us/' },
       ],

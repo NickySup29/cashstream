@@ -37,3 +37,20 @@
 /privacy-policy  /privacy-policy/  301
 /disclaimer  /disclaimer/  301
 /contact-us  /contact-us/  301
+/compliance  /compliance/  301
+/bookkeeping  /bookkeeping/  301
+/contract-review  /contract-review/  301
+/insights  /insights/  301
+/global-offices  /global-offices/  301
+/careers  /careers/  301
+/regulatory-compliance  /regulatory-compliance/  301
+
+# Legacy /blog system, removed. Specific posts first, then catch-alls (Cloudflare
+# _redirects matches top-down; specific rules must precede the wildcard below).
+/blog/cbdt-sri-lanka-dtaa  /international-taxation/dtaa-advisory/  301
+/blog/mca-ccfs-2026-amnesty-scheme-company-compliance  /indian-company-compliance/roc-compliance/  301
+/blog/recent-fema-updates  /insights/  301
+/blog/mca-updates  /insights/  301
+/blog/startup-india-fund-of-funds-2-fof2-explained  /insights/  301
+/blog  /insights/  301
+/blog/*  /insights/  301

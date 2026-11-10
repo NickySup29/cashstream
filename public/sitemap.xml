@@ -66,7 +66,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/compliance</loc>
+    <loc>https://cashstreamadvisors.com/compliance/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -141,27 +141,27 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/bookkeeping</loc>
+    <loc>https://cashstreamadvisors.com/bookkeeping/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/contract-review</loc>
+    <loc>https://cashstreamadvisors.com/contract-review/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/insights</loc>
+    <loc>https://cashstreamadvisors.com/insights/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/global-offices</loc>
+    <loc>https://cashstreamadvisors.com/global-offices/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/careers</loc>
+    <loc>https://cashstreamadvisors.com/careers/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -196,12 +196,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/regulatory-compliance</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cashstreamadvisors.com/blog</loc>
+    <loc>https://cashstreamadvisors.com/regulatory-compliance/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -446,27 +441,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/blog/mca-updates</loc>
+    <loc>https://cashstreamadvisors.com/insights/claim-back-tds-property-sale-nri/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cashstreamadvisors.com/blog/startup-india-fund-of-funds-2-fof2-explained</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cashstreamadvisors.com/blog/mca-ccfs-2026-amnesty-scheme-company-compliance</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cashstreamadvisors.com/blog/cbdt-sri-lanka-dtaa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cashstreamadvisors.com/blog/recent-fema-updates</loc>
+    <loc>https://cashstreamadvisors.com/insights/fc-gpr-vs-fc-trs-vs-fla-return-which-form-applies/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -476,7 +456,72 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/insights/form-15ca-15cb-form-145-146-nri-remittance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/lower-deduction-certificate-documents/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/lower-deduction-certificate-property-sale-loss/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/insights/lower-deduction-certificate-time/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/lower-tds-certificate-nri-property-sale/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/nil-vs-lower-tds-certificate/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/nri-tds-refund-stuck-failed-fix/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/nri-tds-refund-timeline/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/nro-vs-nre-account-property-sale-proceeds/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/tds-not-showing-form-26as-ais-nri-property-sale/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/tds-on-sale-of-property-by-nri/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/tds-payments-foreign-companies-lower-deduction-certificate/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/track-lower-deduction-certificate-traces/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/why-fc-gpr-gets-rejected-reasons-fixes/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

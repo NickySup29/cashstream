@@ -1,6 +1,21 @@
 import { motion } from 'motion/react';
 import { CONTACT_INFO } from '../constants';
 import { Briefcase, MapPin, Zap, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
+
+const SITE = 'https://cashstreamadvisors.com';
+const pageUrl = `${SITE}/careers/`;
+
+const structuredData = [
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Careers', item: pageUrl },
+    ],
+  },
+];
 
 const jobs = [
   {
@@ -30,6 +45,12 @@ export default function Careers() {
       animate={{ opacity: 1 }} 
       className="pt-32"
     >
+      <SEO
+        title="Careers | Cash Stream Advisors"
+        description="Open roles at Cash Stream Advisors for tax, FEMA compliance, and cross-border advisory professionals."
+        url={pageUrl}
+        structuredData={structuredData}
+      />
       <section className="max-w-screen-2xl mx-auto px-8 mb-24">
         <div className="flex flex-col lg:flex-row gap-24 items-center mb-32">
           <div className="lg:w-1/2">

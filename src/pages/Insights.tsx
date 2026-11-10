@@ -7,7 +7,7 @@ import { blogPosts } from '../content/blogs';
 import { getReadingMinutes, formatPostDate, HeroIcon } from '../content/blogs/render-utils';
 
 const SITE = 'https://cashstreamadvisors.com';
-const pageUrl = `${SITE}/insights`;
+const pageUrl = `${SITE}/insights/`;
 
 // Newest first. Adding a post to src/content/blogs/index.ts is enough to make
 // it appear here; there are no placeholder or "coming soon" cards.

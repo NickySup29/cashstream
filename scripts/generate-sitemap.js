@@ -17,7 +17,7 @@ const staticRoutes = [
   '/tax-litigation/cit-a-appeals/',
   '/tax-litigation/itat-appeals/',
   '/tax-litigation/drp-appeals/',
-  '/compliance',
+  '/compliance/',
   '/fema-advisory/',
   '/fema-advisory/odi-advisory/',
   '/fema-advisory/fdi-advisory/',
@@ -32,19 +32,18 @@ const staticRoutes = [
   '/indian-company-compliance/roc-compliance/',
   '/licensing/',
   '/licensing/money-lending-license/',
-  '/bookkeeping',
-  '/contract-review',
-  '/insights',
-  '/global-offices',
-  '/careers',
+  '/bookkeeping/',
+  '/contract-review/',
+  '/insights/',
+  '/global-offices/',
+  '/careers/',
   '/contact-us/',
   '/about-us/',
   '/about-us/case-studies/',
   '/privacy-policy/',
   '/terms-and-conditions/',
   '/disclaimer/',
-  '/regulatory-compliance',
-  '/blog'
+  '/regulatory-compliance/',
 ];
 
 async function generateSitemap() {
@@ -84,26 +83,7 @@ async function generateSitemap() {
   }
   console.log(`Added ${caseStudySlugs.length} case study pages to sitemap`);
 
-  // 3. Add blog posts
-  const postsDir = path.join(process.cwd(), '_posts');
-  if (fs.existsSync(postsDir)) {
-    const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
-    for (const file of files) {
-      const content = fs.readFileSync(path.join(postsDir, file), 'utf8');
-      const slugMatch = content.match(/slug:\s*(.*)/);
-      if (slugMatch) {
-        const slug = slugMatch[1].trim().replace(/['"]/g, '');
-        urls += `
-  <url>
-    <loc>${SITE_URL}/blog/${slug}</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
-      }
-    }
-  }
-
-  // 4. Add Insights (blog) posts. Each post is a typed .ts file in
+  // 3. Add Insights (blog) posts. Each post is a typed .ts file in
   //    src/content/blogs/ (excluding index.ts and types.ts); slugs are read
   //    with a regex, the same way case study ids are read above, since this
   //    script runs under plain node (no TypeScript loader).

@@ -643,7 +643,7 @@ export default function BlogPostDetail() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [post, h2Blocks]);
 
-  if (!post) return <Navigate to="/insights" replace />;
+  if (!post) return <Navigate to="/insights/" replace />;
 
   const pageUrl = `${SITE}/insights/${post.slug}/`;
   const readingMinutes = getReadingMinutes(post);
@@ -671,7 +671,7 @@ export default function BlogPostDetail() {
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link to="/insights" className="hover:text-primary transition-colors">
+            <Link to="/insights/" className="hover:text-primary transition-colors">
               Insights
             </Link>
             <span aria-hidden="true">/</span>

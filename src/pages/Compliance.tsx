@@ -3,16 +3,37 @@ import { ArrowRight, ShieldCheck, FolderSearch, MessageCircle } from 'lucide-rea
 import { CONTACT_INFO } from '../constants';
 import { Link } from 'react-router-dom';
 import { whatsappUrlForPath } from '../utils/whatsapp';
+import SEO from '../components/SEO';
 
 const WHATSAPP_URL = whatsappUrlForPath('/compliance');
 
+const SITE = 'https://cashstreamadvisors.com';
+const pageUrl = `${SITE}/compliance/`;
+
+const structuredData = [
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Compliance', item: pageUrl },
+    ],
+  },
+];
+
 export default function Compliance() {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="pt-32"
     >
+      <SEO
+        title="Compliance Advisory | Cash Stream Advisors"
+        description="Proactive regulatory adherence and dispute resolution across FEMA, tax, and corporate filings for cross-border individuals and businesses."
+        url={pageUrl}
+        structuredData={structuredData}
+      />
       <section className="min-h-[70vh] flex items-center px-8 max-w-screen-2xl mx-auto py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
           <div className="lg:col-span-7 space-y-8">

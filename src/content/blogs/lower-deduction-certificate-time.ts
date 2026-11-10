@@ -190,7 +190,7 @@ export const lowerDeductionCertificateTime: BlogPostContent = {
         { label: 'INSIGHTS', title: 'Form 128 vs Form 13: What Changed for the Lower Deduction Certificate', href: '/insights/form-128-vs-form-13/' },
         { label: 'INSIGHTS', title: 'TDS on Sale of Property by NRI: 15 Questions Answered', href: '/insights/tds-on-sale-of-property-by-nri/' },
         { label: 'SERVICE', title: 'NRI tax relocation advisory', href: '/international-taxation/nri-tax-relocation-advisory/' },
-        { label: 'INSIGHTS', title: 'All insights', href: '/insights' },
+        { label: 'INSIGHTS', title: 'All insights', href: '/insights/' },
         { label: 'ABOUT', title: 'About Cash Stream Advisors', href: '/about-us/' },
         { label: 'CONTACT', title: 'Contact us', href: '/contact-us/' },
       ],

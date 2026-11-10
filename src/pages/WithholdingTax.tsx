@@ -494,7 +494,7 @@ export default function WithholdingTax() {
             </div>
             <p className="px-6 py-4 text-xs text-secondary italic bg-surface-container-low border-t border-outline-variant/25">
               Rates shown are before surcharge and health and education cess, which apply under the domestic rate but not when the treaty rate is used. Treaty rates vary by country and by the specific treaty article. Subject to change through future Finance Acts — confirm before relying on this for a specific payment. If a Permanent Establishment exists, a return filing obligation follows separately — see{' '}
-              <Link to="/compliance" className="text-primary not-italic font-semibold underline underline-offset-2">
+              <Link to="/compliance/" className="text-primary not-italic font-semibold underline underline-offset-2">
                 Compliance
               </Link>
               .
@@ -747,7 +747,7 @@ export default function WithholdingTax() {
                 International Taxation
               </Link>
               ·
-              <Link to="/compliance" className="hover:underline mx-2">
+              <Link to="/compliance/" className="hover:underline mx-2">
                 Compliance
               </Link>
               ·

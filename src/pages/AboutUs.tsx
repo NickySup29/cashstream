@@ -192,7 +192,7 @@ const serviceCards: { icon: (p: { className: string }) => ReactNode; title: stri
     body: (
       <>
         GST, income tax, ROC, licensing, and{' '}
-        <Link to="/bookkeeping" className="text-primary underline underline-offset-2">
+        <Link to="/bookkeeping/" className="text-primary underline underline-offset-2">
           bookkeeping for US businesses
         </Link>
         .

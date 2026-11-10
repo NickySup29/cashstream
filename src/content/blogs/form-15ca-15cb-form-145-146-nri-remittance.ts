@@ -290,7 +290,7 @@ export const form15ca15cbForm145146NriRemittance: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights"
+          "href": "/insights/"
         },
         {
           "label": "ABOUT",

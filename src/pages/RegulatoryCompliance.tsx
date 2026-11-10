@@ -1,12 +1,33 @@
 import { motion } from 'motion/react';
+import SEO from '../components/SEO';
+
+const SITE = 'https://cashstreamadvisors.com';
+const pageUrl = `${SITE}/regulatory-compliance/`;
+
+const structuredData = [
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Regulatory Compliance', item: pageUrl },
+    ],
+  },
+];
 
 export default function RegulatoryCompliance() {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="pt-40 max-w-4xl mx-auto px-8 pb-32"
     >
+      <SEO
+        title="Regulatory Compliance | Cash Stream Advisors"
+        description="Cash Stream Advisors' regulatory mandate under RBI, SEBI, FEMA, and AML frameworks."
+        url={pageUrl}
+        structuredData={structuredData}
+      />
       <h1 className="text-5xl font-extrabold text-primary mb-12 tracking-tighter">Regulatory Compliance</h1>
       <div className="prose prose-p:text-secondary prose-headings:text-primary prose-headings:font-bold prose-headings:tracking-tight max-w-none space-y-12">
         <section>

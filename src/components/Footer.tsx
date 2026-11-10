@@ -37,23 +37,23 @@ export default function Footer() {
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Expertise</span>
               <Link to="/international-taxation/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">International Taxation</Link>
               <Link to="/international-taxation/withholding-tax-advisory/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Withholding Tax</Link>
-              <Link to="/compliance" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Compliance</Link>
+              <Link to="/compliance/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Compliance</Link>
               <Link to="/fema-advisory/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">FEMA Advisory</Link>
-              <Link to="/bookkeeping" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Bookkeeping</Link>
+              <Link to="/bookkeeping/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Bookkeeping</Link>
               <Link to="/about-us/case-studies/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Case Studies</Link>
             </div>
             <div className="flex flex-col gap-4">
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Company</span>
-              <Link to="/global-offices" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Global Offices</Link>
-              <Link to="/careers" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Careers</Link>
-              <Link to="/insights" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Insights</Link>
+              <Link to="/global-offices/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Global Offices</Link>
+              <Link to="/careers/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Careers</Link>
+              <Link to="/insights/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Insights</Link>
             </div>
             <div className="flex flex-col gap-4">
               <span className="font-bold text-primary-container uppercase tracking-widest text-[10px]">Legal</span>
               <Link to="/privacy-policy/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Privacy Policy</Link>
               <Link to="/terms-and-conditions/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Terms &amp; Conditions</Link>
               <Link to="/disclaimer/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Disclaimer</Link>
-              <Link to="/regulatory-compliance" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Regulatory Compliance</Link>
+              <Link to="/regulatory-compliance/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Regulatory Compliance</Link>
             </div>
           </div>
         </div>

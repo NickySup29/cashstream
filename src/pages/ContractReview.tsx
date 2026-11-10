@@ -3,8 +3,23 @@ import { ShieldCheck, ArrowRight, PhoneCall, Scale, Landmark, FileCheck2, Search
 
 import { CONTACT_INFO } from '../constants';
 import { whatsappUrlForPath } from '../utils/whatsapp';
+import SEO from '../components/SEO';
 
 const WHATSAPP_URL = whatsappUrlForPath('/contract-review');
+
+const SITE = 'https://cashstreamadvisors.com';
+const pageUrl = `${SITE}/contract-review/`;
+
+const structuredData = [
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Contract Review', item: pageUrl },
+    ],
+  },
+];
 
 export default function ContractReview() {
   const steps = [
@@ -14,11 +29,17 @@ export default function ContractReview() {
   ];
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="pt-32"
     >
+      <SEO
+        title="Contract Review Services | Cash Stream Advisors"
+        description="Line-by-line contract and agreement review that uncovers hidden risks and clarifies obligations before you sign."
+        url={pageUrl}
+        structuredData={structuredData}
+      />
       <section className="max-w-screen-2xl mx-auto px-8 mb-32">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7 lg:col-span-6">

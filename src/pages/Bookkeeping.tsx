@@ -22,7 +22,7 @@ import { whatsappUrlForPath } from '../utils/whatsapp';
 const WHATSAPP_URL = whatsappUrlForPath('/bookkeeping');
 
 const SITE = 'https://cashstreamadvisors.com';
-const pageUrl = `${SITE}/bookkeeping`;
+const pageUrl = `${SITE}/bookkeeping/`;
 
 const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 

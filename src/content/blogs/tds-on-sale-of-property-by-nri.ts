@@ -372,7 +372,7 @@ export const tdsOnSaleOfPropertyByNri: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights"
+          "href": "/insights/"
         },
         {
           "label": "ABOUT",

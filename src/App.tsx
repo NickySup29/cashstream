@@ -43,8 +43,6 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegulatoryCompliance from './pages/RegulatoryCompliance';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Disclaimer from './pages/Disclaimer';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
 import BlogPostDetail from './pages/BlogPostDetail';
 import ContactUs from './pages/ContactUs';
 import { CONTACT_INFO } from './constants';
@@ -107,7 +105,7 @@ export default function App() {
               <Route path="/tax-litigation/cit-a-appeals/" element={<CitAAppeals />} />
               <Route path="/tax-litigation/itat-appeals/" element={<ItatAppeals />} />
               <Route path="/tax-litigation/drp-appeals/" element={<DrpAppeals />} />
-              <Route path="/compliance" element={<Compliance />} />
+              <Route path="/compliance/" element={<Compliance />} />
               <Route path="/fema-advisory/" element={<FemaAdvisory />} />
               <Route path="/fema-advisory/odi-advisory/" element={<OdiAdvisory />} />
               <Route path="/fema-advisory/fdi-advisory/" element={<FdiAdvisory />} />
@@ -127,22 +125,20 @@ export default function App() {
               <Route path="/indian-company-compliance/roc-compliance/" element={<RocCompliance />} />
               <Route path="/licensing/" element={<Licensing />} />
               <Route path="/licensing/money-lending-license/" element={<MoneyLendingLicense />} />
-              <Route path="/bookkeeping" element={<Bookkeeping />} />
-              <Route path="/contract-review" element={<ContractReview />} />
-              <Route path="/insights" element={<Insights />} />
+              <Route path="/bookkeeping/" element={<Bookkeeping />} />
+              <Route path="/contract-review/" element={<ContractReview />} />
+              <Route path="/insights/" element={<Insights />} />
               <Route path="/insights/:slug/" element={<BlogPostDetail />} />
-              <Route path="/global-offices" element={<GlobalOffices />} />
-              <Route path="/careers" element={<Careers />} />
+              <Route path="/global-offices/" element={<GlobalOffices />} />
+              <Route path="/careers/" element={<Careers />} />
               <Route path="/contact-us/" element={<ContactUs />} />
               <Route path="/about-us/" element={<AboutUs />} />
               <Route path="/about-us/case-studies/" element={<CaseStudies />} />
               <Route path="/about-us/case-studies/:slug/" element={<CaseStudyDetail />} />
               <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
-              <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
+              <Route path="/regulatory-compliance/" element={<RegulatoryCompliance />} />
               <Route path="/terms-and-conditions/" element={<TermsAndConditions />} />
               <Route path="/disclaimer/" element={<Disclaimer />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
             </Routes>
           </main>
           <Footer />

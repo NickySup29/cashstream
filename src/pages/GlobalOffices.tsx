@@ -1,6 +1,21 @@
 import { motion } from 'motion/react';
 import { CONTACT_INFO } from '../constants';
 import { MapPin, Mail, Phone, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
+
+const SITE = 'https://cashstreamadvisors.com';
+const pageUrl = `${SITE}/global-offices/`;
+
+const structuredData = [
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Global Offices', item: pageUrl },
+    ],
+  },
+];
 
 const offices = [
   {
@@ -39,6 +54,12 @@ export default function GlobalOffices() {
       animate={{ opacity: 1 }} 
       className="pt-32"
     >
+      <SEO
+        title="Global Offices | Cash Stream Advisors"
+        description="Cash Stream Advisors' offices across India, positioned in key financial corridors to facilitate seamless cross-border advisory."
+        url={pageUrl}
+        structuredData={structuredData}
+      />
       <section className="max-w-screen-2xl mx-auto px-8 mb-24">
         <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
           <div className="max-w-3xl">

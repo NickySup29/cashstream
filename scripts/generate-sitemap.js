@@ -125,6 +125,39 @@ async function generateSitemap() {
   }
   console.log(`Added ${blogSlugs.length} Insights post(s) to sitemap`);
 
+  // 5. Add Insights pillar pages, but only for pillars that actually have
+  //    >=1 article assigned (read the same way as blogSlugs above, since
+  //    this script runs under plain node with no TS loader). The six pillar
+  //    slugs are the typed PillarSlug union in src/content/insightsPillars.ts;
+  //    kept here as a plain list since that file can't be imported as TS.
+  const ALL_PILLAR_SLUGS = [
+    'international-taxation',
+    'tax-litigation',
+    'fema-advisory',
+    'business-setup',
+    'company-compliance',
+    'licensing',
+  ];
+  const assignedPillars = new Set(
+    fs
+      .readdirSync(blogsDir)
+      .filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')
+      .flatMap((f) => {
+        const src = fs.readFileSync(path.join(blogsDir, f), 'utf8');
+        return [...src.matchAll(/^\s{2}"?pillar"?:\s*['"]([a-z-]+)['"]/gm)].map((m) => m[1]);
+      })
+  );
+  const nonEmptyPillarSlugs = ALL_PILLAR_SLUGS.filter((slug) => assignedPillars.has(slug));
+  for (const slug of nonEmptyPillarSlugs) {
+    urls += `
+  <url>
+    <loc>${SITE_URL}/insights/${slug}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+  console.log(`Added ${nonEmptyPillarSlugs.length} Insights pillar page(s) to sitemap: ${nonEmptyPillarSlugs.join(', ') || '(none)'}`);
+
   const sitemap = `${sitemapHeader}${urls}\n${sitemapFooter}`;
   
   // Write to public/sitemap.xml so it gets bundled by Vite

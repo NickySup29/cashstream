@@ -8,6 +8,8 @@ export const nriTdsRefundTimeline: BlogPostContent = {
   "titleTag": "How Long Does an NRI TDS Refund Take?",
   "metaDescription": "NRI TDS refunds are quoted anywhere from 20 days to 9 months. See what the portal says, what really slows a refund, and when to follow up.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "summary": "NRI TDS refund timelines are quoted anywhere from 20 days to 9 months. This covers what the portal actually says, what slows a refund down, and when to follow up.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

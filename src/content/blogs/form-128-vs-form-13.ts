@@ -14,6 +14,9 @@ export const formVsForm13: BlogPostContent = {
   metaDescription:
     'Form 13 is now Form 128. See what changed for the lower deduction certificate under Section 395, Rule 213, and what applicants must do now.',
   tag: 'Lower Deduction Certificate',
+  pillar: 'international-taxation',
+  service: 'Lower Deduction Certificate',
+  summary: 'Form 128 replaced Form 13 for lower deduction certificate applications, with a faster online process and a few procedural differences worth knowing before you apply.',
   datePublished: '2026-10-21',
   dateModified: '2026-10-21',
   author: { type: 'Organization', name: 'Cash Stream Advisors', url: 'https://cashstreamadvisors.com/about-us/' },

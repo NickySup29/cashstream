@@ -8,6 +8,9 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
   "titleTag": "Lower Deduction Certificate Documents and Why They Stall",
   "metaDescription": "The documents needed for a lower deduction certificate on Form 128, and the mistakes that trigger officer queries and delays. From our own cases.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "The specific documents a lower deduction certificate application needs, and the common gaps that trigger officer queries and stall the process.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

@@ -8,6 +8,8 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
   "titleTag": "Claim Back TDS on Property Sale: NRI Seller's Guide",
   "metaDescription": "Buyer deducted TDS on your Indian property sale? See who can claim it back, the ITR route, the documents, and why 26QB refund advice does not fit NRI sellers.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "summary": "How an NRI seller can claim back TDS deducted on a property sale through the ITR route, including the documents needed and why standard 26QB refund advice doesn't fit NRI sellers.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

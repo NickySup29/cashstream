@@ -8,6 +8,9 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
   "titleTag": "Property Sale at a Loss: Lower TDS Certificate",
   "metaDescription": "Sold property at a loss or low gain? See how it affects a lower deduction certificate, what the officer needs to see, and why TDS can still hit the full price.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "Selling a property at a loss changes the lower deduction certificate math, but TDS is still calculated on the sale price, not the gain, unless the certificate accounts for it.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

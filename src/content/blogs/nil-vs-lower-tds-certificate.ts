@@ -8,6 +8,9 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
   "titleTag": "TDS Exemption Certificate: Nil vs Lower Explained",
   "metaDescription": "Nil or lower TDS certificate? See when each applies, the rates officers granted in our cases, and how the officer decides. Form 128, Section 395.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "Whether you qualify for a nil or a lower TDS certificate depends on your actual tax liability versus the standard TDS rate, and the officer decides based on the numbers you put in front of them.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

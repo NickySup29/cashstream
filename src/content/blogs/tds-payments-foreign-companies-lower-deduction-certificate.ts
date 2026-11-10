@@ -8,6 +8,9 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
   "titleTag": "TDS on Foreign Company Payments: When an LDC Helps",
   "metaDescription": "Paying a foreign company from India? See how TDS works by payment type, and when a lower deduction certificate or treaty relief can cut the rate.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "TDS on payments to a foreign company depends on the nature of the payment, and a lower deduction certificate or treaty relief can often bring that rate down.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

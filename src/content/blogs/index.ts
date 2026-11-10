@@ -1,4 +1,5 @@
 import type { BlogPostContent } from './types';
+import { validatePillarAssignments } from '../insightsPillars';
 import { nriTdsRefundTimeline } from './nri-tds-refund-timeline';
 import { claimBackTdsPropertySaleNri } from './claim-back-tds-property-sale-nri';
 import { lowerDeductionCertificatePropertySaleLoss } from './lower-deduction-certificate-property-sale-loss';
@@ -15,6 +16,10 @@ import { lowerDeductionCertificateTime } from './lower-deduction-certificate-tim
 // array entry here; the listing hub, the detail route, the sitemap and the
 // prerender script all pick it up from this file.
 export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline];
+
+// Fails loudly at module load (dev, build, and prerender all import this
+// module) if any post's `service` doesn't belong to its own pillar.
+validatePillarAssignments(blogPosts);
 
 export function getBlogPost(slug: string): BlogPostContent | undefined {
   return blogPosts.find((post) => post.slug === slug);

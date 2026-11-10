@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Mail, MessageCircle, Plus, Clock, Calendar, CheckCircle2 } from 'lucide-react';
+import { Mail, MessageCircle, Plus, Clock, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
-import { getBlogPost } from '../content/blogs';
+import { getBlogPost, blogPosts } from '../content/blogs';
+import { getPillar, getPillarService, getPostsForPillar } from '../content/insightsPillars';
 import type {
   BlogBlock,
   BlogPostContent,
@@ -565,6 +566,8 @@ function FaqAccordion({ items }: { items: FaqItem[] }) {
 
 function buildStructuredData(post: BlogPostContent, pageUrl: string) {
   const faqBlock = post.blocks.find((b): b is Extract<BlogBlock, { type: 'faq' }> => b.type === 'faq');
+  const pillar = post.pillar ? getPillar(post.pillar) : undefined;
+  const service = pillar && post.service ? getPillarService(pillar, post.service) : undefined;
 
   const blogPosting: Record<string, unknown> = {
     '@type': 'BlogPosting',
@@ -602,14 +605,22 @@ function buildStructuredData(post: BlogPostContent, pageUrl: string) {
       }
     : null;
 
+  const breadcrumbItems: { '@type': 'ListItem'; position: number; name: string; item: string }[] = [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: `${SITE}/insights` },
+  ];
+  if (pillar) {
+    breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: pillar.label, item: `${SITE}${pillar.path}` });
+  }
+  if (service) {
+    breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: service.name, item: `${SITE}${service.href}` });
+  }
+  breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: post.title, item: pageUrl });
+
   const breadcrumb = {
     '@type': 'BreadcrumbList',
     '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'Insights', item: `${SITE}/insights` },
-      { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl },
-    ],
+    itemListElement: breadcrumbItems,
   };
 
   return [blogPosting, faqPage, breadcrumb].filter(Boolean);
@@ -648,6 +659,19 @@ export default function BlogPostDetail() {
   const pageUrl = `${SITE}/insights/${post.slug}/`;
   const readingMinutes = getReadingMinutes(post);
   const dateLabel = formatPostDate(post.datePublished);
+  const pillar = post.pillar ? getPillar(post.pillar) : undefined;
+  const service = pillar && post.service ? getPillarService(pillar, post.service) : undefined;
+  const morePosts = pillar
+    ? getPostsForPillar(pillar.slug, blogPosts)
+        .filter((p) => p.slug !== post.slug)
+        .sort((a, b) => {
+          const aSame = a.service === post.service ? 0 : 1;
+          const bSame = b.service === post.service ? 0 : 1;
+          if (aSame !== bSame) return aSame - bSame;
+          return a.datePublished < b.datePublished ? 1 : -1;
+        })
+        .slice(0, 3)
+    : [];
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
@@ -674,6 +698,22 @@ export default function BlogPostDetail() {
             <Link to="/insights" className="hover:text-primary transition-colors">
               Insights
             </Link>
+            {pillar && (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link to={pillar.path} className="hover:text-primary transition-colors">
+                  {pillar.label}
+                </Link>
+              </>
+            )}
+            {service && (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link to={service.href} className="hover:text-primary transition-colors">
+                  {service.name}
+                </Link>
+              </>
+            )}
             <span aria-hidden="true">/</span>
             <span className="text-primary font-semibold" aria-current="page">
               {post.title}
@@ -696,7 +736,7 @@ export default function BlogPostDetail() {
               <div className="flex items-center gap-2 font-label text-[13px] text-secondary">
                 <Calendar size={14} />
                 <span>
-                  {post.author.name} &middot; {dateLabel}
+                  Reviewed by Cash Stream Advisors &middot; {dateLabel}
                 </span>
               </div>
             </div>
@@ -713,8 +753,42 @@ export default function BlogPostDetail() {
               className="w-full h-auto rounded-2xl border border-outline-variant/10 shadow-sm mt-8"
             />
           )}
+
+          {service && (
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-5 justify-between bg-surface-container-lowest border border-outline-variant/15 rounded-2xl p-6">
+              <div>
+                <span className="font-label text-[11px] uppercase tracking-[0.1em] font-semibold text-secondary block mb-1.5">
+                  Related service
+                </span>
+                <Link to={service.href} className="font-headline font-bold text-primary text-[18px] hover:underline">
+                  {service.name}
+                </Link>
+                <p className="text-secondary text-[14.5px] mt-1.5 max-w-xl">{service.description}</p>
+              </div>
+              <Link
+                to={service.href}
+                className="shrink-0 px-6 py-3 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center justify-center"
+              >
+                View service
+              </Link>
+            </div>
+          )}
         </motion.div>
       </section>
+
+      {post.summary && (
+        <section className="max-w-screen-2xl mx-auto px-8 mb-16">
+          <motion.div
+            {...revealProps}
+            className="max-w-[700px] lg:ml-[calc(240px+3rem)] bg-surface-container-low border-l-4 border-primary rounded-r-xl rounded-l-sm p-6"
+          >
+            <span className="font-label text-[11px] uppercase tracking-[0.1em] font-semibold text-primary block mb-2">
+              In short
+            </span>
+            <p className="text-secondary text-[15.5px] leading-relaxed">{post.summary}</p>
+          </motion.div>
+        </section>
+      )}
 
       {/* TOC + ARTICLE */}
       <section className="max-w-screen-2xl mx-auto px-8 mb-20">
@@ -757,9 +831,67 @@ export default function BlogPostDetail() {
             {post.blocks.map((block, i) => (
               <BlockRenderer key={i} block={block} slug={post.slug} />
             ))}
+
+            {service && (
+              <div className="bg-primary rounded-[1.75rem] p-10 md:p-12 text-center text-on-primary my-12">
+                <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">{service.name}</h3>
+                <p className="text-on-primary/80 text-[15px] mb-7 max-w-xl mx-auto">{service.description}</p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <a
+                    href={CONTACT_INFO.calendlyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-ga-event="book_consultation_click"
+                    className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
+                  >
+                    <Mail size={16} />
+                    Book a Consultation
+                  </a>
+                  <Link
+                    to={service.href}
+                    className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base border border-on-primary/40 text-on-primary hover:bg-on-primary/10 transition-all active:scale-95 inline-flex items-center gap-2"
+                  >
+                    View service
+                  </Link>
+                </div>
+              </div>
+            )}
           </motion.article>
         </div>
       </section>
+
+      {morePosts.length > 0 && pillar && (
+        <section className="max-w-screen-2xl mx-auto px-8 mb-20">
+          <motion.div {...revealProps}>
+            <h2 className="font-label text-[13px] font-bold text-primary mb-6 uppercase tracking-wide">
+              More from {pillar.label}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {morePosts.map((p) => (
+                <Link
+                  key={p.slug}
+                  to={`/insights/${p.slug}/`}
+                  className="block rounded-xl border border-outline-variant/10 shadow-sm bg-surface-container-lowest p-5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <span className="font-label text-[11px] uppercase tracking-[0.06em] text-tertiary block mb-2">
+                    {p.tag}
+                  </span>
+                  <h3 className="text-[15.5px] font-bold text-primary leading-snug">{p.title}</h3>
+                </Link>
+              ))}
+              <Link
+                to={pillar.path}
+                className="group block rounded-xl bg-primary text-on-primary p-5 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-center items-start"
+              >
+                <span className="font-bold text-[15.5px]">All {pillar.label} Insights</span>
+                <span className="text-on-primary/80 text-[13px] mt-1 inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                  View pillar <ArrowRight size={14} />
+                </span>
+              </Link>
+            </div>
+          </motion.div>
+        </section>
+      )}
     </motion.div>
   );
 }

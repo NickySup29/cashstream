@@ -34,6 +34,9 @@ import MoneyLendingLicense from './pages/MoneyLendingLicense';
 import Bookkeeping from './pages/Bookkeeping';
 import ContractReview from './pages/ContractReview';
 import Insights from './pages/Insights';
+import InsightsPillar from './pages/InsightsPillar';
+import { blogPosts } from './content/blogs';
+import { getNonEmptyPillars } from './content/insightsPillars';
 import GlobalOffices from './pages/GlobalOffices';
 import Careers from './pages/Careers';
 import AboutUs from './pages/AboutUs';
@@ -48,6 +51,11 @@ import BlogPost from './pages/BlogPost';
 import BlogPostDetail from './pages/BlogPostDetail';
 import ContactUs from './pages/ContactUs';
 import { CONTACT_INFO } from './constants';
+
+// Computed once: a pillar only gets a crawlable route once it has >=1 article.
+// Adding articles to a new pillar is enough to make its route appear here,
+// no route list to hand-maintain.
+const nonEmptyPillars = getNonEmptyPillars(blogPosts);
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -130,6 +138,9 @@ export default function App() {
               <Route path="/bookkeeping" element={<Bookkeeping />} />
               <Route path="/contract-review" element={<ContractReview />} />
               <Route path="/insights" element={<Insights />} />
+              {nonEmptyPillars.map((pillar) => (
+                <Route key={pillar.slug} path={pillar.path} element={<InsightsPillar pillarSlug={pillar.slug} />} />
+              ))}
               <Route path="/insights/:slug/" element={<BlogPostDetail />} />
               <Route path="/global-offices" element={<GlobalOffices />} />
               <Route path="/careers" element={<Careers />} />

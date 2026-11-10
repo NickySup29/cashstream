@@ -246,5 +246,16 @@ export interface BlogPostContent {
   // Absolute URL for og:image / twitter:image / schema image, 1200x630.
   // Falls back to the sitewide og-image.jpg when omitted.
   ogImage?: string;
+  // Insights pillar this post belongs to (see src/content/insightsPillars.ts).
+  // Required for the post to appear on any pillar page/rail; omitted posts
+  // stay registered and reachable by direct URL but sit outside the pillar
+  // system entirely.
+  pillar?: import('../insightsPillars').PillarSlug;
+  // One service name from the assigned pillar's service list (validated at
+  // build time by validatePillarAssignments). Leave empty when no single
+  // service is a confident match; never force a weak fit.
+  service?: string;
+  // One or two sentences for the article's "In short" box. Optional.
+  summary?: string;
   blocks: BlogBlock[];
 }

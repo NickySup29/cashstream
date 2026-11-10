@@ -8,6 +8,8 @@ export const tdsOnSaleOfPropertyByNri: BlogPostContent = {
   "titleTag": "TDS on Sale of Property by NRI: 15 Questions Answered",
   "metaDescription": "TDS on sale of property by NRI explained: current rates, Lower Deduction Certificate, timelines, ITR and refund, in 15 clear answers.",
   "tag": "NRI Property Sale",
+  "pillar": "international-taxation",
+  "summary": "A 15-question overview of how TDS applies when an NRI sells property in India, covering current rates, the lower deduction certificate route, timelines, and how to claim a refund.",
   "datePublished": "2026-10-27",
   "dateModified": "2026-10-27",
   "author": {

@@ -8,6 +8,9 @@ export const lowerTdsCertificateNriPropertySale: BlogPostContent = {
   "titleTag": "Lower TDS Certificate for NRI Property Sale: Worked Example",
   "metaDescription": "See how a lower TDS certificate rate is worked out for an NRI property sale, with a ₹7 crore case that got 5.5% against about 15% standard TDS.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "A worked example showing how a lower TDS rate was calculated for a real NRI property sale, bringing the deduction down from the standard rate to a fraction of it.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

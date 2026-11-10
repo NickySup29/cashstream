@@ -8,6 +8,9 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
   "titleTag": "Track and Download a Lower Deduction Certificate",
   "metaDescription": "How to track your lower deduction certificate application on TRACES, what each status means, how to download the certificate, and what to do if it stalls.",
   "tag": "Insights",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "How to track a lower deduction certificate application on TRACES, what each status means, and how to download the certificate once it's issued.",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
   "author": {

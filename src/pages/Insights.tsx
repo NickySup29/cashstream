@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import NewsletterForm from '../components/NewsletterForm';
 import { blogPosts } from '../content/blogs';
 import { getReadingMinutes, formatPostDate, HeroIcon } from '../content/blogs/render-utils';
+import { getNonEmptyPillars, getPostsForPillar } from '../content/insightsPillars';
 
 const SITE = 'https://cashstreamadvisors.com';
 const pageUrl = `${SITE}/insights`;
@@ -12,6 +13,9 @@ const pageUrl = `${SITE}/insights`;
 // Newest first. Adding a post to src/content/blogs/index.ts is enough to make
 // it appear here; there are no placeholder or "coming soon" cards.
 const postsNewestFirst = [...blogPosts].sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1));
+
+// Only pillars with at least one assigned article render in the rail.
+const nonEmptyPillars = getNonEmptyPillars(blogPosts);
 
 export default function Insights() {
   return (
@@ -53,6 +57,21 @@ export default function Insights() {
             />
           </div>
         </div>
+
+        {nonEmptyPillars.length > 0 && (
+          <div className="flex flex-wrap gap-3 mb-16">
+            {nonEmptyPillars.map((pillar) => (
+              <Link
+                key={pillar.slug}
+                to={pillar.path}
+                className="px-5 py-2.5 rounded-[999px] border border-outline-variant/30 font-label text-[13px] font-semibold text-secondary hover:border-primary hover:text-primary transition-all inline-flex items-center gap-2"
+              >
+                {pillar.label}
+                <span className="text-tertiary">{getPostsForPillar(pillar.slug, blogPosts).length}</span>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {postsNewestFirst.length === 0 ? (
           <p className="text-secondary text-lg">New Insights posts are on the way.</p>

@@ -26,6 +26,9 @@ export const tdsPaymentsForeignCompaniesLowerDeductionCertificate: BlogPostConte
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/tds-payments-foreign-companies-lower-deduction-certificate-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "Paying a foreign company from India? See how TDS works by payment type, and when a lower deduction certificate or treaty relief can cut the rate.",
   "blocks": [
     {
       "type": "answerBox",

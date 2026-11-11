@@ -26,6 +26,9 @@ export const lowerTdsCertificateNriPropertySale: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/lower-tds-certificate-nri-property-sale-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "See how a lower TDS certificate rate is worked out for an NRI property sale, with a ₹7 crore case that got 5.5% against about 15% standard TDS.",
   "blocks": [
     {
       "type": "answerBox",

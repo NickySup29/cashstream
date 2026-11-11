@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Mail, MessageCircle, Plus, Clock, Calendar, CheckCircle2 } from 'lucide-react';
+import { Mail, MessageCircle, Plus, Clock, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
-import { getBlogPost } from '../content/blogs';
+import { getBlogPost, getPostsByPillar } from '../content/blogs';
+import { getPillar, getPillarService } from '../content/insightsPillars';
 import type {
   BlogBlock,
   BlogPostContent,
@@ -32,15 +33,6 @@ function HERO_ICON({ variant }: { variant: HeroVariant }) {
     <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
       <HeroIcon variant={variant} size={56} />
     </div>
-  );
-}
-
-function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <span className="font-label text-xs uppercase tracking-[0.16em] font-semibold mb-4 flex items-center gap-3 text-secondary">
-      <span className="inline-block w-5 h-px bg-outline" />
-      {children}
-    </span>
   );
 }
 
@@ -602,14 +594,28 @@ function buildStructuredData(post: BlogPostContent, pageUrl: string) {
       }
     : null;
 
+  // Breadcrumb: Home > Insights > Pillar > Service > Article, with the
+  // Service level omitted when the post has none (CLAUDE.md #5 shape, task
+  // brief #4). Position numbers are recomputed so there's never a gap.
+  const pillar = post.pillar ? getPillar(post.pillar) : undefined;
+  const service = pillar && post.service ? getPillarService(pillar, post.service) : undefined;
+  const crumbItems: { name: string; item?: string }[] = [
+    { name: 'Home', item: `${SITE}/` },
+    { name: 'Insights', item: `${SITE}/insights` },
+  ];
+  if (pillar) crumbItems.push({ name: pillar.name, item: `${SITE}/insights/${pillar.slug}/` });
+  if (service) crumbItems.push({ name: service.title, item: `${SITE}${service.href}` });
+  crumbItems.push({ name: post.title, item: pageUrl });
+
   const breadcrumb = {
     '@type': 'BreadcrumbList',
     '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'Insights', item: `${SITE}/insights` },
-      { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl },
-    ],
+    itemListElement: crumbItems.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: c.item,
+    })),
   };
 
   return [blogPosting, faqPage, breadcrumb].filter(Boolean);
@@ -649,8 +655,28 @@ export default function BlogPostDetail() {
   const readingMinutes = getReadingMinutes(post);
   const dateLabel = formatPostDate(post.datePublished);
 
+  const pillar = post.pillar ? getPillar(post.pillar) : undefined;
+  const service = pillar && post.service ? getPillarService(pillar, post.service) : undefined;
+
+  // "More from [Pillar]": same-service siblings first, this post excluded,
+  // capped so the grid never shows an empty slot. The remaining cell is
+  // always the "see every pillar article" card (mockup's .all card), never
+  // a blank placeholder.
+  const morePosts = pillar
+    ? getPostsByPillar(pillar.slug)
+        .filter((p) => p.slug !== post.slug)
+        .sort((a, b) => {
+          const aMatch = a.service === post.service ? 0 : 1;
+          const bMatch = b.service === post.service ? 0 : 1;
+          if (aMatch !== bMatch) return aMatch - bMatch;
+          return a.datePublished < b.datePublished ? 1 : -1;
+        })
+        .slice(0, 2)
+    : [];
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
+      {/* TODO(PR1-REBASE): replace with <SEO .../> once seo/ahrefs-fixes lands */}
       <SEO
         title={post.titleTag}
         description={post.metaDescription}
@@ -674,6 +700,22 @@ export default function BlogPostDetail() {
             <Link to="/insights/" className="hover:text-primary transition-colors">
               Insights
             </Link>
+            {pillar && (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link to={`/insights/${pillar.slug}/`} className="hover:text-primary transition-colors">
+                  {pillar.name}
+                </Link>
+              </>
+            )}
+            {service && (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link to={service.href} className="hover:text-primary transition-colors">
+                  {service.title}
+                </Link>
+              </>
+            )}
             <span aria-hidden="true">/</span>
             <span className="text-primary font-semibold" aria-current="page">
               {post.title}
@@ -682,22 +724,29 @@ export default function BlogPostDetail() {
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8 justify-between">
             <div className="max-w-3xl">
-              <Eyebrow>
-                {post.tag}
-                <span className="inline-flex items-center gap-1.5 text-secondary">
-                  <Clock size={13} />
-                  {readingMinutes} min read
-                </span>
-              </Eyebrow>
+              {pillar && (
+                <Link
+                  to={`/insights/${pillar.slug}/`}
+                  className="inline-flex items-center min-h-9 px-3.5 rounded-[999px] bg-primary text-on-primary font-label text-xs font-semibold uppercase tracking-wide mb-5 hover:bg-primary-container transition-colors"
+                >
+                  {pillar.name}
+                </Link>
+              )}
               <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-primary leading-[1.05] mb-5">
                 {post.title}
               </h1>
               {post.heroNote && <p className="text-secondary text-[15px] mb-5 max-w-2xl">{post.heroNote}</p>}
-              <div className="flex items-center gap-2 font-label text-[13px] text-secondary">
-                <Calendar size={14} />
-                <span>
-                  {post.author.name} &middot; {dateLabel}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-label text-[13px] text-secondary uppercase tracking-wide">
+                <span className="flex items-center gap-1.5">
+                  <Calendar size={14} />
+                  {dateLabel}
                 </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock size={13} />
+                  {readingMinutes} min read
+                </span>
+                {/* Firm name only, never a named individual (CLAUDE.md #11). */}
+                <span>Reviewed by {post.author.name}</span>
               </div>
             </div>
             {!post.heroImage && <HERO_ICON variant={post.heroVariant} />}
@@ -712,6 +761,32 @@ export default function BlogPostDetail() {
               fetchPriority="high"
               className="w-full h-auto rounded-2xl border border-outline-variant/10 shadow-sm mt-8"
             />
+          )}
+
+          {/* RELATED SERVICE, TOP */}
+          {service && (
+            <aside
+              aria-label="Related service"
+              className="flex flex-wrap items-center gap-5 mt-8 p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15"
+            >
+              <div className="min-w-0 flex-1">
+                <div className="font-label text-xs uppercase tracking-widest text-secondary font-bold mb-1">
+                  Related service
+                </div>
+                <Link to={service.href} className="font-headline font-bold text-xl text-primary hover:text-secondary transition-colors">
+                  {service.title}
+                </Link>
+                <p className="text-secondary text-sm mt-1 leading-relaxed">
+                  {service.desc} This guide explains the problems that service fixes.
+                </p>
+              </div>
+              <Link
+                to={service.href}
+                className="px-5 py-2.5 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 shrink-0"
+              >
+                View service
+              </Link>
+            </aside>
           )}
         </motion.div>
       </section>
@@ -751,15 +826,135 @@ export default function BlogPostDetail() {
                 ))}
               </ol>
             </nav>
+
+            {/* Consultation card: part of the same sticky sidebar as "On this
+                page" at >=1000px, matching the mockup's two-card side column. */}
+            <div className="hidden lg:block mt-6 bg-surface-container-low border border-outline-variant/15 rounded-xl p-6">
+              <div className="font-label text-xs uppercase tracking-widest text-secondary font-bold mb-3">
+                Need this handled?
+              </div>
+              <p className="text-secondary text-sm leading-relaxed mb-5">
+                Tell us what you are dealing with and we will tell you what it needs.
+              </p>
+              <a
+                href={CONTACT_INFO.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-ga-event="book_consultation_click"
+                className="w-full px-5 py-3 rounded-lg font-bold text-sm bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 inline-flex items-center justify-center gap-2"
+              >
+                <Mail size={16} />
+                Book a Consultation
+              </a>
+            </div>
           </motion.aside>
 
           <motion.article {...revealProps} className="max-w-[700px]">
+            {post.summary && (
+              <div className="bg-surface-container-lowest border border-outline-variant/15 rounded-2xl p-6 md:p-7 mb-8">
+                <div className="font-label text-xs uppercase tracking-widest text-secondary font-bold mb-2">
+                  In short
+                </div>
+                <p className="text-primary text-[17px] leading-relaxed">{post.summary}</p>
+              </div>
+            )}
+
             {post.blocks.map((block, i) => (
               <BlockRenderer key={i} block={block} slug={post.slug} />
             ))}
+
+            {/* RELATED SERVICE, BOTTOM CTA */}
+            {service && (
+              <div className="bg-primary rounded-[1.75rem] p-10 md:p-12 text-on-primary mt-12">
+                <div className="font-label text-xs uppercase tracking-widest text-on-primary/70 font-bold mb-2">
+                  Related service
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">{service.title}</h3>
+                <p className="text-on-primary/80 text-base md:text-lg leading-relaxed max-w-xl mb-7">
+                  {service.desc}, handled so it does not become the subject of your next article.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href={CONTACT_INFO.calendlyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-ga-event="book_consultation_click"
+                    className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base bg-surface-container-lowest text-primary hover:bg-surface-bright transition-all active:scale-95 inline-flex items-center gap-2"
+                  >
+                    <Mail size={16} />
+                    Book a Consultation
+                  </a>
+                  <Link
+                    to={service.href}
+                    className="px-7 py-3.5 rounded-lg font-bold text-sm md:text-base border border-on-primary/40 text-on-primary hover:bg-on-primary/10 transition-all active:scale-95 inline-flex items-center gap-2"
+                  >
+                    View the service page
+                  </Link>
+                </div>
+              </div>
+            )}
           </motion.article>
         </div>
       </section>
+
+      {/* MORE FROM THE PILLAR */}
+      {pillar && (
+        <section aria-labelledby="more-h" className="bg-surface-container-low py-16 md:py-20">
+          <motion.div {...revealProps} className="max-w-screen-2xl mx-auto px-8">
+            <h2 id="more-h" className="text-2xl md:text-3xl font-extrabold tracking-tight text-primary">
+              More from {pillar.name}
+            </h2>
+            <p className="text-secondary mt-2">
+              Articles in the same pillar, with the most closely related service first.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8">
+              {morePosts.map((p) => (
+                <Link
+                  key={p.slug}
+                  to={`/insights/${p.slug}/`}
+                  className="group rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-surface-container-lowest overflow-hidden flex flex-col"
+                >
+                  <div className="aspect-[16/10] overflow-hidden relative bg-primary/10 flex items-center justify-center">
+                    {p.heroImage ? (
+                      <img src={p.heroImage.src} alt={p.heroImage.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                    ) : (
+                      <HeroIcon variant={p.heroVariant} size={48} />
+                    )}
+                    <div className="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-[999px] font-label text-[10px] font-bold uppercase tracking-widest">
+                      {pillar.name}
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col gap-2 flex-1">
+                    {p.service && (
+                      <span className="font-label text-[11px] uppercase tracking-wide text-tertiary font-semibold">
+                        Service: {p.service}
+                      </span>
+                    )}
+                    <h3 className="font-headline text-lg font-bold text-primary leading-snug group-hover:text-secondary transition-colors">
+                      {p.title}
+                    </h3>
+                    <p className="text-secondary text-sm leading-relaxed line-clamp-3">{p.metaDescription}</p>
+                    <div className="mt-auto flex items-center gap-2 font-nav font-bold text-primary text-sm pt-2">
+                      Read more
+                      <ArrowRight size={16} />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+              <div className="flex flex-col justify-center gap-3 p-7 border border-dashed border-outline-variant/40 rounded-2xl bg-surface-container-lowest">
+                <h3 className="font-headline font-bold text-xl text-primary">See every {pillar.name} article</h3>
+                <p className="text-secondary text-sm leading-relaxed">
+                  Every article in this pillar, in one place.
+                </p>
+                <Link to={`/insights/${pillar.slug}/`} className="font-nav font-bold text-sm text-primary inline-flex items-center gap-2">
+                  All {pillar.name} articles
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+      )}
     </motion.div>
   );
 }

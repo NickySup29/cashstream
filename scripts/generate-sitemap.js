@@ -86,15 +86,23 @@ async function generateSitemap() {
   // 3. Add Insights (blog) posts. Each post is a typed .ts file in
   //    src/content/blogs/ (excluding index.ts and types.ts); slugs are read
   //    with a regex, the same way case study ids are read above, since this
-  //    script runs under plain node (no TypeScript loader).
+  //    script runs under plain node (no TypeScript loader). While reading
+  //    each file, also pick up its `pillar` field (if any) so step 5 below
+  //    can derive which pillars are non-empty, generically, without
+  //    hardcoding which ones currently have posts.
   const blogsDir = path.join(process.cwd(), 'src', 'content', 'blogs');
-  const blogSlugs = fs
+  const blogFiles = fs
     .readdirSync(blogsDir)
-    .filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')
-    .flatMap((f) => {
-      const src = fs.readFileSync(path.join(blogsDir, f), 'utf8');
-      return [...src.matchAll(/^\s{2}"?slug"?:\s*['"]([a-z0-9-]+)['"]/gm)].map((m) => m[1]);
-    });
+    .filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts');
+  const blogSlugs = [];
+  const pillarsWithPosts = new Set();
+  for (const f of blogFiles) {
+    const src = fs.readFileSync(path.join(blogsDir, f), 'utf8');
+    const slugMatches = [...src.matchAll(/^\s{2}"?slug"?:\s*['"]([a-z0-9-]+)['"]/gm)].map((m) => m[1]);
+    blogSlugs.push(...slugMatches);
+    const pillarMatch = src.match(/^\s{2}"?pillar"?:\s*['"]([a-z0-9-]+)['"]/m);
+    if (pillarMatch) pillarsWithPosts.add(pillarMatch[1]);
+  }
   for (const slug of blogSlugs) {
     urls += `
   <url>
@@ -104,6 +112,27 @@ async function generateSitemap() {
   </url>`;
   }
   console.log(`Added ${blogSlugs.length} Insights post(s) to sitemap`);
+
+  // 5. Add one entry per non-empty Insights pillar (/insights/<slug>/),
+  //    sourced from src/content/insightsPillars.ts for the full slug list
+  //    and from the pillar fields read above for which ones currently have
+  //    at least one post. All six pillars exist in config regardless; only
+  //    non-empty ones are real, crawlable routes.
+  const pillarsSrc = fs.readFileSync(
+    path.join(process.cwd(), 'src', 'content', 'insightsPillars.ts'),
+    'utf8'
+  );
+  const allPillarSlugs = [...pillarsSrc.matchAll(/^\s{4}slug:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
+  const nonEmptyPillarSlugs = allPillarSlugs.filter((slug) => pillarsWithPosts.has(slug));
+  for (const slug of nonEmptyPillarSlugs) {
+    urls += `
+  <url>
+    <loc>${SITE_URL}/insights/${slug}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+  console.log(`Added ${nonEmptyPillarSlugs.length} non-empty Insights pillar page(s) to sitemap`);
 
   const sitemap = `${sitemapHeader}${urls}\n${sitemapFooter}`;
   

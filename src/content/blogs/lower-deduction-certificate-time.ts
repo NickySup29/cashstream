@@ -28,6 +28,10 @@ export const lowerDeductionCertificateTime: BlogPostContent = {
     height: 845,
   },
   ogImage: 'https://cashstreamadvisors.com/images/insights/lower-deduction-certificate-time-banner-og.webp',
+  pillar: 'international-taxation',
+  service: 'Lower Deduction Certificate',
+  summary:
+    'A lower deduction certificate usually takes about 40 to 45 days. See each stage, what causes delay and how to apply in time.',
   blocks: [
     {
       type: 'answerBox',

@@ -26,6 +26,9 @@ export const lowerDeductionCertificateDocuments: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/lower-deduction-certificate-documents-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "The documents needed for a lower deduction certificate on Form 128, and the mistakes that trigger officer queries and delays. From our own cases.",
   "blocks": [
     {
       "type": "answerBox",

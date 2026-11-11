@@ -26,6 +26,9 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/track-lower-deduction-certificate-traces-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "How to track your lower deduction certificate application on TRACES, what each status means, how to download the certificate, and what to do if it stalls.",
   "blocks": [
     {
       "type": "answerBox",

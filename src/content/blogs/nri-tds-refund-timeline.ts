@@ -26,6 +26,8 @@ export const nriTdsRefundTimeline: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/nri-tds-refund-timeline-banner-og.webp",
+  "pillar": "international-taxation",
+  "summary": "NRI TDS refunds are quoted anywhere from 20 days to 9 months. See what the portal says, what really slows a refund, and when to follow up.",
   "blocks": [
     {
       "type": "answerBox",

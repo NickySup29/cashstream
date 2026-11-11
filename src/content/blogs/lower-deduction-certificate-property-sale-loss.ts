@@ -26,6 +26,9 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/lower-deduction-certificate-property-sale-loss-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "Sold property at a loss or low gain? See how it affects a lower deduction certificate, what the officer needs to see, and why TDS can still hit the full price.",
   "blocks": [
     {
       "type": "answerBox",

@@ -1,10 +1,11 @@
-// Bot-aware prerendering: visits every route of the built site (dist/) with
+// Prerendering: visits every route of the built site (dist/) with
 // Playwright and saves the fully rendered HTML to public/_snapshots/<route>/index.html.
 // This runs in GitHub Actions (.github/workflows/prerender.yml), NOT in Cloudflare's build,
 // which cannot run Chromium. The snapshots are committed; Vite copies public/ into dist/
 // on every Cloudflare build, so Cloudflare just deploys the already-generated files.
-// The Cloudflare middleware (functions/_middleware.ts, src/worker.js) serves these
-// to known bots only. Real visitors never see them.
+// The Cloudflare runtime (src/worker.js, with functions/_middleware.ts as the Pages
+// equivalent) serves these to every visitor as the initial HTML; React then hydrates on
+// top of the static markup, so the page stays fully interactive for everyone.
 //
 // Routes are enumerated, not hardcoded:
 //   - static routes: parsed from the <Route path="..."> entries in src/App.tsx

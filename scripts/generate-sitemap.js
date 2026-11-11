@@ -124,15 +124,16 @@ async function generateSitemap() {
   );
   const allPillarSlugs = [...pillarsSrc.matchAll(/^\s{4}slug:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
   const nonEmptyPillarSlugs = allPillarSlugs.filter((slug) => pillarsWithPosts.has(slug));
-  for (const slug of nonEmptyPillarSlugs) {
-    urls += `
-  <url>
-    <loc>${SITE_URL}/insights/${slug}/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
-  }
-  console.log(`Added ${nonEmptyPillarSlugs.length} non-empty Insights pillar page(s) to sitemap`);
+  // TEMPORARILY DISABLED on hotfix/prerender-assets (2026-11-11): pillar pages were found live
+  // rendering an empty/broken shell, almost certainly a symptom of the same stale-asset-hash
+  // bug this hotfix fixes elsewhere, but pulled from the sitemap here as an explicit safety
+  // measure regardless, without touching src/content/insightsPillars.ts or
+  // src/pages/InsightsPillar.tsx. Re-enable (restore the loop that pushed these into `urls`)
+  // once pillar page content/rendering is separately confirmed correct. Not a regression.
+  console.log(
+    `Found ${nonEmptyPillarSlugs.length} non-empty Insights pillar page(s) (${nonEmptyPillarSlugs.join(', ') || 'none'}), ` +
+      'but sitemap entries for them are temporarily disabled — see comment above.'
+  );
 
   const sitemap = `${sitemapHeader}${urls}\n${sitemapFooter}`;
   

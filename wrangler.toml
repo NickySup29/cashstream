@@ -11,4 +11,11 @@ directory = "./dist"
 binding = "ASSETS"
 # Run the Worker before static assets so every visitor gets snapshots on every route, including "/"
 run_worker_first = true
-not_found_handling = "single-page-application"
+# "single-page-application" used to live here, but it's a blunt, global setting: it made
+# Cloudflare return a 200 HTML shell for ANY missing asset path, including a genuinely missing
+# or mismatched /assets/*.js or *.css — the direct cause of the 2026-11-11 outage (a stale asset
+# reference 404'd and silently got an unstyled, non-interactive HTML page back instead of a real
+# 404). src/worker.js now does this itself: real static files (anything with a file extension)
+# always get ASSETS.fetch()'s real result, 404 included; only extensionless app routes with no
+# prerendered snapshot fall back to the built SPA shell.
+not_found_handling = "none"

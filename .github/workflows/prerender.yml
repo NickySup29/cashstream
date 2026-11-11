@@ -2,6 +2,13 @@
 # them. Cloudflare's build cannot run Chromium, so it never prerenders: Vite copies the
 # committed public/_snapshots into dist/ and the Worker serves them to every visitor.
 # Committing to main triggers the normal Cloudflare build, which then deploys them.
+#
+# This run's own `npm run build` (below) can land on a different commit than whatever
+# Cloudflare's separate, later `npm run build` deploys, so a snapshot's hashed /assets/*.js
+# and *.css tags must never be trusted as "whatever gets deployed" — scripts/prerender.js
+# strips them, and src/server/botPrerender.ts splices in the live, currently-deployed
+# index.html's tags at request time instead (see that file for the 2026-11-11 outage this
+# fixed). "Check snapshot assets" below guards against a stale tag ever being committed again.
 name: Prerender snapshots
 
 on:
@@ -38,6 +45,8 @@ jobs:
         run: npm run build
       - name: Generate snapshots
         run: npm run prerender
+      - name: Check snapshot assets
+        run: node scripts/check-snapshot-assets.mjs
       - name: Commit snapshots
         run: |
           git config user.name "github-actions[bot]"

@@ -1,11 +1,14 @@
 // Prerendering: visits every route of the built site (dist/) with
 // Playwright and saves the fully rendered HTML to public/_snapshots/<route>/index.html.
 // This runs in GitHub Actions (.github/workflows/prerender.yml), NOT in Cloudflare's build,
-// which cannot run Chromium. The snapshots are committed; Vite copies public/ into dist/
-// on every Cloudflare build, so Cloudflare just deploys the already-generated files.
-// The Cloudflare runtime (src/worker.js, with functions/_middleware.ts as the Pages
-// equivalent) serves these to every visitor as the initial HTML; React then hydrates on
-// top of the static markup, so the page stays fully interactive for everyone.
+// which cannot run Chromium. The snapshots are committed, and Vite copies public/ into dist/
+// on every Cloudflare build — but Cloudflare runs its OWN separate `npm run build`, which can
+// land on a different commit than whatever this workflow last built, so this snapshot's own
+// hashed /assets/*.js and *.css tags can never be trusted as "the ones that will be deployed".
+// stripHashedAssetTags() below removes them before saving; the Cloudflare runtime (src/worker.js,
+// with functions/_middleware.ts as the Pages equivalent) splices in the LIVE, currently-deployed
+// index.html's asset tags at request time instead (see src/server/botPrerender.ts). React then
+// hydrates on top of the static markup, so the page stays fully interactive for everyone.
 //
 // Routes are enumerated, not hardcoded:
 //   - static routes: parsed from the <Route path="..."> entries in src/App.tsx
@@ -98,6 +101,22 @@ function dedupeHeadTags(html) {
   return html.slice(0, headStart) + head + html.slice(headEnd);
 }
 
+// This build's dist/assets/index-<hash>.js and .css are NOT the ones that will end up
+// deployed: Cloudflare runs its own, separate `npm run build` at deploy time, which can land
+// on a different source commit than whatever this workflow run last built (the "Regenerate
+// prerender snapshots" commit is pushed after the triggering commit, so there's always a
+// commit where Cloudflare's live build and this snapshot's build disagree on content, and a
+// changed commit means a changed, correct Vite content hash on both sides — this was confirmed
+// to be the 2026-11-11 production outage, not a determinism bug). So the snapshot must never
+// hard-code its own build's asset tags: botPrerender.ts splices in the LIVE, currently-deployed
+// dist/index.html's asset tags at request time instead. Strip them here so a stale tag can
+// never leak through if that splice logic ever fails to match.
+function stripHashedAssetTags(html) {
+  return html
+    .replace(/<script[^>]*\ssrc=["']\/assets\/[^"']+["'][^>]*><\/script>\s*/gi, '')
+    .replace(/<link[^>]*\shref=["']\/assets\/[^"']+["'][^>]*>\s*/gi, '');
+}
+
 // Same key scheme as the middleware: strip slashes, "/" maps to the root file.
 function snapshotFile(route) {
   const key = route.replace(/\/+$/, '');
@@ -158,7 +177,7 @@ async function main() {
         await page.goto(origin + route, { waitUntil: 'networkidle', timeout: 30000 });
         // Blog posts load their content asynchronously; wait until the app has rendered a heading.
         await page.waitForSelector('#root h1', { timeout: 15000 });
-        const html = dedupeHeadTags(await page.content());
+        const html = stripHashedAssetTags(dedupeHeadTags(await page.content()));
         const file = snapshotFile(route);
         fs.mkdirSync(path.dirname(file), { recursive: true });
         fs.writeFileSync(file, `${SNAPSHOT_MARKER}\n${html}`);

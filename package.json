@@ -8,7 +8,7 @@
     "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-rss.js",
     "build": "vite build",
     "postbuild": "node scripts/copy-404.js",
-    "prerender": "node scripts/prerender.js",
+    "prerender": "node scripts/prerender.js && node scripts/check-snapshot-assets.mjs",
     "check:blog": "tsx scripts/check-blog.mjs",
     "ingest": "node scripts/ingest-blog.mjs",
     "images": "node scripts/optimize-images.mjs",

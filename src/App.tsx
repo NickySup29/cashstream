@@ -43,7 +43,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import RegulatoryCompliance from './pages/RegulatoryCompliance';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Disclaimer from './pages/Disclaimer';
-import BlogPostDetail from './pages/BlogPostDetail';
+import InsightsSlugRoute from './pages/InsightsSlugRoute';
 import ContactUs from './pages/ContactUs';
 import { CONTACT_INFO } from './constants';
 
@@ -128,7 +128,10 @@ export default function App() {
               <Route path="/bookkeeping/" element={<Bookkeeping />} />
               <Route path="/contract-review/" element={<ContractReview />} />
               <Route path="/insights/" element={<Insights />} />
-              <Route path="/insights/:slug/" element={<BlogPostDetail />} />
+              {/* Shared by pillar listing routes (/insights/<pillar-slug>/) and
+                  individual article routes (/insights/<post-slug>/); see
+                  InsightsSlugRoute.tsx for how it disambiguates. */}
+              <Route path="/insights/:slug/" element={<InsightsSlugRoute />} />
               <Route path="/global-offices/" element={<GlobalOffices />} />
               <Route path="/careers/" element={<Careers />} />
               <Route path="/contact-us/" element={<ContactUs />} />

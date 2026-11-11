@@ -26,6 +26,9 @@ export const tdsNotShowingForm26asAisNriPropertySale: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/tds-not-showing-form-26as-ais-nri-property-sale-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Foreign Co. TDS Refund",
+  "summary": "Buyer deducted TDS but it is missing in Form 26AS or AIS? See why it happens to NRI sellers, what to check first, and how to get the credit before you file.",
   "blocks": [
     {
       "type": "answerBox",

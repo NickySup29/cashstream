@@ -26,6 +26,9 @@ export const fcGprVsFcTrsVsFlaReturnWhichFormApplies: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/fc-gpr-vs-fc-trs-vs-fla-return-which-form-applies-banner-og.webp",
+  "pillar": "fema-advisory",
+  "service": "Form FC / RBI Reporting",
+  "summary": "Not sure which RBI form to file? See what triggers FC-GPR, FC-TRS and the FLA return, who files each, the deadlines and how they differ.",
   "blocks": [
     {
       "type": "answerBox",

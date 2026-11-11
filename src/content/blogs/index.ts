@@ -1,4 +1,5 @@
 import type { BlogPostContent } from './types';
+import { insightsPillars, validatePillarAssignments, type InsightsPillar } from '../insightsPillars';
 import { fcGprVsFcTrsVsFlaReturnWhichFormApplies } from './fc-gpr-vs-fc-trs-vs-fla-return-which-form-applies';
 import { whyFcGprGetsRejectedReasonsFixes } from './why-fc-gpr-gets-rejected-reasons-fixes';
 import { form15ca15cbForm145146NriRemittance } from './form-15ca-15cb-form-145-146-nri-remittance';
@@ -24,4 +25,26 @@ export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertifi
 
 export function getBlogPost(slug: string): BlogPostContent | undefined {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+// Build-time guard: throws immediately (at import time) naming the post if
+// any post's `service` doesn't belong to its `pillar`'s service list. See
+// src/content/insightsPillars.ts.
+validatePillarAssignments(blogPosts);
+
+// Pillars with at least one pillar-tagged post. A pillar only gets a real
+// route, a rail entry that links anywhere, and sitemap/"More from" entries
+// when it has posts; this is derived from the data so adding or removing a
+// post's `pillar` is the only thing that ever needs to change.
+export function getNonEmptyPillars(): InsightsPillar[] {
+  return insightsPillars.filter((pillar) => blogPosts.some((post) => post.pillar === pillar.slug));
+}
+
+export function getPostsByPillar(pillarSlug: string): BlogPostContent[] {
+  return blogPosts.filter((post) => post.pillar === pillarSlug);
+}
+
+// Every pillar-tagged post, used by the /insights/ "All articles" view.
+export function getPillarTaggedPosts(): BlogPostContent[] {
+  return blogPosts.filter((post) => Boolean(post.pillar));
 }

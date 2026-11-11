@@ -26,6 +26,9 @@ export const nilVsLowerTdsCertificate: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/nil-vs-lower-tds-certificate-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "Nil or lower TDS certificate? See when each applies, the rates officers granted in our cases, and how the officer decides. Form 128, Section 395.",
   "blocks": [
     {
       "type": "answerBox",

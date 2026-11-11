@@ -26,6 +26,9 @@ export const form15ca15cbForm145146NriRemittance: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/form-15ca-15cb-form-145-146-nri-remittance-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "NRI Tax & Relocation",
+  "summary": "Remitting property sale proceeds abroad? Form 15CA and 15CB are now Form 145 and 146. See who files what, the 5 lakh rule and the steps to follow.",
   "blocks": [
     {
       "type": "answerBox",

@@ -26,6 +26,9 @@ export const nroVsNreAccountPropertySaleProceeds: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/nro-vs-nre-account-property-sale-proceeds-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "NRI Tax & Relocation",
+  "summary": "Selling property in India as an NRI? See whether the proceeds go to an NRO or NRE account, the USD 1 million limit and when the NRE route works.",
   "blocks": [
     {
       "type": "answerBox",

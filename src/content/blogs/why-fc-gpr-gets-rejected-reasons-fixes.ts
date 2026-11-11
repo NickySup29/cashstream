@@ -26,6 +26,9 @@ export const whyFcGprGetsRejectedReasonsFixes: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/why-fc-gpr-gets-rejected-reasons-fixes-banner-og.webp",
+  "pillar": "fema-advisory",
+  "service": "Form FC / RBI Reporting",
+  "summary": "FC-GPR sent back by the AD bank? See the real reasons filings are rejected, from FIRC and KYC mismatches to valuation errors, and how to fix each.",
   "blocks": [
     {
       "type": "answerBox",

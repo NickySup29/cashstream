@@ -28,6 +28,10 @@ export const formVsForm13: BlogPostContent = {
     height: 893,
   },
   ogImage: 'https://cashstreamadvisors.com/images/insights/form-128-vs-form-13-banner-og.webp',
+  pillar: 'international-taxation',
+  service: 'Lower Deduction Certificate',
+  summary:
+    'Form 13 is now Form 128. See what changed for the lower deduction certificate under Section 395, Rule 213, and what applicants must do now.',
   blocks: [
     {
       type: 'answerBox',

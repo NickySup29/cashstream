@@ -247,4 +247,17 @@ export interface BlogPostContent {
   // Falls back to the sitewide og-image.jpg when omitted.
   ogImage?: string;
   blocks: BlogBlock[];
+  // ---------- Pillar system (Insights restructuring) ----------
+  // Additive fields, all optional on the type so existing posts compile
+  // unchanged. `pillar` must be a slug from src/content/insightsPillars.ts;
+  // a post only appears in the pillar system (pillar route, "More from"
+  // rail, pillar-scoped sitemap entries) when it is set. `service`, when
+  // set, must be a title present in that pillar's service list in
+  // insightsPillars.ts; this is enforced at import time by
+  // validatePillarAssignments() in src/content/blogs/index.ts, which throws
+  // naming the offending post. `summary` feeds the article page's
+  // "In short" box when present; omitted otherwise.
+  pillar?: string;
+  service?: string;
+  summary?: string;
 }

@@ -25,6 +25,9 @@ export const tdsOnSaleOfPropertyByNri: BlogPostContent = {
     "height": 893
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/tds-on-sale-of-property-by-nri-banner-og.webp",
+  "pillar": "international-taxation",
+  "service": "Lower Deduction Certificate",
+  "summary": "TDS on sale of property by NRI explained: current rates, Lower Deduction Certificate, timelines, ITR and refund, in 15 clear answers.",
   "blocks": [
     {
       "type": "answerBox",

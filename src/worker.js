@@ -1,4 +1,4 @@
-import { serveSnapshotToBot } from './server/botPrerender.ts';
+import { serveSnapshot } from './server/botPrerender.ts';
 
 export default {
   async fetch(request, env) {
@@ -65,8 +65,9 @@ export default {
       }
     }
 
-    // Known bots get the prerendered snapshot for the route
-    const snapshot = await serveSnapshotToBot(request, env.ASSETS);
+    // Every visitor gets the prerendered snapshot for the route when one exists; React
+    // hydrates on top of it, so the page stays fully interactive.
+    const snapshot = await serveSnapshot(request, env.ASSETS);
     if (snapshot) return snapshot;
 
     // All other requests — serve the static React site

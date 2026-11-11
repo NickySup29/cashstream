@@ -1,6 +1,6 @@
-# Generates the bot-facing HTML snapshots (public/_snapshots) with Playwright and commits
+# Generates the HTML snapshots (public/_snapshots) with Playwright and commits
 # them. Cloudflare's build cannot run Chromium, so it never prerenders: Vite copies the
-# committed public/_snapshots into dist/ and the Worker serves them to known bots.
+# committed public/_snapshots into dist/ and the Worker serves them to every visitor.
 # Committing to main triggers the normal Cloudflare build, which then deploys them.
 name: Prerender snapshots
 

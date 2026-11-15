@@ -1,4 +1,9 @@
 import type { BlogPostContent } from './types';
+import { chartOfAccountsSetupNewBusiness } from './chart-of-accounts-setup-new-business';
+import { bankReconciliationNotMatchingErrorsFixes } from './bank-reconciliation-not-matching-errors-fixes';
+import { monthEndCloseChecklistSmallBusiness } from './month-end-close-checklist-small-business';
+import { quickbooksVsZohoBooksVsXeroSmallBusiness } from './quickbooks-vs-zoho-books-vs-xero-small-business';
+import { flaReturnWhoMustFileAndByWhen } from './fla-return-who-must-file-and-by-when';
 import { insightsPillars, validatePillarAssignments, type InsightsPillar } from '../insightsPillars';
 import { fcGprVsFcTrsVsFlaReturnWhichFormApplies } from './fc-gpr-vs-fc-trs-vs-fla-return-which-form-applies';
 import { whyFcGprGetsRejectedReasonsFixes } from './why-fc-gpr-gets-rejected-reasons-fixes';
@@ -21,7 +26,7 @@ import { lowerDeductionCertificateTime } from './lower-deduction-certificate-tim
 // Registry of every Insights post. Adding a new post is one import + one
 // array entry here; the listing hub, the detail route, the sitemap and the
 // prerender script all pick it up from this file.
-export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline, tdsNotShowingForm26asAisNriPropertySale, nriTdsRefundStuckFailedFix, nroVsNreAccountPropertySaleProceeds, form15ca15cbForm145146NriRemittance, whyFcGprGetsRejectedReasonsFixes, fcGprVsFcTrsVsFlaReturnWhichFormApplies];
+export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline, tdsNotShowingForm26asAisNriPropertySale, nriTdsRefundStuckFailedFix, nroVsNreAccountPropertySaleProceeds, form15ca15cbForm145146NriRemittance, whyFcGprGetsRejectedReasonsFixes, fcGprVsFcTrsVsFlaReturnWhichFormApplies, flaReturnWhoMustFileAndByWhen, quickbooksVsZohoBooksVsXeroSmallBusiness, monthEndCloseChecklistSmallBusiness, bankReconciliationNotMatchingErrorsFixes, chartOfAccountsSetupNewBusiness];
 
 export function getBlogPost(slug: string): BlogPostContent | undefined {
   return blogPosts.find((post) => post.slug === slug);

@@ -28,6 +28,12 @@ export function loadSiteRoutes(root) {
     if (staticRoutes.has(clean)) return true;
     if (caseStudyIds.some((id) => clean === `/about-us/case-studies/${id}`)) return true;
     if (blogSlugs.some((s) => clean === `/insights/${s}`)) return true;
+    // A direct file under public/downloads/ (e.g. a linked spreadsheet) is
+    // served as a real static asset (src/worker.js sends any path with a
+    // file extension straight to ASSETS.fetch()), not an app route, so it
+    // will never appear in App.tsx. Resolve it against the actual file on
+    // disk instead.
+    if (clean.startsWith('/downloads/') && fs.existsSync(path.join(root, 'public', clean))) return true;
     if (clean === '/insights') return true;
     return false;
   }

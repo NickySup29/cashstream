@@ -16,7 +16,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "ledger",
-  "targetWords": 769,
+  "targetWords": 788,
   "infographic": "matrix",
   "heroImage": {
     "src": "/images/insights/month-end-close-checklist-small-business-banner.webp",
@@ -141,7 +141,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Owners who <a href=\"https://cashstreamadvisors.com/bookkeeping/\">outsource to us</a> receive a monthly pack."
+      "html": "Owners who <a href=\"https://cashstreamadvisors.com/bookkeeping\">outsource to us</a> receive a monthly pack."
     },
     {
       "type": "bulletList",
@@ -155,7 +155,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "We do not promise any timing we do not meet."
+      "html": "We do not promise any timing we do not meet. For what the first months of outsourcing look like, read <a href=\"https://cashstreamadvisors.com/insights/what-to-expect-outsourcing-bookkeeping/\">What to Expect When You Outsource Your Bookkeeping</a>."
     },
     {
       "type": "h2",
@@ -215,7 +215,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping/"
+          "href": "/bookkeeping"
         },
         {
           "label": "INSIGHTS",
@@ -226,6 +226,16 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "Bank Reconciliation Not Matching? Common Errors and How to Fix Them",
           "href": "/insights/bank-reconciliation-not-matching-errors-fixes/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Catch-Up Bookkeeping: Getting Months or Years of Books Current",
+          "href": "/insights/catch-up-bookkeeping-months-years-behind/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Why Your Books Must Be Ready Before Your Tax Return Is Filed",
+          "href": "/insights/bookkeeping-before-tax-return/"
         },
         {
           "label": "INSIGHTS",

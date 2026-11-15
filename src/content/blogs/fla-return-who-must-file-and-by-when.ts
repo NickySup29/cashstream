@@ -175,6 +175,16 @@ export const flaReturnWhoMustFileAndByWhen: BlogPostContent = {
           "href": "/insights/why-fc-gpr-gets-rejected-reasons-fixes/"
         },
         {
+          "label": "INSIGHTS",
+          "title": "How to File FC-GPR on the FIRMS Portal: Step by Step",
+          "href": "/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Missed the RBI Reporting Deadline: Late Fee or Compounding?",
+          "href": "/insights/missed-rbi-reporting-deadline-late-fee-or-compounding/"
+        },
+        {
           "label": "SERVICE",
           "title": "All insights",
           "href": "/insights"

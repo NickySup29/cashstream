@@ -16,7 +16,7 @@ export const quickbooksVsZohoBooksVsXeroSmallBusiness: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "document",
-  "targetWords": 700,
+  "targetWords": 733,
   "infographic": "matrix",
   "heroImage": {
     "src": "/images/insights/quickbooks-vs-zoho-books-vs-xero-small-business-banner.webp",
@@ -127,7 +127,7 @@ export const quickbooksVsZohoBooksVsXeroSmallBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "The rule we give clients is simple: choose what your bookkeeper and accountant can run. In one file we migrated the whole set of accounts in our structured format and let the client and the department heads try the new software before finishing the move."
+      "html": "The rule we give clients is simple: choose what your bookkeeper and accountant can run. In one file we migrated the whole set of accounts in our structured format and let the client and the department heads try the new software before finishing the move. For help running a team's books, read <a href=\"https://cashstreamadvisors.com/insights/what-to-expect-outsourcing-bookkeeping/\">What to Expect When You Outsource Your Bookkeeping</a>."
     },
     {
       "type": "h2",
@@ -140,7 +140,7 @@ export const quickbooksVsZohoBooksVsXeroSmallBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "We migrate the full accounts in a structured format, give you and your department heads a trial of the new software, and then finish the move."
+      "html": "We migrate the full accounts in a structured format, give you and your department heads a trial of the new software, and then finish the move. If your books are behind, start with <a href=\"https://cashstreamadvisors.com/insights/catch-up-bookkeeping-months-years-behind/\">Catch-Up Bookkeeping: Getting Months or Years of Books Current</a>."
     },
     {
       "type": "faq",
@@ -191,7 +191,7 @@ export const quickbooksVsZohoBooksVsXeroSmallBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping/"
+          "href": "/bookkeeping"
         },
         {
           "label": "INSIGHTS",
@@ -202,6 +202,11 @@ export const quickbooksVsZohoBooksVsXeroSmallBusiness: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "Bank Reconciliation Not Matching? Common Errors and How to Fix Them",
           "href": "/insights/bank-reconciliation-not-matching-errors-fixes/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Why Your Books Must Be Ready Before Your Tax Return Is Filed",
+          "href": "/insights/bookkeeping-before-tax-return/"
         },
         {
           "label": "SERVICE",

@@ -9,14 +9,14 @@ export const whyFcGprGetsRejectedReasonsFixes: BlogPostContent = {
   "metaDescription": "FC-GPR sent back by the AD bank? See the real reasons filings are rejected, from FIRC and KYC mismatches to valuation errors, and how to fix each.",
   "tag": "Insights",
   "datePublished": "2026-11-07",
-  "dateModified": "2026-11-07",
+  "dateModified": "2026-11-15",
   "author": {
     "type": "Organization",
     "name": "Cash Stream Advisors",
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "certificate",
-  "targetWords": 947,
+  "targetWords": 949,
   "infographic": "matrix",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -53,7 +53,7 @@ export const whyFcGprGetsRejectedReasonsFixes: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "In our experience the form comes back with the bank's comments, and we correct what the bank pointed out and resubmit it, without preparing the whole filing again. For the full portal steps, read How to File FC-GPR on the FIRMS Portal."
+      "html": "In our experience the form comes back with the bank's comments, and we correct what the bank pointed out and resubmit it, without preparing the whole filing again. For the full portal steps, read <a href=\"https://cashstreamadvisors.com/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/\">How to File FC-GPR on the FIRMS Portal</a>."
     },
     {
       "type": "h2",
@@ -168,7 +168,7 @@ export const whyFcGprGetsRejectedReasonsFixes: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "An FC-GPR resubmission after a rejection matters here. If the original filing was already late, the delay keeps counting until a complete return is received, so resubmit promptly with the fix. Read Missed the RBI Deadline: Late Fee vs Compounding for the detail."
+      "html": "An FC-GPR resubmission after a rejection matters here. If the original filing was already late, the delay keeps counting until a complete return is received, so resubmit promptly with the fix. Read <a href=\"https://cashstreamadvisors.com/insights/missed-rbi-reporting-deadline-late-fee-or-compounding/\">Missed the RBI Reporting Deadline: Late Fee or Compounding</a> for the detail."
     },
     {
       "type": "h2",
@@ -232,9 +232,19 @@ export const whyFcGprGetsRejectedReasonsFixes: BlogPostContent = {
           "href": "/insights/fc-gpr-vs-fc-trs-vs-fla-return-which-form-applies/"
         },
         {
+          "label": "INSIGHTS",
+          "title": "How to File FC-GPR on the FIRMS Portal: Step by Step",
+          "href": "/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Missed the RBI Reporting Deadline: Late Fee or Compounding?",
+          "href": "/insights/missed-rbi-reporting-deadline-late-fee-or-compounding/"
+        },
+        {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights/"
+          "href": "/insights"
         },
         {
           "label": "ABOUT",

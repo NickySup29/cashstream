@@ -16,7 +16,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "ledger",
-  "targetWords": 591,
+  "targetWords": 645,
   "infographic": "matrix",
   "heroImage": {
     "src": "/images/insights/chart-of-accounts-setup-new-business-banner.webp",
@@ -123,6 +123,10 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
       ]
     },
     {
+      "type": "paragraph",
+      "html": "For what the return pulls from these accounts, read <a href=\"https://cashstreamadvisors.com/insights/bookkeeping-before-tax-return/\">Why Your Books Must Be Ready Before Your Tax Return Is Filed</a>."
+    },
+    {
       "type": "h2",
       "id": "how-many-accounts-does-a-new-business-need",
       "text": "How many accounts does a new business need?"
@@ -138,7 +142,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<a href=\"https://cashstreamadvisors.com/bookkeeping/\">We fit the chart to the client</a>'s business, size and needs, so it is flexible. The owner does not need to design the chart."
+      "html": "<a href=\"https://cashstreamadvisors.com/bookkeeping\">We fit the chart to the client</a>'s business, size and needs, so it is flexible. The owner does not need to design the chart. For the full onboarding, read <a href=\"https://cashstreamadvisors.com/insights/what-to-expect-outsourcing-bookkeeping/\">What to Expect When You Outsource Your Bookkeeping</a>."
     },
     {
       "type": "h2",
@@ -147,7 +151,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Changing a chart that has history needs care, because past and present reports can stop matching. Larger changes are cleaner at the start of a fiscal year. Message us on WhatsApp to talk it through."
+      "html": "Changing a chart that has history needs care, because past and present reports can stop matching. Larger changes are cleaner at the start of a fiscal year. If your books are also behind, start with <a href=\"https://cashstreamadvisors.com/insights/catch-up-bookkeeping-months-years-behind/\">Catch-Up Bookkeeping: Getting Months or Years of Books Current</a>. Message us on WhatsApp to talk it through."
     },
     {
       "type": "faq",
@@ -198,7 +202,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping/"
+          "href": "/bookkeeping"
         },
         {
           "label": "INSIGHTS",

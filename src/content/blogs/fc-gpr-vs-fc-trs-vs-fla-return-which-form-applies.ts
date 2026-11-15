@@ -9,14 +9,14 @@ export const fcGprVsFcTrsVsFlaReturnWhichFormApplies: BlogPostContent = {
   "metaDescription": "Not sure which RBI form to file? See what triggers FC-GPR, FC-TRS and the FLA return, who files each, the deadlines and how they differ.",
   "tag": "Insights",
   "datePublished": "2026-11-07",
-  "dateModified": "2026-11-07",
+  "dateModified": "2026-11-15",
   "author": {
     "type": "Organization",
     "name": "Cash Stream Advisors",
     "url": "https://cashstreamadvisors.com/about-us/"
   },
   "heroVariant": "globe",
-  "targetWords": 739,
+  "targetWords": 745,
   "infographic": "matrix",
   "heroNote": "Reflects Form 128 under the Income-tax Act, 2025, in force from 1 April 2026.",
   "heroImage": {
@@ -94,7 +94,7 @@ export const fcGprVsFcTrsVsFlaReturnWhichFormApplies: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Read <a href=\"https://cashstreamadvisors.com/insights/why-fc-gpr-gets-rejected-reasons-fixes/\">Why FC-GPR Gets Rejected</a>, How to File FC-GPR on the FIRMS Portal, FLA Return: Who Must File and By When, and FC-TRS for each form in detail."
+      "html": "Read <a href=\"https://cashstreamadvisors.com/insights/why-fc-gpr-gets-rejected-reasons-fixes/\">Why FC-GPR Gets Rejected</a>, <a href=\"https://cashstreamadvisors.com/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/\">How to File FC-GPR on the FIRMS Portal</a>, <a href=\"https://cashstreamadvisors.com/insights/fla-return-who-must-file-and-by-when/\">FLA Return: Who Must File and By When</a>, and FC-TRS for each form in detail."
     },
     {
       "type": "h2",
@@ -163,9 +163,9 @@ export const fcGprVsFcTrsVsFlaReturnWhichFormApplies: BlogPostContent = {
       "type": "bulletList",
       "items": [
         "<p>A rejected FC-GPR: read <a href=\"https://cashstreamadvisors.com/insights/why-fc-gpr-gets-rejected-reasons-fixes/\">Why FC-GPR Gets Rejected</a>.</p>",
-        "<p>Portal steps for FC-GPR: read How to File FC-GPR on the FIRMS Portal.</p>",
-        "<p>Missed the deadline: read Missed the RBI Deadline: Late Fee vs Compounding.</p>",
-        "<p>The FLA return: read FLA Return: Who Must File and By When.</p>"
+        "<p>Portal steps for FC-GPR: read <a href=\"https://cashstreamadvisors.com/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/\">How to File FC-GPR on the FIRMS Portal</a>.</p>",
+        "<p>Missed the deadline: read <a href=\"https://cashstreamadvisors.com/insights/missed-rbi-reporting-deadline-late-fee-or-compounding/\">Missed the RBI Reporting Deadline: Late Fee or Compounding</a>.</p>",
+        "<p>The FLA return: read <a href=\"https://cashstreamadvisors.com/insights/fla-return-who-must-file-and-by-when/\">FLA Return: Who Must File and By When</a>.</p>"
       ]
     },
     {
@@ -225,9 +225,24 @@ export const fcGprVsFcTrsVsFlaReturnWhichFormApplies: BlogPostContent = {
           "href": "/insights/why-fc-gpr-gets-rejected-reasons-fixes/"
         },
         {
+          "label": "INSIGHTS",
+          "title": "How to File FC-GPR on the FIRMS Portal: Step by Step",
+          "href": "/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Missed the RBI Reporting Deadline: Late Fee or Compounding?",
+          "href": "/insights/missed-rbi-reporting-deadline-late-fee-or-compounding/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "FLA Return: Who Must File and by When (RBI)",
+          "href": "/insights/fla-return-who-must-file-and-by-when/"
+        },
+        {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights/"
+          "href": "/insights"
         },
         {
           "label": "ABOUT",

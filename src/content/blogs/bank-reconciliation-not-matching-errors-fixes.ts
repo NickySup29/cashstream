@@ -15,8 +15,8 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
     "name": "Cash Stream Advisors",
     "url": "https://cashstreamadvisors.com/about-us/"
   },
-  "heroVariant": "ledger",
-  "targetWords": 779,
+  "heroVariant": "document",
+  "targetWords": 796,
   "infographic": "matrix",
   "heroImage": {
     "src": "/images/insights/bank-reconciliation-not-matching-errors-fixes-banner.webp",
@@ -144,7 +144,7 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Stop when the difference is months old, or when you have undone and redone the reconciliation more than once. Beyond that, it is a question of time. When the business outgrows the owner, the owner should focus on sales, and accounts can be handled by staff or a consultant. <a href=\"https://cashstreamadvisors.com/bookkeeping/\">A catch-up call</a> shows where things stand."
+      "html": "Stop when the difference is months old, or when you have undone and redone the reconciliation more than once. Beyond that, it is a question of time. When the business outgrows the owner, the owner should focus on sales, and accounts can be handled by staff or a consultant. <a href=\"https://cashstreamadvisors.com/bookkeeping\">A catch-up call</a> shows where things stand. If the books are well behind, read <a href=\"https://cashstreamadvisors.com/insights/catch-up-bookkeeping-months-years-behind/\">Catch-Up Bookkeeping: Getting Months or Years of Books Current</a>."
     },
     {
       "type": "h2",
@@ -204,7 +204,7 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping/"
+          "href": "/bookkeeping"
         },
         {
           "label": "INSIGHTS",
@@ -215,6 +215,11 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "QuickBooks vs Zoho Books vs Xero: Which Suits a Small Business",
           "href": "/insights/quickbooks-vs-zoho-books-vs-xero-small-business/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "What to Expect When You Outsource Your Bookkeeping",
+          "href": "/insights/what-to-expect-outsourcing-bookkeeping/"
         },
         {
           "label": "INSIGHTS",

@@ -247,8 +247,8 @@ async function main() {
         SRC_TEXT: 'Cash Stream Advisors',
       });
       const outPng = path.join(imagesDir, `${post.slug}-steps.png`);
-      await renderPng(html, 1600, 1000, outPng);
-      results.push(`${post.slug}-steps.png (1600x1000)`);
+      await renderPngAuto(html, 1600, outPng);
+      results.push(`${post.slug}-steps.png (1600 wide, auto height)`);
       infographicSuffix = 'steps';
       infographicSourceBlock = stepsBlock;
     }

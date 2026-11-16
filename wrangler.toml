@@ -19,3 +19,8 @@ run_worker_first = true
 # always get ASSETS.fetch()'s real result, 404 included; only extensionless app routes with no
 # prerendered snapshot fall back to the built SPA shell.
 not_found_handling = "none"
+
+[[rules]]
+type = "Text"
+globs = ["**/_redirects"]
+fallthrough = true

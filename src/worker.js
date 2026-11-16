@@ -1,8 +1,25 @@
 import { serveSnapshot } from './server/botPrerender.ts';
+import { parseRedirects, matchRedirect } from './server/redirects.ts';
+import redirectsText from '../public/_redirects';
+
+// Parsed once per Worker isolate, not per request.
+const REDIRECT_RULES = parseRedirects(redirectsText);
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // Apply public/_redirects ourselves: run_worker_first = true means this script answers
+    // every request, so Cloudflare's own automatic _redirects handling on the asset layer
+    // never runs. Must happen before snapshot serving and the SPA fallback below, both of
+    // which would otherwise return a real 200 for a path that should 301 (e.g. /insights,
+    // /blog, /blog/*).
+    const redirect = matchRedirect(url.pathname, REDIRECT_RULES);
+    if (redirect) {
+      const destination = new URL(redirect.to, url.origin);
+      destination.search = url.search;
+      return Response.redirect(destination.toString(), redirect.status);
+    }
 
     // Handle POST /api/subscribe — Brevo newsletter signup
     if (url.pathname === '/api/subscribe' && request.method === 'POST') {

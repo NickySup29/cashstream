@@ -53,8 +53,11 @@ export function enumerateRoutes() {
     routes.add(`/about-us/case-studies/${m[1]}/`);
   }
 
-  // Insights posts: one typed .ts file per post in src/content/blogs/.
+  // Insights posts: one typed .ts file per post in src/content/blogs/. While reading each
+  // file, also pick up its `pillar` field (if any), the same way scripts/generate-sitemap.js
+  // does, so pillar listing pages below are derived from the data instead of hardcoded.
   const blogsDir = path.join(root, 'src', 'content', 'blogs');
+  const pillarsWithPosts = new Set();
   if (fs.existsSync(blogsDir)) {
     for (const file of fs.readdirSync(blogsDir).filter((f) => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts')) {
       const src = fs.readFileSync(path.join(blogsDir, file), 'utf8');
@@ -65,8 +68,20 @@ export function enumerateRoutes() {
       for (const m of src.matchAll(/^\s{2}"?slug"?:\s*['"]([a-z0-9-]+)['"]/gm)) {
         routes.add(`/insights/${m[1]}/`);
       }
+      const pillarMatch = src.match(/^\s{2}"?pillar"?:\s*['"]([a-z0-9-]+)['"]/m);
+      if (pillarMatch) pillarsWithPosts.add(pillarMatch[1]);
     }
   }
+
+  // Insights pillar listing pages (/insights/<pillar-slug>/): one per pillar with at least
+  // one tagged post, same non-empty rule scripts/generate-sitemap.js uses to decide which
+  // pillars are real, crawlable routes. All six pillars exist in src/content/insightsPillars.ts
+  // regardless; only non-empty ones get prerendered.
+  const pillarsSrc = fs.readFileSync(path.join(root, 'src', 'content', 'insightsPillars.ts'), 'utf8');
+  for (const m of pillarsSrc.matchAll(/^\s{4}slug:\s*'([a-z0-9-]+)'/gm)) {
+    if (pillarsWithPosts.has(m[1])) routes.add(`/insights/${m[1]}/`);
+  }
+
   return [...routes];
 }
 

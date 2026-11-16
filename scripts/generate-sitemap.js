@@ -124,16 +124,20 @@ async function generateSitemap() {
   );
   const allPillarSlugs = [...pillarsSrc.matchAll(/^\s{4}slug:\s*'([a-z0-9-]+)'/gm)].map((m) => m[1]);
   const nonEmptyPillarSlugs = allPillarSlugs.filter((slug) => pillarsWithPosts.has(slug));
-  // TEMPORARILY DISABLED on hotfix/prerender-assets (2026-11-11): pillar pages were found live
-  // rendering an empty/broken shell, almost certainly a symptom of the same stale-asset-hash
-  // bug this hotfix fixes elsewhere, but pulled from the sitemap here as an explicit safety
-  // measure regardless, without touching src/content/insightsPillars.ts or
-  // src/pages/InsightsPillar.tsx. Re-enable (restore the loop that pushed these into `urls`)
-  // once pillar page content/rendering is separately confirmed correct. Not a regression.
-  console.log(
-    `Found ${nonEmptyPillarSlugs.length} non-empty Insights pillar page(s) (${nonEmptyPillarSlugs.join(', ') || 'none'}), ` +
-      'but sitemap entries for them are temporarily disabled — see comment above.'
-  );
+  // Re-enabled: scripts/prerender.js's enumerateRoutes() now expands these two pillar slugs
+  // (international-taxation, fema-advisory) and both were confirmed to render a real
+  // prerendered snapshot with a correct canonical, og:title, twitter:card and a single H1,
+  // so the "TEMPORARILY DISABLED on hotfix/prerender-assets (2026-11-11)" safety measure no
+  // longer applies to them.
+  for (const slug of nonEmptyPillarSlugs) {
+    urls += `
+  <url>
+    <loc>${SITE_URL}/insights/${slug}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+  console.log(`Added ${nonEmptyPillarSlugs.length} non-empty Insights pillar page(s) to sitemap (${nonEmptyPillarSlugs.join(', ') || 'none'})`);
 
   const sitemap = `${sitemapHeader}${urls}\n${sitemapFooter}`;
   

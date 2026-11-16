@@ -27,6 +27,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/claim-back-tds-property-sale-nri-banner-og.webp",
   "pillar": "international-taxation",
+  "service": "Foreign Co. TDS Refund",
   "summary": "Buyer deducted TDS on your Indian property sale? See who can claim it back, the ITR route, the documents, and why 26QB refund advice does not fit NRI sellers.",
   "blocks": [
     {

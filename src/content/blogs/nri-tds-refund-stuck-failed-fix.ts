@@ -27,6 +27,7 @@ export const nriTdsRefundStuckFailedFix: BlogPostContent = {
   },
   "ogImage": "https://cashstreamadvisors.com/images/insights/nri-tds-refund-stuck-failed-fix-banner-og.webp",
   "pillar": "international-taxation",
+  "service": "Foreign Co. TDS Refund",
   "summary": "NRI refund not credited? See the usual causes, from bank validation to demand adjustment, how to raise a refund reissue request, and when to get help.",
   "blocks": [
     {

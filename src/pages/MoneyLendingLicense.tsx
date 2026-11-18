@@ -180,7 +180,7 @@ export default function MoneyLendingLicense() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Money Lending License & NBFC Registration | Cash Stream Advisors"
+        title="NBFC & Money Lending License | Cash Stream Advisors"
         description="State money lender's license or RBI NBFC registration? Get the right route for your lending business, structured and licensed before you start lending."
         url={pageUrl}
         structuredData={structuredData}

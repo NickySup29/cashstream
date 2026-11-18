@@ -294,7 +294,7 @@ export default function TaxLitigation() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="Tax Litigation Services in India | Cash Stream Advisors"
-        description="From the first notice to the Tribunal, CA-led representation through scrutiny, assessment, CIT(A), DRP, and ITAT. One team, every stage, for individuals, NRIs, and foreign companies."
+        description="From the first notice to the Tribunal: CA-led representation through scrutiny, assessment, CIT(A), DRP, and ITAT, for individuals, NRIs, and companies."
         url={pageUrl}
         structuredData={structuredData}
       />

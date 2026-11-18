@@ -6,7 +6,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
   "slug": "lower-deduction-certificate-property-sale-loss",
   "title": "Sold Your Property at a Loss? How a Lower Deduction Certificate Can Cut the TDS",
   "titleTag": "Property Sale at a Loss: Lower TDS Certificate",
-  "metaDescription": "Sold property at a loss or low gain? See how it affects a lower deduction certificate, what the officer needs to see, and why TDS can still hit the full price.",
+  "metaDescription": "Sold property at a loss or low gain? See how it affects a lower deduction certificate, what the officer needs to see, and why TDS can hit the full price.",
   "tag": "Insights",
   "datePublished": "2026-11-04",
   "dateModified": "2026-11-04",
@@ -250,7 +250,7 @@ export const lowerDeductionCertificatePropertySaleLoss: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",

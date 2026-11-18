@@ -77,7 +77,7 @@ export default function CaseStudyDetail() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title={`${study.title} | Case Study | CashStream Advisors`}
+        title={study.metaTitle ?? `${study.title} | Cash Stream Advisors`}
         description={metaDescription}
         url={pageUrl}
         structuredData={[

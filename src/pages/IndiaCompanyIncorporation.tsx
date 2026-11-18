@@ -208,8 +208,8 @@ export default function IndiaCompanyIncorporation() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Company Registration in India for Foreigners & Foreign Companies | Cash Stream Advisors"
-        description="Incorporating an Indian subsidiary, JV, or LLP as a foreign founder or company? Structure, SPICe+ filing, and post-incorporation compliance, handled end to end."
+        title="Company Setup in India for Foreigners | Cash Stream Advisors"
+        description="Incorporating an Indian subsidiary, JV, or LLP as a foreign founder? Structure, SPICe+ filing, and post-incorporation compliance, handled end to end."
         url={pageUrl}
         structuredData={structuredData}
       />
@@ -727,6 +727,10 @@ export default function IndiaCompanyIncorporation() {
             <span className="opacity-40">·</span>
             <Link to="/fema-advisory/form-fc-rbi-reporting/" className="underline hover:text-on-primary">
               Form FC / RBI Reporting
+            </Link>
+            <span className="opacity-40">·</span>
+            <Link to="/contract-review/" className="underline hover:text-on-primary">
+              Contract Review
             </Link>
           </div>
         </div>

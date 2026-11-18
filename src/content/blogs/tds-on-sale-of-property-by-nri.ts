@@ -351,7 +351,7 @@ export const tdsOnSaleOfPropertyByNri: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This article is for general information and is not advice on any specific transaction. Tax rules change, and the position for your sale depends on its facts. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This article is for general information and is not advice on any specific transaction. Tax rules change, and the position for your sale depends on its facts. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",

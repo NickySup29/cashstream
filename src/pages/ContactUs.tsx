@@ -97,8 +97,8 @@ export default function ContactUs() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Contact Cash Stream Advisors | Chartered Accountants in India"
-        description="Contact Cash Stream Advisors, a Chartered Accountant firm in India. Book a consultation, message us on WhatsApp or email us. Send the notice or form as it is."
+        title="Contact Cash Stream Advisors | Chartered Accountants"
+        description="Contact Cash Stream Advisors, a Chartered Accountant firm in India. Book a consultation, message us on WhatsApp, or send the notice or form as it is."
         url={pageUrl}
         robots="index, follow"
         structuredData={structuredData}

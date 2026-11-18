@@ -178,7 +178,7 @@ export default function PrivacyPolicy() {
     <LegalPage
       title="Privacy Policy"
       metaTitle="Privacy Policy | Cash Stream Advisors"
-      metaDescription="How Cash Stream Advisors collects, uses and protects personal data submitted through this website."
+      metaDescription="How Cash Stream Advisors collects, uses, stores and protects personal data submitted through this website, and your rights over that data."
       path="/privacy-policy/"
       effectiveDate={LEGAL_EFFECTIVE}
       updatedDate={LEGAL_UPDATED}

@@ -6,7 +6,7 @@ export const tdsNotShowingForm26asAisNriPropertySale: BlogPostContent = {
   "slug": "tds-not-showing-form-26as-ais-nri-property-sale",
   "title": "TDS on Your Property Sale Not in Form 26AS or AIS? What an NRI Seller Should Do",
   "titleTag": "TDS Not in 26AS or AIS After Property Sale: NRI Fix",
-  "metaDescription": "Buyer deducted TDS but it is missing in Form 26AS or AIS? See why it happens to NRI sellers, what to check first, and how to get the credit before you file.",
+  "metaDescription": "Buyer deducted TDS but it's missing in Form 26AS or AIS? See why it happens to NRI sellers, what to check first, and how to get the credit before filing.",
   "tag": "Insights",
   "datePublished": "2026-11-07",
   "dateModified": "2026-11-07",
@@ -248,7 +248,7 @@ export const tdsNotShowingForm26asAisNriPropertySale: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",

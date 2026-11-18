@@ -460,7 +460,7 @@ export default function ForeignCompanyTdsRefund() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="NRI TDS Refund on Property Sale & Foreign Company Refunds"
-        description="Excess TDS deducted on your Indian income, property, rent, interest, or dividends? Cash Stream Advisors handles the filing and follows it through to refund."
+        description="Excess TDS deducted on your Indian income, property, rent, interest, or dividends? We handle the filing and follow it through to refund."
         url={pageUrl}
         structuredData={[
           {

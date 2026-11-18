@@ -144,7 +144,7 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Stop when the difference is months old, or when you have undone and redone the reconciliation more than once. Beyond that, it is a question of time. When the business outgrows the owner, the owner should focus on sales, and accounts can be handled by staff or a consultant. <a href=\"https://cashstreamadvisors.com/bookkeeping\">A catch-up call</a> shows where things stand. If the books are well behind, read <a href=\"https://cashstreamadvisors.com/insights/catch-up-bookkeeping-months-years-behind/\">Catch-Up Bookkeeping: Getting Months or Years of Books Current</a>."
+      "html": "Stop when the difference is months old, or when you have undone and redone the reconciliation more than once. Beyond that, it is a question of time. When the business outgrows the owner, the owner should focus on sales, and accounts can be handled by staff or a consultant. <a href=\"https://cashstreamadvisors.com/bookkeeping/\">A catch-up call</a> shows where things stand. If the books are well behind, read <a href=\"https://cashstreamadvisors.com/insights/catch-up-bookkeeping-months-years-behind/\">Catch-Up Bookkeeping: Getting Months or Years of Books Current</a>."
     },
     {
       "type": "h2",
@@ -195,7 +195,7 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",
@@ -204,7 +204,7 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping"
+          "href": "/bookkeeping/"
         },
         {
           "label": "INSIGHTS",
@@ -229,7 +229,7 @@ export const bankReconciliationNotMatchingErrorsFixes: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights"
+          "href": "/insights/"
         },
         {
           "label": "ABOUT",

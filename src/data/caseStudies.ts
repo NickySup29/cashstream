@@ -42,6 +42,13 @@ export type CaseStudy = {
   /** Short tag line for cards (Context or Context · Location). */
   tag: string;
   title: string;
+  /**
+   * Full <title>/og:title/twitter:title text, used only when `title` plus the
+   * " | Cash Stream Advisors" suffix would exceed 60 characters. Falls back to
+   * `${title} | Cash Stream Advisors` when absent. Never used for the H1,
+   * cards, breadcrumbs or schema headline, which always read `title`.
+   */
+  metaTitle?: string;
   situation: string;
   approach: string;
   outcome: string;
@@ -254,6 +261,7 @@ const SERVICE_LICENSING_HUB: CaseStudyServiceRef = {
 export const caseStudies: CaseStudy[] = [
   {
     id: 'nri-property-sale-tds-cut',
+    metaTitle: 'NRI Property Sale: TDS Cut to 6% | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: LOWER_DEDUCTION_CERTIFICATE,
     tag: 'NRI Property Sale',
@@ -269,6 +277,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-consulting-nil-tds',
+    metaTitle: 'Foreign Consulting Firm: Nil TDS | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: LOWER_DEDUCTION_CERTIFICATE,
     tag: 'Foreign Company',
@@ -284,6 +293,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'us-nri-rental-dtaa',
+    metaTitle: 'US NRI: Lower TDS on Rental Income | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: DTAA_ADVISORY,
     tag: 'US-Based NRI · Rental Income',
@@ -299,6 +309,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'singapore-fts-treaty-rate',
+    metaTitle: 'Singapore FTS Taxed at Treaty Rate | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: DTAA_ADVISORY,
     tag: 'Singapore Company · FTS Payment',
@@ -314,6 +325,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'german-royalty-correct-tds',
+    metaTitle: 'German Royalty: TDS Corrected | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: WITHHOLDING_TAX_ADVISORY,
     tag: 'Manufacturing · Germany',
@@ -329,6 +341,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'saas-nil-tds-cloud-vendor',
+    metaTitle: 'SaaS Startup: Nil-TDS Cloud Vendor | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: WITHHOLDING_TAX_ADVISORY,
     tag: 'SaaS Startup · United States',
@@ -344,6 +357,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'uk-nri-tds-refund',
+    metaTitle: 'UK NRI: Rs 18L TDS Refund | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: NON_RESIDENT_TDS_REFUND,
     tag: 'Property Sale · United Kingdom',
@@ -359,6 +373,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-it-tds-refund',
+    metaTitle: 'Foreign IT Firm: TDS Refund on FTS | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: NON_RESIDENT_TDS_REFUND,
     tag: 'Cross-Border Services · IT',
@@ -374,6 +389,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'epc-contractor-pe-attribution',
+    metaTitle: 'EPC: PE Attribution Resolved | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: FOREIGN_COMPANY_TAX_RETURN,
     tag: 'EPC · Europe',
@@ -389,6 +405,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'us-tech-royalty-substantiation',
+    metaTitle: 'Royalty Treaty Rate Substantiated | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: FOREIGN_COMPANY_TAX_RETURN,
     tag: 'Technology · United States',
@@ -404,6 +421,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'uae-return-rnor-timing',
+    metaTitle: 'UAE Return: RNOR Timing Secured | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: NRI_TAX_RELOCATION_ADVISORY,
     tag: 'Returning NRI · UAE',
@@ -419,6 +437,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'us-property-repatriation',
+    metaTitle: 'US Client: Property Repatriation | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: NRI_TAX_RELOCATION_ADVISORY,
     tag: 'Relocating NRI · United States',
@@ -434,6 +453,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'royalty-restructuring-20-to-10',
+    metaTitle: 'Royalty Restructured: TDS 20% to 10% | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: INTERNATIONAL_TAXATION_HUB,
     tag: 'Foreign Company · Royalty Structuring',
@@ -449,6 +469,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'multi-year-relocation-journey',
+    metaTitle: 'Multi-Year Relocation Tax Journey | Cash Stream Advisors',
     siteCategory: 'International Taxation',
     category: INTERNATIONAL_TAXATION_HUB,
     tag: 'NRI · Multi-Year Relocation',
@@ -464,6 +485,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'nri-property-scrutiny-no-addition',
+    metaTitle: 'NRI Property Scrutiny: No Addition | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: ASSESSMENT_SCRUTINY,
     tag: 'Salaried NRI · Property Purchase Scrutiny',
@@ -476,6 +498,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'trading-company-reassessment-dropped',
+    metaTitle: 'Trading Co: Reassessment Dropped | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: ASSESSMENT_SCRUTINY,
     tag: 'Trading Company · Three-Year Reassessment',
@@ -488,6 +511,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'nri-capital-gains-recomputation',
+    metaTitle: 'NRI Capital Gains Cut at CIT(A) | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: CIT_A_APPEALS,
     tag: 'NRI · Capital Gains Recomputation',
@@ -501,6 +525,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'services-company-disallowed-expense',
+    metaTitle: 'Services Co: Full Relief on Expense | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: CIT_A_APPEALS,
     tag: 'Services Company · Disallowed Expense',
@@ -514,6 +539,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'manufacturing-client-transfer-pricing',
+    metaTitle: 'Manufacturer: TP Adjustment Cut | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: ITAT_APPEALS,
     tag: 'Manufacturing Client · Transfer Pricing',
@@ -526,6 +552,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'departmental-appeal-defeated',
+    metaTitle: 'Departmental Appeal Defeated at ITAT | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: ITAT_APPEALS,
     tag: 'Defending a Favorable Order',
@@ -539,6 +566,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-tech-pe-attribution',
+    metaTitle: 'Foreign Tech Co: PE Profit Reduced | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: DRP_APPEALS,
     tag: 'Foreign Technology Company · PE Attribution',
@@ -552,6 +580,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'subsidiary-tp-management-fees',
+    metaTitle: 'Subsidiary: TP on Fees Narrowed | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: DRP_APPEALS,
     tag: 'Subsidiary · Transfer Pricing on Management Fees',
@@ -564,6 +593,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'reassessment-mid-case-takeover',
+    metaTitle: 'Mid-Case Takeover: Favorable Outcome | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: TAX_LITIGATION_HUB,
     tag: 'Reassessment · Mid-Case Takeover',
@@ -577,6 +607,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-company-draft-order-resolution',
+    metaTitle: 'Foreign Co: Draft Order Resolved | Cash Stream Advisors',
     siteCategory: 'Tax Litigation',
     category: TAX_LITIGATION_HUB,
     tag: 'Foreign Company · Draft Order to Resolution',
@@ -589,6 +620,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'odi-us-step-down-subsidiary-form-fc',
+    metaTitle: 'Software Co: Clean Form FC Filing | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: ODI_ADVISORY,
     tag: 'Software Company · US Step-Down Subsidiary',
@@ -601,6 +633,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'odi-undisclosed-investment-compounding',
+    metaTitle: 'Overseas Investment Regularized | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: ODI_ADVISORY,
     tag: 'Promoter · Undisclosed Investment',
@@ -613,6 +646,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'fdi-startup-series-a-foreign-vc',
+    metaTitle: 'Startup: Series A Filed on Time | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FDI_ADVISORY,
     tag: 'Startup · Series A, Foreign VC',
@@ -625,6 +659,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'fdi-overseas-family-fctrs-transfer',
+    metaTitle: 'Transfer: Contravention Avoided | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FDI_ADVISORY,
     tag: 'Overseas Family Member · Secondary Transfer',
@@ -637,6 +672,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'manufacturing-fdi-ecb-rbi-reconciliation',
+    metaTitle: 'Manufacturer: Compliance Restored | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FORM_FC_RBI_REPORTING,
     tag: 'Manufacturing Company · 3-Year Reconciliation',
@@ -649,6 +685,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'startup-fla-return-firms-registration',
+    metaTitle: 'Startup: FLA Penalty Avoided | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FORM_FC_RBI_REPORTING,
     tag: 'First-Time Foreign-Funded Startup',
@@ -661,6 +698,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'trading-company-fema-health-check-compounding',
+    metaTitle: 'Trading Co: FEMA Gap Compounded | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FEMA_COMPLIANCE,
     tag: 'Trading Company · Pre-Funding Health-Check',
@@ -673,6 +711,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'nri-family-lrs-remittance-compliance',
+    metaTitle: 'NRI Family: LRS Queries Resolved | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FEMA_COMPLIANCE,
     tag: 'NRI Family · Recurring Remittances',
@@ -685,6 +724,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'fema-startup-series-a-rbi-timelines',
+    metaTitle: 'FEMA Startup: Series A On Time | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FEMA_ADVISORY_HUB,
     tag: 'Foreign-Funded Startup · End-to-End Series A',
@@ -697,6 +737,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'fema-multi-year-cleanup-acquisition',
+    metaTitle: 'FEMA Clean-Up Ahead of Acquisition | Cash Stream Advisors',
     siteCategory: 'FEMA Advisory',
     category: FEMA_ADVISORY_HUB,
     tag: 'Multi-Year FEMA Clean-Up',
@@ -709,6 +750,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'european-tech-subsidiary-live-within-weeks',
+    metaTitle: 'EU Tech Co: Subsidiary Live Fast | Cash Stream Advisors',
     siteCategory: 'Foreign Business Setup',
     category: INDIA_COMPANY_INCORPORATION,
     tag: 'European Technology Company',
@@ -721,6 +763,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-founder-structure-corrected-before-filing',
+    metaTitle: 'Founder: Structure Fixed Pre-Filing | Cash Stream Advisors',
     siteCategory: 'Foreign Business Setup',
     category: INDIA_COMPANY_INCORPORATION,
     tag: 'Foreign Founder',
@@ -733,6 +776,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'saas-strategy-through-first-gst-registration',
+    metaTitle: 'SaaS: Strategy to GST Registration | Cash Stream Advisors',
     siteCategory: 'Foreign Business Setup',
     category: FOREIGN_BUSINESS_SETUP_HUB,
     tag: 'Global SaaS Company',
@@ -745,6 +789,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-manufacturer-informal-presence-made-compliant',
+    metaTitle: 'Manufacturer: Presence Compliant | Cash Stream Advisors',
     siteCategory: 'Foreign Business Setup',
     category: FOREIGN_BUSINESS_SETUP_HUB,
     tag: 'Foreign Manufacturer',
@@ -757,6 +802,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'multi-state-itc-backlog-cleared',
+    metaTitle: 'Multi-State Trader: ITC Cleared | Cash Stream Advisors',
     siteCategory: 'Indian Company Compliance',
     category: GST_COMPLIANCE,
     tag: 'Multi-State Trading Business',
@@ -769,6 +815,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'services-exporter-stuck-refund-resolved',
+    metaTitle: 'Services Exporter: Refund Resolved | Cash Stream Advisors',
     siteCategory: 'Indian Company Compliance',
     category: GST_COMPLIANCE,
     tag: 'Services Exporter',
@@ -781,6 +828,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'professional-firm-through-the-year-discipline',
+    metaTitle: 'Pro Firm: Year-Round Compliance | Cash Stream Advisors',
     siteCategory: 'Indian Company Compliance',
     category: INCOME_TAX_COMPLIANCE,
     tag: 'Professional Services Firm',
@@ -793,6 +841,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'individual-recurring-ais-notice-resolved',
+    metaTitle: 'Individual: AIS Notice Resolved | Cash Stream Advisors',
     siteCategory: 'Indian Company Compliance',
     category: INCOME_TAX_COMPLIANCE,
     tag: 'Individual, Reconciled Filing',
@@ -805,6 +854,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'foreign-subsidiary-two-year-backlog-cleared',
+    metaTitle: 'Subsidiary: 2-Year Backlog Cleared | Cash Stream Advisors',
     siteCategory: 'Indian Company Compliance',
     category: ROC_COMPLIANCE,
     tag: 'Foreign-Owned Subsidiary',
@@ -817,6 +867,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'growing-startup-event-based-filings-reorganized',
+    metaTitle: 'Startup: Filings Reorganized | Cash Stream Advisors',
     siteCategory: 'Indian Company Compliance',
     category: ROC_COMPLIANCE,
     tag: 'Growing Startup',
@@ -829,6 +880,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'regional-lending-multi-state-licensing',
+    metaTitle: 'Lender: Multi-State Licensing | Cash Stream Advisors',
     siteCategory: 'Licensing',
     category: MONEY_LENDING_LICENSE,
     tag: 'Regional Lending Business',
@@ -841,6 +893,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'fintech-startup-lsp-faster-to-market',
+    metaTitle: 'Fintech: Faster-to-Market Structure | Cash Stream Advisors',
     siteCategory: 'Licensing',
     category: MONEY_LENDING_LICENSE,
     tag: 'Fintech Startup',
@@ -853,6 +906,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'lending-business-correct-state-license-identified',
+    metaTitle: 'Lender: Correct License Confirmed | Cash Stream Advisors',
     siteCategory: 'Licensing',
     category: LICENSING_HUB,
     tag: 'Lending Business',
@@ -865,6 +919,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'growing-business-expansion-licensing-evaluated-first',
+    metaTitle: 'Business: Licensing Evaluated First | Cash Stream Advisors',
     siteCategory: 'Licensing',
     category: LICENSING_HUB,
     tag: 'Growing Business',

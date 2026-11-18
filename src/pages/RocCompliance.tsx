@@ -174,8 +174,8 @@ export default function RocCompliance() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="ROC Compliance Services for Companies & LLPs | Cash Stream Advisors"
-        description="Annual filings, event-based ROC forms, and statutory registers, managed together so nothing falls through the cracks between AGM season and the rest of the year."
+        title="ROC Compliance for Companies & LLPs | Cash Stream Advisors"
+        description="Annual filings, event-based ROC forms, and statutory registers, managed together so nothing falls through the cracks between AGM season and the rest."
         url={pageUrl}
         structuredData={structuredData}
       />

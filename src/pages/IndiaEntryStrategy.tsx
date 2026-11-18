@@ -229,8 +229,8 @@ export default function IndiaEntryStrategy() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="India Market Entry Strategy & Regulatory Advisory | Cash Stream Advisors"
-        description="Liaison office, branch office, subsidiary, or JV? Get the right India entry mode for your objectives, regulatory position, and risk appetite, before you commit."
+        title="India Market Entry Strategy | Cash Stream Advisors"
+        description="Liaison office, branch office, subsidiary, or JV? Get the right India entry mode for your objectives, regulatory position and risk, before you commit."
         url={pageUrl}
         structuredData={structuredData}
       />
@@ -650,6 +650,10 @@ export default function IndiaEntryStrategy() {
             <span className="opacity-40">·</span>
             <Link to="/fema-advisory/fema-compliance/" className="underline hover:text-on-primary">
               FEMA Compliance
+            </Link>
+            <span className="opacity-40">·</span>
+            <Link to="/contract-review/" className="underline hover:text-on-primary">
+              Contract Review
             </Link>
           </div>
         </div>

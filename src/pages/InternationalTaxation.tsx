@@ -217,7 +217,7 @@ export default function InternationalTaxation() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="International Taxation Services | CashStream Advisors"
+        title="International Taxation Services | Cash Stream Advisors"
         description="Cross-border tax advisory for NRIs, foreign companies, and Indian businesses. DTAA, withholding tax, TDS refunds, and relocation planning in one place."
         url={pageUrl}
         structuredData={[

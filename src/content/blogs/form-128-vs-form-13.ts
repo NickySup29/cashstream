@@ -212,7 +212,7 @@ export const formVsForm13: BlogPostContent = {
     },
     {
       type: 'paragraph',
-      html: 'This article is for general information and is not advice on any specific transaction. Tax rules change, and the position in your case depends on its facts. Read our <a href="https://cashstreamadvisors.com/disclaimer/">disclaimer</a> and <a href="https://cashstreamadvisors.com/regulatory-compliance">regulatory compliance</a> pages.',
+      html: 'This article is for general information and is not advice on any specific transaction. Tax rules change, and the position in your case depends on its facts. Read our <a href="https://cashstreamadvisors.com/disclaimer/">disclaimer</a> and <a href="https://cashstreamadvisors.com/regulatory-compliance/">regulatory compliance</a> pages.',
     },
     {
       type: 'relatedCards',

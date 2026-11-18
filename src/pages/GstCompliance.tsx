@@ -176,8 +176,8 @@ export default function GstCompliance() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="GST Compliance Services for Businesses | Cash Stream Advisors"
-        description="Monthly and annual GST filing, ITC reconciliation, and notice handling. Reconciliation-first compliance so deadlines and mismatches never become a scramble."
+        title="GST Compliance Services | Cash Stream Advisors"
+        description="Monthly and annual GST filing, ITC reconciliation, and notice handling, reconciliation-first so deadlines and mismatches never become a scramble."
         url={pageUrl}
         structuredData={structuredData}
       />

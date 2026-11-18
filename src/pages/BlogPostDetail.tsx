@@ -601,7 +601,7 @@ function buildStructuredData(post: BlogPostContent, pageUrl: string) {
   const service = pillar && post.service ? getPillarService(pillar, post.service) : undefined;
   const crumbItems: { name: string; item?: string }[] = [
     { name: 'Home', item: `${SITE}/` },
-    { name: 'Insights', item: `${SITE}/insights` },
+    { name: 'Insights', item: `${SITE}/insights/` },
   ];
   if (pillar) crumbItems.push({ name: pillar.name, item: `${SITE}/insights/${pillar.slug}/` });
   if (service) crumbItems.push({ name: service.title, item: `${SITE}${service.href}` });

@@ -410,7 +410,7 @@ export default function NriTaxRelocationAdvisory() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="NRI Tax & Relocation Advisory | International Taxation | CashStream Advisors"
+        title="NRI Tax & Relocation Advisory | Cash Stream Advisors"
         description="Moving to India or abroad? Get clarity on your NRI, RNOR, or Resident status, and expert help with tax, repatriation, and disclosure compliance."
         url={pageUrl}
         structuredData={[

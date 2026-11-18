@@ -441,6 +441,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/insights/bank-reconciliation-not-matching-errors-fixes/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/bookkeeping-before-tax-return/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/catch-up-bookkeeping-months-years-behind/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/chart-of-accounts-setup-new-business/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/insights/claim-back-tds-property-sale-nri/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -451,12 +471,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/insights/fla-return-who-must-file-and-by-when/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/insights/form-128-vs-form-13/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/insights/form-15ca-15cb-form-145-146-nri-remittance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/how-to-file-fc-gpr-on-firms-portal-step-by-step/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -481,6 +511,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/insights/missed-rbi-reporting-deadline-late-fee-or-compounding/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/month-end-close-checklist-small-business/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/insights/nil-vs-lower-tds-certificate/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -501,6 +541,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cashstreamadvisors.com/insights/quickbooks-vs-zoho-books-vs-xero-small-business/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cashstreamadvisors.com/insights/tds-not-showing-form-26as-ais-nri-property-sale/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -517,6 +562,11 @@
   </url>
   <url>
     <loc>https://cashstreamadvisors.com/insights/track-lower-deduction-certificate-traces/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cashstreamadvisors.com/insights/what-to-expect-outsourcing-bookkeeping/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

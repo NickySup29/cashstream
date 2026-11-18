@@ -39,8 +39,8 @@ export default function CaseStudies() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Client Case Studies | International Taxation | CashStream Advisors"
-        description="Anonymized client engagements in international taxation: Lower Deduction Certificates, DTAA advisory, withholding tax, TDS refunds, foreign company returns, and NRI relocation planning."
+        title="Client Case Studies | Cash Stream Advisors"
+        description="Anonymized client case studies in international taxation, tax litigation, FEMA advisory, business setup, compliance, and licensing matters we've handled."
         url={pageUrl}
         structuredData={[
           {

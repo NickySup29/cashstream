@@ -232,7 +232,7 @@ export const trackLowerDeductionCertificateTraces: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",

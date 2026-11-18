@@ -235,7 +235,7 @@ export default function ItatAppeals() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="ITAT Appeal Filing & Representation | Cash Stream Advisors"
-        description="Lost at CIT(A)? File your ITAT appeal correctly, Form 36, paper book, and grounds of appeal, within the time limit. Representation by CA and coordinated counsel."
+        description="Lost at CIT(A)? File your ITAT appeal correctly, Form 36, paper book, and grounds of appeal, within the time limit. Representation by CA and counsel."
         url={pageUrl}
         structuredData={structuredData}
       />

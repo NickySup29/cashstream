@@ -200,7 +200,7 @@ export default function IncomeTaxCompliance() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="Income Tax Compliance Services | Cash Stream Advisors"
-        description="Advance tax, TDS/TCS, tax audit, and return filing, managed as one coordinated annual cycle, reconciled against AIS/TIS/26AS before filing, not after a notice."
+        description="Advance tax, TDS/TCS, tax audit, and return filing, managed as one coordinated cycle, reconciled against AIS/TIS/26AS before filing, not after a notice."
         url={pageUrl}
         structuredData={structuredData}
       />

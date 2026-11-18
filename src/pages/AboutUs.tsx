@@ -586,7 +586,7 @@ export default function AboutUs() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="About Cash Stream Advisors | Chartered Accountants in India"
-        description="Cash Stream Advisors is a Chartered Accountant firm in India. We take over cross-border tax, FEMA and RBI paperwork, notices and compliance. Throw it at us."
+        description="Cash Stream Advisors is a Chartered Accountant firm in India. We handle cross-border tax, FEMA and RBI paperwork, notices and compliance. Throw it at us."
         url={pageUrl}
         structuredData={structuredData}
       />

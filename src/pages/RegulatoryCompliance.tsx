@@ -24,7 +24,7 @@ export default function RegulatoryCompliance() {
     >
       <SEO
         title="Regulatory Compliance | Cash Stream Advisors"
-        description="Cash Stream Advisors' regulatory mandate under RBI, SEBI, FEMA, and AML frameworks."
+        description="Cash Stream Advisors' regulatory mandate under RBI, SEBI and FEMA frameworks, including AML and KYC screening for corporate and high-net-worth clients."
         url={pageUrl}
         structuredData={structuredData}
       />

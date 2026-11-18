@@ -142,7 +142,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<a href=\"https://cashstreamadvisors.com/bookkeeping\">We fit the chart to the client</a>'s business, size and needs, so it is flexible. The owner does not need to design the chart. For the full onboarding, read <a href=\"https://cashstreamadvisors.com/insights/what-to-expect-outsourcing-bookkeeping/\">What to Expect When You Outsource Your Bookkeeping</a>."
+      "html": "<a href=\"https://cashstreamadvisors.com/bookkeeping/\">We fit the chart to the client</a>'s business, size and needs, so it is flexible. The owner does not need to design the chart. For the full onboarding, read <a href=\"https://cashstreamadvisors.com/insights/what-to-expect-outsourcing-bookkeeping/\">What to Expect When You Outsource Your Bookkeeping</a>."
     },
     {
       "type": "h2",
@@ -193,7 +193,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",
@@ -202,7 +202,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping"
+          "href": "/bookkeeping/"
         },
         {
           "label": "INSIGHTS",
@@ -222,7 +222,7 @@ export const chartOfAccountsSetupNewBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights"
+          "href": "/insights/"
         },
         {
           "label": "ABOUT",

@@ -151,7 +151,7 @@ export const bookkeepingBeforeTaxReturn: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "When the same team keeps the books and prepares the return, there is no hand-off and no re-keying, and questions are answered once. You stop overseeing the details but still see the full picture, end to end. <a href=\"https://cashstreamadvisors.com/bookkeeping\">We file US returns end to end</a> for all entity types, signed by a professional tax preparer who holds a PTIN, in most cases an EA or a CPA."
+      "html": "When the same team keeps the books and prepares the return, there is no hand-off and no re-keying, and questions are answered once. You stop overseeing the details but still see the full picture, end to end. <a href=\"https://cashstreamadvisors.com/bookkeeping/\">We file US returns end to end</a> for all entity types, signed by a professional tax preparer who holds a PTIN, in most cases an EA or a CPA."
     },
     {
       "type": "paragraph",
@@ -206,7 +206,7 @@ export const bookkeepingBeforeTaxReturn: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",
@@ -215,7 +215,7 @@ export const bookkeepingBeforeTaxReturn: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping"
+          "href": "/bookkeeping/"
         },
         {
           "label": "INSIGHTS",
@@ -230,7 +230,7 @@ export const bookkeepingBeforeTaxReturn: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights"
+          "href": "/insights/"
         },
         {
           "label": "ABOUT",

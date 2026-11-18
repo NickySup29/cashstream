@@ -40,6 +40,7 @@ export default function Footer() {
               <Link to="/compliance/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Compliance</Link>
               <Link to="/fema-advisory/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">FEMA Advisory</Link>
               <Link to="/bookkeeping/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Bookkeeping</Link>
+              <Link to="/contract-review/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Contract Review</Link>
               <Link to="/about-us/case-studies/" className="text-secondary hover:underline decoration-2 underline-offset-4 transition-all">Case Studies</Link>
             </div>
             <div className="flex flex-col gap-4">

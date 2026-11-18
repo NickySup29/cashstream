@@ -141,7 +141,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Owners who <a href=\"https://cashstreamadvisors.com/bookkeeping\">outsource to us</a> receive a monthly pack."
+      "html": "Owners who <a href=\"https://cashstreamadvisors.com/bookkeeping/\">outsource to us</a> receive a monthly pack."
     },
     {
       "type": "bulletList",
@@ -206,7 +206,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",
@@ -215,7 +215,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "US bookkeeping service",
-          "href": "/bookkeeping"
+          "href": "/bookkeeping/"
         },
         {
           "label": "INSIGHTS",
@@ -245,7 +245,7 @@ export const monthEndCloseChecklistSmallBusiness: BlogPostContent = {
         {
           "label": "SERVICE",
           "title": "All insights",
-          "href": "/insights"
+          "href": "/insights/"
         },
         {
           "label": "ABOUT",

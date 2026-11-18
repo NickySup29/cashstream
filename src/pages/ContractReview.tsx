@@ -36,7 +36,7 @@ export default function ContractReview() {
     >
       <SEO
         title="Contract Review Services | Cash Stream Advisors"
-        description="Line-by-line contract and agreement review that uncovers hidden risks and clarifies obligations before you sign."
+        description="Line-by-line contract and agreement review that uncovers hidden risks and clarifies obligations, whether it is a vendor contract or a merger agreement."
         url={pageUrl}
         structuredData={structuredData}
       />

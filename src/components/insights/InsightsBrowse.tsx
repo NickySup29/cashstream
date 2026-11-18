@@ -95,7 +95,7 @@ export default function InsightsBrowse({ activePillar }: { activePillar?: Insigh
               Browse by pillar
             </div>
             <Link
-              to="/insights"
+              to="/insights/"
               aria-current={!activePillar ? 'page' : undefined}
               className={`flex items-center gap-4 w-full min-h-16 px-4 py-3 mb-1 rounded-xl transition-all ${
                 !activePillar ? 'bg-surface-container-lowest shadow-sm' : 'hover:bg-surface-container-lowest/60'

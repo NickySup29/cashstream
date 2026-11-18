@@ -228,7 +228,7 @@ export default function OdiAdvisory() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="ODI Advisory: Overseas Direct Investment Compliance | Cash Stream Advisors"
+        title="ODI Advisory & Compliance | Cash Stream Advisors"
         description="Setting up a subsidiary or JV abroad? Get your ODI vs OPI classification, RBI route, and Form FC filing right, plus help fixing past non-compliance."
         url={pageUrl}
         structuredData={structuredData}

@@ -188,7 +188,7 @@ export default function IndianCompanyCompliance() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="Indian Company Compliance Services | Cash Stream Advisors"
-        description="GST, income tax, and ROC compliance, coordinated as one calendar instead of three separate ones. End-to-end statutory compliance for Indian companies and startups."
+        description="GST, income tax, and ROC compliance, coordinated as one calendar instead of three. End-to-end statutory compliance for Indian companies and startups."
         url={pageUrl}
         structuredData={structuredData}
       />

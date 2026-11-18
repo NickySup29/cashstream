@@ -16,7 +16,7 @@ export default function InsightsPillar() {
   // Only pillars with at least one tagged post get a live route (task
   // brief #3). An unknown or still-empty pillar slug falls back to the
   // listing page rather than rendering a dead/empty page.
-  if (!pillar || !isNonEmpty) return <Navigate to="/insights" replace />;
+  if (!pillar || !isNonEmpty) return <Navigate to="/insights/" replace />;
 
   const pageUrl = `${SITE}/insights/${pillar.slug}/`;
 
@@ -33,7 +33,7 @@ export default function InsightsPillar() {
             '@id': `${pageUrl}#breadcrumb`,
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-              { '@type': 'ListItem', position: 2, name: 'Insights', item: `${SITE}/insights` },
+              { '@type': 'ListItem', position: 2, name: 'Insights', item: `${SITE}/insights/` },
               { '@type': 'ListItem', position: 3, name: pillar.name, item: pageUrl },
             ],
           },
@@ -48,7 +48,7 @@ export default function InsightsPillar() {
           Home
         </Link>
         <span aria-hidden="true">/</span>
-        <Link to="/insights" className="hover:text-primary transition-colors">
+        <Link to="/insights/" className="hover:text-primary transition-colors">
           Insights
         </Link>
         <span aria-hidden="true">/</span>

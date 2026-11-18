@@ -258,7 +258,7 @@ export default function FemaAdvisory() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="FEMA Advisory Services in India | Cash Stream Advisors"
-        description="Inbound investment, outbound investment, RBI reporting, and ongoing compliance, structured correctly under FEMA and coordinated with your tax position from day one."
+        description="Inbound and outbound investment, RBI reporting, and ongoing compliance, structured correctly under FEMA and coordinated with your tax position."
         url={pageUrl}
         structuredData={structuredData}
       />

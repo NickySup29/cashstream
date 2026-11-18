@@ -235,7 +235,7 @@ export default function FemaCompliance() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="FEMA Compliance Advisory & Consultant | Cash Stream Advisors"
-        description="Ongoing FEMA compliance support for businesses and individuals with recurring cross-border transactions, day-to-day advisory, LRS guidance, and voluntary compounding."
+        description="Ongoing FEMA compliance support for businesses and individuals with recurring cross-border transactions: day-to-day advisory, LRS guidance, compounding."
         url={pageUrl}
         structuredData={structuredData}
       />

@@ -225,8 +225,8 @@ export default function Home() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32 pb-20 lg:pb-0">
       <SEO
-        title="Cash Stream Advisors | Chartered Accountants for Complex Tax and Cross-Border Matters"
-        description="International taxation, FEMA compliance, tax litigation, and business setup in India. Handled end to end by chartered accountants who deal with nothing else."
+        title="CA Firm for Cross-Border Tax & FEMA | Cash Stream Advisors"
+        description="International taxation, FEMA compliance, tax litigation and business setup in India, handled end to end by chartered accountants who do nothing else."
         url={pageUrl}
         structuredData={[
           {

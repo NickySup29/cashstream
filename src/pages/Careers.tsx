@@ -47,7 +47,7 @@ export default function Careers() {
     >
       <SEO
         title="Careers | Cash Stream Advisors"
-        description="Open roles at Cash Stream Advisors for tax, FEMA compliance, and cross-border advisory professionals."
+        description="Open roles at Cash Stream Advisors for tax, FEMA compliance, and cross-border advisory professionals. See current openings and how to apply."
         url={pageUrl}
         structuredData={structuredData}
       />

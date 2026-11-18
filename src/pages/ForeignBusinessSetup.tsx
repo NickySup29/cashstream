@@ -194,7 +194,7 @@ export default function ForeignBusinessSetup() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="Foreign Business Setup in India | Cash Stream Advisors"
-        description="From India entry strategy through incorporation, FDI reporting, and first compliance, one coordinated engagement for foreign companies and investors entering India."
+        description="From India entry strategy through incorporation, FDI reporting, and first compliance, one coordinated engagement for foreign companies entering India."
         url={pageUrl}
         structuredData={structuredData}
       />

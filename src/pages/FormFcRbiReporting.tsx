@@ -230,7 +230,7 @@ export default function FormFcRbiReporting() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="FCGPR, FC-TRS & Form FC Filing on the RBI FIRMS Portal"
-        description="FCGPR, FC-TRS, Form FC, FLA and ECB-2 filing on the RBI FIRMS portal. Registration, filing and AD bank coordination, with every RBI deadline tracked for you."
+        description="FCGPR, FC-TRS, Form FC, FLA and ECB-2 filing on the RBI FIRMS portal: registration, filing, and AD bank coordination, every deadline tracked."
         url={pageUrl}
         structuredData={structuredData}
       />

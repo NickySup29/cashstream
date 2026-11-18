@@ -6,7 +6,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
   "slug": "claim-back-tds-property-sale-nri",
   "title": "How to Claim Back TDS Deducted on Your Property Sale: A Guide for NRI Sellers",
   "titleTag": "Claim Back TDS on Property Sale: NRI Seller's Guide",
-  "metaDescription": "Buyer deducted TDS on your Indian property sale? See who can claim it back, the ITR route, the documents, and why 26QB refund advice does not fit NRI sellers.",
+  "metaDescription": "Buyer deducted TDS on your Indian property sale? See who can claim it back, the ITR route, the documents, and why 26QB refund advice doesn't fit.",
   "tag": "Insights",
   "datePublished": "2026-11-07",
   "dateModified": "2026-11-07",
@@ -245,7 +245,7 @@ export const claimBackTdsPropertySaleNri: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance\">regulatory compliance</a> pages.</em>"
+      "html": "<em>This Insights article is general information, not advice on a specific transaction. Read our <a href=\"https://cashstreamadvisors.com/disclaimer/\">disclaimer</a> and <a href=\"https://cashstreamadvisors.com/regulatory-compliance/\">regulatory compliance</a> pages.</em>"
     },
     {
       "type": "relatedCards",

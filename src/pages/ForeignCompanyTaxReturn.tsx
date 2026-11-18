@@ -458,7 +458,7 @@ export default function ForeignCompanyTaxReturn() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Foreign Company Tax Return in India | International Taxation | CashStream Advisors"
+        title="Foreign Company Tax Return in India | Cash Stream Advisors"
         description="Foreign company earning income from India? Understand PE, tax rates, and ITR-6 filing. Cash Stream Advisors handles compliance end to end."
         url={pageUrl}
         structuredData={[

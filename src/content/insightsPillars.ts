@@ -33,7 +33,7 @@ export const insightsPillars: InsightsPillar[] = [
     name: 'International Taxation',
     eyebrowIndex: 1,
     blurb:
-      'Treaty relief, withholding, TDS refunds and NRI tax planning for income that crosses borders.',
+      "Treaty relief, withholding, TDS refunds and NRI tax planning for income that crosses borders: the rules, the forms, and what we've seen go wrong.",
     services: [
       {
         title: 'Lower Deduction Certificate',
@@ -67,7 +67,7 @@ export const insightsPillars: InsightsPillar[] = [
       },
       {
         title: 'Bookkeeping',
-        href: '/bookkeeping',
+        href: '/bookkeeping/',
         desc: 'Monthly books, catch-up and cleanup, and tax filing in QuickBooks, Zoho Books or Xero.',
       },
     ],
@@ -76,7 +76,8 @@ export const insightsPillars: InsightsPillar[] = [
     slug: 'tax-litigation',
     name: 'Tax Litigation',
     eyebrowIndex: 2,
-    blurb: 'Scrutiny, reassessment and appeals, from the assessment order to the tribunal.',
+    blurb:
+      'Scrutiny, reassessment and appeals, from the assessment order to the tribunal: what each stage involves and what tends to go wrong along the way.',
     services: [
       {
         title: 'Assessment & Scrutiny',
@@ -105,7 +106,7 @@ export const insightsPillars: InsightsPillar[] = [
     name: 'FEMA Advisory',
     eyebrowIndex: 3,
     blurb:
-      'Outbound and inbound investment, FIRMS portal filings and the recurring RBI compliance calendar.',
+      'Outbound and inbound investment, FIRMS portal filings and the recurring RBI compliance calendar, explained from the forms we file every month.',
     services: [
       {
         title: 'ODI Advisory',
@@ -133,7 +134,8 @@ export const insightsPillars: InsightsPillar[] = [
     slug: 'business-setup',
     name: 'Business Setup',
     eyebrowIndex: 4,
-    blurb: 'Entry options and incorporation for foreign founders and companies coming to India.',
+    blurb:
+      'Entry options and incorporation for foreign founders and companies coming to India, from choosing a structure through first compliance filings.',
     services: [
       {
         title: 'India Entry Strategy',
@@ -151,7 +153,8 @@ export const insightsPillars: InsightsPillar[] = [
     slug: 'company-compliance',
     name: 'Company Compliance',
     eyebrowIndex: 5,
-    blurb: 'GST, income tax and ROC filings, run as one coordinated cycle.',
+    blurb:
+      'GST, income tax and ROC filings, run as one coordinated cycle, with the deadlines, documents and mistakes we see most often in each.',
     services: [
       {
         title: 'GST Compliance',
@@ -174,7 +177,8 @@ export const insightsPillars: InsightsPillar[] = [
     slug: 'licensing',
     name: 'Licensing',
     eyebrowIndex: 6,
-    blurb: 'State licence and NBFC registration for lending businesses.',
+    blurb:
+      'State licence and NBFC registration for lending businesses: which licence applies, how to apply, and the ongoing compliance that follows.',
     services: [
       {
         title: 'Money Lending License',

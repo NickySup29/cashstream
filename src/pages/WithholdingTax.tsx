@@ -220,7 +220,7 @@ export default function WithholdingTax() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="Withholding Tax Advisory | CashStream Advisors"
+        title="Withholding Tax Advisory | Cash Stream Advisors"
         description="Section 195 withholding tax advisory for payments to non-residents. Classification, treaty rates, Form 145/146, and TDS compliance for Indian businesses."
         url={pageUrl}
         structuredData={[

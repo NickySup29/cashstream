@@ -217,7 +217,7 @@ export default function FdiAdvisory() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="FDI Advisory: Foreign Direct Investment Compliance | Cash Stream Advisors"
+        title="FDI Advisory & Compliance | Cash Stream Advisors"
         description="Raising capital from foreign investors, or investing in an Indian company? Get the route, pricing, and FCGPR/FCTRS filing right, within RBI's deadlines."
         url={pageUrl}
         structuredData={structuredData}
@@ -733,6 +733,10 @@ export default function FdiAdvisory() {
             <span className="opacity-40">·</span>
             <Link to="/international-taxation/foreign-company-tax-return/" className="underline hover:text-on-primary">
               Foreign Company Tax Return in India
+            </Link>
+            <span className="opacity-40">·</span>
+            <Link to="/contract-review/" className="underline hover:text-on-primary">
+              Contract Review
             </Link>
           </div>
         </div>

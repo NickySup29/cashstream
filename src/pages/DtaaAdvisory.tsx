@@ -134,8 +134,8 @@ const countryData = {
     rows: [
       ['Dividends', 'Up to 15%'],
       ['Interest', 'Up to 15%'],
-      ['Royalties', '10% – 15%'],
-      ['Fees for Technical Services (FTS)', '10% – 15% (subject to the Make Available clause)'],
+      ['Royalties', '10% to 15%'],
+      ['Fees for Technical Services (FTS)', '10% to 15% (subject to the Make Available clause)'],
     ],
   },
   uk: {
@@ -146,7 +146,7 @@ const countryData = {
     rows: [
       ['Dividends', 'Up to 15%'],
       ['Interest', 'Up to 15%'],
-      ['Royalties', '10% – 15%'],
+      ['Royalties', '10% to 15%'],
       ['Fees for Technical Services (FTS)', 'Treaty specific'],
     ],
   },
@@ -169,7 +169,7 @@ const countryData = {
       "The India Mauritius DTAA is commonly referred to for cross-border investments, capital gains, dividend income, and tax residency matters. Professional interpretation is often required to determine treaty eligibility and the applicable tax treatment. Post-2017 investments are generally subject to India's capital gains tax rather than the treaty exemption that applied to earlier holdings, so the acquisition date of the underlying asset matters significantly.",
     rows: [
       ['Dividends', 'Treaty dependent'],
-      ['Interest', 'Up to 7.5% – 15%'],
+      ['Interest', 'Up to 7.5% to 15%'],
       ['Royalties', 'Up to 15%'],
       ['Fees for Technical Services (FTS)', 'Treaty dependent'],
     ],
@@ -180,7 +180,7 @@ const countryData = {
     description:
       "The India Germany DTAA helps residents and businesses avoid double taxation on income earned between India and Germany. The treaty covers royalties, technical services, employment income, business profits, dividends, interest, and foreign tax credit claims. Business profits are taxable in India only where a Permanent Establishment exists, making the nature of the German entity's presence in India a key factor in the analysis.",
     rows: [
-      ['Dividends', 'Up to 10% – 15%'],
+      ['Dividends', 'Up to 10% to 15%'],
       ['Interest', 'Up to 10%'],
       ['Royalties', 'Up to 10%'],
       ['Fees for Technical Services (FTS)', 'Treaty dependent'],
@@ -390,7 +390,7 @@ export default function DtaaAdvisory() {
             <div className="space-y-5">
               <div className="flex justify-between items-center border-b border-on-primary/15 pb-3">
                 <span className="text-on-primary/80">Applicable treaty</span>
-                <span className="font-semibold">India–USA DTAA</span>
+                <span className="font-semibold">India-USA DTAA</span>
               </div>
               <div className="flex justify-between items-center border-b border-on-primary/15 pb-3">
                 <span className="text-on-primary/80">Income type</span>
@@ -402,7 +402,7 @@ export default function DtaaAdvisory() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-on-primary/80">Treaty rate</span>
-                <span className="font-semibold">10% – 15%</span>
+                <span className="font-semibold">10% to 15%</span>
               </div>
             </div>
             <div className="mt-8 border-t border-on-primary/15 pt-6">
@@ -788,47 +788,49 @@ export default function DtaaAdvisory() {
               })}
             </div>
 
-            <div className="p-6 md:p-8">
-              <div className="mb-4">
-                <div className="text-[11px] uppercase tracking-[0.12em] text-secondary font-semibold flex items-center gap-2">
-                  {(() => {
-                    const FlagIcon = countryData[selectedCountry].flagIcon;
-                    return <FlagIcon style={{ width: 24, height: 16, borderRadius: 2 }} />;
-                  })()}
-                  Treaty Snapshot
+            {Object.entries(countryData).map(([key, country]) => (
+              <div
+                key={key}
+                className={`p-6 md:p-8 ${selectedCountry === key ? '' : 'hidden'}`}
+              >
+                <div className="mb-4">
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-secondary font-semibold flex items-center gap-2">
+                    <country.flagIcon style={{ width: 24, height: 16, borderRadius: 2 }} />
+                    Treaty Snapshot
+                  </div>
+                  <h3 className="mt-2 text-2xl font-extrabold text-primary">
+                    {country.name}
+                  </h3>
                 </div>
-                <h3 className="mt-2 text-2xl font-extrabold text-primary">
-                  {countryData[selectedCountry].name}
-                </h3>
-              </div>
 
-              <p className="max-w-3xl text-secondary leading-relaxed mb-6">
-                {countryData[selectedCountry].description}
-              </p>
+                <p className="max-w-3xl text-secondary leading-relaxed mb-6">
+                  {country.description}
+                </p>
 
-              <div className="overflow-x-auto rounded-xl border border-outline-variant/20 bg-surface-container-lowest">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="bg-primary text-on-primary text-[11px] uppercase tracking-[0.12em]">
-                      <th className="px-6 py-4 font-semibold">Income Type</th>
-                      <th className="px-6 py-4 font-semibold">Indicative Treaty Rate*</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {countryData[selectedCountry].rows.map(([incomeType, rate]) => (
-                      <tr key={`${selectedCountry}-${incomeType}`} className="border-t border-outline-variant/20">
-                        <td className="px-6 py-4 text-primary font-bold">{incomeType}</td>
-                        <td className="px-6 py-4 text-secondary">{rate}</td>
+                <div className="overflow-x-auto rounded-xl border border-outline-variant/20 bg-surface-container-lowest">
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="bg-primary text-on-primary text-[11px] uppercase tracking-[0.12em]">
+                        <th className="px-6 py-4 font-semibold">Income Type</th>
+                        <th className="px-6 py-4 font-semibold">Indicative Treaty Rate*</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {country.rows.map(([incomeType, rate]) => (
+                        <tr key={`${key}-${incomeType}`} className="border-t border-outline-variant/20">
+                          <td className="px-6 py-4 text-primary font-bold">{incomeType}</td>
+                          <td className="px-6 py-4 text-secondary">{rate}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
-              <div className="mt-5 flex flex-col gap-3 text-sm text-secondary">
-                <p>Important: Treaty rates vary depending on the applicable DTAA article, beneficial ownership conditions, nature of income, and supporting documentation such as the Tax Residency Certificate (TRC) and Form 10F. The figures shown above are for general guidance only and should not be relied upon without professional advice. You can view the <a href="https://www.incometaxindia.gov.in/dtaa" target="_blank" rel="noopener noreferrer" className="font-bold text-primary underline-offset-4 hover:underline">official list of India's Double Taxation Avoidance Agreements</a> on the Income Tax Department's website.</p>
+                <div className="mt-5 flex flex-col gap-3 text-sm text-secondary">
+                  <p>Important: Treaty rates vary depending on the applicable DTAA article, beneficial ownership conditions, nature of income, and supporting documentation such as the Tax Residency Certificate (TRC) and Form 10F. The figures shown above are for general guidance only and should not be relied upon without professional advice. You can view the <a href="https://www.incometaxindia.gov.in/dtaa" target="_blank" rel="noopener noreferrer" className="font-bold text-primary underline-offset-4 hover:underline">official list of India's Double Taxation Avoidance Agreements</a> on the Income Tax Department's website.</p>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </motion.div>
       </section>
@@ -1036,8 +1038,8 @@ export default function DtaaAdvisory() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
-              ['2–8 Weeks', 'Tax Residency Certificate (TRC)'],
-              ['1–3 Days', 'Form 10F Preparation & Filing'],
+              ['2 to 8 Weeks', 'Tax Residency Certificate (TRC)'],
+              ['1 to 3 Days', 'Form 10F Preparation & Filing'],
               ['Before Payment', 'Apply DTAA Treaty Benefits'],
               ['During ITR Filing', 'Claim Foreign Tax Credit (FTC)'],
             ].map(([value, label]) => (

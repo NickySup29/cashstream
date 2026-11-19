@@ -282,7 +282,7 @@ export default function DtaaAdvisory() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
         title="DTAA Advisory in India for NRIs and Foreign Companies"
-        description="Claim treaty relief under India's DTAA. Advice on TRC, Form 10F (Form 41), Form 67 and treaty rates for NRIs, foreign companies and residents earning abroad."
+        description="Claim treaty relief under India's DTAA. Advice on TRC, Form 10F (Form 41), Form 67 and treaty rates for NRIs, companies and residents earning abroad."
         url={pageUrl}
         structuredData={[
           {

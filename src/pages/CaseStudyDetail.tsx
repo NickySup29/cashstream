@@ -65,7 +65,7 @@ export default function CaseStudyDetail() {
   if (!study) return <Navigate to="/about-us/case-studies/" replace />;
 
   const pageUrl = `${SITE}/about-us/case-studies/${study.id}/`;
-  const metaDescription = truncate(study.outcome, 158);
+  const metaDescription = study.metaDescription ?? truncate(study.outcome, 158);
 
   const groups = caseStudiesByCategory();
   const groupIndex = groups.findIndex((g) => g.category.id === study.category.id);

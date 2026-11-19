@@ -122,8 +122,8 @@ export default function TermsAndConditions() {
   return (
     <LegalPage
       title="Terms & Conditions"
-      metaTitle="Terms & Conditions | Cash Stream Advisors"
-      metaDescription="The terms that apply when you use the Cash Stream Advisors website, including liability limits, accuracy of information and governing law."
+      metaTitle="Terms and Conditions | Cash Stream Advisors"
+      metaDescription="This page sets out the terms for using the Cash Stream Advisors website, covering liability, accuracy of content and which courts govern disputes."
       path="/terms-and-conditions/"
       effectiveDate={LEGAL_EFFECTIVE}
       updatedDate={LEGAL_UPDATED}

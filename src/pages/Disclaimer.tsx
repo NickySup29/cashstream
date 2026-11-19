@@ -104,7 +104,7 @@ export default function Disclaimer() {
     <LegalPage
       title="Disclaimer"
       metaTitle="Disclaimer | Cash Stream Advisors"
-      metaDescription="Important information about this website's content: general information, not advice, with no advisor-client relationship until a written engagement."
+      metaDescription="This page explains that content on this website is general information, not professional advice, and does not create any advisor-client relationship."
       path="/disclaimer/"
       effectiveDate={LEGAL_EFFECTIVE}
       updatedDate={LEGAL_UPDATED}

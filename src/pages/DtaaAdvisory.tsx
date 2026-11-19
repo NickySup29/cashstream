@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, Mail, Plus } from 'lucide-react';
-import { US, GB, SG, MU, DE, AU } from 'country-flag-icons/react/3x2';
+import { US, GB, SG, MU, DE, AU, AE, FR, NL } from 'country-flag-icons/react/3x2';
 import { CONTACT_INFO } from '../constants';
 import SEO from '../components/SEO';
 import { whatsappUrlForPath } from '../utils/whatsapp';
@@ -91,12 +91,44 @@ const faqData: { q: string; a: string; schemaText?: string }[] = [
     q: 'I have received a notice questioning my DTAA claim. What is the first thing I should do?',
     a: '<p>Do not ignore the notice or respond without reviewing the facts. Understanding the reason for the notice and gathering the correct documentation is the first step towards preparing an appropriate response.</p><p>Recommended steps:</p><ul><li>Read the notice carefully.</li><li>Identify the issue raised by the Income Tax Department.</li><li>Collect your Tax Residency Certificate, Form 10F, and supporting documents.</li><li>Review the applicable DTAA provisions.</li><li>Submit a complete and timely response.</li></ul><p>A well prepared response supported by proper documentation can significantly improve the chances of resolving the matter efficiently.</p>',
   },
+  {
+    q: 'What is the full form of DTAA?',
+    a: '<p>DTAA stands for Double Taxation Avoidance Agreement. It is a treaty between two countries that prevents the same income from being taxed in full in both. India has signed such treaties with many countries, and each treaty sets which country may tax each type of income and at what rate.</p>',
+  },
+  {
+    q: 'Which countries have a DTAA with India?',
+    a: '<p>India has comprehensive treaties with many countries, including the USA, UK, UAE, Singapore, Mauritius, Germany, France, the Netherlands, Australia, Canada and Japan. The full list is published by the Income Tax Department. Treaty terms differ by country, so check the one that applies to you before relying on a rate.</p>',
+  },
+  {
+    q: 'Is DTAA relief automatic, or do I have to claim it?',
+    a: '<p>You have to claim it. The payer in India deducts TDS at the domestic rate unless you give proof of treaty eligibility, usually a Tax Residency Certificate and Form 10F (now Form 41). If TDS has already been deducted at the higher rate, the difference can be claimed through your Indian return.</p>',
+  },
+  {
+    q: 'What is the difference between a TRC and Form 10F?',
+    a: '<p>A TRC is the certificate your home country\'s tax authority issues to prove you are resident there. Form 10F (now Form 41) is a declaration with details the TRC may not show, such as your tax identification number and period of residence. Payers in India usually ask for both together.</p>',
+  },
+  {
+    q: 'Is Form 10F mandatory to claim DTAA benefit?',
+    a: '<p>In practice, yes, for most payments to non-residents. The payer will usually not apply the treaty rate without a TRC and a filled Form 10F, even if the treaty clearly allows it. Form 10F is now Form 41, and the form is filed online.</p>',
+  },
+  {
+    q: 'Does a DTAA reduce TDS on rental income from my property in India?',
+    a: '<p>No. Rental income is taxed in India under the immovable property article of the treaty, so the treaty does not lower the TDS your tenant deducts. A Lower Deduction Certificate under Section 197 (now 395(1)) is what reduces TDS at source. The treaty still helps with foreign tax credit in your home country.</p>',
+  },
+  {
+    q: 'What is the difference between the exemption method and the credit method?',
+    a: '<p>Under the exemption method, the income is taxed in only one country. Under the credit method, both countries may tax it, and your country of residence gives credit for the tax paid in the source country. Which one applies depends on the treaty article and on your country of residence.</p>',
+  },
+  {
+    q: 'What does the "make available" clause mean for technical service fees?',
+    a: '<p>In some treaties, fees for technical services are taxed in India only if the service makes technical knowledge available to the payer, so that the payer can use it on its own later. A routine service that only delivers a result usually does not meet this test, so Indian tax at the treaty rate may not apply.</p>',
+  },
 ];
 
 const countryData = {
   usa: {
     flagIcon: US,
-    name: 'India USA DTAA',
+    name: 'India USA DTAA: treaty relief for US residents',
     description:
       "The India USA DTAA helps individuals and businesses avoid double taxation on income earned between India and the United States. The treaty includes a Limitation of Benefits (Article 24) clause and a 'Make Available' test that determines whether technical service fees qualify for the reduced rate, both are common points of dispute that require careful documentation.",
     rows: [
@@ -166,6 +198,42 @@ const countryData = {
       ['Fees for Technical Services (FTS)', 'Treaty dependent'],
     ],
   },
+  ae: {
+    flagIcon: AE,
+    name: 'India UAE DTAA',
+    description:
+      "The India UAE DTAA covers residents and businesses with cross-border income between India and the UAE, including dividends, interest, royalties, and fees for technical services. Rates for this panel are being confirmed by a CA against the treaty text before publication.",
+    rows: [
+      ['Dividends', 'Rates being confirmed'],
+      ['Interest', 'Rates being confirmed'],
+      ['Royalties', 'Rates being confirmed'],
+      ['Fees for Technical Services (FTS)', 'Rates being confirmed'],
+    ],
+  },
+  fr: {
+    flagIcon: FR,
+    name: 'India France DTAA',
+    description:
+      "The India France DTAA covers residents and businesses with cross-border income between India and France, including dividends, interest, royalties, and fees for technical services. Rates for this panel are being confirmed by a CA against the treaty text before publication.",
+    rows: [
+      ['Dividends', 'Rates being confirmed'],
+      ['Interest', 'Rates being confirmed'],
+      ['Royalties', 'Rates being confirmed'],
+      ['Fees for Technical Services (FTS)', 'Rates being confirmed'],
+    ],
+  },
+  nl: {
+    flagIcon: NL,
+    name: 'India Netherlands DTAA',
+    description:
+      "The India Netherlands DTAA covers residents and businesses with cross-border income between India and the Netherlands, including dividends, interest, royalties, and fees for technical services. Rates for this panel are being confirmed by a CA against the treaty text before publication.",
+    rows: [
+      ['Dividends', 'Rates being confirmed'],
+      ['Interest', 'Rates being confirmed'],
+      ['Royalties', 'Rates being confirmed'],
+      ['Fees for Technical Services (FTS)', 'Rates being confirmed'],
+    ],
+  },
 } as const;
 
 function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
@@ -213,8 +281,8 @@ export default function DtaaAdvisory() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32">
       <SEO
-        title="DTAA Advisory | International Taxation | CashStream Advisors"
-        description="DTAA advisory for NRIs, foreign companies, and Indian residents with cross-border income, treaty rates, TRC, and withholding tax compliance."
+        title="DTAA Advisory in India for NRIs and Foreign Companies"
+        description="Claim treaty relief under India's DTAA. Advice on TRC, Form 10F (Form 41), Form 67 and treaty rates for NRIs, foreign companies and residents earning abroad."
         url={pageUrl}
         structuredData={[
           {
@@ -282,9 +350,12 @@ export default function DtaaAdvisory() {
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
             >
               <Eyebrow>International Taxation · DTAA Advisory</Eyebrow>
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-primary leading-[1.1] mb-4">
-                Ensure your cross-border income is taxed correctly, not twice.
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-primary leading-[1.1] mb-3">
+                DTAA Advisory in India: Make Sure Your Cross-Border Income Is Taxed Once, Not Twice
               </h1>
+              <p className="text-lg md:text-xl font-semibold text-secondary leading-relaxed mb-4">
+                Ensure your cross-border income is taxed correctly, not twice.
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -292,7 +363,7 @@ export default function DtaaAdvisory() {
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
             >
               <p className="text-lg md:text-xl text-secondary leading-relaxed mb-10 max-w-2xl">
-                Cash Stream Advisors helps individuals and businesses apply the right treaty benefits, reduce unnecessary tax exposure, and stay compliant with Indian tax laws.
+                A Double Taxation Avoidance Agreement (DTAA) between India and your country decides where your income is taxed and how much. Cash Stream Advisors helps individuals and businesses apply the right treaty benefits, reduce unnecessary tax exposure, and stay compliant with Indian tax laws.
               </p>
             </motion.div>
             <motion.div
@@ -300,7 +371,7 @@ export default function DtaaAdvisory() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
             >
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-wrap gap-4">
                 <a href={CONTACT_INFO.calendlyUrl} target="_blank" rel="noopener noreferrer" data-ga-event="book_consultation_click" className="bg-primary text-on-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2">
                   Book a Consultation
                 </a>
@@ -308,9 +379,8 @@ export default function DtaaAdvisory() {
                   Talk to a Tax Expert
                 </a>
               </div>
-              <div className="text-sm text-secondary">
-                6+ Years in Practice · 150+ DTAA Cases Handled · Advised Across 25+ Treaty Countries
-              </div>
+              {/* Stats strip ("6+ Years in Practice · 150+ DTAA Cases Handled · Advised Across 25+ Treaty Countries") hidden
+                  per content brief Fix #3: figures not yet verified by a CA. Do not restore until confirmed. */}
             </motion.div>
           </div>
 
@@ -344,6 +414,41 @@ export default function DtaaAdvisory() {
         </motion.div>
       </section>
 
+      <section className="py-20 md:py-24" id="dtaa-quick-answer">
+        <motion.div
+          className="max-w-screen-2xl mx-auto px-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-10 lg:gap-12 items-center bg-surface-container-lowest border border-outline-variant/10 border-l-[6px] border-l-primary rounded-xl p-8 md:p-10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+            <div>
+              <Eyebrow>Quick answer</Eyebrow>
+              <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4 text-primary">
+                What is DTAA?
+              </h2>
+              <p className="text-secondary leading-relaxed text-lg">
+                DTAA stands for Double Taxation Avoidance Agreement. It is a treaty between India and another country that stops the same income from being taxed in full in both places. A DTAA does not remove tax. It decides which country may tax the income, caps the rate where it allows tax at source, and gives relief in the other country, either as an exemption or as a credit for the tax already paid.
+              </p>
+            </div>
+            <div className="bg-primary text-on-primary rounded-xl p-7 flex flex-col gap-4">
+              <p className="font-label text-[11px] uppercase tracking-[0.16em] text-primary-fixed">In one line</p>
+              <p className="text-xl font-bold leading-snug">A treaty decides who taxes first and gives relief in the other country.</p>
+              <a
+                href={CONTACT_INFO.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-ga-event="book_consultation_click"
+                className="self-start bg-surface-container-lowest text-primary px-6 py-3 rounded-lg font-bold text-sm transition-all active:scale-95"
+              >
+                Book a Consultation
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       <section className="bg-surface-container-low py-24">
         <motion.div
           className="max-w-screen-2xl mx-auto px-8"
@@ -358,9 +463,8 @@ export default function DtaaAdvisory() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-5 text-secondary leading-relaxed text-lg">
-              {/* PENDING CA CONFIRMATION */}
               <p>
-                DTAA full form: Double Taxation Avoidance Agreement. Also commonly written as a double tax avoidance agreement. A Double Taxation Avoidance Agreement (DTAA) is a tax treaty between India and another country that helps prevent the same income from being taxed twice. Depending on the treaty and the nature of your income, it determines which country has the right to tax the income and whether you are eligible for a lower tax rate, exemption, or foreign tax credit under Sections 90 and 90A of the Income Tax Act, 1961 (Section 159 of the Income Tax Act, 2025).
+                DTAA advisory is professional help in using a tax treaty correctly. It covers whether a treaty applies to your income, which rate or relief it gives, what proof the payer or the tax office needs, and how to claim credit for the tax in your other country. It matters most when TDS has been deducted at the full domestic rate, when you are an NRI with income from India, or when an overseas company is paid from India and needs the treaty rate applied.
               </p>
               <p>
                 DTAA Advisory helps you understand how these treaty provisions apply to your specific situation. NRIs earning income in India, foreign companies receiving payments from India, and Indian residents with overseas income all face the same underlying questions about how their income is taxed. The right advice can help you avoid unnecessary taxes, reduce withholding rates where applicable, and stay compliant with Indian tax regulations, a core part of managing DTAA income tax matters correctly.
@@ -389,7 +493,7 @@ export default function DtaaAdvisory() {
         >
           <Eyebrow>The problem</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-10 text-primary">
-            Are you paying more tax than you should?
+            Are you paying more tax than a DTAA requires?
           </h2>
           <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
             Many individuals and businesses with cross-border income unknowingly pay higher taxes simply because the correct DTAA benefits were never claimed. Understanding your treaty position before a payment is made can help you avoid unnecessary deductions and future compliance issues.
@@ -420,7 +524,7 @@ export default function DtaaAdvisory() {
         >
           <Eyebrow>How relief works</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-10 text-primary">
-            How DTAA relief works
+            How double taxation relief under a DTAA works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
@@ -451,6 +555,181 @@ export default function DtaaAdvisory() {
         </motion.div>
       </section>
 
+      <section className="py-20 md:py-24" id="dtaa-relief-methods">
+        <motion.div
+          className="max-w-screen-2xl mx-auto px-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <Eyebrow>How relief works</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-primary">
+            Two ways a treaty gives relief
+          </h2>
+          <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
+            Most treaties use one of two methods. Which one applies depends on the treaty article and on your country of residence.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+              <div className="w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center font-extrabold text-lg mb-4">1</div>
+              <h3 className="text-xl font-bold text-primary mb-3">The exemption method</h3>
+              <p className="text-secondary leading-relaxed">The income is taxed in only one country, and the other country leaves it out of its tax. Which country keeps the right to tax depends on the article of the treaty.</p>
+            </div>
+            <div className="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+              <div className="w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center font-extrabold text-lg mb-4">2</div>
+              <h3 className="text-xl font-bold text-primary mb-3">The credit method</h3>
+              {/* PENDING CA CONFIRMATION: Section 90/90A -> Section 159; Section 91 -> Section 160 (kept separate per CLAUDE.md rule 7) */}
+              <p className="text-secondary leading-relaxed">Both countries may tax the income. Your country of residence then gives you credit for the tax already paid in the source country, so you do not pay the same tax twice. For an Indian resident with foreign income, this credit is claimed with Form 67 (Section 90 or 90A, now Section 159, or Section 91, now Section 160).</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-surface-container-low py-20 md:py-24" id="dtaa-income-types">
+        <motion.div
+          className="max-w-screen-2xl mx-auto px-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <Eyebrow>Income types</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-primary">
+            How is each type of income taxed under a DTAA?
+          </h2>
+          <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
+            Under a DTAA the answer depends on the type of income, because each treaty has a separate article for each type. The table below gives the general position. The exact rate and conditions are in the treaty for your country, so check the country panel below or ask us before you rely on any one line.
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-outline-variant/20 bg-surface-container-lowest">
+            <table className="w-full text-left">
+              <caption className="sr-only">General treaty position by type of income</caption>
+              <thead>
+                <tr className="bg-primary text-on-primary text-[11px] uppercase tracking-[0.12em]">
+                  <th scope="col" className="px-6 py-4 font-semibold">Type of income</th>
+                  <th scope="col" className="px-6 py-4 font-semibold">General treaty position</th>
+                  <th scope="col" className="px-6 py-4 font-semibold">What to check</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Dividends', 'Both countries may tax. The country paying the dividend usually has its rate capped by the treaty.', 'The capped rate and any ownership condition'],
+                  ['Interest', "Both countries may tax. The source country's rate is usually capped by the treaty.", 'The capped rate and the type of loan'],
+                  ['Royalty and fees for technical services', 'The source country may tax, usually at a capped rate. Some treaties tax technical services only when knowledge is made available.', 'Whether the service meets the make available test'],
+                  ['Capital gains', 'Gains on immovable property are taxed where the property is. Gains on shares depend on the treaty.', 'The article on capital gains for your country'],
+                  ['Salary', 'Usually taxed where the work is done. Many treaties exempt short stays if the employer is abroad.', 'Days of stay and who bears the cost'],
+                  ['Business profits', 'Taxed in the other country only if there is a permanent establishment there.', 'Whether a permanent establishment exists'],
+                  ['Rental income', 'Taxed where the property is located.', 'See the rental income callout below'],
+                ].map(([type, position, check]) => (
+                  <tr key={type} className="border-t border-outline-variant/20">
+                    <th scope="row" className="px-6 py-4 font-bold text-primary align-top">{type}</th>
+                    <td className="px-6 py-4 text-secondary align-top">{position}</td>
+                    <td className="px-6 py-4 text-secondary text-sm align-top">{check}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-secondary leading-relaxed mt-6 max-w-3xl">
+            If tax has already been deducted at the full domestic rate instead of the treaty rate, see our <Link to="/international-taxation/withholding-tax-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">Withholding Tax Advisory</Link> page for how the correct rate is applied.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-6 items-center justify-between">
+            <p className="text-primary text-lg">Not sure which article applies to your income? Book a Consultation and we will map it for you.</p>
+            <a
+              href={CONTACT_INFO.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-ga-event="book_consultation_click"
+              className="bg-primary text-on-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2"
+            >
+              Book a Consultation
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-20 md:py-24" id="dtaa-rental-tds">
+        <motion.div
+          className="max-w-screen-2xl mx-auto px-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <div className="max-w-4xl mx-auto bg-surface-container-low border border-outline-variant/10 border-l-[6px] border-l-primary rounded-xl p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="flex-none w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">?</span>
+              <h3 className="text-xl md:text-2xl font-extrabold text-primary">Does a DTAA reduce TDS on rental income from India?</h3>
+            </div>
+            <p className="text-secondary leading-relaxed text-lg mb-6">
+              No. Rental income from property in India is taxed in India under the immovable property article of the treaty (Article 6), so the treaty does not lower the TDS your tenant deducts. What lowers TDS at source is a <Link to="/international-taxation/lower-deduction-certificate/" className="font-bold text-primary underline-offset-4 hover:underline">Lower Deduction Certificate</Link> under Section 197 (now 395(1)), applied for on Form 128. The treaty still helps in your home country: a Tax Residency Certificate (TRC) and Form 10F (now Form 41) support your claim for credit for the tax paid in India on your overseas return.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-stretch mb-6">
+              <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-5">
+                <p className="font-label text-[11px] uppercase tracking-[0.12em] text-secondary">Treaty (Article 6)</p>
+                <p className="text-lg font-bold text-primary mt-1.5">Does not lower the TDS</p>
+                <p className="text-secondary text-sm mt-1">Rent is taxed where the property is.</p>
+              </div>
+              <div className="flex items-center justify-center text-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 rotate-90 md:rotate-0" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg>
+              </div>
+              <div className="bg-primary text-on-primary rounded-xl p-5">
+                <p className="font-label text-[11px] uppercase tracking-[0.12em] text-primary-fixed">Section 197 (now 395(1))</p>
+                <p className="text-lg font-bold mt-1.5">Lowers the TDS</p>
+                <p className="text-on-primary/80 text-sm mt-1">Lower Deduction Certificate on Form 128.</p>
+              </div>
+            </div>
+            <a
+              href={CONTACT_INFO.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-ga-event="book_consultation_click"
+              className="bg-primary text-on-primary px-7 py-3.5 rounded-lg font-bold text-sm md:text-base transition-all active:scale-95 inline-flex items-center gap-2"
+            >
+              Book a Consultation
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-surface-container-low py-20 md:py-24" id="dtaa-pe">
+        <motion.div
+          className="max-w-screen-2xl mx-auto px-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <Eyebrow>Foreign companies</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-primary">
+            Permanent establishment: the test that decides if India can tax a foreign company
+          </h2>
+          <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
+            A foreign company's business profits are taxable in India only if it has a permanent establishment here. Without one, the treaty usually protects those profits from Indian tax.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-6 lg:gap-8 items-stretch">
+            <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+              <span className="font-label text-[11px] uppercase tracking-[0.12em] inline-block mb-4 px-3 py-1.5 rounded-[999px] bg-secondary-fixed text-primary">Permanent establishment</span>
+              <ul className="space-y-3 text-secondary leading-relaxed">
+                <li className="flex gap-3"><span className="mt-2 flex-none w-2.5 h-2.5 rounded-full bg-primary" />A fixed place of business in India, such as an office, branch or factory, can create a permanent establishment.</li>
+                <li className="flex gap-3"><span className="mt-2 flex-none w-2.5 h-2.5 rounded-full bg-primary" />A person in India who regularly concludes contracts for the foreign company can create one, even without an office.</li>
+                <li className="flex gap-3"><span className="mt-2 flex-none w-2.5 h-2.5 rounded-full bg-primary" />Some treaties also treat long running service projects as a permanent establishment, so the treaty wording matters.</li>
+              </ul>
+              <p className="mt-5 pt-5 border-t border-outline-variant/20 text-secondary">
+                A liaison office is treated differently from a branch. See the question on liaison offices below. For Indian tax return filings, see <Link to="/international-taxation/foreign-company-tax-return/" className="font-bold text-primary underline-offset-4 hover:underline">Foreign Company Tax Return in India</Link>, and for the RBI side of a foreign presence in India, see <Link to="/fema-advisory/form-fc-rbi-reporting/" className="font-bold text-primary underline-offset-4 hover:underline">Form FC and RBI Reporting</Link>.
+              </p>
+            </div>
+            <div className="bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-center gap-3">
+              <p className="font-label text-[11px] uppercase tracking-[0.16em] text-primary-fixed">Technical services</p>
+              <h3 className="text-xl font-bold">The &quot;make available&quot; clause</h3>
+              <p className="text-on-primary/90 leading-relaxed">
+                Several of India's treaties, including some with major partners, tax fees for technical services in India only when the service makes technical knowledge available to the person paying. In plain terms, the recipient must be able to use that knowledge on its own afterwards, without calling the provider again. A routine service that only delivers a result does not meet that test.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       <section className="py-24">
         <motion.div
           className="max-w-screen-2xl mx-auto px-8"
@@ -461,10 +740,13 @@ export default function DtaaAdvisory() {
         >
           <Eyebrow>Coverage</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-6">
-            DTAA treaty rates across major countries
+            DTAA rates: treaty rates across major countries
           </h2>
-          <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
+          <p className="text-secondary leading-relaxed text-lg mb-4 max-w-3xl">
             India has Double Taxation Avoidance Agreements with over 90 countries, and each treaty prescribes different tax rates for dividends, interest, royalties, fees for technical services, and other types of income. Select a country below to view an overview of commonly applicable treaty rates.
+          </p>
+          <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
+            India has comprehensive treaties with many countries. These are the ones our clients ask about most. If your country is not listed, the full list is published by the Income Tax Department, and we can check your treaty for you.
           </p>
 
           <div className="rounded-[28px] border border-outline-variant/20 bg-surface-container-lowest overflow-hidden">
@@ -484,7 +766,23 @@ export default function DtaaAdvisory() {
                     style={{ borderRadius: 9999 }}
                   >
                     <country.flagIcon style={{ width: 24, height: 16, marginRight: 6, borderRadius: 2 }} />
-                    {key === 'usa' ? 'USA' : key === 'uk' ? 'UK' : key === 'sg' ? 'Singapore' : key === 'mu' ? 'Mauritius' : key === 'de' ? 'Germany' : 'Australia'}
+                    {key === 'usa'
+                      ? 'USA'
+                      : key === 'uk'
+                      ? 'UK'
+                      : key === 'sg'
+                      ? 'Singapore'
+                      : key === 'mu'
+                      ? 'Mauritius'
+                      : key === 'de'
+                      ? 'Germany'
+                      : key === 'au'
+                      ? 'Australia'
+                      : key === 'ae'
+                      ? 'UAE'
+                      : key === 'fr'
+                      ? 'France'
+                      : 'Netherlands'}
                   </button>
                 );
               })}
@@ -549,11 +847,27 @@ export default function DtaaAdvisory() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
-              ['NRIs', 'You\'re in the right place if you earn rental income, interest, dividends, or capital gains in India and want to claim DTAA benefits, reduce TDS, or avoid double taxation.'],
-              ['Foreign Companies', 'You\'re in the right place if your business receives royalty, FTS, interest, or other payments from India and wants to apply the correct treaty withholding rates.'],
-              ['Expats & Global Professionals', 'You\'re in the right place if you\'ve recently moved to or from India and need guidance on tax residency, employment income, or cross-border tax obligations.'],
-              ['Residents with Foreign Income', 'You\'re in the right place if you earn salary, dividends, investments, or other income abroad and need help claiming Foreign Tax Credit (FTC).'],
-            ].map(([title, body]) => (
+              {
+                title: 'NRIs',
+                body: (
+                  <>
+                    You're in the right place if you earn rental income, interest, dividends, or capital gains in India and want to claim DTAA benefits, reduce TDS, or avoid double taxation. See also <Link to="/international-taxation/nri-tax-relocation-advisory/" className="font-bold text-primary underline-offset-4 hover:underline">NRI Tax &amp; Relocation Advisory</Link>.
+                  </>
+                ),
+              },
+              {
+                title: 'Foreign Companies',
+                body: "You're in the right place if your business receives royalty, FTS, interest, or other payments from India and wants to apply the correct treaty withholding rates.",
+              },
+              {
+                title: 'Expats & Global Professionals',
+                body: "You're in the right place if you've recently moved to or from India and need guidance on tax residency, employment income, or cross-border tax obligations.",
+              },
+              {
+                title: 'Residents with Foreign Income',
+                body: "You're in the right place if you earn salary, dividends, investments, or other income abroad and need help claiming Foreign Tax Credit (FTC).",
+              },
+            ].map(({ title, body }) => (
               <div key={title} className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
                 <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center mb-4 font-bold">
                   {title.slice(0, 1)}
@@ -566,7 +880,7 @@ export default function DtaaAdvisory() {
         </motion.div>
       </section>
 
-      <section id="documents" className="py-24">
+      <section id="documents" className="py-20 md:py-24">
         <motion.div
           className="max-w-screen-2xl mx-auto px-8"
           initial={{ opacity: 0, y: 24 }}
@@ -574,37 +888,42 @@ export default function DtaaAdvisory() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <Eyebrow>Preparation</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-8 text-primary">
+          <Eyebrow>Documents</Eyebrow>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-primary">
             Documents you typically need
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
+            To claim treaty relief, the payer in India or the tax office will usually ask for proof of where you are resident and some supporting details. Having these ready is what keeps TDS at the treaty rate instead of the full domestic rate.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {[
-              {
-                heading: 'Identity & residency',
-                items: ['PAN card', 'Passport', 'Proof of tax residency', 'Residential status details'],
-              },
-              {
-                heading: 'Income & transaction',
-                items: ['Rental agreement', 'Employment contract', 'Royalty or service agreement', 'Bank statements', 'Sale agreement where relevant'],
-              },
-              {
-                heading: 'DTAA specifics',
-                items: ['Tax Residency Certificate (TRC)', 'Form 10F', 'Foreign tax payment proof', 'Supporting declarations'],
-              },
-            ].map(({ heading, items }) => (
+              ['Tax Residency Certificate (TRC)', 'Issued by the tax authority of your country of residence. It is the main proof that you are resident there. For US residents the equivalent is the certificate from the IRS (Form 6166).'],
+              ['Form 10F (now Form 41)', 'A self-declaration with details that the TRC may not show, such as your status, tax identification number in your country and the period of residence. A filled Form 10F is usually given to the payer along with the TRC.'],
+              ['No permanent establishment declaration', 'For companies: a statement that the company has no permanent establishment in India.'],
+              ['PAN, or the details asked in its place', 'Needed for the Indian tax records and the TDS certificate.'],
+              ['Payment details', 'The agreement, invoice or payment advice showing the type and amount of income.'],
+              ['Form 67 and proof of tax paid in India', 'For the foreign tax credit claim on your overseas return.'],
+              ['Lower Deduction Certificate (Form 128)', 'Where TDS must be reduced at source, for example on property sale or rental income.'],
+            ].map(([heading, body]) => (
               <div key={heading} className="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-                <h3 className="text-lg font-bold text-primary mb-4">{heading}</h3>
-                <ul className="space-y-3 text-secondary text-[15px] leading-relaxed">
-                  {items.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="mt-1 flex items-center justify-center w-4 h-4 rounded-sm border border-primary text-[10px] text-primary">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-bold text-primary mb-3">{heading}</h3>
+                <p className="text-secondary text-[15px] leading-relaxed">{body}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 bg-primary text-on-primary rounded-xl px-6 md:px-8 py-6 flex flex-wrap items-center justify-between gap-4 md:gap-7">
+            <p className="text-on-primary/90 text-[15px] leading-relaxed max-w-2xl">
+              Not sure which of these you need, or your TRC is delayed? Book a Consultation and we will tell you what can be filed now.
+            </p>
+            <a
+              href={CONTACT_INFO.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-ga-event="book_consultation_click"
+              className="flex-none bg-surface-container-lowest text-primary px-6 py-3 rounded-lg font-bold text-sm transition-all active:scale-95"
+            >
+              Book a Consultation
+            </a>
           </div>
         </motion.div>
       </section>
@@ -758,6 +1077,9 @@ export default function DtaaAdvisory() {
               </div>
             ))}
           </div>
+          <p className="text-secondary leading-relaxed mt-8 max-w-3xl">
+            If TDS was already deducted at the higher domestic rate because one of these was missed, see <Link to="/international-taxation/foreign-company-tds-refund/" className="font-bold text-primary underline-offset-4 hover:underline">TDS Refund for NRIs &amp; Foreign Companies</Link> for how to recover the excess.
+          </p>
         </motion.div>
       </section>
 
@@ -796,20 +1118,11 @@ export default function DtaaAdvisory() {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-10 text-primary">
             Real Client Success Stories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* The US-based NRI rental income card is hidden per content brief Fix #1: the treaty does not
+              reduce TDS on rental income (Article 6), so the card as previously written was wrong. Do not
+              restore it with invented facts; only reinstate once a CA confirms the real facts of that engagement. */}
+          <div className="grid grid-cols-1 md:max-w-xl gap-6">
             {[
-              {
-                tag: 'US-Based NRI · Rental Income',
-                title: 'Reducing TDS on Rental Income for a US Based NRI',
-                href: '/about-us/case-studies/us-nri-rental-dtaa/',
-                situation: 'A US resident earning rental income from India was facing tax deduction at the standard domestic rate.',
-                action: 'Reviewed the India-US DTAA, obtained the required Tax Residency Certificate, and completed the necessary documentation.',
-                bullets: [
-                  '31% → 15% TDS reduced',
-                  'Cash flow improvement of approx. ₹2.3 lakh/year',
-                  'Fully compliant DTAA claim, TRC and Form 10F on file',
-                ],
-              },
               {
                 tag: 'Singapore Company · FTS Payment',
                 title: 'Applying the Correct Treaty Rate for a Singapore Company',
@@ -863,7 +1176,7 @@ export default function DtaaAdvisory() {
         >
           <Eyebrow>Why Cash Stream Advisors</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-4">
-            As One of the Trusted DTAA Consultants in India
+            Why clients work with Cash Stream Advisors on DTAA matters
           </h2>
           <p className="text-secondary leading-relaxed text-lg mb-10 max-w-3xl">
             We know cross-border taxation requires more than knowing the law. It requires understanding tax treaties, documentation requirements, and practical compliance. Our team helps individuals and businesses navigate DTAA provisions with clear advice tailored to their specific situation.

@@ -1,4 +1,5 @@
 import type { BlogPostContent } from './types';
+import { indiaDtaaRatesCountries } from './india-dtaa-rates-countries';
 import { indiaUsaDtaa } from './india-usa-dtaa';
 import { form10fForm41Dtaa } from './form-10f-form-41-dtaa';
 import { taxResidencyCertificateDtaaIndia } from './tax-residency-certificate-dtaa-india';
@@ -35,7 +36,7 @@ import { lowerDeductionCertificateTime } from './lower-deduction-certificate-tim
 // Registry of every Insights post. Adding a new post is one import + one
 // array entry here; the listing hub, the detail route, the sitemap and the
 // prerender script all pick it up from this file.
-export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline, tdsNotShowingForm26asAisNriPropertySale, nriTdsRefundStuckFailedFix, nroVsNreAccountPropertySaleProceeds, form15ca15cbForm145146NriRemittance, whyFcGprGetsRejectedReasonsFixes, fcGprVsFcTrsVsFlaReturnWhichFormApplies, flaReturnWhoMustFileAndByWhen, quickbooksVsZohoBooksVsXeroSmallBusiness, monthEndCloseChecklistSmallBusiness, bankReconciliationNotMatchingErrorsFixes, chartOfAccountsSetupNewBusiness, howToFileFcGprOnFirmsPortalStepByStep, missedRbiReportingDeadlineLateFeeOrCompounding, catchUpBookkeepingMonthsYearsBehind, whatToExpectOutsourcingBookkeeping, bookkeepingBeforeTaxReturn, whatIsDtaaIndia, taxResidencyCertificateDtaaIndia, form10fForm41Dtaa, indiaUsaDtaa];
+export const blogPosts: BlogPostContent[] = [formVsForm13, lowerDeductionCertificateTime, tdsOnSaleOfPropertyByNri, nilVsLowerTdsCertificate, tdsPaymentsForeignCompaniesLowerDeductionCertificate, lowerTdsCertificateNriPropertySale, lowerDeductionCertificateDocuments, trackLowerDeductionCertificateTraces, lowerDeductionCertificatePropertySaleLoss, claimBackTdsPropertySaleNri, nriTdsRefundTimeline, tdsNotShowingForm26asAisNriPropertySale, nriTdsRefundStuckFailedFix, nroVsNreAccountPropertySaleProceeds, form15ca15cbForm145146NriRemittance, whyFcGprGetsRejectedReasonsFixes, fcGprVsFcTrsVsFlaReturnWhichFormApplies, flaReturnWhoMustFileAndByWhen, quickbooksVsZohoBooksVsXeroSmallBusiness, monthEndCloseChecklistSmallBusiness, bankReconciliationNotMatchingErrorsFixes, chartOfAccountsSetupNewBusiness, howToFileFcGprOnFirmsPortalStepByStep, missedRbiReportingDeadlineLateFeeOrCompounding, catchUpBookkeepingMonthsYearsBehind, whatToExpectOutsourcingBookkeeping, bookkeepingBeforeTaxReturn, whatIsDtaaIndia, taxResidencyCertificateDtaaIndia, form10fForm41Dtaa, indiaUsaDtaa, indiaDtaaRatesCountries];
 
 export function getBlogPost(slug: string): BlogPostContent | undefined {
   return blogPosts.find((post) => post.slug === slug);

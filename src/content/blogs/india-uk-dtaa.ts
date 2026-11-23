@@ -69,7 +69,7 @@ export const indiaUkDtaa: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "A treaty rate is a cap on India's tax, not the tax you pay. The payer deducts at the lower of the treaty and domestic rate, and surcharge and cess are not added to a treaty rate. For all countries side by side, read India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees."
+      "html": "A treaty rate is a cap on India's tax, not the tax you pay. The payer deducts at the lower of the treaty and domestic rate, and surcharge and cess are not added to a treaty rate. For all countries side by side, read <a href=\"https://cashstreamadvisors.com/insights/india-dtaa-rates-countries/\">India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees</a>."
     },
     {
       "type": "comparisonTable",
@@ -289,6 +289,26 @@ export const indiaUkDtaa: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "India-USA DTAA: Treaty Rates, Forms and How to Claim Them",
           "href": "/insights/india-usa-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees",
+          "href": "/insights/india-dtaa-rates-countries/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "NRI Rental Income From India and DTAA: How to Avoid Paying Tax Twice",
+          "href": "/insights/nri-rental-income-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "TDS on NRO Interest and Dividends: How to Claim the Treaty Rate",
+          "href": "/insights/tds-nro-interest-dividend-treaty-rate/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained",
+          "href": "/insights/foreign-tax-credit-form-67-form-44/"
         },
         {
           "label": "SERVICE",

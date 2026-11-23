@@ -160,7 +160,7 @@ export const permanentEstablishmentIndiaTreatyProfitAttribution: BlogPostContent
     },
     {
       "type": "paragraph",
-      "html": "Country detail is in <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, India-UK DTAA, India-Singapore DTAA and India-Germany DTAA. Checked on 23 November 2026."
+      "html": "Country detail is in <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, <a href=\"https://cashstreamadvisors.com/insights/india-uk-dtaa/\">India-UK DTAA</a>, <a href=\"https://cashstreamadvisors.com/insights/india-singapore-dtaa/\">India-Singapore DTAA</a> and <a href=\"https://cashstreamadvisors.com/insights/india-germany-dtaa/\">India-Germany DTAA</a>. Checked on 23 November 2026."
     },
     {
       "type": "h2",
@@ -335,6 +335,11 @@ export const permanentEstablishmentIndiaTreatyProfitAttribution: BlogPostContent
         },
         {
           "label": "INSIGHTS",
+          "title": "Royalty vs Fees for Technical Services Under a Treaty: The Make Available Test",
+          "href": "/insights/royalty-fees-technical-services-make-available/"
+        },
+        {
+          "label": "INSIGHTS",
           "title": "What Is DTAA? How the Double Tax Avoidance Agreement Works in India",
           "href": "/insights/what-is-dtaa-india/"
         },
@@ -352,6 +357,11 @@ export const permanentEstablishmentIndiaTreatyProfitAttribution: BlogPostContent
           "label": "INSIGHTS",
           "title": "India-USA DTAA: Treaty Rates, Forms and How to Claim Them",
           "href": "/insights/india-usa-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-Germany DTAA: Treaty Rates, PE Risk and How to Claim",
+          "href": "/insights/india-germany-dtaa/"
         },
         {
           "label": "SERVICE",

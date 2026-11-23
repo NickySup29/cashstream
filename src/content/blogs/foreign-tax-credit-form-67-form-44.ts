@@ -324,6 +324,21 @@ export const foreignTaxCreditForm67Form44: BlogPostContent = {
           "href": "/insights/india-usa-dtaa/"
         },
         {
+          "label": "INSIGHTS",
+          "title": "NRI Rental Income From India and DTAA: How to Avoid Paying Tax Twice",
+          "href": "/insights/nri-rental-income-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "TDS on NRO Interest and Dividends: How to Claim the Treaty Rate",
+          "href": "/insights/tds-nro-interest-dividend-treaty-rate/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-UK DTAA: Treaty Rates, Pensions and How to Claim Them",
+          "href": "/insights/india-uk-dtaa/"
+        },
+        {
           "label": "SERVICE",
           "title": "All insights",
           "href": "/insights"

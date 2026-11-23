@@ -91,7 +91,7 @@ export const indiaUaeDtaa: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "A treaty rate is a cap on India's tax, not the tax you pay. The payer deducts at the lower of the treaty and domestic rate, and surcharge and cess are not added to a treaty rate. For all countries side by side, read India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees."
+      "html": "A treaty rate is a cap on India's tax, not the tax you pay. The payer deducts at the lower of the treaty and domestic rate, and surcharge and cess are not added to a treaty rate. For all countries side by side, read <a href=\"https://cashstreamadvisors.com/insights/india-dtaa-rates-countries/\">India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees</a>."
     },
     {
       "type": "comparisonTable",
@@ -318,6 +318,16 @@ export const indiaUaeDtaa: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "India-USA DTAA: Treaty Rates, Forms and How to Claim Them",
           "href": "/insights/india-usa-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees",
+          "href": "/insights/india-dtaa-rates-countries/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-UK DTAA: Treaty Rates, Pensions and How to Claim Them",
+          "href": "/insights/india-uk-dtaa/"
         },
         {
           "label": "INSIGHTS",

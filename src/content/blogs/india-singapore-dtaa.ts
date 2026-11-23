@@ -65,7 +65,7 @@ export const indiaSingaporeDtaa: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "A treaty rate caps India's tax. The payer deducts at the lower of the treaty and domestic rate, and surcharge and cess are not added to a treaty rate. For all countries side by side, read India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees."
+      "html": "A treaty rate caps India's tax. The payer deducts at the lower of the treaty and domestic rate, and surcharge and cess are not added to a treaty rate. For all countries side by side, read <a href=\"https://cashstreamadvisors.com/insights/india-dtaa-rates-countries/\">India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees</a>."
     },
     {
       "type": "comparisonTable",
@@ -349,6 +349,21 @@ export const indiaSingaporeDtaa: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "Form 10F (Now Form 41): When You Need It and How to File It Online",
           "href": "/insights/form-10f-form-41-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees",
+          "href": "/insights/india-dtaa-rates-countries/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Royalty vs Fees for Technical Services Under a Treaty: The Make Available Test",
+          "href": "/insights/royalty-fees-technical-services-make-available/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Permanent Establishment Under a Tax Treaty: Test, Risk and Profit Attribution",
+          "href": "/insights/permanent-establishment-india-treaty-profit-attribution/"
         },
         {
           "label": "SERVICE",

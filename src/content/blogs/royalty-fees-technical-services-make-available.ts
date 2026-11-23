@@ -184,7 +184,7 @@ export const royaltyFeesTechnicalServicesMakeAvailable: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Other treaties differ, and a protocol or most-favoured-nation clause can add or remove the clause. The rates are caps, checked on 23 November 2026. Read the article of the treaty with the payee's country before you rely on it, starting with <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, India-Singapore DTAA and India-Germany DTAA."
+      "html": "Other treaties differ, and a protocol or most-favoured-nation clause can add or remove the clause. The rates are caps, checked on 23 November 2026. Read the article of the treaty with the payee's country before you rely on it, starting with <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, <a href=\"https://cashstreamadvisors.com/insights/india-singapore-dtaa/\">India-Singapore DTAA</a> and <a href=\"https://cashstreamadvisors.com/insights/india-germany-dtaa/\">India-Germany DTAA</a>."
     },
     {
       "type": "h2",
@@ -315,6 +315,11 @@ export const royaltyFeesTechnicalServicesMakeAvailable: BlogPostContent = {
         },
         {
           "label": "INSIGHTS",
+          "title": "Permanent Establishment Under a Tax Treaty: Test, Risk and Profit Attribution",
+          "href": "/insights/permanent-establishment-india-treaty-profit-attribution/"
+        },
+        {
+          "label": "INSIGHTS",
           "title": "What Is DTAA? How the Double Tax Avoidance Agreement Works in India",
           "href": "/insights/what-is-dtaa-india/"
         },
@@ -332,6 +337,11 @@ export const royaltyFeesTechnicalServicesMakeAvailable: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "India-USA DTAA: Treaty Rates, Forms and How to Claim Them",
           "href": "/insights/india-usa-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-Germany DTAA: Treaty Rates, PE Risk and How to Claim",
+          "href": "/insights/india-germany-dtaa/"
         },
         {
           "label": "SERVICE",

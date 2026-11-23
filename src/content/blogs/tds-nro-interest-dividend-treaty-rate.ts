@@ -86,7 +86,7 @@ export const tdsNroInterestDividendTreatyRate: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "A treaty rate is a cap. The bank may deduct at the treaty rate if it holds your papers, and the domestic rate applies where it is lower. Surcharge and cess are not added to a treaty rate. For all corridors side by side, read India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees."
+      "html": "A treaty rate is a cap. The bank may deduct at the treaty rate if it holds your papers, and the domestic rate applies where it is lower. Surcharge and cess are not added to a treaty rate. For all corridors side by side, read <a href=\"https://cashstreamadvisors.com/insights/india-dtaa-rates-countries/\">India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees</a>."
     },
     {
       "type": "comparisonTable",
@@ -151,7 +151,7 @@ export const tdsNroInterestDividendTreatyRate: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "For an individual NRI, the dividend cap is the higher figure where a holding test applies. Country detail is in <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, India-UK DTAA, India-UAE DTAA, India-Singapore DTAA and India-Germany DTAA. Caps only: read the treaty and the latest protocol before you rely on a figure."
+      "html": "For an individual NRI, the dividend cap is the higher figure where a holding test applies. Country detail is in <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, <a href=\"https://cashstreamadvisors.com/insights/india-uk-dtaa/\">India-UK DTAA</a>, <a href=\"https://cashstreamadvisors.com/insights/india-uae-dtaa/\">India-UAE DTAA</a>, <a href=\"https://cashstreamadvisors.com/insights/india-singapore-dtaa/\">India-Singapore DTAA</a> and <a href=\"https://cashstreamadvisors.com/insights/india-germany-dtaa/\">India-Germany DTAA</a>. Caps only: read the treaty and the latest protocol before you rely on a figure."
     },
     {
       "type": "h2",
@@ -183,7 +183,7 @@ export const tdsNroInterestDividendTreatyRate: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Form 128 is for the future. It asks the Department to authorise a lower or nil deduction under Section 395, replacing the old certificate under Section 197, and a computation of your estimated income and tax goes with it. Apply before the year starts. For timing, read NRI Rental Income From India and DTAA: How to Avoid Paying Tax Twice."
+      "html": "Form 128 is for the future. It asks the Department to authorise a lower or nil deduction under Section 395, replacing the old certificate under Section 197, and a computation of your estimated income and tax goes with it. Apply before the year starts. For timing, read <a href=\"https://cashstreamadvisors.com/insights/nri-rental-income-dtaa/\">NRI Rental Income From India and DTAA: How to Avoid Paying Tax Twice</a>."
     },
     {
       "type": "paragraph",
@@ -222,7 +222,7 @@ export const tdsNroInterestDividendTreatyRate: BlogPostContent = {
         "<p><strong>Wrong form.</strong> Fix: use Form 41 and the bank's format, not Form 15G or 15H.</p>",
         "<p><strong>Bank not updating its records.</strong> Fix: ask for written confirmation of the rate applied.</p>",
         "<p><strong>No return filed.</strong> Fix: file to claim the refund.</p>",
-        "<p><strong>No credit claimed at home.</strong> Fix: use the foreign tax credit form. See Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained.</p>"
+        "<p><strong>No credit claimed at home.</strong> Fix: use the foreign tax credit form. See <a href=\"https://cashstreamadvisors.com/insights/foreign-tax-credit-form-67-form-44/\">Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained</a>.</p>"
       ]
     },
     {
@@ -307,6 +307,21 @@ export const tdsNroInterestDividendTreatyRate: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "Form 10F (Now Form 41): When You Need It and How to File It Online",
           "href": "/insights/form-10f-form-41-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India DTAA Rates and Countries: Dividend, Interest, Royalty and Fees",
+          "href": "/insights/india-dtaa-rates-countries/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "NRI Rental Income From India and DTAA: How to Avoid Paying Tax Twice",
+          "href": "/insights/nri-rental-income-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained",
+          "href": "/insights/foreign-tax-credit-form-67-form-44/"
         },
         {
           "label": "SERVICE",

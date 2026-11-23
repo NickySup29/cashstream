@@ -103,7 +103,7 @@ export const nriRentalIncomeDtaa: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "What the treaty changes is the second step. Your home country may also tax the rent, but it gives credit for the Indian tax. That credit is what avoids double tax. For how the credit works, read Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained. The country pages cover the US and the UK: <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a> and India-UK DTAA: Treaty Rates, Pensions and How to Claim Them."
+      "html": "What the treaty changes is the second step. Your home country may also tax the rent, but it gives credit for the Indian tax. That credit is what avoids double tax. For how the credit works, read <a href=\"https://cashstreamadvisors.com/insights/foreign-tax-credit-form-67-form-44/\">Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained</a>. The country pages cover the US and the UK: <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a> and <a href=\"https://cashstreamadvisors.com/insights/india-uk-dtaa/\">India-UK DTAA: Treaty Rates, Pensions and How to Claim Them</a>."
     },
     {
       "type": "paragraph",
@@ -288,6 +288,21 @@ export const nriRentalIncomeDtaa: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "India-USA DTAA: Treaty Rates, Forms and How to Claim Them",
           "href": "/insights/india-usa-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-UK DTAA: Treaty Rates, Pensions and How to Claim Them",
+          "href": "/insights/india-uk-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "Foreign Tax Credit in India: Form 67, Form 44 and US Form 1116 Explained",
+          "href": "/insights/foreign-tax-credit-form-67-form-44/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "TDS on NRO Interest and Dividends: How to Claim the Treaty Rate",
+          "href": "/insights/tds-nro-interest-dividend-treaty-rate/"
         },
         {
           "label": "SERVICE",

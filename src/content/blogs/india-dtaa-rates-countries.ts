@@ -193,7 +193,7 @@ export const indiaDtaaRatesCountries: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Caps only. Qatar is a new agreement notified in October 2025, and it applies to income arising on or after 1 April 2026. Read the treaty and the latest protocol before you rely on a figure. The Department chart does not carry article numbers, so they are shown in each country guide. For each country in detail, read <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, India-UK DTAA: Treaty Rates, Pensions and How to Claim Them, India-UAE DTAA: Treaty Rates, the Residency Catch and How to Claim, India-Singapore DTAA: Treaty Rates, Capital Gains and How to Claim, India-Mauritius DTAA: What the 2024 Protocol and PPT Change and India-Germany DTAA: Treaty Rates, PE Risk and How to Claim."
+      "html": "Caps only. Qatar is a new agreement notified in October 2025, and it applies to income arising on or after 1 April 2026. Read the treaty and the latest protocol before you rely on a figure. The Department chart does not carry article numbers, so they are shown in each country guide. For each country in detail, read <a href=\"https://cashstreamadvisors.com/insights/india-usa-dtaa/\">India-USA DTAA: Treaty Rates, Forms and How to Claim Them</a>, <a href=\"https://cashstreamadvisors.com/insights/india-uk-dtaa/\">India-UK DTAA: Treaty Rates, Pensions and How to Claim Them</a>, <a href=\"https://cashstreamadvisors.com/insights/india-uae-dtaa/\">India-UAE DTAA: Treaty Rates, the Residency Catch and How to Claim</a>, <a href=\"https://cashstreamadvisors.com/insights/india-singapore-dtaa/\">India-Singapore DTAA: Treaty Rates, Capital Gains and How to Claim</a>, <a href=\"https://cashstreamadvisors.com/insights/india-mauritius-dtaa/\">India-Mauritius DTAA: What the 2024 Protocol and PPT Change</a> and <a href=\"https://cashstreamadvisors.com/insights/india-germany-dtaa/\">India-Germany DTAA: Treaty Rates, PE Risk and How to Claim</a>."
     },
     {
       "type": "h2",
@@ -211,7 +211,7 @@ export const indiaDtaaRatesCountries: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "The table covers dividend, interest, royalty and fees. It does not cover capital gains or business profits, which follow other articles, and it does not test permanent establishment risk or treaty abuse. For those, read Royalty vs Fees for Technical Services Under a Treaty: The Make Available Test and Permanent Establishment Under a Tax Treaty: Test, Risk and Profit Attribution."
+      "html": "The table covers dividend, interest, royalty and fees. It does not cover capital gains or business profits, which follow other articles, and it does not test permanent establishment risk or treaty abuse. For those, read <a href=\"https://cashstreamadvisors.com/insights/royalty-fees-technical-services-make-available/\">Royalty vs Fees for Technical Services Under a Treaty: The Make Available Test</a> and <a href=\"https://cashstreamadvisors.com/insights/permanent-establishment-india-treaty-profit-attribution/\">Permanent Establishment Under a Tax Treaty: Test, Risk and Profit Attribution</a>."
     },
     {
       "type": "paragraph",
@@ -268,7 +268,7 @@ export const indiaDtaaRatesCountries: BlogPostContent = {
     },
     {
       "type": "paragraph",
-      "html": "Before the income is paid, give the payer your certificate of residence, Form 41 (old Form 10F), your PAN and a declaration. If too much was deducted, you claim it back through your return. For banks and NRO accounts, read TDS on NRO Interest and Dividends: How to Claim the Treaty Rate."
+      "html": "Before the income is paid, give the payer your certificate of residence, Form 41 (old Form 10F), your PAN and a declaration. If too much was deducted, you claim it back through your return. For banks and NRO accounts, read <a href=\"https://cashstreamadvisors.com/insights/tds-nro-interest-dividend-treaty-rate/\">TDS on NRO Interest and Dividends: How to Claim the Treaty Rate</a>."
     },
     {
       "type": "h2",
@@ -344,6 +344,26 @@ export const indiaDtaaRatesCountries: BlogPostContent = {
           "label": "INSIGHTS",
           "title": "India-USA DTAA: Treaty Rates, Forms and How to Claim Them",
           "href": "/insights/india-usa-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-UK DTAA: Treaty Rates, Pensions and How to Claim Them",
+          "href": "/insights/india-uk-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "India-UAE DTAA: Treaty Rates, the Residency Catch and How to Claim",
+          "href": "/insights/india-uae-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "NRI Rental Income From India and DTAA: How to Avoid Paying Tax Twice",
+          "href": "/insights/nri-rental-income-dtaa/"
+        },
+        {
+          "label": "INSIGHTS",
+          "title": "TDS on NRO Interest and Dividends: How to Claim the Treaty Rate",
+          "href": "/insights/tds-nro-interest-dividend-treaty-rate/"
         },
         {
           "label": "SERVICE",

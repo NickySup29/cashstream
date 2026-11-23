@@ -7,6 +7,7 @@ import { indiaMauritiusDtaa } from './india-mauritius-dtaa';
 import { indiaGermanyDtaa } from './india-germany-dtaa';
 import { nriRentalIncomeDtaa } from './nri-rental-income-dtaa';
 import { tdsNroInterestDividendTreatyRate } from './tds-nro-interest-dividend-treaty-rate';
+import { foreignTaxCreditForm67Form44 } from './foreign-tax-credit-form-67-form-44';
 import { indiaUsaDtaa } from './india-usa-dtaa';
 import { form10fForm41Dtaa } from './form-10f-form-41-dtaa';
 import { taxResidencyCertificateDtaaIndia } from './tax-residency-certificate-dtaa-india';

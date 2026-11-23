@@ -4,6 +4,7 @@ import { indiaUkDtaa } from './india-uk-dtaa';
 import { indiaUaeDtaa } from './india-uae-dtaa';
 import { indiaSingaporeDtaa } from './india-singapore-dtaa';
 import { indiaMauritiusDtaa } from './india-mauritius-dtaa';
+import { indiaGermanyDtaa } from './india-germany-dtaa';
 import { indiaUsaDtaa } from './india-usa-dtaa';
 import { form10fForm41Dtaa } from './form-10f-form-41-dtaa';
 import { taxResidencyCertificateDtaaIndia } from './tax-residency-certificate-dtaa-india';
